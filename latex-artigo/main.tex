@@ -13,20 +13,27 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{microtype}
 \usepackage{caption}
 \usepackage{float}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
 
-\captionsetup{labelsep=endash,justification=centering,font=small}
+\captionsetup{labelsep=period,justification=centering,font=small}
 \captionsetup[table]{position=top}
 \captionsetup[figure]{position=bottom}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcommand{\fonteautor}{\par\smallskip{\footnotesize Fonte: elaborado pelo autor.\par}}
+\newcommand{\captiongrafico}[1]{\captionsetup{name=Gráfico}\caption{#1}}
+\setlength{\emergencystretch}{2em}
 
 \usepackage[backend=biber,style=abnt]{biblatex}
 \addbibresource{references.bib}
 
-\title{Manutenção predial sustentável em edificações públicas/universitárias: critérios, métodos multicritério e lacunas de apoio à decisão no ambiente construído}
+\title{Manutenção predial sustentável em edificações públicas universitárias: critérios, apoio multicritério e lacunas}
 \author{Adinailson Guimarães de Oliveira \\ Programa de Pós-Graduação em Biossistemas, Universidade Federal do Sul da Bahia (UFSB)}
 \date{}
 
@@ -36,10 +43,6 @@
 \begin{document}
 
 \maketitle
-
-\noindent\textit{Rascunho de trabalho -- título sujeito a ajuste após consolidação da discussão. Preparado para compilação em \LaTeX{} conforme estrutura e norma de citação (ABNT) exigidas pela revista MIX Sustentável (ISSN 2447-3073).}
-
-\bigskip
 
 \input{sections/00_resumo}
 
@@ -53,9 +56,6 @@
 \input{sections/08_matriz}
 \input{sections/09_limitacoes}
 \input{sections/10_consideracoes}
-
-\nocite{abnt_nbr14037_2011}
-\nocite{abnt_isso41001_2020}
 
 \printbibliography[title={Referências}]
 
