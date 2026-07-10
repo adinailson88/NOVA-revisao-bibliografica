@@ -1,0 +1,114 @@
+\section{Procedimentos metodológicos}
+\label{sec:metodologia}
+
+Este artigo adota o formato de revisão integrativa sistematizada, com apoio bibliométrico e síntese temática apoiada em título, resumo, palavras-chave e campos estruturados de extração. Não se trata de revisão sistemática plena: não houve dupla triagem humana independente, avaliação formal de qualidade metodológica dos estudos incluídos, nem leitura de texto completo do corpus. \textcite{whittemore_revisaointegrativa_2005} caracterizam a revisão integrativa como o formato mais amplo entre os métodos de revisão, por admitir a combinação de desenhos metodológicos diversos -- experimentais, não experimentais, teóricos -- sob um mesmo protocolo de síntese; essa é a caracterização metodológica adotada aqui, e não a de revisão sistemática no sentido estrito do termo.
+
+A busca cobriu o período de 2010 a 2026, em três bases -- Scopus, Web of Science e Crossref --, com strings estruturadas em dois blocos obrigatórios de inclusão: objeto predial (manutenção predial, \textit{facility/facilities management}, gestão de ativos construídos, operação e manutenção de edifícios) e sustentabilidade (desempenho ambiental, ciclo de vida, eficiência energética, critérios ambientais/sociais/econômicos) (Tabela~\ref{tab:estrategiabusca}). Métodos multicritério de decisão (MCDM, MCDA, AHP, TOPSIS e correlatos) não constituíram condição obrigatória de inclusão, por decisão metodológica deliberada: tratá-los como pré-condição reintroduziria o risco de organizar o artigo em torno de um método específico, contrariando o enquadramento proposto na Introdução, em que o método de decisão figura como instrumento, não como tema central da revisão. Os critérios completos de inclusão e exclusão do corpus estão consolidados na Tabela~\ref{tab:criteriosincluexclu}. A busca do Google Scholar (via SerpAPI), prevista no protocolo como fonte complementar e de verificação, não foi executada nesta revisão e não integra, portanto, o corpus principal nem as tabelas a seguir.
+
+\begin{table}[H]
+\centering
+\caption{Estratégia de busca por base, \textit{string}/\textit{query}, data e retorno bruto}
+\label{tab:estrategiabusca}
+\small
+\begin{tabular}{l l l l r}
+\toprule
+Base & \textit{String}/\textit{query} & Campo de busca & Data & Retorno bruto \\
+\midrule
+Scopus & scopus\_nucleo\_a1\_manutencao\_sustentabilidade & TITLE-ABS-KEY & 2026-07-08 & 7.584 \\
+Scopus & scopus\_nucleo\_a2\_contexto\_publico\_universitario & TITLE-ABS-KEY & 2026-07-08 & 430 \\
+Scopus & scopus\_nucleo\_a3\_priorizacao\_estrategia\_manutencao & TITLE-ABS-KEY & 2026-07-08 & 510 \\
+Scopus & scopus\_nucleo\_a4\_gestao\_ativos\_ciclo\_vida & TITLE-ABS-KEY & 2026-07-08 & 909 \\
+Web of Science & wos\_nucleo\_a1\_manutencao\_sustentabilidade & TS (\textit{Topic}) & 2026-07-08 & 610 \\
+Web of Science & wos\_nucleo\_a2\_contexto\_publico\_universitario & TS (\textit{Topic}) & 2026-07-08 & 557 \\
+Web of Science & wos\_nucleo\_a3\_priorizacao\_estrategia\_manutencao & TS (\textit{Topic}) & 2026-07-08 & 10 \\
+Web of Science & wos\_nucleo\_a4\_gestao\_ativos\_ciclo\_vida & TS (\textit{Topic}) & 2026-07-08 & 502 \\
+Crossref & crossref\_nucleo\_a1 & query.bibliographic & 2026-07-08 & 200 \\
+Crossref & crossref\_nucleo\_a2 & query.bibliographic & 2026-07-08 & 200 \\
+Crossref & crossref\_nucleo\_a3 & query.bibliographic & 2026-07-08 & 200 \\
+Crossref & crossref\_nucleo\_a4 & query.bibliographic & 2026-07-08 & 200 \\
+Crossref & crossref\_nucleo\_a5 & query.bibliographic & 2026-07-08 & 200 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{0.95\linewidth}
+\footnotesize Fonte: elaborado pelo autor a partir de \texttt{fontes/tabela\_estrategia\_busca.csv}. Janela temporal aplicada em todas as \textit{strings}: 2010--2026. O Crossref usa correspondência por relevância sobre texto livre (\texttt{query.bibliographic}), não busca booleana exata como Scopus (\texttt{TITLE-ABS-KEY}) ou Web of Science (\texttt{TS}); por isso o retorno bruto considerado para o Crossref é o volume efetivamente exportado (200 por \textit{string}, 1.000 no total), não o total de correspondências por relevância (na casa dos milhões, comportamento esperado do parâmetro \texttt{query.bibliographic}).
+\end{minipage}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Critérios de inclusão e exclusão}
+\label{tab:criteriosincluexclu}
+\small
+\begin{tabular}{p{4.2cm} p{2.6cm} p{6.5cm}}
+\toprule
+Critério & Tipo & Descrição \\
+\midrule
+Bloco 1 -- objeto predial & Inclusão obrigatória & Manutenção predial, \textit{facility/facilities management}, gestão de ativos construídos, operação e manutenção de edifícios (presença em título/resumo/palavras-chave) \\
+Bloco 2 -- sustentabilidade & Inclusão obrigatória & Desempenho ambiental, ciclo de vida, eficiência energética, critérios ambientais/sociais/econômicos (presença em título/resumo/palavras-chave) \\
+Janela temporal 2010--2026 & Inclusão obrigatória & Ano de publicação dentro do intervalo \\
+Bloco 3 -- decisão/priorização multicritério (MCDM/MCDA/AHP/TOPSIS e correlatos) & Reforço, não obrigatório & Usado como etiqueta de pós-processamento (\texttt{metodo\_decisao}), não como critério de inclusão \\
+Contexto público/universitário/institucional & Reforço, não obrigatório & Variação lexical de busca para reforço de \textit{recall}, não recorte temático isolado \\
+Registros sem relação com edificação/ambiente construído & Exclusão & -- \\
+Manutenção industrial, manufatura ou transporte sem ponte explícita com edificações & Exclusão & -- \\
+Apenas materiais de construção sem operação/manutenção & Exclusão & -- \\
+Apenas \textit{smart city}/mobilidade urbana/tráfego sem edificação & Exclusão & -- \\
+Duplicatas (mesmo DOI normalizado ou mesmo título normalizado, sem conflito de identificador de fonte) & Exclusão & Fundidas na deduplicação; proveniência preservada \\
+Registros sem resumo & Não excluído automaticamente & Enriquecimento tentado antes de decidir; se persistir sem resumo, marcado \texttt{triagem\_por\_titulo=sim} e \texttt{confianca=baixa} \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{0.95\linewidth}
+\footnotesize Fonte: elaborado pelo autor a partir de \texttt{fontes/tabela\_criterios\_inclusao\_exclusao.csv}.
+\end{minipage}
+\end{table}
+
+A partir da coleta bruta de 12.118 registros, o processo de deduplicação por DOI e título normalizado produziu um corpus único de 9.542 registros. A triagem preliminar, seguida de auditoria por amostra estratificada e de resolução individual da classe de dúvida -- sem uso de heurística de subgrupo --, definiu um núcleo analítico revisado de 3.678 registros. Sobre esse núcleo, uma matriz de extração baseada em título, resumo e palavras-chave (sem leitura de texto completo) foi reavaliada criteriosamente e alinhada às perguntas de pesquisa por dicionário reprodutível, resultando em 137 registros classificados como núcleo de análise central. Esses 137 registros foram então submetidos a auditoria qualitativa estruturada -- leitura de título, resumo, palavras-chave e campos previamente extraídos, sem leitura de texto completo --, da qual resultou o núcleo final de \textbf{104 registros} que sustenta os resultados apresentados nas seções~\ref{sec:panorama} a~\ref{sec:matriz} deste artigo (Figura~\ref{fig:funil}, Tabela~\ref{tab:funil}).
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=6mm,
+  every node/.style={draw, rounded corners, align=center, minimum width=8cm, minimum height=9mm, font=\small},
+  arrow/.style={-Latex, thick}
+]
+\node (bruto) {Coleta bruta -- Scopus, Web of Science, Crossref \\ 12.118 registros};
+\node (unico) [below=of bruto] {Corpus único após deduplicação (DOI/título) \\ 9.542 registros};
+\node (nucleo1) [below=of unico] {Núcleo analítico revisado (triagem + auditoria + dúvida) \\ 3.678 registros};
+\node (nucleo2) [below=of nucleo1] {Núcleo de análise central (reavaliação criteriosa) \\ 137 registros};
+\node (final) [below=of nucleo2, draw=black, very thick] {Núcleo final (auditoria qualitativa estruturada) \\ \textbf{104 registros}};
+\draw[arrow] (bruto) -- (unico);
+\draw[arrow] (unico) -- (nucleo1);
+\draw[arrow] (nucleo1) -- (nucleo2);
+\draw[arrow] (nucleo2) -- (final);
+\end{tikzpicture}
+\caption{Fluxo de seleção do corpus}
+\label{fig:funil}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Funil de seleção do corpus}
+\label{tab:funil}
+\small
+\begin{tabular}{l r}
+\toprule
+Etapa & Registros \\
+\midrule
+Coleta bruta (Scopus + Web of Science + Crossref) & 12.118 \\
+Corpus único após deduplicação & 9.542 \\
+Núcleo analítico revisado & 3.678 \\
+Núcleo de análise central & 137 \\
+Núcleo final & 104 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{0.85\linewidth}
+\footnotesize Fonte: elaborado pelo autor a partir de \texttt{03\_PROCESSADOS/relatorio\_deduplicacao.md} e \texttt{fontes/nucleo\_final\_pos\_auditoria\_resumos.csv}.
+\end{minipage}
+\end{table}
+
+Cabe registrar como limite metodológico explícito que nenhuma etapa da extração ou da auditoria envolveu leitura de texto completo dos artigos. As evidências reportadas refletem, portanto, o que está textualmente explícito em título, resumo e palavras-chave, não uma extração exaustiva do conteúdo integral de cada estudo -- limite retomado com maior detalhe na Seção~\ref{sec:limitacoes}.

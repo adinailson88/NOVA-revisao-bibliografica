@@ -1,0 +1,61 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------------------------------------------------------------------------
+% Preambulo
+% ---------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+
+\captionsetup{labelsep=endash,justification=centering,font=small}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+
+\usepackage[backend=biber,style=abnt]{biblatex}
+\addbibresource{references.bib}
+
+\title{Manutenção predial sustentável em edificações públicas/universitárias: critérios, métodos multicritério e lacunas de apoio à decisão no ambiente construído}
+\author{Adinailson Guimarães de Oliveira \\ Programa de Pós-Graduação em Biossistemas, Universidade Federal do Sul da Bahia (UFSB)}
+\date{}
+
+% ---------------------------------------------------------------------------
+% Documento
+% ---------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\noindent\textit{Rascunho de trabalho -- título sujeito a ajuste após consolidação da discussão. Preparado para compilação em \LaTeX{} conforme estrutura e norma de citação (ABNT) exigidas pela revista MIX Sustentável (ISSN 2447-3073).}
+
+\bigskip
+
+\input{sections/00_resumo}
+
+\input{sections/01_introducao}
+\input{sections/02_revisao}
+\input{sections/03_metodologia}
+\input{sections/04_panorama}
+\input{sections/05_criterios}
+\input{sections/06_metodos}
+\input{sections/07_aplicabilidade}
+\input{sections/08_matriz}
+\input{sections/09_limitacoes}
+\input{sections/10_consideracoes}
+
+\nocite{abnt_nbr14037_2011}
+\nocite{abnt_isso41001_2020}
+
+\printbibliography[title={Referências}]
+
+\end{document}
