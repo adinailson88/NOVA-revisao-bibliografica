@@ -1,84 +1,39 @@
 \section{Panorama bibliométrico e corpus da revisão}
 \label{sec:panorama}
 
-O núcleo final de 104 registros concentra-se temporalmente no período de 2019 a 2026, que reúne 88 dos 104 registros (84,6\%), com pico em 2025 (25 registros); o intervalo de 2011 a 2018 responde por apenas 16 registros, e o ano de 2014 não registrou nenhuma publicação no núcleo final (Tabela~\ref{tab:temporal}, Figura~\ref{fig:temporal}). Essa concentração recente é consistente com a leitura de que a integração entre sustentabilidade, manutenção predial e apoio multicritério à decisão é campo de consolidação relativamente jovem, ainda que a manutenção predial, isoladamente, seja tema de literatura mais antiga.
-
-\begin{table}[H]
-\centering
-\caption{Distribuição temporal do núcleo final}
-\label{tab:temporal}
-\small
-\begin{tabular}{l r}
-\toprule
-Ano & Registros \\
-\midrule
-2011 & 2 \\
-2012 & 1 \\
-2013 & 2 \\
-2014 & 0 \\
-2015 & 3 \\
-2016 & 2 \\
-2017 & 4 \\
-2018 & 2 \\
-2019 & 8 \\
-2020 & 7 \\
-2021 & 7 \\
-2022 & 5 \\
-2023 & 14 \\
-2024 & 11 \\
-2025 & 25 \\
-2026 & 11 \\
-\midrule
-Total & 104 \\
-\bottomrule
-\end{tabular}
-
-\vspace{2pt}
-\begin{minipage}{0.75\linewidth}
-\footnotesize Fonte: elaborado pelo autor a partir de \texttt{fontes/tabela33\_distribuicao\_temporal\_nucleo\_final\_104.csv}.
-\end{minipage}
-\end{table}
+O núcleo final reúne 104 registros publicados entre 2011 e 2026. O período de 2019 a 2026 concentra 88 registros, correspondentes a 84,6\% do núcleo, com maior frequência em 2025, quando foram identificados 25 estudos. O Gráfico~\ref{fig:temporal} apresenta a distribuição anual.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\linewidth]{figuras/figura09_distribuicao_temporal_nucleo_final_104.png}
-\caption{Distribuição temporal do núcleo final de 104 registros}
+\includegraphics[width=0.95\linewidth]{figuras/figura09_distribuicao_temporal_nucleo_final_104.png}
+\captiongrafico{Distribuição temporal do núcleo final}
 \label{fig:temporal}
 \end{figure}
 
-Quanto à origem, a Scopus responde por 98 dos 104 registros do núcleo final, a Web of Science por 49 e a Crossref por apenas 6 (Tabela~\ref{tab:basetipo}, Figura~\ref{fig:basetipo}) -- números que somam mais de 104 porque um mesmo registro pode ter sido recuperado por mais de uma base. Observa-se, portanto, predominância acentuada da Scopus como fonte primária, com a Web of Science funcionando como reforço parcial e a Crossref como base de complemento residual, papel que lhe é atribuído desde o desenho metodológico da coleta. Quanto ao tipo de documento, artigos de periódico (\textit{Journal}) respondem por 75 dos 104 registros, seguidos de trabalhos em anais de evento (13) e capítulos/séries de livro (8); rótulos de tipo de documento não harmonizados entre bases (por exemplo, ``Journal'' na Scopus e ``journal-article'' no Crossref) foram preservados sem fusão automática nesta versão do corpus.
+A deduplicação preservou todas as bases em que cada estudo foi recuperado. Entre os 104 registros únicos, 52 foram encontrados apenas na Scopus, 41 na Scopus e na Web of Science, cinco apenas na Web of Science, três nas três bases, dois na Scopus e no Crossref e um apenas no Crossref. Por essa razão, a contagem por base representa proveniência e admite respostas múltiplas: 98 registros possuem origem Scopus, 49 possuem origem Web of Science e seis possuem origem Crossref.
+
+A tipologia documental foi harmonizada para evitar que rótulos equivalentes fossem apresentados como categorias distintas. Os rótulos \textit{Journal}, \textit{JOUR} e \textit{journal-article} foram reunidos como artigo de periódico. \textit{Conference Proceeding} e \textit{CPAPER} foram reunidos como trabalho em evento. \textit{Book Series} e \textit{Book} foram reunidos como livro ou série de livro. A Tabela~\ref{tab:basetipo} apresenta as duas dimensões separadamente.
 
 \begin{table}[H]
 \centering
-\caption{Distribuição do núcleo final por base de origem e tipo de documento}
+\caption{Distribuição do núcleo final por base de origem e tipo documental}
 \label{tab:basetipo}
-\small
-\begin{tabular}{l l r r}
+\footnotesize
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{3.7cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} Y}
 \toprule
-Dimensão & Categoria & Registros & \% dos 104 \\
+Categoria & Registros & \% dos 104 & Observação \\
 \midrule
-Base de origem & Scopus & 98 & 94,2 \\
-Base de origem & Web of Science & 49 & 47,1 \\
-Base de origem & Crossref & 6 & 5,8 \\
-Tipo de documento & Journal & 75 & 72,1 \\
-Tipo de documento & Conference Proceeding & 13 & 12,5 \\
-Tipo de documento & Book Series & 8 & 7,7 \\
-Tipo de documento & JOUR & 3 & 2,9 \\
-Tipo de documento & Book & 2 & 1,9 \\
-Tipo de documento & CPAPER & 2 & 1,9 \\
-Tipo de documento & journal-article & 1 & 1,0 \\
+\multicolumn{4}{l}{\textbf{A. Base de origem, com respostas múltiplas}} \\
+Scopus & 98 & 94,2 & Base bibliográfica principal. \\
+Web of Science & 49 & 47,1 & Base bibliográfica independente. \\
+Crossref & 6 & 5,8 & Fonte complementar de metadados. \\
+\addlinespace
+\multicolumn{4}{l}{\textbf{B. Tipo documental harmonizado, categorias exclusivas}} \\
+Artigo de periódico & 79 & 76,0 & \textit{Journal}, \textit{JOUR} e \textit{journal-article}. \\
+Trabalho em evento & 15 & 14,4 & \textit{Conference Proceeding} e \textit{CPAPER}. \\
+Livro ou série de livro & 10 & 9,6 & \textit{Book Series} e \textit{Book}. \\
 \bottomrule
-\end{tabular}
-
-\vspace{2pt}
-\begin{minipage}{0.85\linewidth}
-\footnotesize Fonte: elaborado pelo autor a partir de \texttt{fontes/tabela34\_distribuicao\_base\_tipo\_nucleo\_final\_104.csv}. Base de origem soma mais de 104 registros porque um mesmo registro pode ter sido recuperado por mais de uma base. Rótulos de tipo de documento preservados sem harmonização entre bases (ver Seção~\ref{sec:limitacoes}).
-\end{minipage}
+\end{tabularx}
+\fonteautor
 \end{table}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\linewidth]{figuras/figura10_distribuicao_base_tipo_nucleo_final_104.png}
-\caption{Distribuição do núcleo final por base de origem e tipo de documento}
-\label{fig:basetipo}
-\end{figure}
