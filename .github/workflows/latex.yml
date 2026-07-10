@@ -7,6 +7,12 @@ on:
       - "scripts/r/10_gerar_produtos_artigo.R"
       - "scripts/python/verificar_artigo.py"
       - ".github/workflows/latex.yml"
+  pull_request:
+    paths:
+      - "latex-artigo/**"
+      - "scripts/r/10_gerar_produtos_artigo.R"
+      - "scripts/python/verificar_artigo.py"
+      - ".github/workflows/latex.yml"
   workflow_dispatch:
 
 permissions:
@@ -68,6 +74,7 @@ jobs:
           PY
 
       - name: Publicar PDF e produtos gerados
+        if: github.event_name == 'push'
         run: |
           cp latex-artigo/main.pdf main.pdf
           git config user.name "github-actions[bot]"
