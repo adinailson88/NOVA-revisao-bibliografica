@@ -1,0 +1,12 @@
+latex-artigo/*.aux
+latex-artigo/*.bbl
+latex-artigo/*.bcf
+latex-artigo/*.blg
+latex-artigo/*.log
+latex-artigo/*.out
+latex-artigo/*.run.xml
+latex-artigo/*.fdb_latexmk
+latex-artigo/*.fls
+latex-artigo/*.synctex.gz
+desktop.ini
+.DS_Store
