@@ -380,7 +380,7 @@ grafico_dimensoes <- ggplot2::ggplot(
   ) +
   ggplot2::coord_flip() +
   ggplot2::scale_y_continuous(
-    limits = c(0, 112),
+    limits = c(0, 122),
     expand = ggplot2::expansion(mult = c(0, 0))
   ) +
   ggplot2::labs(x = NULL, y = "Registros") +
