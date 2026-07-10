@@ -36,12 +36,15 @@ jobs:
           r-version: release
 
       - name: Instalar pacotes R
-        shell: Rscript {0}
-        run: |
-          install.packages(
-            c("readr", "dplyr", "tidyr", "stringr", "ggplot2", "scales"),
-            repos = "https://cloud.r-project.org"
-          )
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::readr
+            any::dplyr
+            any::tidyr
+            any::stringr
+            any::ggplot2
+            any::scales
 
       - name: Gerar tabelas e graficos
         run: |
