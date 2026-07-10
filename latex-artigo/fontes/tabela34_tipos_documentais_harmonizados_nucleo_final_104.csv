@@ -1,5 +1,4 @@
-tipo_harmonizado,total_registros,percentual_dos_104,rotulos_origem
-Artigo de periodico,79,76.0,Journal;JOUR;journal-article
-Trabalho em evento,15,14.4,Conference Proceeding;CPAPER
-Livro ou serie de livro,10,9.6,Book Series;Book
-
+﻿"tipo_harmonizado","total_registros","percentual_dos_104","rotulos_origem"
+"Artigo de periodico",79,76,"Journal;JOUR;journal-article"
+"Trabalho em evento",15,14.4,"Conference Proceeding;CPAPER"
+"Livro ou serie de livro",10,9.6,"Book Series;Book"
