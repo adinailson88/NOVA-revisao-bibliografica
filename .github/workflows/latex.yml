@@ -20,7 +20,7 @@ jobs:
       - name: Instalar TeX Live
         run: |
           sudo apt-get update
-          sudo apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures
+          sudo apt-get install -y latexmk biber texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures
 
       - name: Compilar PDF
         working-directory: latex-artigo
