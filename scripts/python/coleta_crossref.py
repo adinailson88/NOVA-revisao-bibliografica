@@ -24,9 +24,9 @@ API_URL = "https://api.crossref.org/works"
 FROM_PUB_DATE = "2010-01-01"
 UNTIL_PUB_DATE = "2026-12-31"
 ROWS = 100
-# Limite deliberado do protocolo (nao e bug, ver 01_PROTOCOLO/strings_nativas_por_base.md, secao 3):
-# "limite inicial = 300 resultados por query, ajustavel apos inspecao de ruido."
-LIMIT_PER_QUERY = 300
+# Limite efetivamente aplicado na coleta que integra o artigo: 200 registros por consulta.
+# O valor deve permanecer alinhado a tabela de estrategia de busca e ao corpus consolidado.
+LIMIT_PER_QUERY = 200
 
 # Queries do nucleo (01_PROTOCOLO/strings_nativas_por_base.md, secao 3)
 QUERIES = {

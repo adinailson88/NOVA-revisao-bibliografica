@@ -1,21 +1,58 @@
-name: Compilar LaTeX
+name: Gerar tabelas, graficos e PDF
 
 on:
   push:
     paths:
       - "latex-artigo/**"
+      - "scripts/r/10_gerar_produtos_artigo.R"
+      - "scripts/python/verificar_artigo.py"
+      - ".github/workflows/latex.yml"
+  pull_request:
+    paths:
+      - "latex-artigo/**"
+      - "scripts/r/10_gerar_produtos_artigo.R"
+      - "scripts/python/verificar_artigo.py"
       - ".github/workflows/latex.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: artigo-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Configurar R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+
+      - name: Instalar pacotes R
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::readr
+            any::dplyr
+            any::tidyr
+            any::stringr
+            any::ggplot2
+            any::scales
+
+      - name: Gerar tabelas e graficos
+        run: |
+          rm -f latex-artigo/figuras/figura10_distribuicao_base_tipo_nucleo_final_104.png
+          Rscript scripts/r/10_gerar_produtos_artigo.R
+
+      - name: Verificar dados, texto e referencias
+        run: python scripts/python/verificar_artigo.py
 
       - name: Instalar TeX Live
         run: |
@@ -24,22 +61,38 @@ jobs:
 
       - name: Compilar PDF
         working-directory: latex-artigo
-        run: latexmk -pdf -bibtex -interaction=nonstopmode -halt-on-error main.tex
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
-      - name: Publicar PDF no repositorio (raiz, link do README)
+      - name: Verificar margens do PDF
         run: |
-          cp latex-artigo/main.pdf main.pdf
-          if git diff --quiet -- main.pdf; then
-            echo "PDF inalterado; nada a commitar."
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          log = Path("latex-artigo/main.log").read_text(encoding="utf-8", errors="ignore")
+          excessos = [float(x) for x in re.findall(r"Overfull \\hbox \(([0-9.]+)pt too wide\)", log)]
+          if excessos:
+              raise SystemExit(f"Conteudo ultrapassando a margem: maximo de {max(excessos):.2f} pt")
+          print("Nenhum Overfull hbox detectado.")
+          PY
+
+      - name: Preparar PDF compilado
+        run: cp latex-artigo/main.pdf main.pdf
+
+      - name: Publicar PDF e produtos gerados
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A latex-artigo/figuras latex-artigo/fontes main.pdf
+          if git diff --cached --quiet; then
+            echo "Produtos inalterados."
           else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add main.pdf
-            git commit -m "CI: recompila PDF do artigo [skip ci]"
+            git commit -m "CI: atualiza tabelas, graficos e PDF [skip ci]"
             git push
           fi
 
-      - name: Publicar PDF como artifact
+      - name: Publicar PDF como artefato
         uses: actions/upload-artifact@v4
         with:
           name: artigo-pdf
