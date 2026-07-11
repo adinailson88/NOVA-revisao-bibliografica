@@ -238,3 +238,17 @@ aberto será indicado e referenciado individualmente por estudo, caso venha a oc
 natureza predominantemente documental da revisão como um todo.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 8`.
+
+
+## Atualização do subconjunto com texto completo obtido (pós-Etapa 7)
+
+Além dos dez estudos com PDF de acesso aberto obtido via Unpaywall, um cruzamento entre os títulos do
+núcleo final e a biblioteca pessoal do pesquisador no Zotero identificou nove estudos adicionais com
+texto completo disponível localmente, totalizando dezenove estudos do núcleo final com PDF acessível
+(dezoito de fato mapeados e confirmados; um candidato de baixa confiança foi descartado por
+inconsistência entre título e conteúdo do arquivo). Nenhum desses PDFs foi lido ou incorporado à
+síntese do artigo até o momento; a leitura e a eventual incorporação, quando ocorrerem, serão
+registradas e referenciadas individualmente por estudo, conforme já declarado em `03_metodologia.tex`
+e `09_limitacoes.tex`.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 8`.
