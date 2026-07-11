@@ -60,3 +60,18 @@ A ausência das strings literais da Web of Science impede reprodução integral.
 Etapa 4 — Funil de seleção.
 
 Execução interrompida conforme o planejamento. Aguardando autorização expressa para prosseguir.
+
+
+## Retificação documental posterior
+
+As pendências foram regularizadas com as informações fornecidas pelo pesquisador:
+
+- quatro strings da Web of Science preservadas;
+- buscas e exportações realizadas em 08/07/2026;
+- sem filtros de idioma ou tipo documental;
+- não houve busca piloto;
+- não foram utilizados estudos-semente;
+- protocolo elaborado antes da coleta;
+- justificativa específica para 2010 não documentada;
+- a associação individual entre RIS e strings A1–A4 da Web of Science foi informada de memória;
+- não há evidência preservada de complemento da Scopus em 09/07/2026; a diferença de seis registros foi atribuída à consolidação após reexecução em 08/07/2026, sem causa específica preservada.

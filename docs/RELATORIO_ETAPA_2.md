@@ -40,7 +40,7 @@ Não foram alterados tema, corpus, critérios de seleção, campos do CSV, núme
 
 ## 7. Informação insuficiente para verificar
 
-A validade das classificações individuais dos 104 registros e a suficiência da leitura de texto completo: Informação insuficiente para verificar. Esses pontos pertencem às etapas posteriores.
+A validade individual das classificações permanece pendente de auditoria. Foi confirmado que não houve leitura de texto completo dos 104 registros; a síntese baseou-se em título, resumo, palavras-chave e campos extraídos.
 
 ## 8. Validações executadas
 

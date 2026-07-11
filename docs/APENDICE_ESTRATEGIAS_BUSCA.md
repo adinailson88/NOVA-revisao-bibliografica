@@ -2,7 +2,7 @@
 
 ## 1. Escopo
 
-Este apêndice registra somente consultas e parâmetros verificáveis no repositório para a busca executada em 8 de julho de 2026, com complemento manual da Scopus em 9 de julho de 2026. Não reconstrói expressões ausentes.
+Este apêndice registra as consultas e os parâmetros da busca executada e exportada em 8 de julho de 2026. As strings da Web of Science foram fornecidas pelo pesquisador a partir do protocolo original; a associação individual A1--A4 aos arquivos RIS foi informada de memória, conforme ressalva do log da busca manual.
 
 ## 2. Scopus
 
@@ -14,8 +14,8 @@ Parâmetros documentados:
 - Paginação: 25 registros
 - Janela máxima da API: 5.000 resultados
 - Tratamento da janela: particionamento recursivo por intervalos de ano
-- Filtros de idioma: não localizados no script
-- Filtros de tipo documental: não localizados no script
+- Filtros de idioma: não aplicados
+- Filtros de tipo documental: não aplicados
 
 ### S1 — manutenção e sustentabilidade
 
@@ -49,24 +49,45 @@ TITLE-ABS-KEY(("building asset management" OR "facility management" OR "faciliti
 
 Retorno bruto documentado: 909.
 
-Complemento manual das mesmas consultas em 9 de julho de 2026: seis registros. Total Scopus: 9.439.
+Uma reexecução completa em 8 de julho de 2026 consolidou seis registros além da soma das quatro execuções individuais. A causa específica da diferença não foi preservada. Total Scopus: 9.439.
 
 ## 3. Web of Science
 
 Parâmetros documentados:
 
-- Campo: `TS (Topic)`
-- Período declarado: 2010–2026
-- Execução: manual, em 8 de julho de 2026
+- Campo: \`TS (Topic)\`
+- Período: \`PY=(2010-2026)\`
+- Execução e exportação: manual, em 8 de julho de 2026
+- Filtros de idioma: não aplicados
+- Filtros de tipo documental: não aplicados
 - Número de consultas: quatro
 - Retornos: W1 = 610; W2 = 557; W3 = 10; W4 = 502
 - Total: 1.679
-- Expressões literais W1–W4: **Informação insuficiente para verificar.**
-- Filtros de idioma: **Informação insuficiente para verificar.**
-- Filtros de tipo documental: **Informação insuficiente para verificar.**
-- Data de exportação distinta da execução: **Informação insuficiente para verificar.**
+- Ressalva de proveniência: a correspondência individual entre arquivos RIS e strings A1--A4 foi informada de memória pelo pesquisador, não reconstruída a partir de evidência registrada no momento da busca.
 
-Os identificadores indicam os mesmos quatro eixos temáticos usados na Scopus, mas isso não permite reconstruir as expressões literais sem o registro original.
+### W1 — manutenção e sustentabilidade
+
+\`\`\`text
+TS=(("building maintenance" OR "facility management" OR "facilities management" OR "facilities maintenance" OR "building asset management" OR "building operation" OR "operation and maintenance" OR "maintenance management") AND (sustainab* OR "green building*" OR "life cycle" OR "life-cycle" OR "sustainability assessment" OR "sustainability indicator*" OR "environmental performance" OR "building performance")) AND PY=(2010-2026)
+\`\`\`
+
+### W2 — contexto público universitário
+
+\`\`\`text
+TS=(("public building*" OR "university building*" OR "university campus" OR "higher education institution*" OR "educational building*" OR "government building*" OR "public sector building*" OR "building portfolio") AND ("building maintenance" OR maintenance OR "facility management" OR "facilities management" OR "asset management" OR "operation and maintenance") AND (sustainab* OR "environmental performance" OR "life cycle" OR "sustainability assessment")) AND PY=(2010-2026)
+\`\`\`
+
+### W3 — priorização e estratégia de manutenção
+
+\`\`\`text
+TS=(("maintenance prioritization" OR "maintenance backlog" OR "deferred maintenance" OR "maintenance strategy" OR "maintenance planning" OR "renewal prioritization" OR "condition assessment" OR "condition-based maintenance") AND (building* OR "public building*" OR "university building*" OR campus OR "building portfolio" OR "built environment" OR "facility management" OR "facilities management") AND (sustainab* OR "environmental criteria" OR "social criteria" OR "life cycle" OR "risk-based maintenance")) AND PY=(2010-2026)
+\`\`\`
+
+### W4 — gestão de ativos e ciclo de vida
+
+\`\`\`text
+TS=(("building asset management" OR "facility management" OR "facilities management" OR "building maintenance" OR "building operation" OR "operation and maintenance") AND ("life cycle" OR "life-cycle" OR "whole life cost" OR "life cycle cost" OR "service life" OR durability OR "building performance" OR "asset performance") AND (sustainab* OR "environmental performance" OR "sustainability assessment")) AND PY=(2010-2026)
+\`\`\`
 
 ## 4. Crossref
 
@@ -95,20 +116,20 @@ Total Crossref: 1.000 registros. Por causa do limite e da ordenação por relev�
 
 | Elemento | Situação |
 |---|---|
-| Strings literais da Web of Science | Informação insuficiente para verificar. |
-| Datas de exportação distintas das datas de execução | Informação insuficiente para verificar. |
-| Filtros de idioma | Não localizados para Scopus/Crossref; Informação insuficiente para verificar na Web of Science. |
-| Filtros de tipo documental | Não localizados para Scopus/Crossref; Informação insuficiente para verificar na Web of Science. |
-| Busca piloto documentada | Informação insuficiente para verificar. |
-| Estudos-semente documentados | Informação insuficiente para verificar. |
+| Strings literais da Web of Science | Preservadas; associação individual aos RIS informada de memória. |
+| Datas de exportação | Mesmas datas das execuções: 08/07/2026. |
+| Filtros de idioma | Não aplicados. |
+| Filtros de tipo documental | Não aplicados. |
+| Busca piloto | Não houve. |
+| Estudos-semente | Não foram utilizados. |
 | Justificativa específica para 2010 | Informação insuficiente para verificar. |
-| Atualização do índice | Documentada somente para os seis registros adicionais da Scopus. |
+| Diferença de seis registros na Scopus | Consolidada na reexecução de 08/07/2026; causa específica não preservada. |
 
 ## 6. Avaliação da reprodutibilidade
 
 | Base | Avaliação | Fundamentação |
 |---|---|---|
 | Scopus | Alta quanto à consulta e ao script; dependente de acesso à API e do estado temporal do índice | Strings, campo, período, paginação e tratamento da janela estão documentados. |
-| Web of Science | Parcial | Campo, data, período, identificadores e totais estão documentados; strings e filtros não estão. |
+| Web of Science | Moderada | Strings, campo, período, data e ausência de filtros estão documentados; associação individual aos RIS foi informada de memória. |
 | Crossref | Alta quanto ao procedimento limitado; não exaustiva | Consultas, filtro temporal, paginação e limite estão documentados; resultados variam com relevância e atualização do índice. |
-| Conjunto | Parcial | A ausência das strings literais da Web of Science impede reprodução integral do corpus bruto de 12.118 registros. |
+| Conjunto | Moderada | As consultas estão documentadas; permanecem a ressalva de associação dos RIS da Web of Science e a diferença de seis registros na consolidação da Scopus. |

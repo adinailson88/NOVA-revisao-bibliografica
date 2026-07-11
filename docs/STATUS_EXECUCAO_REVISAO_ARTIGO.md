@@ -27,7 +27,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 0 | Preparação e preservação dos arquivos | Concluída | Commit exclusivo da Etapa 0; hash registrado no relatório de execução | Recompilação local independente e logs completos: Informação insuficiente para verificar. |
 | 1 | Auditoria do tipo de revisão | Concluída | Commit exclusivo da Etapa 1; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 2 |
 | 2 | Pergunta, objetivos e escopo | Concluída | Commit exclusivo da Etapa 2; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 3 |
-| 3 | Estratégia de busca e reprodutibilidade | Concluída | Commit exclusivo da Etapa 3; hash registrado no relatório de execução | Strings Web of Science ausentes; aguardar Etapa 4 |
+| 3 | Estratégia de busca e reprodutibilidade | Concluída | Commit exclusivo da Etapa 3; hash registrado no relatório de execução | Pendências regularizadas; ressalva RIS×string e justificativa de 2010 permanecem documentadas |
 | 4 | Funil de seleção | Não iniciada | | |
 | 5 | Deduplicação | Não iniciada | | |
 | 6 | Triagem e auditoria dos registros | Não iniciada | | |
@@ -140,3 +140,8 @@ Scopus e Crossref possuem consultas e parâmetros reprodutíveis nos scripts. A 
 
 ### Próxima ação
 Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 4`.
+
+
+## Regularização anterior à Etapa 4
+
+As pendências das Etapas 1–3 foram respondidas pelo pesquisador e incorporadas ao artigo e à documentação. Foram corrigidas as datas da Scopus, incluídas as quatro strings da Web of Science e registradas as ausências de pré-registro, texto completo, segundo avaliador e avaliação de qualidade. Os arquivos originais de protocolo citados não foram localizados nesta branch; sua eventual migração permanece pendente.
