@@ -18,6 +18,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 |---|---|
 | Etapa 1 | OK |
 | Etapa 2 | OK |
+| Etapa 3 | OK |
 
 ## Etapas
 
@@ -26,7 +27,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 0 | Preparação e preservação dos arquivos | Concluída | Commit exclusivo da Etapa 0; hash registrado no relatório de execução | Recompilação local independente e logs completos: Informação insuficiente para verificar. |
 | 1 | Auditoria do tipo de revisão | Concluída | Commit exclusivo da Etapa 1; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 2 |
 | 2 | Pergunta, objetivos e escopo | Concluída | Commit exclusivo da Etapa 2; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 3 |
-| 3 | Estratégia de busca e reprodutibilidade | Não iniciada | | |
+| 3 | Estratégia de busca e reprodutibilidade | Concluída | Commit exclusivo da Etapa 3; hash registrado no relatório de execução | Strings Web of Science ausentes; aguardar Etapa 4 |
 | 4 | Funil de seleção | Não iniciada | | |
 | 5 | Deduplicação | Não iniciada | | |
 | 6 | Triagem e auditoria dos registros | Não iniciada | | |
@@ -121,3 +122,21 @@ Foi inserida matriz explícita de alinhamento. Tema, corpus, método de seleçã
 
 ### Próxima ação
 Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 3`.
+
+
+## Registro da Etapa 3
+
+### Data
+2026-07-10
+
+### Diagnóstico
+Scopus e Crossref possuem consultas e parâmetros reprodutíveis nos scripts. A Web of Science possui campo, data, período, identificadores e totais, mas não as strings literais. A reprodutibilidade integral do conjunto é parcial.
+
+### Arquivos alterados
+- `latex-artigo/sections/03_metodologia.tex`
+- `docs/APENDICE_ESTRATEGIAS_BUSCA.md`
+- `docs/RELATORIO_ETAPA_3.md`
+- `docs/STATUS_EXECUCAO_REVISAO_ARTIGO.md`
+
+### Próxima ação
+Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 4`.

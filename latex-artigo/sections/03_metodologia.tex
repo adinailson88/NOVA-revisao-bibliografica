@@ -26,26 +26,30 @@ RQ5 & Lacunas registradas para instituições públicas de ensino superior. & Co
 \end{table}
 
 
-A busca abrangeu o período de 2010 a 2026 nas bases Scopus, Web of Science e Crossref. As consultas foram organizadas em quatro eixos: manutenção e sustentabilidade; contexto público universitário; priorização da manutenção; e gestão de ativos no ciclo de vida. Scopus e Web of Science receberam quatro expressões booleanas abrangentes. O Crossref recebeu cinco consultas textuais mais curtas porque o parâmetro \texttt{query.bibliographic} ordena correspondências por relevância, em vez de executar a mesma lógica booleana aplicada nos campos \texttt{TITLE-ABS-KEY} e \texttt{TS} \parencite{crossref_restapi_2026}. A quinta consulta do Crossref individualizou o eixo de gestão de ativos e ciclo de vida. A Tabela~\ref{tab:estrategiabusca} apresenta os quantitativos consolidados.
+A busca abrangeu publicações de 2010 a 2026 nas bases Scopus, Web of Science e Crossref. As 13 consultas foram executadas em 8 de julho de 2026. Em 9 de julho de 2026, seis registros adicionais foram identificados em exportação manual da Scopus com as mesmas consultas, em razão de atualização do índice. As consultas foram organizadas em quatro eixos: manutenção e sustentabilidade; contexto público universitário; priorização da manutenção; e gestão de ativos no ciclo de vida.
+
+Na Scopus, quatro expressões booleanas foram executadas em \texttt{TITLE-ABS-KEY}, com o intervalo anual incorporado à consulta. Quando o total excedia a janela de paginação de 5.000 resultados da API, o script particionava a recuperação por subintervalos de ano. Na Web of Science, quatro buscas manuais foram registradas no campo \texttt{TS (Topic)}. No Crossref, cinco consultas textuais foram executadas por \texttt{query.bibliographic}, com filtro de data de publicação entre 2010-01-01 e 2026-12-31 e limite deliberado de 200 registros por consulta. Como esse mecanismo ordena correspondências por relevância, o Crossref foi tratado como fonte complementar de metadados, e não como equivalente às expressões booleanas das bases bibliográficas \parencite{crossref_restapi_2026}. A Tabela~\ref{tab:estrategiabusca} consolida os parâmetros verificáveis.
 
 \begin{table}[H]
 \centering
-\caption{Estratégia de busca consolidada por base}
+\caption{Estratégia de busca documentada por base}
 \label{tab:estrategiabusca}
-\footnotesize
-\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{1.5cm} >{\RaggedRight\arraybackslash}p{3.4cm} >{\raggedleft\arraybackslash}p{1.8cm} Y}
+\scriptsize
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{1.8cm} >{\RaggedRight\arraybackslash}p{1.7cm} >{\RaggedRight\arraybackslash}p{1.6cm} >{\RaggedRight\arraybackslash}p{2.5cm} >{\raggedleft\arraybackslash}p{1.2cm} Y}
 \toprule
-Base & Consultas & Campo ou modelo & Registros brutos & Função no protocolo \\
+Base & Data documentada & Período & Campo ou modelo & Registros & Limites e função \\
 \midrule
-Scopus & 4 & \texttt{TITLE-ABS-KEY} com expressão booleana & 9.439 & Base bibliográfica principal. O total inclui seis registros adicionais das mesmas consultas identificados no export manual. \\
-Web of Science & 4 & \texttt{TS} com expressão booleana & 1.679 & Base bibliográfica independente para ampliar a cobertura e verificar sobreposições. \\
-Crossref & 5 & Consulta bibliográfica por relevância & 1.000 & Fonte complementar de metadados, com limite de 200 registros exportados por consulta. \\
+Scopus & 08/07/2026; complemento em 09/07/2026 & 2010--2026 & 4 consultas em \texttt{TITLE-ABS-KEY} & 9.439 & Base principal; particionamento anual para respeitar janela de 5.000; total inclui seis registros adicionais. \\
+Web of Science & 08/07/2026 & 2010--2026 & 4 buscas manuais em \texttt{TS (Topic)} & 1.679 & Base bibliográfica independente; expressões literais não localizadas no repositório. \\
+Crossref & 08/07/2026 & 2010--2026 & 5 consultas em \texttt{query.bibliographic} & 1.000 & Fonte complementar; 200 resultados por consulta, ordenados por relevância. \\
 \midrule
-Total & 13 & & 12.118 & Volume anterior à deduplicação. \\
+Total & & & 13 consultas & 12.118 & Volume anterior à deduplicação. \\
 \bottomrule
 \end{tabularx}
 \fonteautor
 \end{table}
+
+As quatro expressões da Scopus e as cinco consultas do Crossref estão preservadas nos respectivos scripts de coleta. Para a Web of Science, foram localizados identificadores, campo, data e totais, mas não as expressões literais. Não foram localizados registros de filtros de idioma ou tipo documental, busca piloto, estudos-semente ou justificativa específica para o início do período em 2010. Datas de exportação distintas das datas de execução também não foram documentadas. Esses elementos foram mantidos como informações ausentes, sem reconstrução por inferência.
 
 Os critérios de seleção combinaram aderência ao ambiente construído, manutenção ou gestão predial e sustentabilidade. Métodos de decisão, contexto público universitário e tipologia da edificação foram tratados como campos de caracterização analítica. A Tabela~\ref{tab:criteriosincluexclu} sintetiza as regras aplicadas.
 
