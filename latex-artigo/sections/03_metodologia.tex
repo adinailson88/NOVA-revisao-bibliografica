@@ -26,7 +26,7 @@ RQ5 & Lacunas registradas para instituições públicas de ensino superior. & Co
 \end{table}
 
 
-A busca abrangeu publicações de 2010 a 2026 nas bases Scopus, Web of Science e Crossref. As 13 consultas e as exportações correspondentes foram executadas em 8 de julho de 2026. Na Scopus, uma reexecução completa no mesmo dia consolidou seis registros além da soma registrada nas quatro execuções individuais; a causa específica dessa diferença não foi preservada. As consultas foram organizadas em quatro eixos: manutenção e sustentabilidade; contexto público universitário; priorização da manutenção; e gestão de ativos no ciclo de vida.
+A busca abrangeu publicações de 2010 a 2026 nas bases Scopus, Web of Science e Crossref. As 13 consultas e as exportações correspondentes foram executadas em 8 de julho de 2026. Na Scopus, o enriquecimento manual realizado em 9 de julho de 2026, por casamento de EID com a exportação do site, identificou cinco registros existentes apenas no arquivo manual e os incorporou ao corpus. Na Web of Science, a recontagem do quarto arquivo corrigiu o total de 502 para 503 registros; tratou-se de correção do método de contagem, não de novo registro. As consultas foram organizadas em quatro eixos: manutenção e sustentabilidade; contexto público universitário; priorização da manutenção; e gestão de ativos no ciclo de vida.
 
 Na Scopus, quatro expressões booleanas, sem filtros de idioma ou tipo documental, foram executadas em \texttt{TITLE-ABS-KEY}, com o intervalo anual incorporado à consulta. Quando o total excedia a janela de paginação de 5.000 resultados da API, o script particionava a recuperação por subintervalos de ano. Na Web of Science, quatro buscas manuais, sem filtros de idioma ou tipo documental, foram registradas no campo \texttt{TS (Topic)}. No Crossref, cinco consultas textuais, sem filtros de idioma ou tipo documental, foram executadas por \texttt{query.bibliographic}, com filtro de data de publicação entre 2010-01-01 e 2026-12-31 e limite deliberado de 200 registros por consulta. Como esse mecanismo ordena correspondências por relevância, o Crossref foi tratado como fonte complementar de metadados, e não como equivalente às expressões booleanas das bases bibliográficas \parencite{crossref_restapi_2026}. A Tabela~\ref{tab:estrategiabusca} consolida os parâmetros verificáveis.
 
@@ -39,8 +39,8 @@ Na Scopus, quatro expressões booleanas, sem filtros de idioma ou tipo documenta
 \toprule
 Base & Data documentada & Período & Campo ou modelo & Registros & Limites e função \\
 \midrule
-Scopus & 08/07/2026 & 2010--2026 & 4 consultas em \texttt{TITLE-ABS-KEY} & 9.439 & Base principal; particionamento anual; seis registros adicionais consolidados na reexecução do mesmo dia. \\
-Web of Science & 08/07/2026 & 2010--2026 & 4 buscas manuais em \texttt{TS (Topic)} & 1.679 & Base independente; strings preservadas, com associação A1--A4 aos arquivos RIS informada de memória. \\
+Scopus & 08/07/2026; enriquecimento em 09/07/2026 & 2010--2026 & 4 consultas em \texttt{TITLE-ABS-KEY} & 9.438 & Base principal; 9.433 da API e cinco exclusivos do export manual. \\
+Web of Science & 08/07/2026 & 2010--2026 & 4 buscas manuais em \texttt{TS (Topic)} & 1.680 & Base independente; A4 recontado em 503; associação A1--A4 aos RIS informada de memória. \\
 Crossref & 08/07/2026 & 2010--2026 & 5 consultas em \texttt{query.bibliographic} & 1.000 & Fonte complementar; 200 resultados por consulta, ordenados por relevância. \\
 \midrule
 Total & & & 13 consultas & 12.118 & Volume anterior à deduplicação. \\
@@ -49,7 +49,7 @@ Total & & & 13 consultas & 12.118 & Volume anterior à deduplicação. \\
 \fonteautor
 \end{table}
 
-As quatro expressões da Scopus, as quatro strings da Web of Science e as cinco consultas do Crossref foram preservadas. Na Web of Science, a associação individual entre cada arquivo RIS e as strings A1--A4 foi informada de memória pelo pesquisador, e não reconstruída a partir de registro contemporâneo da busca. As exportações ocorreram nas mesmas datas das consultas. Não foram aplicados filtros de idioma ou tipo documental. Não houve busca piloto, uso de estudos-semente ou pré-registro. O protocolo e a matriz conceitual foram elaborados antes da coleta. A justificativa específica para o início do período em 2010 não foi documentada.
+As quatro expressões da Scopus, as quatro strings da Web of Science e as cinco consultas do Crossref foram preservadas. Na Web of Science, a associação individual entre cada arquivo RIS e as strings A1--A4 foi informada de memória pelo pesquisador, e não reconstruída a partir de registro contemporâneo da busca. As exportações ocorreram nas mesmas datas das consultas. Não foram aplicados filtros de idioma ou tipo documental. Não houve busca piloto, uso de estudos-semente ou pré-registro. O protocolo e a matriz conceitual foram elaborados antes da coleta. A justificativa específica para o início do período em 2010 não foi documentada. Como a busca foi efetivamente executada com esse recorte, o período foi mantido para preservar a correspondência entre protocolo, strings, scripts e corpus bruto.
 
 Os critérios de seleção combinaram aderência ao ambiente construído, manutenção ou gestão predial e sustentabilidade. Métodos de decisão, contexto público universitário e tipologia da edificação foram tratados como campos de caracterização analítica. A Tabela~\ref{tab:criteriosincluexclu} sintetiza as regras aplicadas.
 

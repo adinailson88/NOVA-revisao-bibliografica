@@ -49,7 +49,7 @@ TITLE-ABS-KEY(("building asset management" OR "facility management" OR "faciliti
 
 Retorno bruto documentado: 909.
 
-Uma reexecução completa em 8 de julho de 2026 consolidou seis registros além da soma das quatro execuções individuais. A causa específica da diferença não foi preservada. Total Scopus: 9.439.
+A coleta pela API totalizou 9.433 registros. Em 9 de julho de 2026, o enriquecimento manual por casamento de EID identificou cinco registros existentes apenas no export do site, incorporados ao corpus. Total Scopus: 9.438.
 
 ## 3. Web of Science
 
@@ -61,8 +61,8 @@ Parâmetros documentados:
 - Filtros de idioma: não aplicados
 - Filtros de tipo documental: não aplicados
 - Número de consultas: quatro
-- Retornos: W1 = 610; W2 = 557; W3 = 10; W4 = 502
-- Total: 1.679
+- Retornos: W1 = 610; W2 = 557; W3 = 10; W4 = 503
+- Total: 1.680
 - Ressalva de proveniência: a correspondência individual entre arquivos RIS e strings A1--A4 foi informada de memória pelo pesquisador, não reconstruída a partir de evidência registrada no momento da busca.
 
 ### W1 — manutenção e sustentabilidade
@@ -123,7 +123,7 @@ Total Crossref: 1.000 registros. Por causa do limite e da ordenação por relev�
 | Busca piloto | Não houve. |
 | Estudos-semente | Não foram utilizados. |
 | Justificativa específica para 2010 | Informação insuficiente para verificar. |
-| Diferença de seis registros na Scopus | Consolidada na reexecução de 08/07/2026; causa específica não preservada. |
+| Reconciliação do total bruto | +5 Scopus no enriquecimento manual de 09/07/2026; +1 Web of Science por correção da contagem de A4. |
 
 ## 6. Avaliação da reprodutibilidade
 
@@ -132,4 +132,4 @@ Total Crossref: 1.000 registros. Por causa do limite e da ordenação por relev�
 | Scopus | Alta quanto à consulta e ao script; dependente de acesso à API e do estado temporal do índice | Strings, campo, período, paginação e tratamento da janela estão documentados. |
 | Web of Science | Moderada | Strings, campo, período, data e ausência de filtros estão documentados; associação individual aos RIS foi informada de memória. |
 | Crossref | Alta quanto ao procedimento limitado; não exaustiva | Consultas, filtro temporal, paginação e limite estão documentados; resultados variam com relevância e atualização do índice. |
-| Conjunto | Moderada | As consultas estão documentadas; permanecem a ressalva de associação dos RIS da Web of Science e a diferença de seis registros na consolidação da Scopus. |
+| Conjunto | Moderada | As consultas e a reconciliação dos 12.118 registros estão documentadas; permanece a ressalva de associação individual dos RIS da Web of Science. |
