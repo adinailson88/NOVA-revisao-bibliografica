@@ -407,3 +407,10 @@ As limitações foram atualizadas conforme o método efetivamente realizado. For
 A descrição do texto completo foi corrigida para registrar a leitura pontual de 19 estudos, dos quais sete forneceram evidências específicas incorporadas. Não foi incluída afirmação genérica de duplicatas remanescentes. Nenhum resultado foi alterado. Relatório completo em `docs/RELATORIO_ETAPA_13.md`.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 14`.
+
+
+## Uso pontual de texto completo dos 11 novos estudos
+
+Foram comparados 11 novos estudos lidos integralmente com a codificação documental do núcleo final, sem sobreposição com o lote anterior de 19. Sete estudos forneceram evidências específicas incorporadas individualmente nas seções de critérios, métodos e aplicabilidade; quatro permaneceram confirmatórios, tangenciais ou com informação insuficiente para incorporação. Os metadados de Yoon e Cha (2018), Chew e Conejos (2016) e Tan, Zaman e Sutrisna (2018) foram completados, e divergências individuais foram documentadas em `docs/RELATORIO_USO_TEXTO_COMPLETO_11_NOVOS_ESTUDOS.md`.
+
+No conjunto das duas tarefas pontuais, 30 estudos foram lidos integralmente e 14 forneceram evidências específicas incorporadas. Os números e produtos agregados do núcleo de 104 registros não foram modificados, e a revisão permanece predominantemente documental.
