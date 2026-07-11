@@ -421,3 +421,10 @@ No conjunto das duas tarefas pontuais, 30 estudos foram lidos integralmente e 14
 A redação e a terminologia foram padronizadas sem alteração de método ou resultados. ESG, MCDM, MCDA, AHP, TOPSIS, ANP, BIM e API passaram a ser definidos na primeira ocorrência relevante. O resumo e o abstract foram alinhados à denominação “matriz analítica conceitual informada pela síntese da literatura”. Estrutura, referências cruzadas, tabelas, gráficos, legendas e numeração foram preservados.
 
 Relatório completo em `docs/RELATORIO_ETAPA_14.md`.
+
+
+## Registro da Etapa 15
+
+Hu et al. (2026) foi incorporado exclusivamente como parâmetro de transparência e reprodutibilidade do relato de pergunta, busca, seleção, extração e síntese. O texto declara que a citação não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise. A referência de Franca não foi adicionada por redundância conceitual.
+
+Relatório completo em `docs/RELATORIO_ETAPA_15.md`.
