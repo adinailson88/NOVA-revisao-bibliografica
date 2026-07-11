@@ -1,0 +1,139 @@
+rq,categoria,termo,peso,observacao
+RQ0,objeto_predial,building,1,objeto predial generico
+RQ0,objeto_predial,buildings,1,objeto predial no plural
+RQ0,objeto_predial,built environment,1,ambiente construido
+RQ0,objeto_predial,facility,1,instalacao predial generica
+RQ0,objeto_predial,facilities,1,instalacoes prediais
+RQ0,objeto_predial,public building,2,edificacao publica
+RQ0,objeto_predial,university building,2,edificacao universitaria
+RQ0,objeto_predial,building portfolio,2,portfolio predial
+RQ0,objeto_predial,building stock,2,estoque predial
+RQ0,objeto_predial,campus,2,contexto de campus
+RQ0,manutencao_gestao,maintenance,1,manutencao generica
+RQ0,manutencao_gestao,maintenance management,2,gestao da manutencao
+RQ0,manutencao_gestao,facility management,2,facility management
+RQ0,manutencao_gestao,facilities management,2,facilities management
+RQ0,manutencao_gestao,asset management,2,gestao de ativos
+RQ0,manutencao_gestao,retrofit,1,retrofit
+RQ0,manutencao_gestao,condition assessment,2,avaliacao de condicao
+RQ0,manutencao_gestao,operation and maintenance,2,operacao e manutencao
+RQ0,sustentabilidade,sustainability,2,sustentabilidade
+RQ0,sustentabilidade,sustainable,2,termo geral de sustentabilidade
+RQ0,sustentabilidade,energy,1,energia
+RQ0,sustentabilidade,performance,1,desempenho
+RQ0,sustentabilidade,cost,1,custo
+RQ0,sustentabilidade,risk,1,risco
+RQ0,sustentabilidade,comfort,1,conforto
+RQ0,sustentabilidade,safety,1,seguranca
+RQ0,decisao,mcdm,2,metodo multicriterio
+RQ0,decisao,mcda,2,metodo multicriterio
+RQ0,decisao,multi-criteria,2,abordagem multicriterio
+RQ0,decisao,multicriteria,2,abordagem multicriterio
+RQ0,decisao,decision support,2,apoio a decisao
+RQ0,decisao,decision-making,2,tomada de decisao
+RQ0,decisao,prioritization,2,priorizacao
+RQ0,decisao,ranking,1,ranking comparativo
+RQ0,decisao,score,1,pontuacao comparativa
+RQ0,decisao,framework,1,framework decisorio
+RQ1,dimensao_sustentabilidade,environmental,1,dimensao ambiental
+RQ1,dimensao_sustentabilidade,economic,1,dimensao economica
+RQ1,dimensao_sustentabilidade,social,1,dimensao social
+RQ1,dimensao_sustentabilidade,operational,1,dimensao operacional
+RQ1,dimensao_sustentabilidade,technical,1,dimensao tecnica
+RQ1,dimensao_sustentabilidade,institutional,1,dimensao institucional
+RQ1,dimensao_sustentabilidade,risk,1,dimensao risco
+RQ1,dimensao_sustentabilidade,comfort,1,conforto
+RQ1,dimensao_sustentabilidade,safety,1,seguranca
+RQ1,dimensao_sustentabilidade,performance,1,desempenho
+RQ1,dimensao_sustentabilidade,life cycle,1,ciclo de vida
+RQ1,dimensao_sustentabilidade,lifecycle,1,ciclo de vida
+RQ1,dimensao_sustentabilidade,energy,1,energia
+RQ1,dimensao_sustentabilidade,water,1,agua
+RQ1,dimensao_sustentabilidade,waste,1,residuos
+RQ1,dimensao_sustentabilidade,durability,1,durabilidade
+RQ1,dimensao_sustentabilidade,climate adaptation,1,adaptacao climatica
+RQ2,criterio_priorizacao,cost,2,criterio economico de priorizacao
+RQ2,criterio_priorizacao,risk,2,criterio de risco
+RQ2,criterio_priorizacao,criticality,2,criticidade
+RQ2,criterio_priorizacao,urgency,2,urgencia
+RQ2,criterio_priorizacao,condition,2,condicao
+RQ2,criterio_priorizacao,safety,2,seguranca
+RQ2,criterio_priorizacao,user impact,2,impacto no usuario
+RQ2,criterio_priorizacao,energy consumption,2,consumo energetico
+RQ2,criterio_priorizacao,service life,2,vida de servico
+RQ2,criterio_priorizacao,useful life,2,vida util
+RQ2,criterio_priorizacao,compliance,2,conformidade
+RQ2,criterio_priorizacao,accessibility,2,acessibilidade
+RQ2,criterio_priorizacao,budget,2,orcamento
+RQ2,criterio_priorizacao,maintenance priority,2,prioridade de manutencao
+RQ2,criterio_priorizacao,maintenance prioritization,2,priorizacao da manutencao
+RQ2,criterio_priorizacao,deferred maintenance,2,backlog de manutencao
+RQ2,criterio_priorizacao,backlog,2,backlog
+RQ2,criterio_priorizacao,condition assessment,2,avaliacao de condicao
+RQ2,criterio_priorizacao,asset health,2,saude do ativo
+RQ2,criterio_priorizacao,performance indicator,2,indicador de desempenho
+RQ3,metodo_decisao,mcdm,2,metodo multicriterio formal
+RQ3,metodo_decisao,mcda,2,metodo multicriterio formal
+RQ3,metodo_decisao,ahp,2,metodo multicriterio formal
+RQ3,metodo_decisao,anp,2,metodo multicriterio formal
+RQ3,metodo_decisao,topsis,2,metodo multicriterio formal
+RQ3,metodo_decisao,promethee,2,metodo multicriterio formal
+RQ3,metodo_decisao,electre,2,metodo multicriterio formal
+RQ3,metodo_decisao,vikor,2,metodo multicriterio formal
+RQ3,metodo_decisao,dematel,2,metodo multicriterio formal
+RQ3,metodo_decisao,bwm,2,metodo multicriterio formal
+RQ3,metodo_decisao,maut,2,metodo multicriterio formal
+RQ3,metodo_decisao,mavt,2,metodo multicriterio formal
+RQ3,metodo_decisao,fuzzy,1,abordagem fuzzy
+RQ3,metodo_decisao,multi-criteria,1,rotulo de metodo multicriterio
+RQ3,metodo_decisao,multicriteria,1,rotulo de metodo multicriterio
+RQ3,metodo_decisao,decision-making,1,apoio formal a decisao
+RQ3,metodo_decisao,decision support,1,apoio formal a decisao
+RQ3,metodo_decisao,ranking,1,ranking
+RQ3,metodo_decisao,weighting,1,ponderacao
+RQ3,metodo_decisao,scoring,1,pontuacao
+RQ3,metodo_decisao,prioritization model,2,modelo de priorizacao
+RQ3,metodo_decisao,optimization,1,otimizacao
+RQ3,metodo_decisao,cost-benefit,1,custo beneficio
+RQ3,metodo_decisao,risk-based,1,abordagem baseada em risco
+RQ3,metodo_decisao,lifecycle cost,1,custo do ciclo de vida
+RQ4,contexto,public building,1,edificacao publica
+RQ4,contexto,university building,1,edificacao universitaria
+RQ4,contexto,campus,1,contexto de campus
+RQ4,contexto,school,1,contexto escolar
+RQ4,contexto,hospital,1,contexto hospitalar
+RQ4,contexto,healthcare building,1,edificacao de saude
+RQ4,contexto,government building,1,edificacao governamental
+RQ4,contexto,institutional building,1,edificacao institucional
+RQ4,contexto,educational building,1,edificacao educacional
+RQ4,contexto,student housing,1,moradia estudantil
+RQ4,contexto,office building,1,edificacao de escritorio
+RQ4,contexto,heritage building,1,edificacao patrimonial
+RQ4,contexto,building portfolio,1,portfolio predial
+RQ4,contexto,building stock,1,estoque predial
+RQ4,contexto,public facilities,1,instalacoes publicas
+RQ4,contexto,higher education,1,ensino superior
+RQ4,contexto,university,1,universidade
+RQ4,contexto,public sector,1,setor publico
+RQ5,lacuna,future research,1,indicacao de agenda futura
+RQ5,lacuna,gap,1,identificacao de lacuna
+RQ5,lacuna,limitation,1,limitacao declarada
+RQ5,lacuna,lack of,1,ausencia ou carencia
+RQ5,lacuna,scarce,1,escassez
+RQ5,lacuna,insufficient,1,insuficiencia
+RQ5,lacuna,data availability,2,disponibilidade de dados
+RQ5,lacuna,incomplete data,2,dados incompletos
+RQ5,lacuna,transparency,2,transparencia decisoria
+RQ5,lacuna,public university,2,universidade publica
+RQ5,lacuna,higher education,2,ensino superior
+RQ5,lacuna,public sector,2,setor publico
+RQ5,lacuna,institutional,1,contexto institucional
+RQ5,lacuna,governance,2,governanca
+RQ5,lacuna,maintenance backlog,2,backlog de manutencao
+RQ5,lacuna,budget constraints,2,restricoes orcamentarias
+RQ5,lacuna,decision transparency,2,transparencia na decisao
+RQ5,lacuna,replicable model,2,modelo replicavel
+RQ5,lacuna,implementation barriers,2,barreiras de implementacao
+RQ5,lacuna,facilities management practices,1,praticas de facilities management
+RQ5,lacuna,developing countries,1,paises em desenvolvimento
+RQ5,lacuna,public buildings,2,edificacoes publicas

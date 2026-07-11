@@ -1,0 +1,464 @@
+﻿id_unico,titulo,ano,criterio,dimensao_roteiro
+REG_00110,Optimal FM Strategy for Commercial Office Buildings Using Fuzzy Synthetic Evaluation,2018,custo,economica
+REG_00110,Optimal FM Strategy for Commercial Office Buildings Using Fuzzy Synthetic Evaluation,2018,risco,tecnica_operacional
+REG_00110,Optimal FM Strategy for Commercial Office Buildings Using Fuzzy Synthetic Evaluation,2018,vida_util,tecnica_operacional
+REG_00110,Optimal FM Strategy for Commercial Office Buildings Using Fuzzy Synthetic Evaluation,2018,desempenho_operacional,tecnica_operacional
+REG_00110,Optimal FM Strategy for Commercial Office Buildings Using Fuzzy Synthetic Evaluation,2018,informacao_dados,tecnica_operacional
+REG_00110,Optimal FM Strategy for Commercial Office Buildings Using Fuzzy Synthetic Evaluation,2018,qualidade_servico,tecnica_operacional
+REG_00217,Enabling an effective knowledge and information flow between the phases of building construction and facilities management,2018,vida_util,tecnica_operacional
+REG_00217,Enabling an effective knowledge and information flow between the phases of building construction and facilities management,2018,desempenho_operacional,tecnica_operacional
+REG_00217,Enabling an effective knowledge and information flow between the phases of building construction and facilities management,2018,informacao_dados,tecnica_operacional
+REG_00415,AHP-ANP-Fuzzy Integral Integrated Network for Evaluating Performance of Innovative Business Models for Sustainable Building,2017,desempenho_operacional,tecnica_operacional
+REG_00415,AHP-ANP-Fuzzy Integral Integrated Network for Evaluating Performance of Innovative Business Models for Sustainable Building,2017,informacao_dados,tecnica_operacional
+REG_00489,Knowledge-based Lean Six Sigma maintenance system for sustainable buildings,2017,energia,ambiental
+REG_00489,Knowledge-based Lean Six Sigma maintenance system for sustainable buildings,2017,desempenho_operacional,tecnica_operacional
+REG_00489,Knowledge-based Lean Six Sigma maintenance system for sustainable buildings,2017,informacao_dados,tecnica_operacional
+REG_00519,Urban facilities management: A systemic process for achieving urban sustainability,2017,informacao_dados,tecnica_operacional
+REG_00852,Developing a green maintainability framework for green walls in Singapore,2016,condicao_fisica,tecnica_operacional
+REG_00852,Developing a green maintainability framework for green walls in Singapore,2016,energia,ambiental
+REG_00852,Developing a green maintainability framework for green walls in Singapore,2016,vida_util,tecnica_operacional
+REG_00852,Developing a green maintainability framework for green walls in Singapore,2016,desempenho_operacional,tecnica_operacional
+REG_00852,Developing a green maintainability framework for green walls in Singapore,2016,informacao_dados,tecnica_operacional
+REG_00852,Developing a green maintainability framework for green walls in Singapore,2016,manutenibilidade,tecnica_operacional
+REG_00888,Optimization of Sustainability and Flood Hazard Resilience for Home Designs,2016,risco,tecnica_operacional
+REG_00888,Optimization of Sustainability and Flood Hazard Resilience for Home Designs,2016,condicao_fisica,tecnica_operacional
+REG_00888,Optimization of Sustainability and Flood Hazard Resilience for Home Designs,2016,energia,ambiental
+REG_00888,Optimization of Sustainability and Flood Hazard Resilience for Home Designs,2016,vida_util,tecnica_operacional
+REG_00888,Optimization of Sustainability and Flood Hazard Resilience for Home Designs,2016,desempenho_operacional,tecnica_operacional
+REG_00888,Optimization of Sustainability and Flood Hazard Resilience for Home Designs,2016,emissoes_carbono,ambiental
+REG_01046,Literature review of green retrofit design for commercial buildings with BIM implication,2015,energia,ambiental
+REG_01046,Literature review of green retrofit design for commercial buildings with BIM implication,2015,vida_util,tecnica_operacional
+REG_01046,Literature review of green retrofit design for commercial buildings with BIM implication,2015,desempenho_operacional,tecnica_operacional
+REG_01046,Literature review of green retrofit design for commercial buildings with BIM implication,2015,informacao_dados,tecnica_operacional
+REG_01104,Building information modeling for indoor environmental performance analysis,2015,custo,economica
+REG_01104,Building information modeling for indoor environmental performance analysis,2015,conforto,social
+REG_01104,Building information modeling for indoor environmental performance analysis,2015,desempenho_operacional,tecnica_operacional
+REG_01104,Building information modeling for indoor environmental performance analysis,2015,informacao_dados,tecnica_operacional
+REG_01239,Life cycle costing of mechanical and electrical services for private finance initiatives projects in Malaysia,2015,custo,economica
+REG_01239,Life cycle costing of mechanical and electrical services for private finance initiatives projects in Malaysia,2015,vida_util,tecnica_operacional
+REG_01239,Life cycle costing of mechanical and electrical services for private finance initiatives projects in Malaysia,2015,desempenho_operacional,tecnica_operacional
+REG_01646,A vector autoregressive model for interpolating missing meteorological data for use in building simulation,2013,risco,tecnica_operacional
+REG_01646,A vector autoregressive model for interpolating missing meteorological data for use in building simulation,2013,condicao_fisica,tecnica_operacional
+REG_01646,A vector autoregressive model for interpolating missing meteorological data for use in building simulation,2013,desempenho_operacional,tecnica_operacional
+REG_01646,A vector autoregressive model for interpolating missing meteorological data for use in building simulation,2013,informacao_dados,tecnica_operacional
+REG_01657,Evaluation of building performance for strategic facilities management in healthcare: A case study of a public hospital in Australia,2013,desempenho_operacional,tecnica_operacional
+REG_02069,Outsourcing in facilities management - A literature review,2011,custo,economica
+REG_02069,Outsourcing in facilities management - A literature review,2011,vida_util,tecnica_operacional
+REG_02069,Outsourcing in facilities management - A literature review,2011,desempenho_operacional,tecnica_operacional
+REG_02204,Sustainable carbon neutral building design: New simulation tools for teaching green buildings,2011,custo,economica
+REG_02204,Sustainable carbon neutral building design: New simulation tools for teaching green buildings,2011,risco,tecnica_operacional
+REG_02204,Sustainable carbon neutral building design: New simulation tools for teaching green buildings,2011,energia,ambiental
+REG_02204,Sustainable carbon neutral building design: New simulation tools for teaching green buildings,2011,vida_util,tecnica_operacional
+REG_02204,Sustainable carbon neutral building design: New simulation tools for teaching green buildings,2011,desempenho_operacional,tecnica_operacional
+REG_02204,Sustainable carbon neutral building design: New simulation tools for teaching green buildings,2011,emissoes_carbono,ambiental
+REG_02495,Digital Twins’ Applications for Building Energy Efficiency: A Review,2022,energia,ambiental
+REG_02495,Digital Twins’ Applications for Building Energy Efficiency: A Review,2022,conforto,social
+REG_02495,Digital Twins’ Applications for Building Energy Efficiency: A Review,2022,desempenho_operacional,tecnica_operacional
+REG_02495,Digital Twins’ Applications for Building Energy Efficiency: A Review,2022,informacao_dados,tecnica_operacional
+REG_02540,An Integrated Fuzzy-Based Sustainability Framework for Post-Secondary Educational Buildings: A User-Perspective Approach,2022,energia,ambiental
+REG_02540,An Integrated Fuzzy-Based Sustainability Framework for Post-Secondary Educational Buildings: A User-Perspective Approach,2022,conforto,social
+REG_02540,An Integrated Fuzzy-Based Sustainability Framework for Post-Secondary Educational Buildings: A User-Perspective Approach,2022,desempenho_operacional,tecnica_operacional
+REG_02540,An Integrated Fuzzy-Based Sustainability Framework for Post-Secondary Educational Buildings: A User-Perspective Approach,2022,satisfacao_usuario,social
+REG_02540,An Integrated Fuzzy-Based Sustainability Framework for Post-Secondary Educational Buildings: A User-Perspective Approach,2022,informacao_dados,tecnica_operacional
+REG_02568,Assessment of the Perception of Sustainability for Occupants of Residential Buildings: A Case Study in the UAE,2022,custo,economica
+REG_02568,Assessment of the Perception of Sustainability for Occupants of Residential Buildings: A Case Study in the UAE,2022,satisfacao_usuario,social
+REG_02568,Assessment of the Perception of Sustainability for Occupants of Residential Buildings: A Case Study in the UAE,2022,informacao_dados,tecnica_operacional
+REG_02635,A thematic review on Prevention through design (PtD) concept application in the construction industry of developing countries,2022,risco,tecnica_operacional
+REG_02635,A thematic review on Prevention through design (PtD) concept application in the construction industry of developing countries,2022,seguranca,social
+REG_02635,A thematic review on Prevention through design (PtD) concept application in the construction industry of developing countries,2022,vida_util,tecnica_operacional
+REG_02635,A thematic review on Prevention through design (PtD) concept application in the construction industry of developing countries,2022,desempenho_operacional,tecnica_operacional
+REG_02635,A thematic review on Prevention through design (PtD) concept application in the construction industry of developing countries,2022,informacao_dados,tecnica_operacional
+REG_03126,A performance data integrated BIM framework for building life-cycle energy efficiency and environmental optimization design,2021,custo,economica
+REG_03126,A performance data integrated BIM framework for building life-cycle energy efficiency and environmental optimization design,2021,energia,ambiental
+REG_03126,A performance data integrated BIM framework for building life-cycle energy efficiency and environmental optimization design,2021,conforto,social
+REG_03126,A performance data integrated BIM framework for building life-cycle energy efficiency and environmental optimization design,2021,vida_util,tecnica_operacional
+REG_03126,A performance data integrated BIM framework for building life-cycle energy efficiency and environmental optimization design,2021,desempenho_operacional,tecnica_operacional
+REG_03126,A performance data integrated BIM framework for building life-cycle energy efficiency and environmental optimization design,2021,informacao_dados,tecnica_operacional
+REG_03176,The Strategy of Passive Ecological Building Design Based on Guangxi's Climate Characteristics - A Case Study on the Garden Art Gallery of the 12th China (Nanning) International Garden Expo,2021,custo,economica
+REG_03176,The Strategy of Passive Ecological Building Design Based on Guangxi's Climate Characteristics - A Case Study on the Garden Art Gallery of the 12th China (Nanning) International Garden Expo,2021,desempenho_operacional,tecnica_operacional
+REG_03230,Improving lighting efficiency in existing art museums: a case study,2021,custo,economica
+REG_03230,Improving lighting efficiency in existing art museums: a case study,2021,energia,ambiental
+REG_03230,Improving lighting efficiency in existing art museums: a case study,2021,vida_util,tecnica_operacional
+REG_03230,Improving lighting efficiency in existing art museums: a case study,2021,desempenho_operacional,tecnica_operacional
+REG_03230,Improving lighting efficiency in existing art museums: a case study,2021,satisfacao_usuario,social
+REG_03334,Evaluation of facilities management sustainable parameters for improving operational efficiency,2021,custo,economica
+REG_03334,Evaluation of facilities management sustainable parameters for improving operational efficiency,2021,vida_util,tecnica_operacional
+REG_03334,Evaluation of facilities management sustainable parameters for improving operational efficiency,2021,desempenho_operacional,tecnica_operacional
+REG_03334,Evaluation of facilities management sustainable parameters for improving operational efficiency,2021,manutenibilidade,tecnica_operacional
+REG_03349,Exploring the Acceptance of Life Cycle Cost for Residential Projects in India,2021,custo,economica
+REG_03349,Exploring the Acceptance of Life Cycle Cost for Residential Projects in India,2021,risco,tecnica_operacional
+REG_03349,Exploring the Acceptance of Life Cycle Cost for Residential Projects in India,2021,condicao_fisica,tecnica_operacional
+REG_03349,Exploring the Acceptance of Life Cycle Cost for Residential Projects in India,2021,vida_util,tecnica_operacional
+REG_03349,Exploring the Acceptance of Life Cycle Cost for Residential Projects in India,2021,desempenho_operacional,tecnica_operacional
+REG_03359,From BIM to digital twins: A systematic review of the evolution of intelligent building representations in the AEC-FM industry,2021,energia,ambiental
+REG_03359,From BIM to digital twins: A systematic review of the evolution of intelligent building representations in the AEC-FM industry,2021,conforto,social
+REG_03359,From BIM to digital twins: A systematic review of the evolution of intelligent building representations in the AEC-FM industry,2021,vida_util,tecnica_operacional
+REG_03359,From BIM to digital twins: A systematic review of the evolution of intelligent building representations in the AEC-FM industry,2021,desempenho_operacional,tecnica_operacional
+REG_03359,From BIM to digital twins: A systematic review of the evolution of intelligent building representations in the AEC-FM industry,2021,informacao_dados,tecnica_operacional
+REG_03383,Occupants’ Behavioral Analysis for the Optimization of Building Operation and Maintenance: A Case Study to Improve the Use of Elevators in a University Building,2021,custo,economica
+REG_03383,Occupants’ Behavioral Analysis for the Optimization of Building Operation and Maintenance: A Case Study to Improve the Use of Elevators in a University Building,2021,risco,tecnica_operacional
+REG_03383,Occupants’ Behavioral Analysis for the Optimization of Building Operation and Maintenance: A Case Study to Improve the Use of Elevators in a University Building,2021,condicao_fisica,tecnica_operacional
+REG_03383,Occupants’ Behavioral Analysis for the Optimization of Building Operation and Maintenance: A Case Study to Improve the Use of Elevators in a University Building,2021,conforto,social
+REG_03383,Occupants’ Behavioral Analysis for the Optimization of Building Operation and Maintenance: A Case Study to Improve the Use of Elevators in a University Building,2021,desempenho_operacional,tecnica_operacional
+REG_03383,Occupants’ Behavioral Analysis for the Optimization of Building Operation and Maintenance: A Case Study to Improve the Use of Elevators in a University Building,2021,residuos,ambiental
+REG_03670,Improving maintenance management practices on green building projects,2020,condicao_fisica,tecnica_operacional
+REG_03670,Improving maintenance management practices on green building projects,2020,desempenho_operacional,tecnica_operacional
+REG_03670,Improving maintenance management practices on green building projects,2020,informacao_dados,tecnica_operacional
+REG_03670,Improving maintenance management practices on green building projects,2020,manutenibilidade,tecnica_operacional
+REG_03759,Risk management in facility management for data centres: status and deficits,2020,risco,tecnica_operacional
+REG_03759,Risk management in facility management for data centres: status and deficits,2020,vida_util,tecnica_operacional
+REG_03759,Risk management in facility management for data centres: status and deficits,2020,desempenho_operacional,tecnica_operacional
+REG_03759,Risk management in facility management for data centres: status and deficits,2020,informacao_dados,tecnica_operacional
+REG_03763,A review of sustainable facility management research,2020,custo,economica
+REG_03763,A review of sustainable facility management research,2020,desempenho_operacional,tecnica_operacional
+REG_03763,A review of sustainable facility management research,2020,informacao_dados,tecnica_operacional
+REG_03763,A review of sustainable facility management research,2020,manutenibilidade,tecnica_operacional
+REG_03843,Application of fuzzy topsis for selecting most sustainable building wall material,2020,custo,economica
+REG_03843,Application of fuzzy topsis for selecting most sustainable building wall material,2020,desempenho_operacional,tecnica_operacional
+REG_03844,Application of fuzzy topsis for selecting most sustainable building wall material,2020,custo,economica
+REG_03844,Application of fuzzy topsis for selecting most sustainable building wall material,2020,desempenho_operacional,tecnica_operacional
+REG_04015,Energy-efficient retrofitting of multi-storey residential buildings,2020,custo,economica
+REG_04015,Energy-efficient retrofitting of multi-storey residential buildings,2020,energia,ambiental
+REG_04015,Energy-efficient retrofitting of multi-storey residential buildings,2020,desempenho_operacional,tecnica_operacional
+REG_04015,Energy-efficient retrofitting of multi-storey residential buildings,2020,emissoes_carbono,ambiental
+REG_04052,Forecasting repair schedule for building components based on case-based reasoning and fuzzy-AHP,2019,custo,economica
+REG_04052,Forecasting repair schedule for building components based on case-based reasoning and fuzzy-AHP,2019,condicao_fisica,tecnica_operacional
+REG_04052,Forecasting repair schedule for building components based on case-based reasoning and fuzzy-AHP,2019,desempenho_operacional,tecnica_operacional
+REG_04052,Forecasting repair schedule for building components based on case-based reasoning and fuzzy-AHP,2019,informacao_dados,tecnica_operacional
+REG_04052,Forecasting repair schedule for building components based on case-based reasoning and fuzzy-AHP,2019,manutenibilidade,tecnica_operacional
+REG_04120,Proposed research methodology for establishing the critical success factors for maintenance management of hospital buildings,2019,custo,economica
+REG_04120,Proposed research methodology for establishing the critical success factors for maintenance management of hospital buildings,2019,risco,tecnica_operacional
+REG_04120,Proposed research methodology for establishing the critical success factors for maintenance management of hospital buildings,2019,seguranca,social
+REG_04120,Proposed research methodology for establishing the critical success factors for maintenance management of hospital buildings,2019,desempenho_operacional,tecnica_operacional
+REG_04120,Proposed research methodology for establishing the critical success factors for maintenance management of hospital buildings,2019,informacao_dados,tecnica_operacional
+REG_04120,Proposed research methodology for establishing the critical success factors for maintenance management of hospital buildings,2019,manutenibilidade,tecnica_operacional
+REG_04120,Proposed research methodology for establishing the critical success factors for maintenance management of hospital buildings,2019,qualidade_servico,tecnica_operacional
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,custo,economica
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,risco,tecnica_operacional
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,condicao_fisica,tecnica_operacional
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,seguranca,social
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,vida_util,tecnica_operacional
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,desempenho_operacional,tecnica_operacional
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,agua,ambiental
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,informacao_dados,tecnica_operacional
+REG_04122,Green maintainability assessment of high-rise vertical greenery systems,2019,manutenibilidade,tecnica_operacional
+REG_04126,Early decision-making for school building renovation,2019,condicao_fisica,tecnica_operacional
+REG_04126,Early decision-making for school building renovation,2019,energia,ambiental
+REG_04126,Early decision-making for school building renovation,2019,conforto,social
+REG_04163,LCC estimation model: A construction material perspective,2019,custo,economica
+REG_04163,LCC estimation model: A construction material perspective,2019,energia,ambiental
+REG_04163,LCC estimation model: A construction material perspective,2019,vida_util,tecnica_operacional
+REG_04163,LCC estimation model: A construction material perspective,2019,desempenho_operacional,tecnica_operacional
+REG_04163,LCC estimation model: A construction material perspective,2019,informacao_dados,tecnica_operacional
+REG_04203,An Integrated Computerised Maintenance Management System (I-CMMS) for IBS building maintenance,2019,risco,tecnica_operacional
+REG_04203,An Integrated Computerised Maintenance Management System (I-CMMS) for IBS building maintenance,2019,condicao_fisica,tecnica_operacional
+REG_04203,An Integrated Computerised Maintenance Management System (I-CMMS) for IBS building maintenance,2019,vida_util,tecnica_operacional
+REG_04203,An Integrated Computerised Maintenance Management System (I-CMMS) for IBS building maintenance,2019,desempenho_operacional,tecnica_operacional
+REG_04203,An Integrated Computerised Maintenance Management System (I-CMMS) for IBS building maintenance,2019,residuos,ambiental
+REG_04203,An Integrated Computerised Maintenance Management System (I-CMMS) for IBS building maintenance,2019,informacao_dados,tecnica_operacional
+REG_04203,An Integrated Computerised Maintenance Management System (I-CMMS) for IBS building maintenance,2019,manutenibilidade,tecnica_operacional
+REG_04225,Determining a conceptual framework for safe and sustainable health-care waste management (SSHCWM) implementation in health-care facilities,2019,seguranca,social
+REG_04225,Determining a conceptual framework for safe and sustainable health-care waste management (SSHCWM) implementation in health-care facilities,2019,desempenho_operacional,tecnica_operacional
+REG_04225,Determining a conceptual framework for safe and sustainable health-care waste management (SSHCWM) implementation in health-care facilities,2019,residuos,ambiental
+REG_04225,Determining a conceptual framework for safe and sustainable health-care waste management (SSHCWM) implementation in health-care facilities,2019,informacao_dados,tecnica_operacional
+REG_04305,Examining sustainability indicators of space management in elderly Facilities—a case study in China,2019,custo,economica
+REG_04305,Examining sustainability indicators of space management in elderly Facilities—a case study in China,2019,risco,tecnica_operacional
+REG_04305,Examining sustainability indicators of space management in elderly Facilities—a case study in China,2019,desempenho_operacional,tecnica_operacional
+REG_04305,Examining sustainability indicators of space management in elderly Facilities—a case study in China,2019,residuos,ambiental
+REG_04305,Examining sustainability indicators of space management in elderly Facilities—a case study in China,2019,informacao_dados,tecnica_operacional
+REG_04552,Contractors allocation for public building maintenance: a sustainable approach aligned with SDGs using AHP-TOPSIS and bi-objective optimization,2026,custo,economica
+REG_04552,Contractors allocation for public building maintenance: a sustainable approach aligned with SDGs using AHP-TOPSIS and bi-objective optimization,2026,risco,tecnica_operacional
+REG_04552,Contractors allocation for public building maintenance: a sustainable approach aligned with SDGs using AHP-TOPSIS and bi-objective optimization,2026,seguranca,social
+REG_04552,Contractors allocation for public building maintenance: a sustainable approach aligned with SDGs using AHP-TOPSIS and bi-objective optimization,2026,desempenho_operacional,tecnica_operacional
+REG_04552,Contractors allocation for public building maintenance: a sustainable approach aligned with SDGs using AHP-TOPSIS and bi-objective optimization,2026,informacao_dados,tecnica_operacional
+REG_04569,Analysis of sustainable facility management performance in university campuses based on user satisfaction indicators: the case of Ankara University Besevler Campus,2026,risco,tecnica_operacional
+REG_04569,Analysis of sustainable facility management performance in university campuses based on user satisfaction indicators: the case of Ankara University Besevler Campus,2026,conforto,social
+REG_04569,Analysis of sustainable facility management performance in university campuses based on user satisfaction indicators: the case of Ankara University Besevler Campus,2026,desempenho_operacional,tecnica_operacional
+REG_04569,Analysis of sustainable facility management performance in university campuses based on user satisfaction indicators: the case of Ankara University Besevler Campus,2026,residuos,ambiental
+REG_04569,Analysis of sustainable facility management performance in university campuses based on user satisfaction indicators: the case of Ankara University Besevler Campus,2026,satisfacao_usuario,social
+REG_04569,Analysis of sustainable facility management performance in university campuses based on user satisfaction indicators: the case of Ankara University Besevler Campus,2026,informacao_dados,tecnica_operacional
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,custo,economica
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,risco,tecnica_operacional
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,condicao_fisica,tecnica_operacional
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,energia,ambiental
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,seguranca,social
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,vida_util,tecnica_operacional
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,emissoes_carbono,ambiental
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,agua,ambiental
+REG_04572,"Coding and Relationships Between Construction and Maintenance Work Units and Their Life Cycle: A Study of the Economic, Environmental and Social Sustainability of Housing in Andalusia",2026,informacao_dados,tecnica_operacional
+REG_04575,From Construction Innovation to Operational Reality: Barriers to Technology Diffusion in the Operations and Maintenance of Public Hospitals in South Africa,2026,custo,economica
+REG_04575,From Construction Innovation to Operational Reality: Barriers to Technology Diffusion in the Operations and Maintenance of Public Hospitals in South Africa,2026,risco,tecnica_operacional
+REG_04575,From Construction Innovation to Operational Reality: Barriers to Technology Diffusion in the Operations and Maintenance of Public Hospitals in South Africa,2026,seguranca,social
+REG_04575,From Construction Innovation to Operational Reality: Barriers to Technology Diffusion in the Operations and Maintenance of Public Hospitals in South Africa,2026,desempenho_operacional,tecnica_operacional
+REG_04575,From Construction Innovation to Operational Reality: Barriers to Technology Diffusion in the Operations and Maintenance of Public Hospitals in South Africa,2026,informacao_dados,tecnica_operacional
+REG_04749,Considering Carbon Emissions and Energy Consumption Costs in Project Pricing: A Case Study of a Commercial Building in Shanghai,2026,custo,economica
+REG_04749,Considering Carbon Emissions and Energy Consumption Costs in Project Pricing: A Case Study of a Commercial Building in Shanghai,2026,condicao_fisica,tecnica_operacional
+REG_04749,Considering Carbon Emissions and Energy Consumption Costs in Project Pricing: A Case Study of a Commercial Building in Shanghai,2026,energia,ambiental
+REG_04749,Considering Carbon Emissions and Energy Consumption Costs in Project Pricing: A Case Study of a Commercial Building in Shanghai,2026,vida_util,tecnica_operacional
+REG_04749,Considering Carbon Emissions and Energy Consumption Costs in Project Pricing: A Case Study of a Commercial Building in Shanghai,2026,desempenho_operacional,tecnica_operacional
+REG_04749,Considering Carbon Emissions and Energy Consumption Costs in Project Pricing: A Case Study of a Commercial Building in Shanghai,2026,emissoes_carbono,ambiental
+REG_04758,Sustainable facilities management: a sociotechnical system perspective and a review of the literature,2026,desempenho_operacional,tecnica_operacional
+REG_04758,Sustainable facilities management: a sociotechnical system perspective and a review of the literature,2026,informacao_dados,tecnica_operacional
+REG_04759,Factors influencing IoT adoption for sustainable facilities management in Saudi Arabia: a stakeholder assessment,2026,desempenho_operacional,tecnica_operacional
+REG_04759,Factors influencing IoT adoption for sustainable facilities management in Saudi Arabia: a stakeholder assessment,2026,informacao_dados,tecnica_operacional
+REG_04813,"Improving the performance of green office buildings in mainland China through facility management under the ""dual carbon"" goals",2026,desempenho_operacional,tecnica_operacional
+REG_04813,"Improving the performance of green office buildings in mainland China through facility management under the ""dual carbon"" goals",2026,emissoes_carbono,ambiental
+REG_04813,"Improving the performance of green office buildings in mainland China through facility management under the ""dual carbon"" goals",2026,informacao_dados,tecnica_operacional
+REG_04824,Framework for Environmental Life Cycle Assessment of Operation Strategies for Existing Building Envelopes,2026,custo,economica
+REG_04824,Framework for Environmental Life Cycle Assessment of Operation Strategies for Existing Building Envelopes,2026,condicao_fisica,tecnica_operacional
+REG_04824,Framework for Environmental Life Cycle Assessment of Operation Strategies for Existing Building Envelopes,2026,vida_util,tecnica_operacional
+REG_04824,Framework for Environmental Life Cycle Assessment of Operation Strategies for Existing Building Envelopes,2026,desempenho_operacional,tecnica_operacional
+REG_04824,Framework for Environmental Life Cycle Assessment of Operation Strategies for Existing Building Envelopes,2026,informacao_dados,tecnica_operacional
+REG_04939,Unraveling the impact of machine learning on the AEC sector: academia and industry perspectives,2026,custo,economica
+REG_04939,Unraveling the impact of machine learning on the AEC sector: academia and industry perspectives,2026,energia,ambiental
+REG_04939,Unraveling the impact of machine learning on the AEC sector: academia and industry perspectives,2026,seguranca,social
+REG_04939,Unraveling the impact of machine learning on the AEC sector: academia and industry perspectives,2026,desempenho_operacional,tecnica_operacional
+REG_04939,Unraveling the impact of machine learning on the AEC sector: academia and industry perspectives,2026,informacao_dados,tecnica_operacional
+REG_04953,Spatial Intelligence for Efficient High-Rise Building Maintenance and Repair,2026,custo,economica
+REG_04953,Spatial Intelligence for Efficient High-Rise Building Maintenance and Repair,2026,condicao_fisica,tecnica_operacional
+REG_04953,Spatial Intelligence for Efficient High-Rise Building Maintenance and Repair,2026,seguranca,social
+REG_04953,Spatial Intelligence for Efficient High-Rise Building Maintenance and Repair,2026,vida_util,tecnica_operacional
+REG_04953,Spatial Intelligence for Efficient High-Rise Building Maintenance and Repair,2026,desempenho_operacional,tecnica_operacional
+REG_04953,Spatial Intelligence for Efficient High-Rise Building Maintenance and Repair,2026,informacao_dados,tecnica_operacional
+REG_04953,Spatial Intelligence for Efficient High-Rise Building Maintenance and Repair,2026,manutenibilidade,tecnica_operacional
+REG_05142,Quantifying BIM investment value: a systematic review,2025,custo,economica
+REG_05142,Quantifying BIM investment value: a systematic review,2025,seguranca,social
+REG_05142,Quantifying BIM investment value: a systematic review,2025,desempenho_operacional,tecnica_operacional
+REG_05142,Quantifying BIM investment value: a systematic review,2025,informacao_dados,tecnica_operacional
+REG_05161,Post-Construction Constructability Assessment and Service Quality in Higher Education Infrastructure: Evidence from a Peruvian University Campus,2025,conforto,social
+REG_05161,Post-Construction Constructability Assessment and Service Quality in Higher Education Infrastructure: Evidence from a Peruvian University Campus,2025,desempenho_operacional,tecnica_operacional
+REG_05161,Post-Construction Constructability Assessment and Service Quality in Higher Education Infrastructure: Evidence from a Peruvian University Campus,2025,satisfacao_usuario,social
+REG_05161,Post-Construction Constructability Assessment and Service Quality in Higher Education Infrastructure: Evidence from a Peruvian University Campus,2025,informacao_dados,tecnica_operacional
+REG_05161,Post-Construction Constructability Assessment and Service Quality in Higher Education Infrastructure: Evidence from a Peruvian University Campus,2025,qualidade_servico,tecnica_operacional
+REG_05283,An in-depth analysis of facility management approaches in Nigeria's ailing healthcare sector,2025,custo,economica
+REG_05283,An in-depth analysis of facility management approaches in Nigeria's ailing healthcare sector,2025,desempenho_operacional,tecnica_operacional
+REG_05283,An in-depth analysis of facility management approaches in Nigeria's ailing healthcare sector,2025,informacao_dados,tecnica_operacional
+REG_05338,Developing Performance Measurement Framework for Sustainable Facility Management (SFM) in Office Buildings Using Bayesian Best Worst Method,2025,custo,economica
+REG_05338,Developing Performance Measurement Framework for Sustainable Facility Management (SFM) in Office Buildings Using Bayesian Best Worst Method,2025,condicao_fisica,tecnica_operacional
+REG_05338,Developing Performance Measurement Framework for Sustainable Facility Management (SFM) in Office Buildings Using Bayesian Best Worst Method,2025,energia,ambiental
+REG_05338,Developing Performance Measurement Framework for Sustainable Facility Management (SFM) in Office Buildings Using Bayesian Best Worst Method,2025,conforto,social
+REG_05338,Developing Performance Measurement Framework for Sustainable Facility Management (SFM) in Office Buildings Using Bayesian Best Worst Method,2025,desempenho_operacional,tecnica_operacional
+REG_05338,Developing Performance Measurement Framework for Sustainable Facility Management (SFM) in Office Buildings Using Bayesian Best Worst Method,2025,residuos,ambiental
+REG_05371,Artificial intelligence in healthcare facilities asset information management: mixed review,2025,custo,economica
+REG_05371,Artificial intelligence in healthcare facilities asset information management: mixed review,2025,condicao_fisica,tecnica_operacional
+REG_05371,Artificial intelligence in healthcare facilities asset information management: mixed review,2025,desempenho_operacional,tecnica_operacional
+REG_05371,Artificial intelligence in healthcare facilities asset information management: mixed review,2025,informacao_dados,tecnica_operacional
+REG_05371,Artificial intelligence in healthcare facilities asset information management: mixed review,2025,manutenibilidade,tecnica_operacional
+REG_05379,Offshore Wind Turbine Key Components’ Life Cycle Cost Analysis (LCCA): Specification Options in Western Australia,2025,custo,economica
+REG_05379,Offshore Wind Turbine Key Components’ Life Cycle Cost Analysis (LCCA): Specification Options in Western Australia,2025,energia,ambiental
+REG_05379,Offshore Wind Turbine Key Components’ Life Cycle Cost Analysis (LCCA): Specification Options in Western Australia,2025,vida_util,tecnica_operacional
+REG_05379,Offshore Wind Turbine Key Components’ Life Cycle Cost Analysis (LCCA): Specification Options in Western Australia,2025,desempenho_operacional,tecnica_operacional
+REG_05379,Offshore Wind Turbine Key Components’ Life Cycle Cost Analysis (LCCA): Specification Options in Western Australia,2025,emissoes_carbono,ambiental
+REG_05379,Offshore Wind Turbine Key Components’ Life Cycle Cost Analysis (LCCA): Specification Options in Western Australia,2025,residuos,ambiental
+REG_05404,Strategic planning of sustainable maintenance in heritage school buildings: Malaysia perspectives,2025,custo,economica
+REG_05404,Strategic planning of sustainable maintenance in heritage school buildings: Malaysia perspectives,2025,condicao_fisica,tecnica_operacional
+REG_05404,Strategic planning of sustainable maintenance in heritage school buildings: Malaysia perspectives,2025,informacao_dados,tecnica_operacional
+REG_05404,Strategic planning of sustainable maintenance in heritage school buildings: Malaysia perspectives,2025,manutenibilidade,tecnica_operacional
+REG_05430,Development of an ontology-based asset information model for predictive maintenance in building facilities,2025,energia,ambiental
+REG_05430,Development of an ontology-based asset information model for predictive maintenance in building facilities,2025,desempenho_operacional,tecnica_operacional
+REG_05430,Development of an ontology-based asset information model for predictive maintenance in building facilities,2025,informacao_dados,tecnica_operacional
+REG_05449,Enhancing asset management: Integrating digital twins for continuous permitting and compliance - A systematic literature review,2025,custo,economica
+REG_05449,Enhancing asset management: Integrating digital twins for continuous permitting and compliance - A systematic literature review,2025,energia,ambiental
+REG_05449,Enhancing asset management: Integrating digital twins for continuous permitting and compliance - A systematic literature review,2025,seguranca,social
+REG_05449,Enhancing asset management: Integrating digital twins for continuous permitting and compliance - A systematic literature review,2025,vida_util,tecnica_operacional
+REG_05449,Enhancing asset management: Integrating digital twins for continuous permitting and compliance - A systematic literature review,2025,desempenho_operacional,tecnica_operacional
+REG_05449,Enhancing asset management: Integrating digital twins for continuous permitting and compliance - A systematic literature review,2025,informacao_dados,tecnica_operacional
+REG_05452,Optimization of an integrated hybrid commercial building with building information modelling,2025,custo,economica
+REG_05452,Optimization of an integrated hybrid commercial building with building information modelling,2025,energia,ambiental
+REG_05452,Optimization of an integrated hybrid commercial building with building information modelling,2025,desempenho_operacional,tecnica_operacional
+REG_05452,Optimization of an integrated hybrid commercial building with building information modelling,2025,informacao_dados,tecnica_operacional
+REG_05478,The development of prefabricated buildings and intelligent construction based on digital twins,2025,custo,economica
+REG_05478,The development of prefabricated buildings and intelligent construction based on digital twins,2025,risco,tecnica_operacional
+REG_05478,The development of prefabricated buildings and intelligent construction based on digital twins,2025,vida_util,tecnica_operacional
+REG_05478,The development of prefabricated buildings and intelligent construction based on digital twins,2025,desempenho_operacional,tecnica_operacional
+REG_05478,The development of prefabricated buildings and intelligent construction based on digital twins,2025,informacao_dados,tecnica_operacional
+REG_05478,The development of prefabricated buildings and intelligent construction based on digital twins,2025,manutenibilidade,tecnica_operacional
+REG_05495,Research on Real-Time Control Strategy for HVAC Systems in University Libraries,2025,custo,economica
+REG_05495,Research on Real-Time Control Strategy for HVAC Systems in University Libraries,2025,energia,ambiental
+REG_05495,Research on Real-Time Control Strategy for HVAC Systems in University Libraries,2025,conforto,social
+REG_05495,Research on Real-Time Control Strategy for HVAC Systems in University Libraries,2025,desempenho_operacional,tecnica_operacional
+REG_05495,Research on Real-Time Control Strategy for HVAC Systems in University Libraries,2025,informacao_dados,tecnica_operacional
+REG_05517,Life-cycle cost assessment of conventional and self-centering steel frames in seismic zones: An extra focus on environmental impacts,2025,custo,economica
+REG_05517,Life-cycle cost assessment of conventional and self-centering steel frames in seismic zones: An extra focus on environmental impacts,2025,risco,tecnica_operacional
+REG_05517,Life-cycle cost assessment of conventional and self-centering steel frames in seismic zones: An extra focus on environmental impacts,2025,vida_util,tecnica_operacional
+REG_05517,Life-cycle cost assessment of conventional and self-centering steel frames in seismic zones: An extra focus on environmental impacts,2025,desempenho_operacional,tecnica_operacional
+REG_05517,Life-cycle cost assessment of conventional and self-centering steel frames in seismic zones: An extra focus on environmental impacts,2025,emissoes_carbono,ambiental
+REG_05517,Life-cycle cost assessment of conventional and self-centering steel frames in seismic zones: An extra focus on environmental impacts,2025,residuos,ambiental
+REG_05558,Applications of Digital Technologies in Promoting Sustainable Construction Practices: A Literature Review,2025,custo,economica
+REG_05558,Applications of Digital Technologies in Promoting Sustainable Construction Practices: A Literature Review,2025,energia,ambiental
+REG_05558,Applications of Digital Technologies in Promoting Sustainable Construction Practices: A Literature Review,2025,vida_util,tecnica_operacional
+REG_05558,Applications of Digital Technologies in Promoting Sustainable Construction Practices: A Literature Review,2025,desempenho_operacional,tecnica_operacional
+REG_05558,Applications of Digital Technologies in Promoting Sustainable Construction Practices: A Literature Review,2025,informacao_dados,tecnica_operacional
+REG_05559,Exploiting digital twins for occupancy and energy optimisation for office buildings,2025,custo,economica
+REG_05559,Exploiting digital twins for occupancy and energy optimisation for office buildings,2025,condicao_fisica,tecnica_operacional
+REG_05559,Exploiting digital twins for occupancy and energy optimisation for office buildings,2025,energia,ambiental
+REG_05559,Exploiting digital twins for occupancy and energy optimisation for office buildings,2025,conforto,social
+REG_05559,Exploiting digital twins for occupancy and energy optimisation for office buildings,2025,desempenho_operacional,tecnica_operacional
+REG_05559,Exploiting digital twins for occupancy and energy optimisation for office buildings,2025,emissoes_carbono,ambiental
+REG_05559,Exploiting digital twins for occupancy and energy optimisation for office buildings,2025,informacao_dados,tecnica_operacional
+REG_05613,Potential for Integrating Post-Construction Facility Management with BIM in Steel Building Projects in the Middle East,2025,custo,economica
+REG_05613,Potential for Integrating Post-Construction Facility Management with BIM in Steel Building Projects in the Middle East,2025,energia,ambiental
+REG_05613,Potential for Integrating Post-Construction Facility Management with BIM in Steel Building Projects in the Middle East,2025,vida_util,tecnica_operacional
+REG_05613,Potential for Integrating Post-Construction Facility Management with BIM in Steel Building Projects in the Middle East,2025,desempenho_operacional,tecnica_operacional
+REG_05613,Potential for Integrating Post-Construction Facility Management with BIM in Steel Building Projects in the Middle East,2025,informacao_dados,tecnica_operacional
+REG_05632,Integration of technology in decision-making in university facilities management: a literature review,2025,risco,tecnica_operacional
+REG_05632,Integration of technology in decision-making in university facilities management: a literature review,2025,desempenho_operacional,tecnica_operacional
+REG_05632,Integration of technology in decision-making in university facilities management: a literature review,2025,informacao_dados,tecnica_operacional
+REG_05645,Digital Twins for Sustainable Hospitality Facilities Management: A Review and Empirical Investigation,2025,energia,ambiental
+REG_05645,Digital Twins for Sustainable Hospitality Facilities Management: A Review and Empirical Investigation,2025,emissoes_carbono,ambiental
+REG_05645,Digital Twins for Sustainable Hospitality Facilities Management: A Review and Empirical Investigation,2025,informacao_dados,tecnica_operacional
+REG_05650,Barriers to Digital Transformation in Facilities Management: Insights from a Developing Country,2025,custo,economica
+REG_05650,Barriers to Digital Transformation in Facilities Management: Insights from a Developing Country,2025,desempenho_operacional,tecnica_operacional
+REG_05650,Barriers to Digital Transformation in Facilities Management: Insights from a Developing Country,2025,informacao_dados,tecnica_operacional
+REG_05740,The driving mechanism for promoting the transition to sustainable operation and maintenance management of major infrastructure projects: a SLR-ISM-MICMAC analysis,2025,desempenho_operacional,tecnica_operacional
+REG_05740,The driving mechanism for promoting the transition to sustainable operation and maintenance management of major infrastructure projects: a SLR-ISM-MICMAC analysis,2025,manutenibilidade,tecnica_operacional
+REG_05812,Research on Circular Design Criteria for Historic Building Protection,2025,custo,economica
+REG_05812,Research on Circular Design Criteria for Historic Building Protection,2025,vida_util,tecnica_operacional
+REG_05812,Research on Circular Design Criteria for Historic Building Protection,2025,desempenho_operacional,tecnica_operacional
+REG_05816,Optimizing Fire Safety Compliance: Rule-Based Checking of As-Is BIM Models for Workplace Regulations,2025,risco,tecnica_operacional
+REG_05816,Optimizing Fire Safety Compliance: Rule-Based Checking of As-Is BIM Models for Workplace Regulations,2025,condicao_fisica,tecnica_operacional
+REG_05816,Optimizing Fire Safety Compliance: Rule-Based Checking of As-Is BIM Models for Workplace Regulations,2025,seguranca,social
+REG_05816,Optimizing Fire Safety Compliance: Rule-Based Checking of As-Is BIM Models for Workplace Regulations,2025,desempenho_operacional,tecnica_operacional
+REG_05816,Optimizing Fire Safety Compliance: Rule-Based Checking of As-Is BIM Models for Workplace Regulations,2025,informacao_dados,tecnica_operacional
+REG_05872,Future directions and research gaps in city information modelling (CIM),2025,custo,economica
+REG_05872,Future directions and research gaps in city information modelling (CIM),2025,risco,tecnica_operacional
+REG_05872,Future directions and research gaps in city information modelling (CIM),2025,informacao_dados,tecnica_operacional
+REG_05925,Appraising sustainable and resilient physical infrastructure facilities in higher education institutions: the role of smart maintenance management,2025,custo,economica
+REG_05925,Appraising sustainable and resilient physical infrastructure facilities in higher education institutions: the role of smart maintenance management,2025,risco,tecnica_operacional
+REG_05925,Appraising sustainable and resilient physical infrastructure facilities in higher education institutions: the role of smart maintenance management,2025,desempenho_operacional,tecnica_operacional
+REG_05925,Appraising sustainable and resilient physical infrastructure facilities in higher education institutions: the role of smart maintenance management,2025,informacao_dados,tecnica_operacional
+REG_05925,Appraising sustainable and resilient physical infrastructure facilities in higher education institutions: the role of smart maintenance management,2025,manutenibilidade,tecnica_operacional
+REG_06111,Next-Generation Building Condition Assessment: BIM and Neural Network Integration,2024,custo,economica
+REG_06111,Next-Generation Building Condition Assessment: BIM and Neural Network Integration,2024,condicao_fisica,tecnica_operacional
+REG_06111,Next-Generation Building Condition Assessment: BIM and Neural Network Integration,2024,seguranca,social
+REG_06111,Next-Generation Building Condition Assessment: BIM and Neural Network Integration,2024,vida_util,tecnica_operacional
+REG_06111,Next-Generation Building Condition Assessment: BIM and Neural Network Integration,2024,desempenho_operacional,tecnica_operacional
+REG_06111,Next-Generation Building Condition Assessment: BIM and Neural Network Integration,2024,informacao_dados,tecnica_operacional
+REG_06159,Developing a framework for building maintenance: a case study of Malaysia's low-cost housing via soft system methodology,2024,custo,economica
+REG_06159,Developing a framework for building maintenance: a case study of Malaysia's low-cost housing via soft system methodology,2024,vida_util,tecnica_operacional
+REG_06159,Developing a framework for building maintenance: a case study of Malaysia's low-cost housing via soft system methodology,2024,desempenho_operacional,tecnica_operacional
+REG_06159,Developing a framework for building maintenance: a case study of Malaysia's low-cost housing via soft system methodology,2024,informacao_dados,tecnica_operacional
+REG_06159,Developing a framework for building maintenance: a case study of Malaysia's low-cost housing via soft system methodology,2024,manutenibilidade,tecnica_operacional
+REG_06247,BIM-IoT-FM integration: strategy for implementation of sustainable water management in buildings,2024,desempenho_operacional,tecnica_operacional
+REG_06247,BIM-IoT-FM integration: strategy for implementation of sustainable water management in buildings,2024,agua,ambiental
+REG_06247,BIM-IoT-FM integration: strategy for implementation of sustainable water management in buildings,2024,informacao_dados,tecnica_operacional
+REG_06255,Research and application of carbon emission calculation methods for the whole life cycle of assembled steel structure office buildings,2024,energia,ambiental
+REG_06255,Research and application of carbon emission calculation methods for the whole life cycle of assembled steel structure office buildings,2024,vida_util,tecnica_operacional
+REG_06255,Research and application of carbon emission calculation methods for the whole life cycle of assembled steel structure office buildings,2024,desempenho_operacional,tecnica_operacional
+REG_06255,Research and application of carbon emission calculation methods for the whole life cycle of assembled steel structure office buildings,2024,emissoes_carbono,ambiental
+REG_06255,Research and application of carbon emission calculation methods for the whole life cycle of assembled steel structure office buildings,2024,residuos,ambiental
+REG_06405,Towards achieving a net zero carbon building: A review of key stakeholders and their roles in net zero carbon building whole life cycle,2024,energia,ambiental
+REG_06405,Towards achieving a net zero carbon building: A review of key stakeholders and their roles in net zero carbon building whole life cycle,2024,vida_util,tecnica_operacional
+REG_06405,Towards achieving a net zero carbon building: A review of key stakeholders and their roles in net zero carbon building whole life cycle,2024,desempenho_operacional,tecnica_operacional
+REG_06405,Towards achieving a net zero carbon building: A review of key stakeholders and their roles in net zero carbon building whole life cycle,2024,emissoes_carbono,ambiental
+REG_06405,Towards achieving a net zero carbon building: A review of key stakeholders and their roles in net zero carbon building whole life cycle,2024,residuos,ambiental
+REG_06405,Towards achieving a net zero carbon building: A review of key stakeholders and their roles in net zero carbon building whole life cycle,2024,informacao_dados,tecnica_operacional
+REG_06494,The applications of building information modeling in the life-cycle of green buildings: a comprehensive review,2024,custo,economica
+REG_06494,The applications of building information modeling in the life-cycle of green buildings: a comprehensive review,2024,energia,ambiental
+REG_06494,The applications of building information modeling in the life-cycle of green buildings: a comprehensive review,2024,seguranca,social
+REG_06494,The applications of building information modeling in the life-cycle of green buildings: a comprehensive review,2024,conforto,social
+REG_06494,The applications of building information modeling in the life-cycle of green buildings: a comprehensive review,2024,vida_util,tecnica_operacional
+REG_06494,The applications of building information modeling in the life-cycle of green buildings: a comprehensive review,2024,desempenho_operacional,tecnica_operacional
+REG_06494,The applications of building information modeling in the life-cycle of green buildings: a comprehensive review,2024,residuos,ambiental
+REG_06494,The applications of building information modeling in the life-cycle of green buildings: a comprehensive review,2024,informacao_dados,tecnica_operacional
+REG_06525,Application of Circular Economy in Facility Maintenance and Management: Moving Towards a Low Carbon Future,2024,energia,ambiental
+REG_06525,Application of Circular Economy in Facility Maintenance and Management: Moving Towards a Low Carbon Future,2024,desempenho_operacional,tecnica_operacional
+REG_06525,Application of Circular Economy in Facility Maintenance and Management: Moving Towards a Low Carbon Future,2024,emissoes_carbono,ambiental
+REG_06525,Application of Circular Economy in Facility Maintenance and Management: Moving Towards a Low Carbon Future,2024,residuos,ambiental
+REG_06548,Improving Facility Management Performance in Public Higher Education Institution Buildings in Nigeria,2024,desempenho_operacional,tecnica_operacional
+REG_06548,Improving Facility Management Performance in Public Higher Education Institution Buildings in Nigeria,2024,satisfacao_usuario,social
+REG_06548,Improving Facility Management Performance in Public Higher Education Institution Buildings in Nigeria,2024,informacao_dados,tecnica_operacional
+REG_06585,Conceptual framework of sustainable interior design (SID) criteria and components to hotel's operational performance effectiveness,2024,risco,tecnica_operacional
+REG_06585,Conceptual framework of sustainable interior design (SID) criteria and components to hotel's operational performance effectiveness,2024,energia,ambiental
+REG_06585,Conceptual framework of sustainable interior design (SID) criteria and components to hotel's operational performance effectiveness,2024,conforto,social
+REG_06585,Conceptual framework of sustainable interior design (SID) criteria and components to hotel's operational performance effectiveness,2024,desempenho_operacional,tecnica_operacional
+REG_06585,Conceptual framework of sustainable interior design (SID) criteria and components to hotel's operational performance effectiveness,2024,agua,ambiental
+REG_06585,Conceptual framework of sustainable interior design (SID) criteria and components to hotel's operational performance effectiveness,2024,informacao_dados,tecnica_operacional
+REG_06585,Conceptual framework of sustainable interior design (SID) criteria and components to hotel's operational performance effectiveness,2024,manutenibilidade,tecnica_operacional
+REG_06681,3D spatio-temporal post-occupational maintenance management of high-rise residential building: a case study,2024,desempenho_operacional,tecnica_operacional
+REG_06681,3D spatio-temporal post-occupational maintenance management of high-rise residential building: a case study,2024,informacao_dados,tecnica_operacional
+REG_06681,3D spatio-temporal post-occupational maintenance management of high-rise residential building: a case study,2024,manutenibilidade,tecnica_operacional
+REG_06712,INTEGRATING BIM INTO BUILT ASSET MANAGEMENT: A PATHWAY TO ACHIEVE SOCIAL SUSTAINABILITY,2024,custo,economica
+REG_06712,INTEGRATING BIM INTO BUILT ASSET MANAGEMENT: A PATHWAY TO ACHIEVE SOCIAL SUSTAINABILITY,2024,risco,tecnica_operacional
+REG_06712,INTEGRATING BIM INTO BUILT ASSET MANAGEMENT: A PATHWAY TO ACHIEVE SOCIAL SUSTAINABILITY,2024,seguranca,social
+REG_06712,INTEGRATING BIM INTO BUILT ASSET MANAGEMENT: A PATHWAY TO ACHIEVE SOCIAL SUSTAINABILITY,2024,conforto,social
+REG_06712,INTEGRATING BIM INTO BUILT ASSET MANAGEMENT: A PATHWAY TO ACHIEVE SOCIAL SUSTAINABILITY,2024,informacao_dados,tecnica_operacional
+REG_06929,Investigation of system optimization and control logic on a solar geothermal hybrid heat pump system based on integral effect test data,2023,custo,economica
+REG_06929,Investigation of system optimization and control logic on a solar geothermal hybrid heat pump system based on integral effect test data,2023,energia,ambiental
+REG_06929,Investigation of system optimization and control logic on a solar geothermal hybrid heat pump system based on integral effect test data,2023,desempenho_operacional,tecnica_operacional
+REG_06929,Investigation of system optimization and control logic on a solar geothermal hybrid heat pump system based on integral effect test data,2023,informacao_dados,tecnica_operacional
+REG_06996,A review and bibliometric analysis of utilizing building information modeling (BIM) on effective operation and maintenance (O&M),2023,condicao_fisica,tecnica_operacional
+REG_06996,A review and bibliometric analysis of utilizing building information modeling (BIM) on effective operation and maintenance (O&M),2023,energia,ambiental
+REG_06996,A review and bibliometric analysis of utilizing building information modeling (BIM) on effective operation and maintenance (O&M),2023,desempenho_operacional,tecnica_operacional
+REG_06996,A review and bibliometric analysis of utilizing building information modeling (BIM) on effective operation and maintenance (O&M),2023,informacao_dados,tecnica_operacional
+REG_07000,Using BIM to improve communication in sustainable building renovation,2023,emissoes_carbono,ambiental
+REG_07000,Using BIM to improve communication in sustainable building renovation,2023,informacao_dados,tecnica_operacional
+REG_07043,Net-Zero Energy Consumption Building in China: An Overview of Building-Integrated Photovoltaic Case and Initiative toward Sustainable Future Development,2023,custo,economica
+REG_07043,Net-Zero Energy Consumption Building in China: An Overview of Building-Integrated Photovoltaic Case and Initiative toward Sustainable Future Development,2023,energia,ambiental
+REG_07043,Net-Zero Energy Consumption Building in China: An Overview of Building-Integrated Photovoltaic Case and Initiative toward Sustainable Future Development,2023,desempenho_operacional,tecnica_operacional
+REG_07043,Net-Zero Energy Consumption Building in China: An Overview of Building-Integrated Photovoltaic Case and Initiative toward Sustainable Future Development,2023,emissoes_carbono,ambiental
+REG_07061,Development of a Campus Facility Management Operational Framework Using a Modified Delphi Method,2023,custo,economica
+REG_07061,Development of a Campus Facility Management Operational Framework Using a Modified Delphi Method,2023,risco,tecnica_operacional
+REG_07061,Development of a Campus Facility Management Operational Framework Using a Modified Delphi Method,2023,desempenho_operacional,tecnica_operacional
+REG_07061,Development of a Campus Facility Management Operational Framework Using a Modified Delphi Method,2023,informacao_dados,tecnica_operacional
+REG_07061,Development of a Campus Facility Management Operational Framework Using a Modified Delphi Method,2023,qualidade_servico,tecnica_operacional
+REG_07171,Global trends of the research on COVID-19 risks effect in sustainable facility management fields: a bibliometric analysis,2023,risco,tecnica_operacional
+REG_07171,Global trends of the research on COVID-19 risks effect in sustainable facility management fields: a bibliometric analysis,2023,informacao_dados,tecnica_operacional
+REG_07192,Digital Twin framework for automated fault source detection and prediction for comfort performance evaluation of existing non-residential Norwegian buildings,2023,condicao_fisica,tecnica_operacional
+REG_07192,Digital Twin framework for automated fault source detection and prediction for comfort performance evaluation of existing non-residential Norwegian buildings,2023,energia,ambiental
+REG_07192,Digital Twin framework for automated fault source detection and prediction for comfort performance evaluation of existing non-residential Norwegian buildings,2023,conforto,social
+REG_07192,Digital Twin framework for automated fault source detection and prediction for comfort performance evaluation of existing non-residential Norwegian buildings,2023,desempenho_operacional,tecnica_operacional
+REG_07192,Digital Twin framework for automated fault source detection and prediction for comfort performance evaluation of existing non-residential Norwegian buildings,2023,satisfacao_usuario,social
+REG_07192,Digital Twin framework for automated fault source detection and prediction for comfort performance evaluation of existing non-residential Norwegian buildings,2023,informacao_dados,tecnica_operacional
+REG_07225,An Embedded Joint Management Body (JMB) in a Comprehensive Life Cycle Cost Analysis Planning Mode in Sustainable Building Project,2023,custo,economica
+REG_07225,An Embedded Joint Management Body (JMB) in a Comprehensive Life Cycle Cost Analysis Planning Mode in Sustainable Building Project,2023,vida_util,tecnica_operacional
+REG_07225,An Embedded Joint Management Body (JMB) in a Comprehensive Life Cycle Cost Analysis Planning Mode in Sustainable Building Project,2023,desempenho_operacional,tecnica_operacional
+REG_07225,An Embedded Joint Management Body (JMB) in a Comprehensive Life Cycle Cost Analysis Planning Mode in Sustainable Building Project,2023,residuos,ambiental
+REG_07225,An Embedded Joint Management Body (JMB) in a Comprehensive Life Cycle Cost Analysis Planning Mode in Sustainable Building Project,2023,informacao_dados,tecnica_operacional
+REG_07228,Framework to evaluate quality performance of green building delivery: construction and operational stage,2023,energia,ambiental
+REG_07228,Framework to evaluate quality performance of green building delivery: construction and operational stage,2023,conforto,social
+REG_07228,Framework to evaluate quality performance of green building delivery: construction and operational stage,2023,desempenho_operacional,tecnica_operacional
+REG_07228,Framework to evaluate quality performance of green building delivery: construction and operational stage,2023,agua,ambiental
+REG_07228,Framework to evaluate quality performance of green building delivery: construction and operational stage,2023,qualidade_servico,tecnica_operacional
+REG_07235,EXPERT VERIFICATION OF INFORMATION REQUIREMENTS FOR INTEGRATING BUILDING INFORMATION MODELLING WITH OPERATION AND MAINTENANCE,2023,custo,economica
+REG_07235,EXPERT VERIFICATION OF INFORMATION REQUIREMENTS FOR INTEGRATING BUILDING INFORMATION MODELLING WITH OPERATION AND MAINTENANCE,2023,vida_util,tecnica_operacional
+REG_07235,EXPERT VERIFICATION OF INFORMATION REQUIREMENTS FOR INTEGRATING BUILDING INFORMATION MODELLING WITH OPERATION AND MAINTENANCE,2023,desempenho_operacional,tecnica_operacional
+REG_07235,EXPERT VERIFICATION OF INFORMATION REQUIREMENTS FOR INTEGRATING BUILDING INFORMATION MODELLING WITH OPERATION AND MAINTENANCE,2023,informacao_dados,tecnica_operacional
+REG_07476,Enhancing building maintainability through early supplier involvement in the design process,2023,custo,economica
+REG_07476,Enhancing building maintainability through early supplier involvement in the design process,2023,risco,tecnica_operacional
+REG_07476,Enhancing building maintainability through early supplier involvement in the design process,2023,condicao_fisica,tecnica_operacional
+REG_07476,Enhancing building maintainability through early supplier involvement in the design process,2023,desempenho_operacional,tecnica_operacional
+REG_07476,Enhancing building maintainability through early supplier involvement in the design process,2023,satisfacao_usuario,social
+REG_07476,Enhancing building maintainability through early supplier involvement in the design process,2023,informacao_dados,tecnica_operacional
+REG_07476,Enhancing building maintainability through early supplier involvement in the design process,2023,manutenibilidade,tecnica_operacional
+REG_08015,CIB - UTILITY BASED SYSTEMS FRAMEWORK FOR EXISTING RESIDENTIAL BUILDING,2022,custo,economica
+REG_08015,CIB - UTILITY BASED SYSTEMS FRAMEWORK FOR EXISTING RESIDENTIAL BUILDING,2022,condicao_fisica,tecnica_operacional
+REG_08015,CIB - UTILITY BASED SYSTEMS FRAMEWORK FOR EXISTING RESIDENTIAL BUILDING,2022,vida_util,tecnica_operacional
+REG_08015,CIB - UTILITY BASED SYSTEMS FRAMEWORK FOR EXISTING RESIDENTIAL BUILDING,2022,desempenho_operacional,tecnica_operacional
+REG_08015,CIB - UTILITY BASED SYSTEMS FRAMEWORK FOR EXISTING RESIDENTIAL BUILDING,2022,informacao_dados,tecnica_operacional
+REG_08052,Stochastic maintenance models for ceramic claddings,2020,custo,economica
+REG_08052,Stochastic maintenance models for ceramic claddings,2020,condicao_fisica,tecnica_operacional
+REG_08052,Stochastic maintenance models for ceramic claddings,2020,vida_util,tecnica_operacional
+REG_08052,Stochastic maintenance models for ceramic claddings,2020,desempenho_operacional,tecnica_operacional
+REG_08052,Stochastic maintenance models for ceramic claddings,2020,manutenibilidade,tecnica_operacional
+REG_08528,Building Institutional Resilience Through Sustainable Facility Management in South African Vocational Education,2025,custo,economica
+REG_08528,Building Institutional Resilience Through Sustainable Facility Management in South African Vocational Education,2025,risco,tecnica_operacional
+REG_08528,Building Institutional Resilience Through Sustainable Facility Management in South African Vocational Education,2025,desempenho_operacional,tecnica_operacional
+REG_08528,Building Institutional Resilience Through Sustainable Facility Management in South African Vocational Education,2025,informacao_dados,tecnica_operacional
+REG_09113,"Application of Multicriteria Decision-Making Methods to Determine the Appropriate Policy for Maintenance of Buildings in Karaj City, Iran",2023,condicao_fisica,tecnica_operacional
+REG_09113,"Application of Multicriteria Decision-Making Methods to Determine the Appropriate Policy for Maintenance of Buildings in Karaj City, Iran",2023,seguranca,social
+REG_09113,"Application of Multicriteria Decision-Making Methods to Determine the Appropriate Policy for Maintenance of Buildings in Karaj City, Iran",2023,desempenho_operacional,tecnica_operacional
+REG_09127,Key Performance Indicators for Building Assessment. A case study on an R/C Building in Greece,2023,risco,tecnica_operacional
+REG_09127,Key Performance Indicators for Building Assessment. A case study on an R/C Building in Greece,2023,seguranca,social
+REG_09127,Key Performance Indicators for Building Assessment. A case study on an R/C Building in Greece,2023,vida_util,tecnica_operacional
+REG_09127,Key Performance Indicators for Building Assessment. A case study on an R/C Building in Greece,2023,desempenho_operacional,tecnica_operacional
+REG_09127,Key Performance Indicators for Building Assessment. A case study on an R/C Building in Greece,2023,informacao_dados,tecnica_operacional
+REG_09169,"Prioritizing Heritage Building Maintenance: A Fuzzy Model Approach for Arc De Bera, Spain",2023,risco,tecnica_operacional
+REG_09169,"Prioritizing Heritage Building Maintenance: A Fuzzy Model Approach for Arc De Bera, Spain",2023,condicao_fisica,tecnica_operacional
+REG_09169,"Prioritizing Heritage Building Maintenance: A Fuzzy Model Approach for Arc De Bera, Spain",2023,vida_util,tecnica_operacional
+REG_09169,"Prioritizing Heritage Building Maintenance: A Fuzzy Model Approach for Arc De Bera, Spain",2023,desempenho_operacional,tecnica_operacional
+REG_09290,Stakeholders' perception of critical success factors for sustainable facilities management practice in universities in sub-Saharan Africa,2017,risco,tecnica_operacional
+REG_09290,Stakeholders' perception of critical success factors for sustainable facilities management practice in universities in sub-Saharan Africa,2017,satisfacao_usuario,social
+REG_09290,Stakeholders' perception of critical success factors for sustainable facilities management practice in universities in sub-Saharan Africa,2017,informacao_dados,tecnica_operacional
+REG_09290,Stakeholders' perception of critical success factors for sustainable facilities management practice in universities in sub-Saharan Africa,2017,qualidade_servico,tecnica_operacional
+REG_09503,Developing post occupancy evaluation sustainability assessment framework for retrofitting commercial office buildings: A proposal,2012,desempenho_operacional,tecnica_operacional
