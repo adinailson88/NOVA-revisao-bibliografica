@@ -145,15 +145,21 @@ instrumentos gerais, e métodos formalmente nomeados (multicritério ou correlat
    omitiam esses três métodos. Corrigido nesta etapa no script (ver Seção 7) e na prosa do
    artigo; a regeneração da figura em si permanece pendente (ver Seção 8).
 
-3. **Campo `tipo_contribuicao_artigo` subutilizado.** A coluna registra dez categorias de
-   contribuição por estudo, mas apenas a categoria `lacuna_para_ies_publicas` é usada em uma
-   tabela derivada (`tabela30`). As demais nove categorias (`contexto_publico_universitario`,
-   `criterios_de_priorizacao`, `criterios_de_sustentabilidade`, `custo_ciclo_de_vida`,
-   `energia_desempenho_operacional`, `facility_management`, `gestao_manutencao_predial`,
-   `metodo_multicriterio_ou_decisao`, `risco_seguranca_conforto`) não geram tabela ou figura
-   própria. Isso não é um erro — os dados dessas categorias são, em grande parte, redundantes
-   com as tabelas de critérios/dimensões/métodos já existentes —, mas é registrado aqui como
-   observação de auditoria, sem alteração proposta nesta etapa.
+3. **Campo `tipo_contribuicao_artigo` subutilizado (corrigido nesta etapa).** A coluna registra
+   dez categorias de contribuição por estudo, mas, antes desta etapa, apenas a categoria
+   `lacuna_para_ies_publicas` era usada em uma tabela derivada (`tabela30`). As demais nove
+   categorias (`contexto_publico_universitario`, `criterios_de_priorizacao`,
+   `criterios_de_sustentabilidade`, `custo_ciclo_de_vida`, `energia_desempenho_operacional`,
+   `facility_management`, `gestao_manutencao_predial`, `metodo_multicriterio_ou_decisao`,
+   `risco_seguranca_conforto`) não geravam tabela ou figura própria. Os dados dessas categorias
+   são, em grande parte, redundantes com as tabelas de critérios/dimensões/métodos já publicadas,
+   mas a ausência de uma tabela de frequência própria impedia a auditoria direta da distribuição
+   completa do campo. Corrigido nesta etapa com a criação de
+   `tabela36_tipo_contribuicao_artigo_nucleo_final_104.csv` (ver Seção 7), que reporta a
+   frequência das dez categorias no núcleo final. Essa tabela é um produto de dados
+   (`latex-artigo/fontes/`), auditável e reprodutível; sua inclusão como tabela ou figura no corpo
+   do artigo, caso o pesquisador julgue necessário, pertence à Etapa 14 (redação e padronização),
+   por não ser exigida pelo escopo desta etapa.
 
 ## 7. Alterações realizadas no artigo e nos scripts
 
@@ -161,20 +167,28 @@ instrumentos gerais, e métodos formalmente nomeados (multicritério ou correlat
   `metodos_estruturados` (`"balanced scorecard"`, `"case-based reasoning"`,
   `"Bayesian Best Worst Method"`), para corresponder exatamente aos rótulos gravados no núcleo
   final. Nenhum dado do núcleo de 104 estudos foi alterado; apenas a lógica de geração da figura.
+- `scripts/r/10_gerar_produtos_artigo.R`: adicionada a geração de
+  `tabela36_tipo_contribuicao_artigo_nucleo_final_104.csv`, reportando a frequência das dez
+  categorias do campo `tipo_contribuicao_artigo` no núcleo final, corrigindo a subutilização
+  identificada na Seção 6, item 3.
 - `latex-artigo/sections/03_metodologia.tex`: acrescentada uma frase, ao final do último
   parágrafo, esclarecendo a distinção entre dimensão (categoria-guarda-chuva) e critério
-  (atributo operacional específico), e referenciando este codebook.
+  (atributo operacional específico); corrigido um erro de digitação (`\\texttt` com barra dupla,
+  que impedia a renderização correta do rótulo `RELEVANTE` na Tabela de rastreabilidade do funil);
+  inseridos pontos de quebra de linha (`\allowbreak`) nos identificadores longos em
+  \texttt{} da Tabela de alinhamento entre perguntas, seleção, extração e resultados, corrigindo
+  estouro de margem (\textit{overfull hbox}) que impedia a compilação bem-sucedida no fluxo de
+  integração contínua do repositório.
 - `latex-artigo/sections/06_metodos.tex`: a enumeração de métodos formalmente nomeados foi
   completada para incluir Delphi, balanced scorecard e raciocínio baseado em casos (um registro
   cada), com base nos dados corretos de `tabela28_metodos_decisao_nucleo_final_104.csv`.
 
-## 8. Pendência de regeneração de figura
+## 8. Regeneração de produtos derivados
 
-A correção do script (Seção 7) altera a lógica de geração de
-`figura11_metodos_mcdm_mais_frequentes_nucleo_final_104.png`, mas o ambiente desta sessão não
-possui interpretador R instalado (`Rscript` não encontrado). A regeneração efetiva do arquivo PNG
-com `Rscript scripts/r/10_gerar_produtos_artigo.R` é responsabilidade do pesquisador, em ambiente
-local com R e os pacotes `readr`, `dplyr`, `tidyr`, `stringr`, `ggplot2` e `scales` instalados.
-Até a regeneração, a figura publicada no artigo permanece a anterior à correção (sem os três
-métodos de um registro cada); a tabela numérica (`tabela28`) e a prosa de `06_metodos.tex` já
-estão corretas.
+O ambiente desta sessão não possui interpretador R instalado (`Rscript` não encontrado), o que
+impede a regeneração local de figuras e tabelas derivadas. O repositório já mantém um fluxo de
+integração contínua (`.github/workflows/latex.yml`) que instala R e TeX Live, executa
+`scripts/r/10_gerar_produtos_artigo.R`, valida com `scripts/python/verificar_artigo.py`, compila o
+PDF e, em caso de sucesso, publica automaticamente os produtos gerados (tabelas, figuras e PDF) de
+volta no repositório. As correções desta etapa foram enviadas por push para acionar esse fluxo; o
+resultado da execução está registrado em `docs/RELATORIO_ETAPA_8.md`.
