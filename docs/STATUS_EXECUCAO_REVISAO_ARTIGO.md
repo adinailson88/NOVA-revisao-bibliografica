@@ -252,3 +252,28 @@ registradas e referenciadas individualmente por estudo, conforme já declarado e
 e `09_limitacoes.tex`.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 8`.
+
+
+## Uso pontual de texto completo dos 19 estudos (fora da sequência de etapas 0-16)
+
+Tarefa pontual, autorizada fora da sequência formal do plano controlado: leitura de texto completo
+dos 19 estudos do núcleo final com PDF disponível (relatório completo em
+`docs/RELATORIO_USO_TEXTO_COMPLETO_19_ESTUDOS.md`). A leitura comparou cada estudo com a codificação
+documental já registrada em `nucleo_final_pos_auditoria_resumos.csv`. Sete estudos (REG_03359,
+REG_05430, REG_06996, REG_08052, REG_05650, REG_07476, REG_08528) continham conteúdo, verificável em
+texto completo, que refinava a síntese em pontos específicos e foram incorporados com citação
+individual nova em `05_criterios.tex`, `06_metodos.tex` e `07_aplicabilidade.tex`, com sete novas
+entradas em `references.bib`. Os demais doze estudos foram lidos integralmente; a leitura confirmou a
+codificação documental existente, sem acrescentar conteúdo narrativamente relevante e não redundante,
+exceto três divergências pontuais de codificação individual (REG_01104, REG_02204, REG_03176),
+registradas apenas no relatório desta tarefa, sem alteração das tabelas agregadas do núcleo de 104
+estudos.
+
+Nenhuma tabela agregada, número do funil de seleção, resultado da deduplicação ou declaração de
+natureza predominantemente documental em `03_metodologia.tex` e `09_limitacoes.tex` foi alterada. A
+Rota B (elevação a revisão sistemática de todos os 104 estudos) permanece não autorizada.
+
+A execução de `python scripts/python/verificar_artigo.py` após as alterações concluiu sem
+divergências.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 8`.
