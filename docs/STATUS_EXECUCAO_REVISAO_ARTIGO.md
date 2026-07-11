@@ -389,3 +389,12 @@ A discussão foi reestruturada em seção autônoma, sem alteração dos resulta
 As interpretações preservam a distinção entre frequência e importância, menção e aplicação, coocorrência e associação, síntese conceitual e validação. Foram utilizadas apenas referências existentes e verificadas no artigo. Relatório completo em `docs/RELATORIO_ETAPA_11.md`.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 12`.
+
+
+## Registro da Etapa 12
+
+A matriz foi auditada e passou a ser denominada “matriz analítica conceitual informada pela síntese da literatura”. Foram distinguidos critérios extraídos, dimensões documentais, desdobramentos conceituais e requisitos futuros de operacionalização. A dimensão ciclo de vida foi explicitada como eixo transversal. Governança, conformidade e capacidade de execução foram identificadas como proposições ainda não contabilizadas individualmente, e custo do ciclo de vida foi distinguido do critério genérico custo.
+
+Foi declarado que frequências e coocorrências não constituem pesos e que a matriz ainda não possui indicadores operacionais, normalização, limiares, função de agregação, método decisório selecionado ou validação empírica. Nenhum resultado ou registro foi alterado. Relatório completo em `docs/RELATORIO_ETAPA_12.md`.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 13`.

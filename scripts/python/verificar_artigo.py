@@ -356,4 +356,23 @@ exigir(
     f"Tipos de contribuicao divergentes: {contribuicoes_totais}",
 )
 
+
+# Rastreabilidade da matriz analitica (Etapa 12)
+exigir(
+    "Matriz analítica conceitual informada pela síntese da literatura" in texto_tex,
+    "A matriz deve ser identificada como sintese conceitual, nao como modelo validado.",
+)
+exigir(
+    "As frequências não constituem pesos da matriz." in texto_tex,
+    "A matriz deve declarar que frequencias documentais nao sao pesos.",
+)
+exigir(
+    "ela funciona como eixo transversal" in texto_tex,
+    "A dimensao ciclo de vida deve permanecer explicitada como eixo transversal.",
+)
+exigir(
+    "não é um modelo validado nem um instrumento pronto para decisão" in texto_tex,
+    "O artigo deve preservar o estado nao validado da matriz.",
+)
+
 print("Verificacao do artigo concluida sem divergencias.")
