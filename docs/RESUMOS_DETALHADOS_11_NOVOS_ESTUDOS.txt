@@ -1,0 +1,501 @@
+RESUMOS DETALHADOS DOS 11 ARTIGOS BAIXADOS (LOTE NOVO)
+========================================================
+Documento de apoio para tratamento posterior no repositório (uso local/GitHub, a critério do
+pesquisador). Os resumos abaixo são paráfrases do conteúdo de cada artigo (introdução,
+literatura, método e achados), sem reprodução de trechos literais longos, em respeito a
+direitos autorais. Nenhum dos 11 arquivos PDF originais deve ser enviado ao repositório
+(prática já adotada no projeto para todo o corpus de texto completo). Este .txt reúne apenas
+o conteúdo textual necessário para eventual uso.
+
+Cada bloco contém: id_unico (conforme mapa local), referência bibliográfica completa, e um
+resumo detalhado (problema/objetivo, método, principais achados, conclusões/limitações,
+quando identificáveis a partir das páginas lidas).
+
+--------------------------------------------------------------------------------------------
+
+1) REG_00489 — ALDAIRI, YOON, PARK... (ver abaixo, ordem por arquivo)
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: aldairi2017.pdf | id_unico: REG_00489
+
+REFERÊNCIA:
+Aldairi, J.; Khan, M. K.; Munive-Hernandez, J. E. (2017). Knowledge-based Lean Six Sigma
+maintenance system for sustainable buildings. International Journal of Lean Six Sigma
+(Emerald), DOI: 10.1108/IJLSS-09-2015-0035.
+
+RESUMO DETALHADO:
+O artigo propõe um sistema de manutenção baseado em conhecimento (knowledge-based) que integra
+os princípios de Lean Six Sigma (LSS) à gestão da manutenção predial voltada à sustentabilidade.
+O problema de pesquisa parte da constatação de que a manutenção predial tradicional é reativa,
+fragmentada e pouco integrada a metas de eficiência energética e redução de desperdício,
+enquanto LSS — amplamente aplicado à manufatura — ainda é pouco explorado no contexto de
+facilities management (FM) para edificações sustentáveis. Metodologicamente, o estudo revisa a
+literatura sobre LSS, gestão do conhecimento e manutenção sustentável, e a partir dela estrutura
+um framework conceitual que combina: (i) o ciclo DMAIC (Define-Measure-Analyze-Improve-Control)
+do Six Sigma; (ii) ferramentas Lean de eliminação de desperdício aplicadas a processos de
+manutenção (ex.: tempo de resposta, retrabalho, uso de peças); e (iii) uma camada de gestão de
+conhecimento (captura, armazenamento e reuso de lições aprendidas de intervenções de manutenção
+anteriores) para apoiar decisões futuras. O sistema proposto é apresentado como uma arquitetura
+de apoio à decisão que integra dados históricos de manutenção a um repositório de conhecimento
+consultável pelos gestores de FM, com o objetivo de reduzir tempo de parada, custo de manutenção
+e impacto ambiental (consumo de energia e materiais) ao longo do ciclo de vida do edifício. Os
+achados discutidos são majoritariamente conceituais/teóricos (proposta de framework), com ênfase
+na lacuna entre a maturidade de LSS na manufatura e sua aplicação ainda incipiente em FM/
+manutenção predial sustentável. Como limitação, o próprio artigo indica que o framework carece
+de validação empírica em estudo de caso real, ficando a implementação prática como agenda futura
+de pesquisa. Relevância para a revisão: reforça a categoria de "proposta de framework conceitual"
+e evidencia gestão do conhecimento como critério de suporte à manutenção sustentável ainda pouco
+formalizado na literatura.
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: yoon2018.pdf | id_unico: REG_00110
+
+REFERÊNCIA:
+Yoon, S.; Yu, J. H. (ou autoria conforme ASCE — verificar página de rosto completa); (2018).
+Optimal FM Strategy for Commercial Office Buildings Using Fuzzy Synthetic Evaluation. Journal
+of Cold Regions Engineering / Journal of the ASCE (Facilities-related), DOI:
+10.1061/(ASCE)CF.1943-5509.0001176.
+
+RESUMO DETALHADO:
+O estudo aborda o problema de seleção da estratégia ótima de facilities management (FM) para
+edifícios comerciais de escritório, partindo da premissa de que decisões de FM envolvem
+múltiplos critérios qualitativos e quantitativos (custo, desempenho energético, conforto dos
+ocupantes, confiabilidade dos sistemas) de difícil comparação direta. Para lidar com essa
+imprecisão, os autores empregam avaliação sintética fuzzy (fuzzy synthetic evaluation — FSE),
+um método multicritério que converte julgamentos qualitativos de especialistas/gestores em
+valores numéricos por meio de funções de pertinência fuzzy, agregando-os em um escore final que
+permite comparar alternativas de estratégia de FM (por exemplo, terceirização total, gestão
+interna, modelos híbridos, ou diferentes níveis de intensidade de manutenção preventiva). A
+metodologia inclui: definição de critérios de avaliação (hierarquia de fatores), coleta de
+julgamentos de especialistas/gestores de FM sobre a importância relativa e o desempenho de cada
+alternativa em cada critério, construção de matrizes de pertinência fuzzy e agregação via
+operadores fuzzy para obter o ranking final das estratégias. Os achados indicam que o método FSE
+é capaz de discriminar estatisticamente entre estratégias de FM com desempenho próximo,
+oferecendo uma base mais robusta de decisão do que julgamento qualitativo não estruturado,
+sobretudo em cenários de incerteza. O artigo discute a aplicabilidade do método a edifícios
+comerciais de escritório especificamente, indicando que a ponderação de critérios pode variar
+conforme o portfólio de ativos e o perfil de risco da organização proprietária. Relevância para
+a revisão: exemplo consolidado de método de decisão multicritério fuzzy (FSE) aplicado a FM,
+reforçando a categoria "aplicação de método de decisão quantitativo" e o contexto de edificações
+comerciais de escritório.
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: park2019.pdf | id_unico: REG_04052
+
+REFERÊNCIA:
+Park, S. et al. (2019). Forecasting Repair Schedule for Building Components Based on
+Case-Based Reasoning and Fuzzy-AHP. Sustainability (MDPI), 11(24), 7181,
+DOI: 10.3390/su11247181. (Acesso aberto)
+
+RESUMO DETALHADO:
+O artigo propõe um modelo híbrido de previsão do cronograma de reparo de componentes prediais
+combinando Raciocínio Baseado em Casos (Case-Based Reasoning — CBR) com Processo Analítico
+Hierárquico Fuzzy (Fuzzy-AHP). O problema abordado é a dificuldade de prever, de forma
+padronizada e reprodutível, quando um componente construtivo (ex.: revestimentos, sistemas
+mecânicos, elementos de fachada) precisará de reparo, considerando que os métodos tradicionais
+de estimativa de vida útil costumam depender de tabelas genéricas pouco sensíveis às condições
+específicas de uso e degradação de cada edifício. A metodologia consiste em: (1) construir uma
+base de casos históricos de reparo de componentes (registros reais de intervenções anteriores,
+com atributos como idade do componente, condições ambientais, intensidade de uso, histórico de
+manutenção); (2) aplicar CBR para recuperar, a partir de um novo caso (componente a avaliar), os
+casos históricos mais similares, usando medidas de similaridade ponderadas; (3) empregar
+Fuzzy-AHP para determinar os pesos relativos dos atributos usados na medida de similaridade,
+tratando a imprecisão dos julgamentos de especialistas sobre a importância de cada atributo; e
+(4) a partir dos casos recuperados, gerar uma previsão do cronograma de reparo do novo
+componente. Os achados demonstram que o modelo híbrido CBR + Fuzzy-AHP produz previsões de
+cronograma de reparo mais aderentes a dados históricos reais do que abordagens baseadas apenas
+em vida útil média tabelada, e que a ponderação fuzzy dos atributos melhora a qualidade da
+recuperação de casos similares em comparação com pesos uniformes. O artigo discute a aplicação
+como ferramenta de apoio ao planejamento de manutenção preventiva/preditiva, com potencial de
+uso por gestores de facilities para priorizar orçamento de reparo. Relevância para a revisão:
+exemplo de método híbrido (CBR + método de decisão multicritério fuzzy) explicitamente voltado a
+previsão/programação de manutenção, reforçando a diversidade metodológica dentro da categoria de
+métodos quantitativos de decisão.
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: matthews2016.pdf | id_unico: REG_00888
+
+REFERÊNCIA:
+Matthews, E. C. et al. (2016). Optimization of Sustainability and Flood Hazard Resilience for
+Home Designs. Procedia Engineering, 145, 364-371 (aprox.), Elsevier,
+DOI: 10.1016/j.proeng.2016.04.040. (Acesso aberto, CC BY-NC-ND — artigo curto de conferência)
+
+RESUMO DETALHADO:
+Artigo curto de conferência que discute a otimização conjunta entre sustentabilidade e
+resiliência a risco de inundação no design residencial. O problema de pesquisa parte da
+observação de que projetos residenciais sustentáveis (voltados a eficiência energética,
+materiais de baixo impacto, certificações verdes) frequentemente não incorporam explicitamente
+critérios de resiliência a eventos de inundação, e vice-versa: soluções de resiliência a
+inundação (elevação de fundação, materiais resistentes à água, sistemas de drenagem) podem
+entrar em conflito com metas de custo e sustentabilidade se tratadas isoladamente. A metodologia
+descrita é de otimização multiobjetivo aplicada a alternativas de design residencial,
+combinando indicadores de desempenho de sustentabilidade (energia, materiais, custo de ciclo de
+vida) com indicadores de resiliência a inundação (elevação, tipo de fundação, materiais à prova
+d'água), buscando identificar combinações de design que atendam simultaneamente aos dois
+conjuntos de critérios sem comprometer excessivamente o orçamento. Por ser um artigo curto de
+conferência (Procedia Engineering), a profundidade metodológica é limitada; o foco está na
+proposição do problema de otimização conjunta e na discussão preliminar de trade-offs entre
+custo, desempenho de sustentabilidade e desempenho de resiliência. Os achados indicam que
+existem soluções de design que atendem parcialmente aos dois objetivos com incremento de custo
+moderado, mas que a otimização puramente unidimensional (sustentabilidade OU resiliência)
+tende a gerar soluções subótimas quando os dois critérios são avaliados em conjunto. Relevância
+para a revisão: exemplo do critério "resiliência a riscos climáticos/eventos extremos" cruzado
+com sustentabilidade, categoria pouco representada no núcleo consolidado, e evidência de método
+de otimização multiobjetivo (ainda que em nível preliminar/conferência) aplicado a decisões de
+projeto residencial.
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: chew2016.pdf | id_unico: REG_00852
+
+REFERÊNCIA:
+Chew, M. Y. L. et al. (2016 — conforme metadado local; verificar ano exato de publicação
+definitiva, já que o PDF em mãos apresenta marcas de preprint/early access). Developing a green
+maintainability framework for green walls in Singapore. Smart and Sustainable Built Environment
+(Emerald), DOI: 10.1108/SASBE-... (a confirmar número definitivo do fascículo).
+
+RESUMO DETALHADO:
+O artigo propõe um framework de "manutenibilidade verde" (green maintainability) especificamente
+voltado a paredes verdes (green walls) em Singapura, no contexto de sistemas de verticalização
+vegetal (vertical greenery systems — VGS) como estratégia de construção sustentável. O problema
+de pesquisa decorre da constatação de que, apesar dos benefícios ambientais reconhecidos das
+VGS (mitigação de ilha de calor urbana, eficiência energética, biodiversidade, conforto),
+projetos de paredes verdes frequentemente falham por desconsiderar a manutenibilidade já na
+fase de projeto, gerando altos custos de manutenção, degradação prematura e riscos à segurança
+(queda de material vegetal, crescimento descontrolado, problemas de irrigação e drenagem). A
+metodologia é qualitativa, baseada na triangulação entre revisão de literatura, levantamento de
+campo (observação de sistemas instalados) e entrevistas com profissionais envolvidos
+(projetistas, instaladores, gestores de manutenção), estruturada em torno do conceito de "Green
+Maintainability" que articula cinco fatores: maximizar desempenho, minimizar custo, minimizar
+risco, minimizar impacto ambiental negativo e minimizar consumo de matéria/energia — conceito
+este que o mesmo grupo de pesquisa viria a formalizar e aplicar de modo mais amplo em estudo
+posterior sobre sistemas verticais de grande porte (ver chew2016/conejos2019 abaixo). Os achados
+apontam para problemas recorrentes de manutenção em paredes verdes (acúmulo de folhas/detritos,
+questões de segurança durante limpeza e reparo, acesso de manutenção insuficiente, crescimento/
+mofo de algas, plantas debilitadas, estagnação/poças de água, irrigação inadequada ou
+gotejamento, e indisponibilidade de elementos naturais previstos em projeto), e para lacunas de
+coordenação entre os profissionais envolvidos (projetistas, paisagistas, equipes de manutenção)
+como causa raiz de boa parte desses problemas. O estudo propõe que a manutenibilidade seja
+incorporada como critério de projeto desde a concepção (Design for Maintainability), e não como
+consideração posterior. Relevância para a revisão: fonte primária do conceito "Green
+Maintainability" (cinco fatores) que também sustenta o estudo de sistemas verticais em maior
+escala (conejos2019, abaixo); reforça a categoria de critérios ambientais/manutenibilidade
+integrados a projeto.
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: bu2015.pdf | id_unico: REG_01046
+
+REFERÊNCIA:
+Bu, S.; Shen, G.; Anumba, C. J.; Wong, A. K. D.; Liang, X. (2015). Literature review of green
+retrofit design for commercial buildings with BIM implication. Smart and Sustainable Built
+Environment, 4(2), 188-215, Emerald, DOI: 10.1108/SASBE-08-2014-0043.
+
+RESUMO DETALHADO:
+Trata-se de uma revisão de literatura que examina o processo de design de retrofit verde (green
+retrofit design — GRD) para edifícios comerciais, com atenção específica à possível contribuição
+do BIM (Building Information Modeling) a esse processo. O problema de pesquisa parte da
+constatação de que edifícios comerciais respondem por parcela significativa do consumo
+energético urbano, que a maior parte do estoque construído existente não foi projetada segundo
+padrões de eficiência energética contemporâneos, e que a literatura sobre retrofit verde tende a
+tratar separadamente questões funcionais, técnicas e organizacionais/legais, sem uma visão
+sistêmica do processo de design. Metodologicamente, o estudo revisa publicações sobre o processo
+de Green Building Design (GBD) para construções novas e, a partir daí, deriva etapas adicionais
+específicas do processo de Green Retrofit Design (GRD) para edificações existentes, comparando
+sistemas de decisão já documentados na literatura (ex.: TOBUS como ferramenta de decisão para
+seleção de soluções de retrofit predial, modelos de retrofit habitacional no Reino Unido,
+sistemas de suporte à decisão para retrofit de edifícios públicos). O artigo também situa o
+contexto de mercado (crescimento da demanda por retrofit verde em Hong Kong e na China,
+potencial de economia energética de até 43% relatado em estudos anteriores de simulação
+computacional sobre edifícios comerciais). Os achados da revisão indicam que: (i) questões
+funcionais e de manutenção são majoritariamente discutidas no contexto de edificações novas,
+havendo lacuna equivalente para retrofit; (ii) estudos sobre GRD tendem a isolar aspectos
+organizacionais/legais dos aspectos técnicos, sem integração; (iii) estudos baseados em
+questionário concentram-se em avaliação de ciclo de vida (LCA) de edificações existentes, mas
+ainda não tratam adequadamente de gestão de stakeholders nem do processo de design em si; e
+(iv) há um gap conceitual entre arquitetos e engenheiros quanto a modelos de energia na fase de
+pré-projeto, que o BIM tem potencial de reduzir ao integrar informações de forma e conservação de
+energia em um modelo único e compartilhado. O artigo conclui propondo a necessidade de um modelo
+sistemático de processo de GRD que incorpore BIM como ferramenta de suporte à decisão nas fases
+iniciais de projeto. Relevância para a revisão: reforça a categoria "revisão bibliométrica/
+literatura" e evidencia BIM como método/tecnologia de suporte à decisão em retrofit verde,
+tema já presente em outros estudos do núcleo consolidado (ex. Deng et al. 2021, já citado no
+artigo).
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: talib2013.pdf | id_unico: REG_01657
+
+REFERÊNCIA:
+Talib, Y.; Rajagopalan, P.; Yang, R. J. (2013). Evaluation of building performance for
+strategic facilities management in healthcare: A case study of a public hospital in Australia.
+Facilities, 31(13/14), 681-701, Emerald, DOI: 10.1108/F-06-2012-0042.
+
+RESUMO DETALHADO:
+O artigo avalia o desempenho de um edifício hospitalar público na Austrália a partir de três
+dimensões — funcionalidade, impacto e qualidade da edificação —, com o objetivo de subsidiar a
+gestão estratégica de facilities management (FM) no setor de saúde. O problema de pesquisa
+decorre da constatação de que a Austrália carece de um instrumento (toolkit) padronizado para
+avaliação de desempenho de edificações de saúde, ao contrário do Reino Unido, que dispõe do
+AEDET (Achieving Excellence Design Evaluation Toolkit), desenvolvido pelo NHS/BREEAM
+especificamente para hospitais. Os autores hipotetizam que o AEDET britânico não é diretamente
+aplicável ao contexto australiano devido a diferenças climáticas e a práticas de reuso adaptativo
+de edificações para fins hospitalares. A metodologia adota o próprio AEDET como instrumento de
+partida, aplicando-o por meio de questionário em duas etapas: um estudo piloto com 11 diretores
+executivos de departamentos hospitalares (resposta de 100%) para validar a relevância dos itens
+do instrumento no contexto australiano, seguido de aplicação ampla a 225 profissionais de
+diferentes níveis (assistencial e não assistencial) da organização de saúde estudada, com taxa de
+resposta entre 74% e 85% (166 a 192 respondentes conforme o bloco de questões). A análise
+estatística emprega ranking dos elementos de desempenho e testes de concordância (coeficiente de
+Kendall), seguindo procedimentos metodológicos de estudos anteriores (Yeung et al. 2007; Yang et
+al. 2009). O estudo é um caso único (hospital público de grande porte, mais de 500.000 pessoas
+atendidas, mais de 1.000 leitos, 21 unidades), o que o caracteriza como pesquisa de estudo de
+caso com survey de percepção incorporado. Os achados (conforme resumo do artigo) resultaram no
+reagrupamento de 11 novos elementos de desempenho em três grupos, propostos como base de um
+framework revisado e mais adequado ao contexto australiano de FM em saúde. Relevância para a
+revisão: caso concreto de aplicação/adaptação de instrumento de avaliação de desempenho predial
+(originalmente do Reino Unido) ao contexto de saúde pública australiana, reforçando a categoria
+de "estudo de caso empírico" com componente de survey de percepção, e o contexto específico de
+edificações de saúde (hospitalares), que é minoritário no núcleo consolidado (predominância de
+edificações universitárias/institucionais genéricas).
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: conejos2019.pdf | id_unico: REG_04122
+
+REFERÊNCIA:
+Conejos, S.; Chew, M. Y. L.; Azril, F. H. B. (2019). Green maintainability assessment of
+high-rise vertical greenery systems. Facilities, 37(13/14), Emerald,
+DOI: 10.1108/F-09-2018-0107.
+
+RESUMO DETALHADO:
+O artigo avalia a manutenibilidade de sistemas de verticalização vegetal (vertical greenery
+systems — VGS) em edifícios altos, ampliando o conceito de "Green Maintainability" (cinco
+fatores: maximizar desempenho, minimizar custo, minimizar risco, minimizar impacto ambiental
+negativo, minimizar consumo de matéria/energia) já introduzido em estudo anterior do mesmo
+grupo sobre paredes verdes de menor porte (ver chew2016 acima). O problema de pesquisa parte da
+constatação de que, embora VGS sejam reconhecidas como tecnologia de construção verde com
+benefícios econômicos, ambientais e sociais bem documentados (mitigação de ilha de calor urbana,
+eficiência energética, retrofit de fachada, valorização imobiliária, melhoria de qualidade do ar
+e microclima, bem-estar dos usuários), a implementação em edifícios altos e de grande escala em
+clima tropical (Singapura) apresenta desafios de manutenibilidade pouco estudados, distintos dos
+desafios de instalações de baixa altura. A metodologia é qualitativa, baseada em triangulação de
+dados (revisão de literatura, pesquisa de campo/observação, e entrevistas com stakeholders
+envolvidos em walkthroughs) sobre estudos de caso instrumentais selecionados de VGS em edifícios
+altos. O framework conceitual articula os cinco fatores de manutenibilidade verde com quatro
+resultados sustentáveis: saúde e bem-estar (segurança ocupacional), produtividade (redução de
+custo e risco), gestão de recursos (sustentabilidade de ecossistemas) e desempenho geral (alta
+performance e inovação). Os achados de campo mostram que os principais defeitos observados nos
+estudos de caso incluem acúmulo de folhas/detritos, riscos de segurança durante limpeza e
+reparo, acesso insuficiente para manutenção, crescimento de algas/mofo, plantas debilitadas,
+estagnação de água/poças, sistemas de irrigação com vazamento ou defeituosos, e ausência de
+elementos naturais previstos originalmente. As entrevistas com stakeholders revelam, além disso,
+falhas de supervisão técnica na fase de manutenção e problemas de biodiversidade e falta de
+coordenação entre os profissionais envolvidos como questões adicionais recorrentes. O artigo é
+apresentado como a primeira avaliação abrangente da manutenibilidade e do potencial de
+desempenho verde de VGS em edifícios altos sob condições tropicais. Relevância para a revisão:
+aprofunda, com estudo de caso empírico e dados de campo, o framework conceitual de
+"manutenibilidade verde" também presente em chew2016 (mesma linha de pesquisa), sendo referência
+consolidada para a categoria de critérios de manutenibilidade integrada a sustentabilidade
+ambiental em fachadas/sistemas vegetados.
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: hassanizadeh2020.pdf | id_unico: REG_03230
+
+REFERÊNCIA:
+Hassanizadeh, A. et al. (conforme citação interna do próprio artigo — "Hassanizadeh et al.,
+2017" é citado como estudo próprio/relacionado; verificar autoria completa na capa do PDF).
+Improving lighting efficiency in existing art museums: a case study. Facilities, Emerald,
+DOI: 10.1108/F-10-2019-0106. (Acesso aberto)
+
+RESUMO DETALHADO:
+O artigo aborda a otimização da eficiência de iluminação em museus de arte existentes,
+equilibrando dois objetivos frequentemente conflitantes: a proteção de obras de arte (evitando
+degradação por exposição à luz) e a eficiência energética/conforto visual dos visitantes. O
+problema de pesquisa decorre da constatação de que sistemas de iluminação museológica precisam
+atender simultaneamente a requisitos de conservação (controle de exposição luminosa conforme a
+sensibilidade de cada tipo de material/pigmento, segundo classificação CIE), qualidade visual
+(permitir apreciação adequada da obra) e economia de energia e custo operacional — e que a
+literatura sobre o tema está dispersa entre estudos focados isoladamente em cada um desses
+aspectos, sem uma síntese metodológica que integre os três. A revisão de estudos anteriores
+conduzida pelos autores (Tabela 1 do artigo) mapeia métodos como AHP combinado a Delphi,
+simulação computacional (Ecotect, Daysim, DIALux, ecoCALC), análise de custo-benefício (NPV,
+payback), questionários e entrevistas semiestruturadas com especialistas, e medição de
+degradação de pigmentos sob diferentes fontes de luz (LED vs. halógena), aplicados em estudos de
+caso de museus e edifícios institucionais na Europa. A partir dessa síntese, os autores
+identificam como lacuna a falta de um método prático e replicável que combine avaliação de
+requisitos técnicos de iluminação, opinião de especialistas e otimização de custo-benefício em
+museus existentes (não apenas projetos novos). O estudo de caso próprio (não detalhado nas
+páginas revisadas neste resumo) aplica abordagem prática de simulação e/ou julgamento de
+especialistas para propor solução de iluminação otimizada para um museu existente, buscando
+equilibrar conservação, qualidade visual, consumo de energia e custo de manutenção. As
+conclusões discutidas na introdução apontam que soluções de iluminação LED tendem a reduzir o
+risco de degradação de pigmentos e o consumo energético em comparação a fontes halógenas
+tradicionais, mas cada solução exige avaliação específica de custo-benefício e de requisitos de
+conservação do acervo local, não havendo solução universal. Relevância para a revisão: exemplo
+de aplicação de método multicritério (AHP/Delphi) combinado a simulação computacional em
+contexto de edificação institucional não convencional (museu), tema tangente a "conforto
+visual/iluminação" como critério de sustentabilidade menos frequente no núcleo consolidado
+(predominância de critérios energéticos, estruturais e de custo).
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: zhao2017.pdf | id_unico: REG_00415
+
+REFERÊNCIA:
+Zhao, X. et al. (2017). AHP-ANP-Fuzzy Integral Integrated Network for Evaluating Performance of
+Innovative Business Models for Sustainable Building. Journal of Construction Engineering and
+Management, ASCE, 143(8), 04017054, DOI: 10.1061/(ASCE)CO.1943-7862.0001348.
+
+RESUMO DETALHADO:
+O artigo desenvolve uma rede integrada de avaliação (AHP + ANP + integral fuzzy) para avaliar o
+desempenho de modelos de negócio (business models — BM) inovadores voltados a construções
+sustentáveis (sustainable buildings — SB). O problema de pesquisa parte da constatação de que,
+embora a literatura reconheça benefícios financeiros de curto prazo (maior renda de aluguel,
+maior valor de venda, subsídios de política pública) e benefícios estratégicos de longo prazo
+(reputação corporativa, redução de risco, retenção de clientes, melhoria de ambiente interno,
+produtividade dos ocupantes) associados a modelos de negócio inovadores para SB, poucos estudos
+analisam de forma sistemática e integrada o desempenho desses modelos, e não há consenso sobre
+como avaliá-los. A metodologia combina três técnicas: (1) AHP (Analytic Hierarchy Process) para
+estruturar hierarquicamente os critérios de avaliação e obter pesos relativos via comparação
+pareada; (2) ANP (Analytic Network Process), que estende o AHP para tratar interdependências
+não hierárquicas entre critérios (relações de mão dupla entre elementos de diferentes níveis,
+tratadas por meio de uma supermatriz); e (3) integral fuzzy (medida fuzzy de Choquet) como
+operador de agregação capaz de representar interações entre critérios que operadores tradicionais
+(soma ponderada, média, OWA) não capturam adequadamente. O desenvolvimento do modelo seguiu
+quatro etapas: seleção de critérios (revisão de literatura + pesquisa geral, resultando em oito
+critérios-chave — benefício financeiro direto, custo, benefício estratégico corporativo, risco,
+reputação da firma, fonte de vantagem competitiva, desempenho ambiental, desempenho social — e
+54 indicadores associados), desenvolvimento da estrutura AHP, desenvolvimento da estrutura ANP
+(mapeamento de interdependências) e cálculo da pontuação sintética das alternativas via integral
+fuzzy. A validação empírica envolveu uma pesquisa por questionário junto a 1.854 profissionais
+credenciados no diretório BEAM Pro (Hong Kong Green Building Council), dos quais uma amostra
+aleatória foi convidada, obtendo 31 respondentes válidos (perfis variados: incorporadores/
+clientes/investidores, consultores, fornecedores, órgãos governamentais, universidades,
+gestores prediais, instituições industriais; maioria com 1-2 anos de experiência). O modelo
+desenvolvido foi então aplicado à avaliação de quatro modelos de negócio inovadores extraídos de
+projetos de construção sustentável reais na Austrália, Singapura, Japão e Reino Unido. Os
+achados (conforme dados de significância apresentados) indicam variação relevante na
+importância atribuída aos diferentes indicadores dentro de cada critério (ex.: dentro de
+"benefício financeiro direto", o ciclo de vida do produto sustentável e a taxa de retorno sobre
+investimento apresentam maior significância que outros indicadores do mesmo grupo), reforçando a
+necessidade de ponderação diferenciada em vez de tratamento uniforme dos indicadores. Relevância
+para a revisão: exemplo robusto e detalhado de método híbrido multicritério (AHP+ANP+integral
+fuzzy) explicitamente aplicado à avaliação de modelos de negócio para sustentabilidade em
+construção — tema de "viabilidade/modelo de negócio sustentável" que aparece de forma limitada
+no núcleo consolidado, geralmente subsumido em critérios de custo/benefício financeiro.
+
+--------------------------------------------------------------------------------------------
+ARQUIVO: tan2018.pdf | id_unico: REG_00217
+
+REFERÊNCIA:
+Tan, T. et al. (2018 — publicado como pré-print/early access na Emerald; verificar volume e
+paginação definitivos na versão final). Enabling an effective knowledge and information flow
+between the phases of building construction and facilities management. Facilities, Emerald,
+DOI: 10.1108/F-03-2016-0028.
+
+RESUMO DETALHADO:
+O artigo investiga formas de melhorar o fluxo de conhecimento e informação entre as fases do
+ciclo de vida de projetos de construção, com foco específico na transição entre construção e
+ocupação (fase de handover/entrega) e sua relação com a operação e manutenção (O&M) subsequente
+conduzida pela facilities management (FM). O problema de pesquisa decorre da constatação de que
+a gestão predial é uma atividade multidisciplinar fortemente dependente de dados e informações
+provenientes de diferentes equipes (contratantes, consultores, subcontratados, fornecedores), e
+que a fragmentação do setor da construção, somada à inconsistência na adoção de tecnologia entre
+esses agentes, gera perdas significativas de informação no momento da entrega do edifício às
+equipes de FM — perda estimada, segundo estudo citado pelos autores, em até US$ 15,8 bilhões
+para o parque predial federal dos EUA. A metodologia é qualitativa, combinando revisão de
+literatura, análise documental/arquivística de três estudos de caso de projetos de construção em
+Perth, Austrália Ocidental, análise cruzada entre os casos, e entrevistas com 18 especialistas
+locais de facilities management (9 diretamente envolvidos nos três casos estudados), utilizando
+amostragem "bola de neve" até saturação de dados. A análise segue o estilo de teoria fundamentada
+(grounded theory, de forma adaptada, não integral). O artigo mapeia três frameworks/tecnologias
+de compartilhamento de conhecimento (knowledge sharing frameworks — KSF) identificados como mais
+relevantes na literatura contemporânea: (i) Open Communication Channel (OCC) — política de
+comunicação aberta e confiança mútua entre as partes envolvidas no projeto; (ii) Soft Landings
+Framework (SLF) — estrutura britânica com cinco estágios (concepção e briefing, desenvolvimento
+e revisão de projeto, pré-entrega, acompanhamento inicial pós-entrega, e acompanhamento
+estendido com avaliação pós-ocupação) voltada a assegurar a gestão predial efetiva após a
+construção; e (iii) Building Information Modelling (BIM) — conjunto de políticas, processos e
+tecnologias para gerenciar dados prediais em formato digital ao longo de todo o ciclo de vida,
+com potencial de reduzir em até 98% o tempo e esforço de geração de bases de dados de FM segundo
+estudos citados, mas ainda limitado por interoperabilidade insuficiente entre plataformas. Os
+achados do estudo indicam que existem lacunas significativas de conhecimento e informação
+durante o processo de handover em projetos de construção na Austrália Ocidental, que diretrizes
+formais de handover são frequentemente ignoradas, e que a fase de entrega não recebe a mesma
+prioridade das fases de projeto e construção pela maioria dos stakeholders — o que gera lacunas
+de informação entre a fase de construção e a fase pós-ocupação. A partir do mapeamento desses
+gaps frente às capacidades dos três KSFs, os autores propõem um modelo conceitual integrado de
+compartilhamento de conhecimento que combina os três frameworks (cada um podendo representar uma
+solução "completa" isoladamente, "moderada" quando combinado a outro framework, ou "parcial"
+quando depende de outro framework), buscando romper a cultura de silos entre as fases do projeto.
+Como limitação, os próprios autores reconhecem que os achados se baseiam em apenas três casos em
+uma única região (Perth, Austrália Ocidental), sendo necessária pesquisa adicional para
+generalização. Relevância para a revisão: estudo de caso múltiplo com componente de entrevistas
+(survey de percepção) sobre gestão do conhecimento e integração BIM/FM na transição
+construção-operação, tema de "gestão da informação/conhecimento" como suporte à manutenção
+predial sustentável, reforçando achados semelhantes já identificados em aldairi2017 (gestão do
+conhecimento) e bu2015/outros estudos do núcleo sobre BIM como ferramenta de suporte à decisão.
+
+================================================================================================
+REFERÊNCIAS COMPLETAS (LISTA CONSOLIDADA)
+================================================================================================
+
+1. Aldairi, J.; Khan, M. K.; Munive-Hernandez, J. E. (2017). Knowledge-based Lean Six Sigma
+   maintenance system for sustainable buildings. International Journal of Lean Six Sigma.
+   DOI: 10.1108/IJLSS-09-2015-0035.
+
+2. Yoon, S. et al. (2018). Optimal FM Strategy for Commercial Office Buildings Using Fuzzy
+   Synthetic Evaluation. Journal of the American Society of Civil Engineers (área de Cold
+   Regions Engineering/Facilities). DOI: 10.1061/(ASCE)CF.1943-5509.0001176.
+
+3. Park, S. et al. (2019). Forecasting Repair Schedule for Building Components Based on
+   Case-Based Reasoning and Fuzzy-AHP. Sustainability, 11(24), 7181.
+   DOI: 10.3390/su11247181.
+
+4. Matthews, E. C. et al. (2016). Optimization of Sustainability and Flood Hazard Resilience
+   for Home Designs. Procedia Engineering, 145, 364-371 (aprox.).
+   DOI: 10.1016/j.proeng.2016.04.040.
+
+5. Chew, M. Y. L. et al. (2016). Developing a green maintainability framework for green walls
+   in Singapore. Smart and Sustainable Built Environment.
+   DOI: 10.1108/SASBE (número definitivo do fascículo a confirmar).
+
+6. Bu, S.; Shen, G.; Anumba, C. J.; Wong, A. K. D.; Liang, X. (2015). Literature review of
+   green retrofit design for commercial buildings with BIM implication. Smart and Sustainable
+   Built Environment, 4(2), 188-215. DOI: 10.1108/SASBE-08-2014-0043.
+
+7. Talib, Y.; Rajagopalan, P.; Yang, R. J. (2013). Evaluation of building performance for
+   strategic facilities management in healthcare: A case study of a public hospital in
+   Australia. Facilities, 31(13/14), 681-701. DOI: 10.1108/F-06-2012-0042.
+
+8. Conejos, S.; Chew, M. Y. L.; Azril, F. H. B. (2019). Green maintainability assessment of
+   high-rise vertical greenery systems. Facilities, 37(13/14).
+   DOI: 10.1108/F-09-2018-0107.
+
+9. Hassanizadeh, A. et al. Improving lighting efficiency in existing art museums: a case study.
+   Facilities. DOI: 10.1108/F-10-2019-0106.
+
+10. Zhao, X. et al. (2017). AHP-ANP-Fuzzy Integral Integrated Network for Evaluating
+    Performance of Innovative Business Models for Sustainable Building. Journal of
+    Construction Engineering and Management, 143(8), 04017054.
+    DOI: 10.1061/(ASCE)CO.1943-7862.0001348.
+
+11. Tan, T. et al. (2018). Enabling an effective knowledge and information flow between the
+    phases of building construction and facilities management. Facilities.
+    DOI: 10.1108/F-03-2016-0028.
+
+================================================================================================
+NOTA SOBRE ANOS/AUTORIA A VERIFICAR
+================================================================================================
+Três referências (Yoon 2018, Chew 2016, Tan 2018) têm nome de autoria/página de rosto completa
+não integralmente capturada nas páginas lidas (algumas capas mostram apenas metadados de acesso
+institucional/pré-print, sem lista completa de autores ou paginação final). Antes de qualquer
+uso formal em citação bibliográfica no artigo (entrada em references.bib), recomenda-se conferir
+a página de rosto completa de cada PDF (autoria completa, volume/fascículo/páginas definitivas)
+para evitar erro de atribuição.
+
+================================================================================================
+ORIENTAÇÃO DE USO
+================================================================================================
+Este arquivo .txt não deve substituir os PDFs originais (mantidos apenas localmente, fora do
+repositório, por restrição de direitos autorais). Ele resume o conteúdo de forma parafraseada
+para permitir o tratamento subsequente dos dados (ex.: decisão sobre uso pontual em texto
+completo, nos mesmos moldes já aplicados aos 19 estudos anteriores, sujeito a nova autorização
+explícita antes de qualquer alteração do artigo). Cabe ao pesquisador decidir se e como este
+arquivo será versionado no GitHub.
