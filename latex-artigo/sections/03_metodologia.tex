@@ -14,12 +14,12 @@ A matriz de alinhamento da Tabela~\ref{tab:alinhamentorq} explicita a correspond
 \toprule
 Elemento & Formulação sintética & Critério de seleção & Campo de extração & Resultado correspondente \\
 \midrule
-RQ0 & Integração entre sustentabilidade, manutenção, gestão predial e apoio à decisão; elementos aplicáveis à priorização pública universitária. & Objeto predial e sustentabilidade obrigatórios; decisão e contexto como caracterização. & \texttt{rq0\_confirmada}; contribuição; critérios; métodos; contexto; dimensões. & Síntese integrada nas Seções~\ref{sec:criterios} a~\ref{sec:matriz}. \\
-RQ1 & Dimensões de sustentabilidade identificadas. & Sustentabilidade obrigatória. & \texttt{dimensoes\_sustentabilidade\_identificadas\_leitura}. & Seção~\ref{sec:criterios} e Gráfico~\ref{fig:dimensoes}. \\
-RQ2 & Critérios de priorização identificados. & Decisão e priorização como caracterização. & \texttt{criterios\_identificados\_leitura}. & Seção~\ref{sec:criterios} e Tabela~\ref{tab:criteriospriorizacao}. \\
-RQ3 & Métodos de apoio à decisão identificados. & Método de decisão como caracterização. & \texttt{metodos\_decisao\_identificados\_leitura}. & Seção~\ref{sec:metodos} e Gráfico~\ref{fig:metodos}. \\
-RQ4 & Contextos de edificação identificados. & Contexto como caracterização, sem recorte isolado. & \texttt{contexto\_edificacao\_identificado\_leitura}. & Seção~\ref{sec:aplicabilidade} e Tabela~\ref{tab:contexto}. \\
-RQ5 & Lacunas registradas para instituições públicas de ensino superior. & Contexto público/universitário como reforço não obrigatório. & \texttt{lacuna\_ou\_limite\_identificado\_leitura}; contribuição do artigo. & Seções~\ref{sec:aplicabilidade}, \ref{sec:limitacoes} e \ref{sec:consideracoes}. \\
+RQ0 & Integração entre sustentabilidade, manutenção, gestão predial e apoio à decisão; elementos aplicáveis à priorização pública universitária. & Objeto predial e sustentabilidade obrigatórios; decisão e contexto como caracterização. & \texttt{rq0\_\allowbreak confirmada}; contribuição; critérios; métodos; contexto; dimensões. & Síntese integrada nas Seções~\ref{sec:criterios} a~\ref{sec:matriz}. \\
+RQ1 & Dimensões de sustentabilidade identificadas. & Sustentabilidade obrigatória. & \texttt{dimensoes\_\allowbreak sustentabilidade\_\allowbreak identificadas\_\allowbreak leitura}. & Seção~\ref{sec:criterios} e Gráfico~\ref{fig:dimensoes}. \\
+RQ2 & Critérios de priorização identificados. & Decisão e priorização como caracterização. & \texttt{criterios\_\allowbreak identificados\_\allowbreak leitura}. & Seção~\ref{sec:criterios} e Tabela~\ref{tab:criteriospriorizacao}. \\
+RQ3 & Métodos de apoio à decisão identificados. & Método de decisão como caracterização. & \texttt{metodos\_\allowbreak decisao\_\allowbreak identificados\_\allowbreak leitura}. & Seção~\ref{sec:metodos} e Gráfico~\ref{fig:metodos}. \\
+RQ4 & Contextos de edificação identificados. & Contexto como caracterização, sem recorte isolado. & \texttt{contexto\_\allowbreak edificacao\_\allowbreak identificado\_\allowbreak leitura}. & Seção~\ref{sec:aplicabilidade} e Tabela~\ref{tab:contexto}. \\
+RQ5 & Lacunas registradas para instituições públicas de ensino superior. & Contexto público/universitário como reforço não obrigatório. & \texttt{lacuna\_\allowbreak ou\_\allowbreak limite\_\allowbreak identificado\_\allowbreak leitura}; contribuição do artigo. & Seções~\ref{sec:aplicabilidade}, \ref{sec:limitacoes} e \ref{sec:consideracoes}. \\
 \bottomrule
 \end{tabularx}
 \fonteautor
@@ -128,7 +128,7 @@ A auditoria qualitativa estruturada examinou, registro a registro, título, resu
 Etapa & Entrada & Procedimento & Critério & Responsável & Incluídos & Não retidos & Motivos \\
 \midrule
 Coleta e deduplicação & 12.118 & Normalização e agrupamento por DOI ou título, com proveniência preservada. & DOI normalizado; na ausência, título normalizado sem conflito de identificador. & Script Python. & 9.542 & 2.576 & Ocorrências duplicadas entre bases ou consultas. \\
-Pré-triagem e resolução & 9.542 & Regras em título e resumo; auditoria de 100; corte inicial de 3.786; decisão dos 4.276 casos de dúvida. & Classe relevante ou decisão revisada \\texttt{RELEVANTE}. & Scripts Python/R; avaliador único na amostra; tabela de decisão. & 3.678 & 5.864 & 4.070 dúvidas descartadas; 796 irrelevantes; 566 sem resumo; 432 complementares. \\
+Pré-triagem e resolução & 9.542 & Regras em título e resumo; auditoria de 100; corte inicial de 3.786; decisão dos 4.276 casos de dúvida. & Classe relevante ou decisão revisada \texttt{RELEVANTE}. & Scripts Python/R; avaliador único na amostra; tabela de decisão. & 3.678 & 5.864 & 4.070 dúvidas descartadas; 796 irrelevantes; 566 sem resumo; 432 complementares. \\
 Alinhamento às RQs & 3.678 & Pontuação determinística de aderência às RQs e força do resumo. & Sinais de objeto, manutenção, sustentabilidade, decisão e contexto; sem exclusão forte. & Scripts R; regras aprovadas pelo pesquisador. & 137 & 3.541 & Uso secundário, descritivo, contextual ou exclusão da análise central. \\
 Auditoria qualitativa & 137 & Auditoria estruturada de título, resumo, palavras-chave e campos extraídos. & Aderência ao núcleo principal e suficiência documental. & Avaliador único, sem revisão independente. & 104 & 33 & 21 secundários; 3 apenas mapeamento; 9 excluídos, incluindo 1 pendência de texto completo descartada. \\
 \bottomrule

@@ -149,6 +149,16 @@ readr::write_excel_csv(
   na = ""
 )
 
+contribuicao_long <- expandir_multivalor(
+  dados, "tipo_contribuicao_artigo", "tipo_contribuicao"
+)
+tabela36 <- resumir_multivalor(contribuicao_long, "tipo_contribuicao")
+readr::write_excel_csv(
+  tabela36,
+  file.path(DIR_FONTES, "tabela36_tipo_contribuicao_artigo_nucleo_final_104.csv"),
+  na = ""
+)
+
 ## Coocorrencias
 
 tabela31 <- criterios_long |>
