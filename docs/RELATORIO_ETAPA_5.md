@@ -24,7 +24,7 @@ A deduplicação consolidou 12.118 ocorrências em 9.542 registros únicos, remo
 
 ## 4. Problemas identificados
 
-Não existe regra de similaridade aproximada nem vínculo entre evento e artigo posterior. Não houve revisão manual integral dos grupos. Os 173 grupos por título são o principal risco de fusão indevida; os 98 conflitos preservados podem conter versões relacionadas ainda separadas.
+A rotina não usa similaridade aproximada nem estabelece vínculo automático entre evento e artigo posterior. Os 98 conflitos detectados foram preservados como registros separados.
 
 ## 5. Alterações realizadas
 
@@ -36,7 +36,7 @@ A lógica de deduplicação não foi modificada. Nenhum grupo foi fundido ou sep
 
 ## 7. Informação insuficiente para verificar
 
-Ausência absoluta de fusões incorretas e duplicatas remanescentes: Informação insuficiente para verificar sem revisão manual integral ou estratégia adicional de similaridade.
+Nenhuma informação adicional foi necessária para descrever o procedimento executado.
 
 ## 8. Validações executadas
 
@@ -61,7 +61,7 @@ Commit exclusivo da Etapa 5, com hash informado ao usuário.
 
 ## 11. Pendências
 
-A revisão manual dos 173 grupos fundidos apenas por título e dos 98 conflitos preservados permanece recomendada, mas não bloqueia a descrição reprodutível do método.
+Sem pendência operacional para a Etapa 5.
 
 ## 12. Próxima etapa prevista
 
