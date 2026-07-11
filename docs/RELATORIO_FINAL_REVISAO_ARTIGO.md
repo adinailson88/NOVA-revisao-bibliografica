@@ -67,7 +67,7 @@ Foram mantidos os totais centrais:
 - 137 registros centrais;
 - 104 registros no núcleo final.
 
-A leitura pontual de texto completo não alterou tabelas, frequências, percentuais ou coocorrências agregadas.
+Uma auditoria posterior corrigiu oito codificações individuais sustentadas pelos textos completos disponíveis e regenerou as frequências, percentuais e coocorrências afetadas.
 
 ## 7. Validações finais
 
@@ -100,8 +100,7 @@ PDF final validado antes da consolidação documental: blob `e259dede10d780a5ff0
 - 74 registros do núcleo não foram lidos integralmente.
 - Não houve avaliação formal de qualidade metodológica ou risco de viés.
 - Não houve segundo avaliador independente.
-- A matriz não possui pesos, indicadores operacionais, análise de sensibilidade ou validação empírica.
-- Algumas divergências individuais de codificação identificadas nos lotes de texto completo permanecem documentadas, sem recálculo agregado.
+- A matriz possui uma especificação operacional candidata, mas seus pesos e indicadores ainda exigem calibração institucional e validação empírica.
 - A associação individual entre arquivos RIS e strings da Web of Science foi informada de memória.
 - O ano de 2026 é parcial.
 
@@ -111,9 +110,8 @@ Esses itens são limitações declaradas, não pendências técnicas ocultas.
 
 - Rota B com elegibilidade integral dos 104 estudos;
 - aplicação de instrumentos de avaliação metodológica compatíveis por desenho;
-- recodificação individual e regeneração dos agregados;
 - validação empírica da matriz em instituições públicas universitárias;
-- merge da branch na `main`.
+- calibração participativa e validação empírica da matriz antes de uso decisório real.
 
 ## 11. Reprodutibilidade
 
@@ -129,4 +127,4 @@ A compilação utiliza `latexmk` e `biber`, conforme `.github/workflows/latex.ym
 
 ## 12. Conclusão
 
-O artigo está consolidado na branch de trabalho, com método, resultados, discussão, matriz, limitações, redação e referências validados. Não há pendência técnica bloqueante. A única ação de integração externa não realizada é o merge na `main`.
+O artigo está consolidado na branch de trabalho, com método, resultados, discussão, matriz, limitações, redação e referências validados. Não há pendência técnica bloqueante. A integração à `main` foi autorizada e deve ocorrer somente após a validação automatizada desta consolidação.
