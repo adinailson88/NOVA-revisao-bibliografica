@@ -11,11 +11,11 @@ Informações fornecidas diretamente pelo pesquisador em 10 de julho de 2026. Os
 | Strings Web of Science | Fornecidas integralmente e incorporadas ao apêndice |
 | Proveniência RIS × A1–A4 | Associação informada de memória pelo pesquisador |
 | Datas | Busca e exportação em 08/07/2026 nas três fontes |
-| Scopus | Reexecução completa no mesmo dia; não há complemento documentado em 09/07/2026 |
+| Scopus | 9.433 via API em 08/07/2026 + 5 exclusivos do export manual no enriquecimento por EID de 09/07/2026 = 9.438 |
 | Filtros | Sem idioma e sem tipo documental |
 | Busca piloto | Não houve |
 | Estudos-semente | Não foram utilizados |
-| Marco inicial de 2010 | Justificativa específica não documentada |
+| Marco inicial de 2010 | Justificativa específica não documentada; recorte mantido por corresponder à busca executada |
 | Protocolo anterior | Existiu antes da coleta |
 | Pré-registro | Não houve |
 | Texto completo | Não houve leitura integral dos 104 registros |
@@ -24,4 +24,4 @@ Informações fornecidas diretamente pelo pesquisador em 10 de julho de 2026. Os
 
 ## Pendência documental remanescente
 
-Se os arquivos originais ainda existirem em outro repositório ou armazenamento, deverão ser migrados preservando conteúdo e histórico. Até essa migração, este documento registra as informações declaradas, sem afirmar que os arquivos originais estão presentes no repositório atual.
+Os seis arquivos originais de protocolo foram posteriormente enviados à branch principal e incorporados à branch de trabalho, preservando sua estrutura em `01_PROTOCOLO/`.

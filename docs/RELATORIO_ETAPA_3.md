@@ -75,3 +75,15 @@ As pendências foram regularizadas com as informações fornecidas pelo pesquisa
 - justificativa específica para 2010 não documentada;
 - a associação individual entre RIS e strings A1–A4 da Web of Science foi informada de memória;
 - não há evidência preservada de complemento da Scopus em 09/07/2026; a diferença de seis registros foi atribuída à consolidação após reexecução em 08/07/2026, sem causa específica preservada.
+
+
+## Segunda retificação documental
+
+A diferença de seis registros foi reconciliada:
+
+- Scopus: 9.433 registros da API + 5 registros existentes apenas no export manual, adicionados no enriquecimento por EID de 09/07/2026 = 9.438;
+- Web of Science: 610 + 557 + 10 + 503 = 1.680; o valor anterior de 502 em A4 decorria de contagem com âncora de linha;
+- Crossref: 1.000;
+- total bruto: 9.438 + 1.680 + 1.000 = 12.118.
+
+O período 2010–2026 foi mantido porque corresponde à busca efetivamente executada. Não foi criada justificativa retrospectiva para o marco de 2010.

@@ -145,3 +145,13 @@ Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 4`.
 ## Regularização anterior à Etapa 4
 
 As pendências das Etapas 1–3 foram respondidas pelo pesquisador e incorporadas ao artigo e à documentação. Foram corrigidas as datas da Scopus, incluídas as quatro strings da Web of Science e registradas as ausências de pré-registro, texto completo, segundo avaliador e avaliação de qualidade. Os arquivos originais de protocolo citados não foram localizados nesta branch; sua eventual migração permanece pendente.
+
+
+## Reconciliação final anterior à Etapa 4
+
+- Scopus: 9.438 registros, sendo 9.433 da API e cinco exclusivos do export manual incorporados em 09/07/2026.
+- Web of Science: 1.680 registros; A4 corrigido de 502 para 503 após recontagem.
+- Crossref: 1.000 registros.
+- Total bruto preservado: 12.118.
+- O corte 2010–2026 foi mantido por corresponder à busca executada; não foi criada justificativa retrospectiva.
+- Os seis arquivos de `01_PROTOCOLO/` foram incorporados à branch de trabalho.
