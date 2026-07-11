@@ -418,4 +418,12 @@ for declaracao in (
 ):
     exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
 
+
+# Referencia metodologica de Hu et al. (Etapa 15)
+exigir("hu_revisao_sintese_2026" in chaves_citadas, "Hu et al. deve ser citado apenas no relato metodologico.")
+exigir(
+    "não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise" in texto_tex,
+    "O uso de Hu et al. deve explicitar os procedimentos nao realizados.",
+)
+
 print("Verificacao do artigo concluida sem divergencias.")
