@@ -11,13 +11,21 @@
 O trabalho será realizado estritamente conforme o arquivo:
 `docs/PLANO_EXECUCAO_REVISAO_ARTIGO.md`
 
+
+## Progresso resumido
+
+| Etapa | Situação |
+|---|---|
+| Etapa 1 | OK |
+| Etapa 2 | OK |
+
 ## Etapas
 
 | Etapa | Descrição | Status | Commit | Pendências |
 |---:|---|---|---|---|
 | 0 | Preparação e preservação dos arquivos | Concluída | Commit exclusivo da Etapa 0; hash registrado no relatório de execução | Recompilação local independente e logs completos: Informação insuficiente para verificar. |
 | 1 | Auditoria do tipo de revisão | Concluída | Commit exclusivo da Etapa 1; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 2 |
-| 2 | Pergunta, objetivos e escopo | Não iniciada | | |
+| 2 | Pergunta, objetivos e escopo | Concluída | Commit exclusivo da Etapa 2; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 3 |
 | 3 | Estratégia de busca e reprodutibilidade | Não iniciada | | |
 | 4 | Funil de seleção | Não iniciada | | |
 | 5 | Deduplicação | Não iniciada | | |
@@ -92,3 +100,24 @@ Protocolo prévio, pré-registro, leitura integral, avaliação metodológica, d
 
 ### Próxima ação
 Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 2`.
+
+
+## Registro da Etapa 2
+
+### Data
+2026-07-10
+
+### Diagnóstico
+A RQ0 foi ajustada para não apresentar o contexto público universitário como característica de todo o corpus. RQ1–RQ5 foram alinhadas ao nível documental dos campos auditados.
+
+### Arquivos alterados
+- `latex-artigo/sections/01_introducao.tex`
+- `latex-artigo/sections/03_metodologia.tex`
+- `docs/RELATORIO_ETAPA_2.md`
+- `docs/STATUS_EXECUCAO_REVISAO_ARTIGO.md`
+
+### Decisões
+Foi inserida matriz explícita de alinhamento. Tema, corpus, método de seleção, números e resultados foram preservados.
+
+### Próxima ação
+Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 3`.
