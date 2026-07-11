@@ -32,7 +32,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 3 | Estratégia de busca e reprodutibilidade | Concluída | Commit exclusivo da Etapa 3; hash registrado no relatório de execução | Pendências regularizadas; ressalva RIS×string e justificativa de 2010 permanecem documentadas |
 | 4 | Funil de seleção | Concluída | Commit exclusivo da Etapa 4 e commit de encerramento documental | Sem pendência documental |
 | 5 | Deduplicação | Concluída | Commit exclusivo da Etapa 5 | Sem pendência operacional |
-| 6 | Triagem e auditoria dos registros | Não iniciada | | |
+| 6 | Triagem e auditoria dos registros | Concluída | Artigo, mapa, relatório e verificador atualizados | Sem pendência bloqueante |
 | 7 | Texto completo e elegibilidade | Não iniciada | | |
 | 8 | Dicionário de categorias e extração | Não iniciada | | |
 | 9 | Avaliação metodológica dos estudos | Não iniciada | | |
@@ -184,3 +184,10 @@ Os 109 produtos intermediários foram incorporados e organizados nas pastas 03, 
 A deduplicação foi especificada e validada sem mudança de lógica. Foram confirmados 1.808 grupos e 2.576 ocorrências removidas. O verificador automático passou a conferir produtos processados, DOI único, IDs e proveniência. Os conflitos detectados foram preservados como registros separados.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 6`.
+
+
+## Registro da Etapa 6
+
+As camadas de seleção foram documentadas separadamente: pré-triagem determinística dos 9.542 registros, auditoria amostral de 100, resolução dos 4.276 casos de dúvida, reavaliação dos 3.678 registros, alinhamento de 137 registros centrais e auditoria qualitativa que consolidou 104 estudos. O artigo não atribui uso de IA ou ASReview sem evidência documental e declara a ausência de segundo avaliador independente. O verificador automático passou a conferir todos esses marcos.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 7`.
