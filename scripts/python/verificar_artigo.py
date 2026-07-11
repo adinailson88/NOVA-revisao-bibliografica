@@ -221,4 +221,139 @@ graficos_citados = set(re.findall(r"\{figuras/([^}]+\.png)\}", texto_tex))
 for grafico in graficos_citados:
     exigir(grafico in script_r, f"Grafico sem geracao no script R: {grafico}")
 
+
+# Auditoria ampliada dos resultados (Etapa 10)
+def mapa_totais(nome: str, chave: str) -> dict[str, int]:
+    return {linha[chave]: inteiro(linha["total_registros"]) for linha in ler_csv(nome)}
+
+
+dimensoes_totais = mapa_totais(
+    "tabela27_dimensoes_sustentabilidade_nucleo_final_104.csv",
+    "dimensao_identificada_leitura",
+)
+exigir(
+    dimensoes_totais
+    == {
+        "tecnica_operacional": 102,
+        "institucional": 93,
+        "ambiental": 84,
+        "ciclo_de_vida": 60,
+        "economica": 59,
+        "social": 57,
+    },
+    f"Dimensoes divergentes: {dimensoes_totais}",
+)
+
+criterios_totais = mapa_totais("tabela26_criterios_nucleo_final_104.csv", "criterio")
+exigir(
+    criterios_totais
+    == {
+        "desempenho_operacional": 93,
+        "informacao_dados": 76,
+        "custo": 59,
+        "vida_util": 40,
+        "energia": 36,
+        "risco": 31,
+        "condicao_fisica": 27,
+        "manutenibilidade": 19,
+        "conforto": 17,
+        "seguranca": 17,
+        "emissoes_carbono": 15,
+        "residuos": 13,
+        "satisfacao_usuario": 9,
+        "qualidade_servico": 6,
+        "agua": 5,
+    },
+    f"Criterios divergentes: {criterios_totais}",
+)
+
+metodos_totais = mapa_totais(
+    "tabela28_metodos_decisao_nucleo_final_104.csv",
+    "metodo_identificado_leitura",
+)
+exigir(
+    metodos_totais
+    == {
+        "framework": 96,
+        "BIM": 26,
+        "decision support": 26,
+        "optimization": 18,
+        "scoring": 17,
+        "life-cycle cost": 13,
+        "fuzzy": 10,
+        "ranking": 10,
+        "IoT": 9,
+        "machine learning": 9,
+        "digital twin": 8,
+        "AHP": 5,
+        "TOPSIS": 4,
+        "ANP": 3,
+        "Delphi": 3,
+        "MCDM": 3,
+        "Bayesian Best Worst Method": 1,
+        "balanced scorecard": 1,
+        "case-based reasoning": 1,
+    },
+    f"Metodos divergentes: {metodos_totais}",
+)
+
+contextos_totais = mapa_totais(
+    "tabela29_contexto_edificacao_nucleo_final_104.csv",
+    "contexto_identificado_leitura",
+)
+exigir(
+    contextos_totais
+    == {
+        "edificio_generico": 93,
+        "portfolio_predial": 58,
+        "hospital": 17,
+        "edificio_comercial": 16,
+        "edificio_residencial": 12,
+        "universidade": 11,
+        "campus": 10,
+        "edificio_publico": 5,
+        "escola": 5,
+        "patrimonio_historico": 4,
+        "nao_identificado_no_resumo": 1,
+    },
+    f"Contextos divergentes: {contextos_totais}",
+)
+
+lacunas_totais = mapa_totais("tabela30_lacunas_nucleo_final_104.csv", "categoria")
+exigir(
+    lacunas_totais
+    == {
+        "com_lacuna_identificada_no_resumo": 76,
+        "sem_lacuna_identificada_no_resumo": 28,
+        "lacuna_especifica_ies_publicas": 12,
+    },
+    f"Lacunas divergentes: {lacunas_totais}",
+)
+
+temporal = mapa_totais("tabela33_distribuicao_temporal_nucleo_final_104.csv", "ano")
+exigir(sum(temporal.values()) == 104, f"Total temporal divergente: {sum(temporal.values())}")
+exigir(sum(v for a, v in temporal.items() if 2019 <= int(a) <= 2026) == 88, "Total de 2019 a 2026 divergente.")
+exigir(temporal.get("2025") == 25, f"Total de 2025 divergente: {temporal.get('2025')}")
+
+contribuicoes_totais = mapa_totais(
+    "tabela36_tipo_contribuicao_artigo_nucleo_final_104.csv",
+    "tipo_contribuicao",
+)
+exigir(
+    contribuicoes_totais
+    == {
+        "criterios_de_sustentabilidade": 104,
+        "criterios_de_priorizacao": 104,
+        "metodo_multicriterio_ou_decisao": 80,
+        "gestao_manutencao_predial": 104,
+        "facility_management": 57,
+        "energia_desempenho_operacional": 97,
+        "custo_ciclo_de_vida": 82,
+        "risco_seguranca_conforto": 53,
+        "contexto_publico_universitario": 17,
+        "lacuna_para_ies_publicas": 12,
+    },
+    f"Tipos de contribuicao divergentes: {contribuicoes_totais}",
+)
+
 print("Verificacao do artigo concluida sem divergencias.")

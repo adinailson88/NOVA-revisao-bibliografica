@@ -369,3 +369,14 @@ de qual das quatro colunas fixas da tabela recebe mais largura, o que sugere que
 estar na última coluna flexível (`Y`, "Resultado correspondente") ou em um efeito de microtipografia
 não identificado. Essa pendência não afeta o conteúdo científico do artigo — apenas impede que a
 integração contínua regenere e publique automaticamente as tabelas, figuras e o PDF mais recentes.
+
+
+## Registro da Etapa 10
+
+A auditoria dos resultados confirmou a consistência dos totais, percentuais e denominadores do núcleo final de 104 registros nas séries de anos, bases, tipos documentais, dimensões, critérios, métodos, contextos, lacunas, ODS, ESG e coocorrências. Nenhum registro foi recodificado e nenhum número foi alterado.
+
+Foram explicitados os limites interpretativos das categorias documentais amplas `framework`, técnica-operacional e edificação genérica, bem como das coocorrências, que não demonstram aplicação metodológica, importância científica, associação estatística, efeito ou causalidade. O verificador automático foi ampliado para conferir todas as séries centrais e a tabela de tipos de contribuição gerada pelo script.
+
+Relatório completo em `docs/RELATORIO_ETAPA_10.md`.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 11`.
