@@ -16,7 +16,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | Etapa | Descrição | Status | Commit | Pendências |
 |---:|---|---|---|---|
 | 0 | Preparação e preservação dos arquivos | Concluída | Commit exclusivo da Etapa 0; hash registrado no relatório de execução | Recompilação local independente e logs completos: Informação insuficiente para verificar. |
-| 1 | Auditoria do tipo de revisão | Não iniciada | | Aguardar autorização explícita do usuário |
+| 1 | Auditoria do tipo de revisão | Concluída | Commit exclusivo da Etapa 1; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 2 |
 | 2 | Pergunta, objetivos e escopo | Não iniciada | | |
 | 3 | Estratégia de busca e reprodutibilidade | Não iniciada | | |
 | 4 | Funil de seleção | Não iniciada | | |
@@ -66,3 +66,29 @@ O trabalho será realizado estritamente conforme o arquivo:
 
 ### Próxima ação
 Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 1`.
+
+
+## Registro da Etapa 1
+
+### Data
+2026-07-10
+
+### Arquivos analisados
+Fonte principal, resumo, introdução, revisão teórica, metodologia, resultados, limitações e considerações finais; Hu et al. (2026) e Franca (2025) nos limites definidos pelo plano.
+
+### Diagnóstico
+A denominação documentalmente sustentável é “revisão integrativa sistematizada, com apoio bibliométrico e síntese temática”. Não há base para transformar o trabalho em revisão sistemática por mudança de redação.
+
+### Arquivos alterados
+- `latex-artigo/sections/00_resumo.tex`
+- `docs/RELATORIO_ETAPA_1.md`
+- `docs/STATUS_EXECUCAO_REVISAO_ARTIGO.md`
+
+### Decisões
+Resumo e abstract foram padronizados à denominação já usada na metodologia. Nenhum procedimento, número, resultado, objetivo ou referência foi alterado.
+
+### Informação insuficiente
+Protocolo prévio, pré-registro, leitura integral, avaliação metodológica, dupla revisão e conformidade integral ao PRISMA: Informação insuficiente para verificar.
+
+### Próxima ação
+Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 2`.
