@@ -16,37 +16,29 @@ O trabalho será realizado estritamente conforme o arquivo:
 
 | Etapa | Situação |
 |---|---|
-| Etapa 1 | OK |
-| Etapa 2 | OK |
-| Etapa 3 | OK |
-| Etapa 4 | OK |
-| Etapa 5 | OK |
-| Etapa 6 | OK |
-| Etapa 7 | OK |
-| Etapa 8 | OK |
-| Etapa 9 | OK |
+| 0 a 16 | Concluídas |
 
 ## Etapas
 
-| Etapa | Descrição | Status | Commit | Pendências |
+| Etapa | Descrição | Status | Referência | Pendências |
 |---:|---|---|---|---|
-| 0 | Preparação e preservação dos arquivos | Concluída | Commit exclusivo da Etapa 0; hash registrado no relatório de execução | Recompilação local independente e logs completos: Informação insuficiente para verificar. |
-| 1 | Auditoria do tipo de revisão | Concluída | Commit exclusivo da Etapa 1; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 2 |
-| 2 | Pergunta, objetivos e escopo | Concluída | Commit exclusivo da Etapa 2; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 3 |
-| 3 | Estratégia de busca e reprodutibilidade | Concluída | Commit exclusivo da Etapa 3; hash registrado no relatório de execução | Pendências regularizadas; ressalva RIS×string e justificativa de 2010 permanecem documentadas |
-| 4 | Funil de seleção | Concluída | Commit exclusivo da Etapa 4 e commit de encerramento documental | Sem pendência documental |
-| 5 | Deduplicação | Concluída | Commit exclusivo da Etapa 5 | Sem pendência operacional |
-| 6 | Triagem e auditoria dos registros | Concluída | Artigo, mapa, relatório e verificador atualizados | Sem pendência bloqueante |
-| 7 | Texto completo e elegibilidade | Concluída | Commit exclusivo da Etapa 7 e commit de regularização do verificador | Sem pendência bloqueante; decisão pendente sobre autorizar ou não a Rota B |
-| 8 | Dicionário de categorias e extração | Concluída | Commit exclusivo da Etapa 8 | Regeneração local da Figura~11 pendente (ver relatório da Etapa 8) |
-| 9 | Avaliação metodológica dos estudos | Concluída | Commit exclusivo da Etapa 9 | Sem pendência bloqueante; instrumentos de qualidade mapeados mas não aplicados (exigem texto completo) |
-| 10 | Auditoria dos resultados | Não iniciada | | |
-| 11 | Discussão | Não iniciada | | |
-| 12 | Matriz analítica | Não iniciada | | |
-| 13 | Limitações | Não iniciada | | |
-| 14 | Redação e padronização | Não iniciada | | |
-| 15 | Referências metodológicas | Não iniciada | | |
-| 16 | Consolidação final | Não iniciada | | |
+| 0 | Preparação e preservação | Concluída | Inventário e preservação da versão inicial | Nenhuma bloqueante |
+| 1 | Tipo de revisão | Concluída | RELATORIO_ETAPA_1.md | Nenhuma |
+| 2 | Pergunta, objetivos e escopo | Concluída | RELATORIO_ETAPA_2.md | Nenhuma |
+| 3 | Busca e reprodutibilidade | Concluída | RELATORIO_ETAPA_3.md | Associação RIS por string permanece documentada como informação de memória |
+| 4 | Funil de seleção | Concluída | RELATORIO_ETAPA_4.md | Nenhuma |
+| 5 | Deduplicação | Concluída | RELATORIO_ETAPA_5.md | Nenhuma |
+| 6 | Triagem e auditoria | Concluída | RELATORIO_ETAPA_6.md | Nenhuma |
+| 7 | Texto completo e elegibilidade | Concluída | RELATORIO_ETAPA_7.md | Rota A adotada; Rota B não executada |
+| 8 | Categorias e extração | Concluída | RELATORIO_ETAPA_8.md | Figura 11 regenerada |
+| 9 | Avaliação metodológica | Concluída | RELATORIO_ETAPA_9.md | Avaliação formal de qualidade não realizada por ausência de texto completo integral |
+| 10 | Auditoria dos resultados | Concluída | RELATORIO_ETAPA_10.md | Nenhuma |
+| 11 | Discussão | Concluída | RELATORIO_ETAPA_11.md | Nenhuma |
+| 12 | Matriz analítica | Concluída | RELATORIO_ETAPA_12.md | Matriz conceitual ainda não validada empiricamente |
+| 13 | Limitações | Concluída | RELATORIO_ETAPA_13.md | Nenhuma |
+| 14 | Redação e padronização | Concluída | RELATORIO_ETAPA_14.md | Nenhuma |
+| 15 | Referências metodológicas | Concluída | RELATORIO_ETAPA_15.md | Nenhuma |
+| 16 | Consolidação final | Concluída | RELATORIO_FINAL_REVISAO_ARTIGO.md | Merge na main não realizado |
 
 ## Registro da Etapa 0
 
@@ -428,3 +420,12 @@ Relatório completo em `docs/RELATORIO_ETAPA_14.md`.
 Hu et al. (2026) foi incorporado exclusivamente como parâmetro de transparência e reprodutibilidade do relato de pergunta, busca, seleção, extração e síntese. O texto declara que a citação não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise. A referência de Franca não foi adicionada por redundância conceitual.
 
 Relatório completo em `docs/RELATORIO_ETAPA_15.md`.
+
+
+## Registro da Etapa 16
+
+A consolidação final reuniu as Etapas 0 a 16 e as duas tarefas pontuais de texto completo. A branch está 63 commits à frente do commit preservado de origem no ponto de comparação anterior à consolidação. O artigo foi validado pelo workflow nº 74: geração em R, verificador Python, referências, compilação LaTeX, margens e artefato PDF concluíram com sucesso.
+
+No total, 30 estudos foram lidos integralmente em tarefas pontuais e 14 forneceram evidências específicas incorporadas, sem modificação dos resultados agregados do núcleo de 104 registros. A revisão permanece integrativa sistematizada, com apoio bibliométrico e síntese temática, predominantemente documental. A matriz permanece conceitual e não validada empiricamente.
+
+O estado final está documentado em `docs/RELATORIO_FINAL_REVISAO_ARTIGO.md`. A integração à `main` não foi realizada.
