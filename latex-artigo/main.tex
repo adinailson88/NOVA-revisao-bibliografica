@@ -25,6 +25,8 @@
 \captionsetup{labelsep=period,justification=centering,font=small}
 \captionsetup[table]{position=top}
 \captionsetup[figure]{position=bottom}
+\let\RaggedRightBase\RaggedRight
+\renewcommand{\RaggedRight}{\RaggedRightBase\sloppy}
 \newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 \newcommand{\fonteautor}{\par\smallskip{\footnotesize Fonte: elaborado pelo autor.\par}}
 \newcommand{\captiongrafico}[1]{\captionsetup{name=Gráfico}\caption{#1}}
