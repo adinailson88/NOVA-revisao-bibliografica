@@ -10,12 +10,25 @@ ROOT = Path(__file__).resolve().parents[2]
 ARTIGO = ROOT / "latex-artigo"
 SECOES = ARTIGO / "sections"
 FONTES = ARTIGO / "fontes"
+PROCESSADOS = ROOT / "03_PROCESSADOS"
 SCRIPT_R = ROOT / "scripts" / "r" / "10_gerar_produtos_artigo.R"
 
 
 def ler_csv(nome: str) -> list[dict[str, str]]:
     with (FONTES / nome).open(encoding="utf-8-sig", newline="") as arquivo:
         return list(csv.DictReader(arquivo))
+
+
+def ler_csv_caminho(caminho: Path) -> list[dict[str, str]]:
+    with caminho.open(encoding="utf-8-sig", newline="") as arquivo:
+        return list(csv.DictReader(arquivo))
+
+
+def normalizar_doi(valor: str) -> str:
+    doi = (valor or "").strip().lower()
+    doi = re.sub(r"^https?://(dx\.)?doi\.org/", "", doi)
+    doi = re.sub(r"^doi:\s*", "", doi)
+    return doi.rstrip(".").strip()
 
 
 def inteiro(valor: str) -> int:
@@ -116,6 +129,39 @@ exigir(
     n_consultas == {"Scopus": 4, "Web of Science": 4, "Crossref": 5},
     f"Numero de consultas divergente: {n_consultas}",
 )
+
+# Produtos processados da deduplicacao
+normalizados = ler_csv_caminho(PROCESSADOS / "registros_normalizados.csv")
+consolidado = ler_csv_caminho(PROCESSADOS / "corpus_consolidado.csv")
+grupos_duplicados = ler_csv_caminho(PROCESSADOS / "duplicatas_detectadas.csv")
+
+exigir(len(normalizados) == 12118, f"Registros normalizados divergentes: {len(normalizados)}")
+exigir(len(consolidado) == 9542, f"Corpus consolidado divergente: {len(consolidado)}")
+exigir(len(grupos_duplicados) == 1808, f"Grupos duplicados divergentes: {len(grupos_duplicados)}")
+
+removidos = sum(inteiro(linha["n_registros_agrupados"]) - 1 for linha in grupos_duplicados)
+exigir(removidos == 2576, f"Ocorrencias removidas divergentes: {removidos}")
+
+criterios_duplicacao: dict[str, int] = {}
+for linha in grupos_duplicados:
+    criterio = linha["criterio_agrupamento"]
+    criterios_duplicacao[criterio] = criterios_duplicacao.get(criterio, 0) + 1
+exigir(
+    criterios_duplicacao
+    == {"doi_e_titulo": 1616, "doi": 19, "titulo_normalizado": 173},
+    f"Criterios de deduplicacao divergentes: {criterios_duplicacao}",
+)
+
+ids_consolidados = [linha["id_unico"] for linha in consolidado]
+exigir(len(ids_consolidados) == len(set(ids_consolidados)), "id_unico duplicado no corpus consolidado.")
+
+dois = [normalizar_doi(linha["doi"]) for linha in consolidado if normalizar_doi(linha["doi"])]
+exigir(len(dois) == len(set(dois)), "DOI normalizado duplicado permaneceu no corpus consolidado.")
+
+for linha in consolidado:
+    exigir(linha["bases_origem"].strip() != "", f"Proveniencia de base ausente em {linha['id_unico']}")
+    exigir(linha["strings_origem"].strip() != "", f"Proveniencia de consulta ausente em {linha['id_unico']}")
+    exigir(linha["ids_brutos_agrupados"].strip() != "", f"IDs brutos ausentes em {linha['id_unico']}")
 
 # Tabelas geradas pelo R
 dimensoes = ler_csv("tabela27_dimensoes_sustentabilidade_nucleo_final_104.csv")

@@ -74,6 +74,37 @@ Duplicidade & Consolidação & Fusão por DOI normalizado ou título normalizado
 \fonteautor
 \end{table}
 
+\subsection{Deduplicação e preservação da proveniência}
+
+A deduplicação foi executada após a padronização dos metadados das três fontes. O DOI foi convertido para minúsculas, com remoção dos prefixos de URL ou \texttt{doi:}, espaços e ponto final. O título foi convertido para minúsculas, decomposto para remoção de acentos, privado de pontuação e normalizado quanto aos espaços; títulos com menos de oito caracteres não foram usados para agrupamento.
+
+Registros com o mesmo DOI normalizado foram agrupados. Na ausência de DOI, títulos normalizados idênticos foram agrupados somente quando não havia conflito entre DOIs presentes ou entre identificadores próprios da mesma fonte. Em caso de conflito, os registros permaneceram separados. Para cada grupo fundido, foram preservados bases de origem, consultas de origem e identificadores brutos; o resumo mais longo disponível foi mantido e os demais metadados foram selecionados por completude e prioridade de fonte.
+
+A Tabela~\ref{tab:deduplicacao} apresenta os resultados e os controles conservadores da deduplicação.
+
+\begin{table}[H]
+\centering
+\caption{Resultados e controles da deduplicação}
+\label{tab:deduplicacao}
+\small
+\begin{tabularx}{\textwidth}{Y >{\raggedleft\arraybackslash}p{2.3cm} >{\RaggedRight\arraybackslash}p{5.7cm}}
+\toprule
+Indicador & Total & Interpretação \\
+\midrule
+Registros brutos normalizados & 12.118 & Uma linha por ocorrência recuperada antes da deduplicação. \\
+Registros únicos & 9.542 & Uma linha por grupo consolidado. \\
+Ocorrências removidas & 2.576 & Diferença entre registros brutos e únicos. \\
+Grupos com duplicidade & 1.808 & 1.635 agrupados por DOI e 173 apenas por título normalizado. \\
+Registros únicos com DOI & 8.264 & DOI presente após consolidação. \\
+Registros únicos sem DOI & 1.278 & Dependem de título e identificadores para controle de duplicidade. \\
+Conflitos preservados & 98 & 51 por DOI divergente e 47 por identificador próprio divergente; não foram mesclados. \\
+\bottomrule
+\end{tabularx}
+\fonteautor
+\end{table}
+
+A rotina não usa similaridade aproximada de títulos e não estabelece vínculo entre trabalho em evento e artigo posterior quando os identificadores diferem. Por isso, versões relacionadas podem permanecer separadas. Em sentido oposto, os 173 grupos fundidos apenas por título normalizado constituem o conjunto de maior risco de fusão indevida. Não houve revisão manual integral dos 1.808 grupos, de modo que a deduplicação é reprodutível e conservadora quanto aos conflitos detectados, mas não elimina toda possibilidade de duplicata remanescente ou agrupamento incorreto.
+
 A coleta produziu 12.118 registros brutos: 9.433 recuperados pela API da Scopus, cinco registros existentes apenas no export manual da Scopus, 1.680 da Web of Science e 1.000 do Crossref. A deduplicação por DOI normalizado e título normalizado removeu 2.576 ocorrências repetidas e resultou em 9.542 registros únicos, com preservação da proveniência.
 
 A pré-triagem dos 9.542 registros foi executada por regras determinísticas aplicadas a título e resumo. Uma amostra estratificada de 100 registros, sorteada com semente 42, foi lida individualmente por um único avaliador; 34 classificações foram ajustadas. Os outros 9.442 registros mantiveram a classe automática e não foram verificados individualmente nessa auditoria. Um corte inicial reteve 3.786 registros: 3.472 classificados como relevantes e 314 casos de dúvida com apenas o bloco de objeto predial presente. Em seguida, os 4.276 registros classificados como dúvida receberam decisão registro a registro em tabela auditável: 206 foram considerados relevantes e 4.070 foram descartados. A aplicação dessas decisões reduziu o núcleo em 108 registros, consolidando 3.678 registros no núcleo analítico revisado.

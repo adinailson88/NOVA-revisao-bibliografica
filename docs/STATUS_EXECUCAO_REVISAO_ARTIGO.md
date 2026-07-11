@@ -20,6 +20,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | Etapa 2 | OK |
 | Etapa 3 | OK |
 | Etapa 4 | OK |
+| Etapa 5 | OK |
 
 ## Etapas
 
@@ -30,7 +31,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 2 | Pergunta, objetivos e escopo | Concluída | Commit exclusivo da Etapa 2; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 3 |
 | 3 | Estratégia de busca e reprodutibilidade | Concluída | Commit exclusivo da Etapa 3; hash registrado no relatório de execução | Pendências regularizadas; ressalva RIS×string e justificativa de 2010 permanecem documentadas |
 | 4 | Funil de seleção | Concluída | Commit exclusivo da Etapa 4 e commit de encerramento documental | Sem pendência documental |
-| 5 | Deduplicação | Não iniciada | | |
+| 5 | Deduplicação | Concluída | Commit exclusivo da Etapa 5 | Revisão manual integral dos grupos não realizada |
 | 6 | Triagem e auditoria dos registros | Não iniciada | | |
 | 7 | Texto completo e elegibilidade | Não iniciada | | |
 | 8 | Dicionário de categorias e extração | Não iniciada | | |
@@ -176,3 +177,10 @@ Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 5`.
 ## Encerramento documental da Etapa 4
 
 Os 109 produtos intermediários foram incorporados e organizados nas pastas 03, 04, 05 e 07. Foram validados os totais de deduplicação, o corte inicial de 3.786, a resolução das 4.276 dúvidas, o núcleo revisado de 3.678, a seleção de 137 e a auditoria final de 104. A pendência documental da Etapa 4 está encerrada.
+
+
+## Registro da Etapa 5
+
+A deduplicação foi especificada e validada sem mudança de lógica. Foram confirmados 1.808 grupos e 2.576 ocorrências removidas. O verificador automático passou a conferir produtos processados, DOI único, IDs e proveniência. Permanecem como limitação os 173 grupos por título e os 98 conflitos não revisados integralmente.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 6`.
