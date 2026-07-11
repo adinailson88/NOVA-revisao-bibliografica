@@ -24,6 +24,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | Etapa 6 | OK |
 | Etapa 7 | OK |
 | Etapa 8 | OK |
+| Etapa 9 | OK |
 
 ## Etapas
 
@@ -38,7 +39,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 6 | Triagem e auditoria dos registros | Concluída | Artigo, mapa, relatório e verificador atualizados | Sem pendência bloqueante |
 | 7 | Texto completo e elegibilidade | Concluída | Commit exclusivo da Etapa 7 e commit de regularização do verificador | Sem pendência bloqueante; decisão pendente sobre autorizar ou não a Rota B |
 | 8 | Dicionário de categorias e extração | Concluída | Commit exclusivo da Etapa 8 | Regeneração local da Figura~11 pendente (ver relatório da Etapa 8) |
-| 9 | Avaliação metodológica dos estudos | Não iniciada | | |
+| 9 | Avaliação metodológica dos estudos | Concluída | Commit exclusivo da Etapa 9 | Sem pendência bloqueante; instrumentos de qualidade mapeados mas não aplicados (exigem texto completo) |
 | 10 | Auditoria dos resultados | Não iniciada | | |
 | 11 | Discussão | Não iniciada | | |
 | 12 | Matriz analítica | Não iniciada | | |
@@ -307,3 +308,44 @@ A execução de `python scripts/python/verificar_artigo.py` após as alteraçõe
 divergências.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 9`.
+
+
+## Nota sobre a integração contínua (pós-Etapa 8)
+
+Após o registro acima, foram feitas várias iterações de ajuste de layout (largura de colunas e
+fonte de tabelas em `03_metodologia.tex`) para tentar eliminar um estouro de margem residual
+(\textit{overfull hbox}) que impedia o fluxo de integração contínua (`.github/workflows/latex.yml`)
+de concluir a compilação do PDF e publicar automaticamente as tabelas e figuras regeneradas. O
+estouro foi reduzido de 115,27pt para menos de 7pt ao longo dessas iterações, mas não foi
+eliminado por completo nesta sessão. Por decisão do pesquisador, o ajuste fino remanescente ficará
+a cargo de outra ferramenta, fora desta sessão. Isso não afeta o conteúdo científico do artigo:
+`scripts/python/verificar_artigo.py` (que audita dados, números, citações e referências) passa sem
+divergências em todas as versões; apenas a regeneração automática da Figura~11 e do PDF publicado
+pela integração contínua permanece pendente.
+
+
+## Registro da Etapa 9
+
+A avaliação metodológica dos 104 estudos do núcleo final (relatório completo em
+`docs/RELATORIO_ETAPA_9.md`, codebook em `docs/CODEBOOK_DESENHO_METODOLOGICO_ETAPA_9.md`) classificou
+o desenho metodológico de cada estudo por regras reprodutíveis sobre título e excerto documental
+curto do resumo (`scripts/python/classificar_desenho_estudos.py`), sem leitura de texto completo.
+A classificação resultou em sete categorias: aplicação de método de decisão quantitativo (23,1%),
+não classificável pelo excerto disponível (23,1%), revisão bibliométrica ou de literatura (18,3%),
+proposta de framework conceitual (10,6%), estudo de caso empírico (10,6%), estudo de simulação ou
+modelagem digital (9,6%) e estudo de levantamento ou percepção de stakeholders (4,8%).
+
+Nenhum instrumento clínico de avaliação metodológica (RoB 2, GRADE, Newcastle–Ottawa) foi aplicado,
+por incompatibilidade de desenho com o corpus de engenharia, gestão de ativos e facility
+management. Foi produzido um mapeamento teórico de instrumentos de engenharia potencialmente
+compatíveis com cada desenho identificado (transparência de revisão, descrição de caso,
+transparência amostral, transparência de método quantitativo, validação de modelo de simulação),
+mas nenhum desses instrumentos foi efetivamente aplicado a qualquer estudo: todos exigiriam leitura
+de texto completo, fora do escopo documental desta revisão. Foi acrescentado um parágrafo em
+`09_limitacoes.tex` declarando essa ausência de avaliação de risco de viés/qualidade metodológica
+e o caráter de síntese de frequência (não de recomendação validada) da matriz analítica do artigo.
+
+A execução de `python scripts/python/verificar_artigo.py` após as alterações concluiu sem
+divergências.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 10`.
