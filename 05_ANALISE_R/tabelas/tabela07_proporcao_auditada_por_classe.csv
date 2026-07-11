@@ -1,0 +1,11 @@
+classe_auditada,auditado,n,pct
+complementar,sim,3,0.7
+complementar,nao,429,99.3
+duvida,sim,5,0.1
+duvida,nao,4271,99.9
+irrelevante,sim,52,6.5
+irrelevante,nao,744,93.5
+relevante,sim,20,0.6
+relevante,nao,3452,99.4
+sem_resumo,sim,20,3.5
+sem_resumo,nao,546,96.5

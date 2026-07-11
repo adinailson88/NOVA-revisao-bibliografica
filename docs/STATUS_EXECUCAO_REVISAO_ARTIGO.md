@@ -29,7 +29,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 1 | Auditoria do tipo de revisão | Concluída | Commit exclusivo da Etapa 1; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 2 |
 | 2 | Pergunta, objetivos e escopo | Concluída | Commit exclusivo da Etapa 2; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 3 |
 | 3 | Estratégia de busca e reprodutibilidade | Concluída | Commit exclusivo da Etapa 3; hash registrado no relatório de execução | Pendências regularizadas; ressalva RIS×string e justificativa de 2010 permanecem documentadas |
-| 4 | Funil de seleção | Concluída | Commit exclusivo da Etapa 4; hash registrado no relatório de execução | Relatórios intermediários não presentes no repositório |
+| 4 | Funil de seleção | Concluída | Commit exclusivo da Etapa 4 e commit de encerramento documental | Sem pendência documental |
 | 5 | Deduplicação | Não iniciada | | |
 | 6 | Triagem e auditoria dos registros | Não iniciada | | |
 | 7 | Texto completo e elegibilidade | Não iniciada | | |
@@ -171,3 +171,8 @@ Foi inserida tabela completa de rastreabilidade e a figura do funil foi corrigid
 
 ### Próxima ação
 Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 5`.
+
+
+## Encerramento documental da Etapa 4
+
+Os 109 produtos intermediários foram incorporados e organizados nas pastas 03, 04, 05 e 07. Foram validados os totais de deduplicação, o corte inicial de 3.786, a resolução das 4.276 dúvidas, o núcleo revisado de 3.678, a seleção de 137 e a auditoria final de 104. A pendência documental da Etapa 4 está encerrada.

@@ -22,14 +22,15 @@ Metodologia, critérios, núcleo final, scripts de consolidação, pré-triagem,
 - Deduplicação: 2.576 ocorrências removidas.
 - Pré-triagem: regras determinísticas em título e resumo.
 - Auditoria da pré-triagem: amostra estratificada de 100 registros, semente 42, 34 ajustes, avaliador único.
-- Corte: 3.678 registros retidos por classe e combinação de blocos.
+- Corte inicial: 3.786 registros, sendo 3.472 relevantes e 314 dúvidas/apenas Bloco A.
+- Resolução documentada das 4.276 dúvidas: 206 relevantes e 4.070 descartadas; núcleo revisado de 3.678.
 - Alinhamento: 137 selecionados para análise central por regras determinísticas.
 - Auditoria qualitativa: 104 mantidos no núcleo principal.
 - Não houve texto completo nem segundo avaliador independente.
 
 ## 4. Problemas identificados
 
-A redação anterior sugeria resolução individual de todos os casos de dúvida. Na realidade, somente 100 dos 9.542 registros foram auditados individualmente. Os relatórios intermediários gerados pelo pipeline não estão presentes no repositório atual, embora os scripts estejam.
+A redação anterior sugeria resolução individual de todos os casos de dúvida. Na realidade, somente 100 dos 9.542 registros foram auditados individualmente. Os relatórios, matrizes, tabelas e figuras intermediários foram incorporados ao repositório e conferidos.
 
 ## 5. Alterações realizadas
 
@@ -41,7 +42,7 @@ Nenhum total do funil foi modificado. Não foi declarada elegibilidade por texto
 
 ## 7. Informação insuficiente para verificar
 
-A distribuição completa das 3.541 classificações fora da análise central não pode ser reconstituída sem os arquivos intermediários. Os relatórios intermediários originais precisam ser incorporados ao repositório.
+A distribuição das 3.541 classificações fora da análise central foi confirmada: 651 para análise secundária, 375 para mapeamento descritivo, 157 para apoio contextual e 2.358 para exclusão do artigo.
 
 ## 8. Validações executadas
 
@@ -49,7 +50,9 @@ A distribuição completa das 3.541 classificações fora da análise central n�
 - 9.542 − 5.864 = 3.678.
 - 3.678 − 3.541 = 137.
 - 137 − 33 = 104.
-- 21 + 3 + 8 + 1 = 33.
+- 21 + 3 + 9 = 33.
+- 651 + 375 + 157 + 2.358 = 3.541.
+- 3.786 − 108 = 3.678.
 - Núcleo final contém 104 linhas, todas com decisão `manter_nucleo_principal`.
 - REG_07264 não está no núcleo final.
 
@@ -65,10 +68,15 @@ Commit exclusivo da Etapa 4, com hash informado ao usuário.
 
 ## 11. Pendências
 
-Incorporar, se disponíveis, relatórios e matrizes intermediárias de `03_PROCESSADOS/`, `04_TRIAGEM/`, `05_ANALISE_R/` e `07_SINTESE_TEMATICA/`.
+Pendência documental encerrada: os produtos intermediários estão organizados em `03_PROCESSADOS/`, `04_TRIAGEM/`, `05_ANALISE_R/` e `07_SINTESE_TEMATICA/`.
 
 ## 12. Próxima etapa prevista
 
 Etapa 5 — Deduplicação.
 
 Execução interrompida conforme o planejamento. Aguardando autorização expressa para prosseguir.
+
+
+## Adendo de encerramento documental
+
+Os 109 produtos intermediários foram incorporados e preservados nos caminhos esperados pelos scripts. A Etapa 4 passa a ter rastreabilidade documental completa para os marcos numéricos do funil.
