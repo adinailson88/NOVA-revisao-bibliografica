@@ -15,7 +15,7 @@ Informações fornecidas diretamente pelo pesquisador em 10 de julho de 2026. Os
 | Filtros | Sem idioma e sem tipo documental |
 | Busca piloto | Não houve |
 | Estudos-semente | Não foram utilizados |
-| Marco inicial de 2010 | Justificativa específica não documentada; recorte mantido por corresponder à busca executada |
+| Marco inicial de 2010 | Justificativa autoral consolidada: mapear o tema desde o início da década de 2010 até a data da busca |
 | Protocolo anterior | Existiu antes da coleta |
 | Pré-registro | Não houve |
 | Texto completo | Não houve leitura integral dos 104 registros |

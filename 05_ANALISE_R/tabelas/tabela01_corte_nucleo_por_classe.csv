@@ -1,0 +1,7 @@
+classe_auditada,nucleo_analitico,n
+relevante,TRUE,3472
+duvida,TRUE,314
+duvida,FALSE,3962
+irrelevante,FALSE,796
+sem_resumo,FALSE,566
+complementar,FALSE,432

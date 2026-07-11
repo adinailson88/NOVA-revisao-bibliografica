@@ -87,3 +87,8 @@ A diferença de seis registros foi reconciliada:
 - total bruto: 9.438 + 1.680 + 1.000 = 12.118.
 
 O período 2010–2026 foi mantido porque corresponde à busca efetivamente executada. Não foi criada justificativa retrospectiva para o marco de 2010.
+
+
+## Justificativa consolidada do recorte temporal
+
+O marco inicial de 2010 foi adotado para mapear o desenvolvimento do tema desde o início da década de 2010 até a data da busca.

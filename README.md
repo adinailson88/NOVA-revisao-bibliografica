@@ -14,8 +14,14 @@ O texto utiliza citação autor-data e referências formatadas em padrão ABNT.
 
 ## Estrutura deste repositório
 
-- `latex-artigo/`: código-fonte LaTeX, dados derivados e gráficos do artigo.
-- `scripts/r/10_gerar_produtos_artigo.R`: fonte única das tabelas derivadas e dos gráficos usados no texto.
-- `scripts/python/`: coleta, consolidação, triagem e verificações de reprodutibilidade.
+- `01_PROTOCOLO/`: protocolo, matriz conceitual, strings nativas e logs das buscas.
+- `03_PROCESSADOS/`: corpus normalizado, corpus consolidado, duplicatas e relatório de deduplicação.
+- `04_TRIAGEM/`: matrizes de pré-triagem e triagem auditada, amostra e resolução de dúvidas.
+- `05_ANALISE_R/`: produtos históricos da análise, organizados em `scripts/`, `tabelas/` e `figuras/`.
+- `07_SINTESE_TEMATICA/`: matrizes, dicionários, relatórios e recortes da síntese até o núcleo final.
+- `latex-artigo/`: fonte LaTeX, dados derivados e gráficos efetivamente utilizados no artigo.
+- `scripts/python/`: scripts reprodutíveis de coleta, consolidação, triagem e verificação.
+- `scripts/r/10_gerar_produtos_artigo.R`: fonte vigente das tabelas derivadas e dos gráficos utilizados no texto.
+- `docs/`: plano, relatórios por etapa, inventários e mapa de rastreabilidade.
 
 Os dados derivados e os scripts serão vinculados ao depósito público indicado na versão submetida do artigo.

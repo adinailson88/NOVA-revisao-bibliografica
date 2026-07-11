@@ -122,7 +122,7 @@ Total Crossref: 1.000 registros. Por causa do limite e da ordenação por relev�
 | Filtros de tipo documental | Não aplicados. |
 | Busca piloto | Não houve. |
 | Estudos-semente | Não foram utilizados. |
-| Justificativa específica para 2010 | Informação insuficiente para verificar. |
+| Marco inicial de 2010 | Adotado para mapear o desenvolvimento do tema desde o início da década de 2010 até a data da busca. |
 | Reconciliação do total bruto | +5 Scopus no enriquecimento manual de 09/07/2026; +1 Web of Science por correção da contagem de A4. |
 
 ## 6. Avaliação da reprodutibilidade
