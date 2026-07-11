@@ -1,0 +1,12 @@
+criterio,tipo,descricao
+Bloco 1 - objeto predial,inclusao_obrigatoria,"manutencao predial; facility/facilities management; gestao de ativos construidos; operacao e manutencao de edificios (presenca em titulo/resumo/palavras-chave)"
+Bloco 2 - sustentabilidade,inclusao_obrigatoria,"desempenho ambiental; ciclo de vida; eficiencia energetica; criterios ambientais/sociais/economicos (presenca em titulo/resumo/palavras-chave)"
+Janela temporal 2010-2026,inclusao_obrigatoria,"ano de publicacao dentro do intervalo"
+Bloco 3 - decisao/priorizacao multicriterio (MCDM/MCDA/AHP/TOPSIS e correlatos),reforco_nao_obrigatorio,"usado como etiqueta de pos-processamento (campo metodo_decisao); nao e criterio de inclusao"
+Contexto publico/universitario/institucional,reforco_nao_obrigatorio,"variacao lexical de busca para reforco de recall; nao e recorte tematico isolado"
+Registros sem relacao com edificacao/ambiente construido,exclusao,
+Manutencao industrial/manufatura/transporte sem ponte explicita com edificacoes,exclusao,
+Apenas materiais de construcao sem operacao/manutencao,exclusao,
+Apenas smart city/mobilidade urbana/trafego sem edificacao,exclusao,
+Duplicatas (mesmo DOI normalizado ou mesmo titulo normalizado sem conflito de identificador de fonte),exclusao,"fundidas na deduplicacao; proveniencia preservada em bases_origem/strings_origem"
+Registros sem resumo,nao_excluido_automaticamente,"tentativa de enriquecimento por DOI/Crossref/Scopus/WoS antes de decidir; se persistir sem resumo, marcado triagem_por_titulo=sim e confianca=baixa"

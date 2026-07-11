@@ -1,0 +1,23 @@
+﻿metodo_decisao_identificado,total_registros,percentual_dos_137
+framework,126,92.0
+optimization,33,24.1
+decision support,32,23.4
+BIM,28,20.4
+scoring,22,16.1
+fuzzy,15,10.9
+life-cycle cost,15,10.9
+machine learning,15,10.9
+IoT,12,8.8
+ranking,11,8.0
+digital twin,10,7.3
+AHP,6,4.4
+MCDM,5,3.6
+TOPSIS,5,3.6
+Delphi,4,2.9
+ANP,3,2.2
+Bayesian Best Worst Method,2,1.5
+cost-benefit,2,1.5
+balanced scorecard,1,0.7
+case-based reasoning,1,0.7
+nao_identificado_no_resumo,1,0.7
+risk-based,1,0.7
