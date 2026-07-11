@@ -11,6 +11,8 @@ ARTIGO = ROOT / "latex-artigo"
 SECOES = ARTIGO / "sections"
 FONTES = ARTIGO / "fontes"
 PROCESSADOS = ROOT / "03_PROCESSADOS"
+TRIAGEM = ROOT / "04_TRIAGEM"
+SINTESE = ROOT / "07_SINTESE_TEMATICA"
 SCRIPT_R = ROOT / "scripts" / "r" / "10_gerar_produtos_artigo.R"
 
 
@@ -22,6 +24,11 @@ def ler_csv(nome: str) -> list[dict[str, str]]:
 def ler_csv_caminho(caminho: Path) -> list[dict[str, str]]:
     with caminho.open(encoding="utf-8-sig", newline="") as arquivo:
         return list(csv.DictReader(arquivo))
+
+
+def ler_tsv_caminho(caminho: Path) -> list[dict[str, str]]:
+    with caminho.open(encoding="utf-8-sig", newline="") as arquivo:
+        return list(csv.DictReader(arquivo, delimiter="\\t"))
 
 
 def normalizar_doi(valor: str) -> str:
@@ -53,15 +60,9 @@ exigir(" -- " not in texto_prosa, "Foi encontrado travessao em sintaxe LaTeX no 
 exigir("\\captionsetup{labelsep=period" in texto_tex, "Separador de legenda deve ser ponto.")
 exigir("\\texttt{fontes/" not in texto_tex, "Fonte de tabela nao deve expor caminho de arquivo.")
 exigir(".md}" not in texto_tex and ".md)" not in texto_tex, "Referencia a arquivo Markdown no artigo.")
-for expressao in (
-    "não houve dupla",
-    "nao houve dupla",
-    "revisão sistemática plena",
-    "revisao sistematica plena",
-    "texto completo",
-    "full-text",
-):
-    exigir(expressao.lower() not in texto_tex.lower(), f"Expressao removida reapareceu: {expressao}")
+# Transparencia metodologica da triagem
+exigir("Não houve segundo avaliador independente." in texto_tex, "O artigo deve declarar a ausência de segundo avaliador.")
+exigir("não constitui evidência de uso do ASReview" in texto_tex, "O artigo não pode atribuir uso de ASReview sem evidência.")
 
 # Quantidade e nao redundancia estrutural
 exigir(texto_tex.count("\\begin{table}") == 5, "O artigo deve manter cinco tabelas essenciais.")
@@ -162,6 +163,26 @@ for linha in consolidado:
     exigir(linha["bases_origem"].strip() != "", f"Proveniencia de base ausente em {linha['id_unico']}")
     exigir(linha["strings_origem"].strip() != "", f"Proveniencia de consulta ausente em {linha['id_unico']}")
     exigir(linha["ids_brutos_agrupados"].strip() != "", f"IDs brutos ausentes em {linha['id_unico']}")
+
+# Produtos da triagem e auditoria
+pre_triagem = ler_csv_caminho(TRIAGEM / "matriz_pre_triagem.csv")
+amostra_auditoria = ler_csv_caminho(TRIAGEM / "_amostra_auditoria_bruta.csv")
+decisoes_duvida = ler_tsv_caminho(TRIAGEM / "decisao_duvidas_revisada.tsv")
+nucleo_reavaliado = ler_csv_caminho(SINTESE / "matriz_extracao_final_reavaliada_resumos.csv")
+nucleo_central = ler_csv_caminho(SINTESE / "nucleo_principal_sintese_artigo.csv")
+auditoria_137 = ler_csv_caminho(SINTESE / "auditoria_qualitativa_resumos_137.csv")
+
+exigir(len(pre_triagem) == 9542, f"Pré-triagem divergente: {len(pre_triagem)}")
+exigir(len(amostra_auditoria) == 100, f"Amostra de auditoria divergente: {len(amostra_auditoria)}")
+exigir(len(decisoes_duvida) == 4276, f"Decisões de dúvida divergentes: {len(decisoes_duvida)}")
+decisoes_obtidas: dict[str, int] = {}
+for linha in decisoes_duvida:
+    decisao = linha["decisao_revisada"]
+    decisoes_obtidas[decisao] = decisoes_obtidas.get(decisao, 0) + 1
+exigir(decisoes_obtidas == {"RELEVANTE": 206, "DESCARTAR": 4070}, f"Resolução das dúvidas divergente: {decisoes_obtidas}")
+exigir(len(nucleo_reavaliado) == 3678, f"Núcleo reavaliado divergente: {len(nucleo_reavaliado)}")
+exigir(len(nucleo_central) == 137, f"Núcleo central divergente: {len(nucleo_central)}")
+exigir(len(auditoria_137) == 137, f"Auditoria qualitativa divergente: {len(auditoria_137)}")
 
 # Tabelas geradas pelo R
 dimensoes = ler_csv("tabela27_dimensoes_sustentabilidade_nucleo_final_104.csv")
