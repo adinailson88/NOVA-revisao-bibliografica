@@ -115,3 +115,17 @@ O hash é informado no relatório de execução ao usuário, pois um arquivo nã
 Etapa 2 — Pergunta, objetivos e escopo.
 
 Execução interrompida conforme o planejamento. Aguardando autorização expressa para prosseguir.
+
+
+## Retificação documental posterior
+
+Com base nas informações confirmadas pelo pesquisador:
+
+- existiu protocolo anterior à coleta;
+- não houve pré-registro;
+- não houve leitura de texto completo dos 104 registros;
+- não houve segundo avaliador independente;
+- não houve avaliação formal de qualidade metodológica ou risco de viés;
+- a análise permaneceu restrita a título, resumo, palavras-chave e campos extraídos.
+
+A denominação “revisão integrativa sistematizada, com apoio bibliométrico e síntese temática” permanece recomendada.
