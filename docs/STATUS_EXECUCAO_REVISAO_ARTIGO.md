@@ -398,3 +398,12 @@ A matriz foi auditada e passou a ser denominada “matriz analítica conceitual 
 Foi declarado que frequências e coocorrências não constituem pesos e que a matriz ainda não possui indicadores operacionais, normalização, limiares, função de agregação, método decisório selecionado ou validação empírica. Nenhum resultado ou registro foi alterado. Relatório completo em `docs/RELATORIO_ETAPA_12.md`.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 13`.
+
+
+## Registro da Etapa 13
+
+As limitações foram atualizadas conforme o método efetivamente realizado. Foram explicitadas a dependência da cobertura e atualização das bases, o caráter complementar e limitado do Crossref, o ano de 2026 parcial, a ausência de pré-registro público, de busca de citações e de literatura cinzenta, o avaliador único sem concordância interavaliadores, o uso de regras determinísticas com auditoria amostral, a predominância documental, a unidade de análise como registro bibliográfico e a ausência de avaliação metodológica.
+
+A descrição do texto completo foi corrigida para registrar a leitura pontual de 19 estudos, dos quais sete forneceram evidências específicas incorporadas. Não foi incluída afirmação genérica de duplicatas remanescentes. Nenhum resultado foi alterado. Relatório completo em `docs/RELATORIO_ETAPA_13.md`.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 14`.

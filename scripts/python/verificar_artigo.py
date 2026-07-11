@@ -375,4 +375,16 @@ exigir(
     "O artigo deve preservar o estado nao validado da matriz.",
 )
 
+
+# Limitacoes metodologicas documentadas (Etapa 13)
+for declaracao in (
+    "Não houve pré-registro público do protocolo.",
+    "sem segundo revisor independente e sem medida de concordância interavaliadores",
+    "não foram realizadas busca de citações para frente ou para trás",
+    "busca estruturada de literatura cinzenta",
+    "Dezenove estudos com PDF disponível foram posteriormente lidos",
+    "A unidade de análise quantitativa é o registro bibliográfico consolidado.",
+):
+    exigir(declaracao in texto_tex, f"Limitacao obrigatoria ausente: {declaracao}")
+
 print("Verificacao do artigo concluida sem divergencias.")
