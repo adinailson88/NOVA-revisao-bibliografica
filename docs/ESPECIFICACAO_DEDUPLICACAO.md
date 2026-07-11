@@ -50,11 +50,6 @@ Distribuição do tamanho dos 1.808 grupos:
 | 6 | 11 |
 | 8 | 2 |
 
-## Limitações
+## Observação operacional
 
-- Não há comparação aproximada ou semântica entre títulos.
-- Artigo de evento e versão posterior não são vinculados automaticamente.
-- Os 173 grupos fundidos apenas por título possuem maior risco de fusão indevida.
-- Os 98 conflitos de título foram preservados, mas não resolvidos manualmente.
-- Não houve revisão manual integral dos 1.808 grupos.
-- Não é possível afirmar ausência absoluta de duplicatas remanescentes ou fusões incorretas.
+A rotina não usa similaridade aproximada de títulos nem estabelece vínculo automático entre trabalho em evento e artigo posterior. Conflitos detectados permanecem separados.
