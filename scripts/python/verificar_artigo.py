@@ -382,9 +382,26 @@ for declaracao in (
     "sem segundo revisor independente e sem medida de concordância interavaliadores",
     "não foram realizadas busca de citações para frente ou para trás",
     "busca estruturada de literatura cinzenta",
-    "Dezenove estudos com PDF disponível foram posteriormente lidos",
+    "Trinta estudos com PDF disponível foram posteriormente lidos",
     "A unidade de análise quantitativa é o registro bibliográfico consolidado.",
 ):
     exigir(declaracao in texto_tex, f"Limitacao obrigatoria ausente: {declaracao}")
+
+
+# Uso pontual adicional de texto completo
+exigir(
+    "30 estudos com PDF disponível foram lidos integralmente; 14 forneceram evidências específicas" in texto_tex,
+    "O método deve registrar os dois lotes de texto completo.",
+)
+for chave in (
+    "aldairi_lean6sbm_2017",
+    "yoon_fuzzyfm_2018",
+    "park_cbrfuzzyahp_2019",
+    "chew_manutenibilidadeverde_2016",
+    "talib_hospitalfm_2013",
+    "conejos_verticalgreenery_2019",
+    "tan_fluxoinformacao_2018",
+):
+    exigir(chave in chaves_citadas, f"Estudo de texto completo sem citacao: {chave}")
 
 print("Verificacao do artigo concluida sem divergencias.")
