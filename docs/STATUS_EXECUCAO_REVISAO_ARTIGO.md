@@ -219,3 +219,22 @@ Após as três correções, `python scripts/python/verificar_artigo.py` conclui 
 número, tabela, figura, citação ou referência do artigo foi alterado nesta regularização.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 8`.
+
+
+## Regularização da declaração de acesso a texto completo (pós-Etapa 7)
+
+O pesquisador buscou, fora do escopo formal das etapas, obter texto completo dos 104 estudos por
+acesso aberto legítimo (consulta à API pública do Unpaywall a partir dos DOIs do núcleo final). Dez
+estudos tiveram PDF de acesso aberto obtido e validado; os demais permanecem sem texto completo
+disponível por essa via, por ausência de versão aberta ou por dependerem de acesso institucional aos
+periódicos. Nenhum desses PDFs foi lido ou incorporado à síntese do artigo até o momento; apenas os
+arquivos foram obtidos e reservados fora do repositório.
+
+Para refletir esse cenário sem antecipar procedimento não realizado, `03_metodologia.tex` e
+`09_limitacoes.tex` foram ajustados para declarar que a síntese permanece predominantemente apoiada em
+título, resumo, palavras-chave e campos estruturados, em razão do acesso institucional restrito a
+parte dos periódicos, e que o eventual uso de texto completo do pequeno subconjunto obtido por acesso
+aberto será indicado e referenciado individualmente por estudo, caso venha a ocorrer, sem alterar a
+natureza predominantemente documental da revisão como um todo.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 8`.
