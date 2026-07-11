@@ -380,3 +380,12 @@ Foram explicitados os limites interpretativos das categorias documentais amplas 
 Relatório completo em `docs/RELATORIO_ETAPA_10.md`.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 11`.
+
+
+## Registro da Etapa 11
+
+A discussão foi reestruturada em seção autônoma, sem alteração dos resultados numéricos. A nova seção integra convergências e divergências, evolução temporal, contextos de aplicação, diferenças entre formulações conceituais e aplicações empíricas, métodos mencionados e aplicados, critérios identificados e operacionalizados, relação entre sustentabilidade e decisão, implicações para gestão pública universitária, limites da evidência e agenda de pesquisa.
+
+As interpretações preservam a distinção entre frequência e importância, menção e aplicação, coocorrência e associação, síntese conceitual e validação. Foram utilizadas apenas referências existentes e verificadas no artigo. Relatório completo em `docs/RELATORIO_ETAPA_11.md`.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 12`.
