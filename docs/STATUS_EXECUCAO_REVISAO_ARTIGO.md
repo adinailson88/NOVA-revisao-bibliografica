@@ -414,3 +414,10 @@ Próxima ação: aguardar `AUTORIZO A ETAPA 14`.
 Foram comparados 11 novos estudos lidos integralmente com a codificação documental do núcleo final, sem sobreposição com o lote anterior de 19. Sete estudos forneceram evidências específicas incorporadas individualmente nas seções de critérios, métodos e aplicabilidade; quatro permaneceram confirmatórios, tangenciais ou com informação insuficiente para incorporação. Os metadados de Yoon e Cha (2018), Chew e Conejos (2016) e Tan, Zaman e Sutrisna (2018) foram completados, e divergências individuais foram documentadas em `docs/RELATORIO_USO_TEXTO_COMPLETO_11_NOVOS_ESTUDOS.md`.
 
 No conjunto das duas tarefas pontuais, 30 estudos foram lidos integralmente e 14 forneceram evidências específicas incorporadas. Os números e produtos agregados do núcleo de 104 registros não foram modificados, e a revisão permanece predominantemente documental.
+
+
+## Registro da Etapa 14
+
+A redação e a terminologia foram padronizadas sem alteração de método ou resultados. ESG, MCDM, MCDA, AHP, TOPSIS, ANP, BIM e API passaram a ser definidos na primeira ocorrência relevante. O resumo e o abstract foram alinhados à denominação “matriz analítica conceitual informada pela síntese da literatura”. Estrutura, referências cruzadas, tabelas, gráficos, legendas e numeração foram preservados.
+
+Relatório completo em `docs/RELATORIO_ETAPA_14.md`.

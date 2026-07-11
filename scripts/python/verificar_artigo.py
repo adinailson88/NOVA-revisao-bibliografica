@@ -404,4 +404,18 @@ for chave in (
 ):
     exigir(chave in chaves_citadas, f"Estudo de texto completo sem citacao: {chave}")
 
+
+# Padronizacao terminologica e editorial (Etapa 14)
+for declaracao in (
+    "ambiental, social e de governança (ESG",
+    "MCDM designa \\textit{multi-criteria decision-making}",
+    "MCDA, \\textit{multi-criteria decision analysis}",
+    "AHP corresponde a \\textit{Analytic Hierarchy Process}",
+    "TOPSIS a \\textit{Technique for Order Preference by Similarity to Ideal Solution}",
+    "ANP a \\textit{Analytic Network Process}",
+    "modelagem da informação da construção (BIM",
+    "matriz analítica conceitual, informada pela síntese da literatura",
+):
+    exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
+
 print("Verificacao do artigo concluida sem divergencias.")
