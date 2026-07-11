@@ -74,20 +74,46 @@ Duplicidade & Consolidação & Fusão por DOI normalizado ou título normalizado
 \fonteautor
 \end{table}
 
-A coleta produziu 12.118 registros brutos. Esse total reúne 12.112 registros contabilizados nas consultas e seis registros adicionais da Scopus encontrados no export manual das mesmas expressões em razão da atualização do índice entre as datas de coleta. A deduplicação por DOI e título normalizado resultou em 9.542 registros únicos, com preservação da proveniência. A triagem e a resolução individual dos casos de dúvida definiram um núcleo analítico revisado de 3.678 registros. A reavaliação dos campos textuais e o alinhamento às perguntas de pesquisa produziram 137 registros centrais. A auditoria qualitativa estruturada desses registros consolidou o núcleo final de 104 estudos utilizado nos resultados. O fluxo completo está apresentado na Figura~\ref{fig:funil}.
+A coleta produziu 12.118 registros brutos: 9.433 recuperados pela API da Scopus, cinco registros existentes apenas no export manual da Scopus, 1.680 da Web of Science e 1.000 do Crossref. A deduplicação por DOI normalizado e título normalizado removeu 2.576 ocorrências repetidas e resultou em 9.542 registros únicos, com preservação da proveniência.
+
+A pré-triagem dos 9.542 registros foi executada por regras determinísticas aplicadas a título e resumo. Uma amostra estratificada de 100 registros, sorteada com semente 42, foi lida individualmente por um único avaliador; 34 classificações foram ajustadas. Os outros 9.442 registros mantiveram a classe automática e não foram verificados individualmente. O corte posterior reteve os registros classificados como relevantes e os casos de dúvida com apenas o bloco de objeto predial presente, resultando em 3.678 registros no núcleo analítico revisado.
+
+Os 3.678 registros foram reavaliados por força do resumo e alinhamento às perguntas de pesquisa, mediante regras reprodutíveis aplicadas a título, resumo, palavras-chave e campos previamente extraídos. Esse procedimento classificou 137 registros para a análise central; os demais 3.541 não foram selecionados para essa análise, podendo ter permanecido em funções secundárias, descritivas, contextuais ou de exclusão. Não houve leitura de texto completo nessa transição.
+
+A auditoria qualitativa estruturada dos 137 registros manteve 104 no núcleo principal. Entre os 33 não retidos no núcleo final, 21 foram classificados como secundários, três apenas para mapeamento, oito foram excluídos da síntese e um caso que exigiria verificação pontual em texto completo foi descartado sem leitura integral. Não houve segundo avaliador independente. A Tabela~\ref{tab:funilselecao} e a Figura~\ref{fig:funil} apresentam o fluxo.
+
+{\setlength{\tabcolsep}{2pt}
+\begin{table}[H]
+\centering
+\caption{Rastreabilidade do funil de seleção}
+\label{tab:funilselecao}
+\scriptsize
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{0.9cm} >{\raggedleft\arraybackslash}p{1.0cm} >{\RaggedRight\arraybackslash}p{2.4cm} >{\RaggedRight\arraybackslash}p{2.5cm} >{\RaggedRight\arraybackslash}p{2.0cm} >{\raggedleft\arraybackslash}p{1.0cm} >{\raggedleft\arraybackslash}p{1.0cm} Y}
+\toprule
+Etapa & Entrada & Procedimento & Critério & Responsável & Incluídos & Não retidos & Motivos \\
+\midrule
+Coleta e deduplicação & 12.118 & Normalização e agrupamento por DOI ou título, com proveniência preservada. & DOI normalizado; na ausência, título normalizado sem conflito de identificador. & Script Python. & 9.542 & 2.576 & Ocorrências duplicadas entre bases ou consultas. \\
+Pré-triagem e corte analítico & 9.542 & Regras em título e resumo; auditoria estratificada de 100 registros; corte por classe e blocos. & Relevante; ou dúvida com apenas objeto predial presente. & Scripts Python/R e avaliador único na amostra. & 3.678 & 5.864 & Fora do núcleo analítico segundo classe automática/auditada e regra de corte. \\
+Alinhamento às RQs & 3.678 & Pontuação determinística de aderência às RQs e força do resumo. & Sinais de objeto, manutenção, sustentabilidade, decisão e contexto; sem exclusão forte. & Scripts R; regras aprovadas pelo pesquisador. & 137 & 3.541 & Uso secundário, descritivo, contextual ou exclusão da análise central. \\
+Auditoria qualitativa & 137 & Auditoria estruturada de título, resumo, palavras-chave e campos extraídos. & Aderência ao núcleo principal e suficiência documental. & Avaliador único, sem revisão independente. & 104 & 33 & 21 secundários; 3 apenas mapeamento; 8 excluídos; 1 pendência de texto completo descartada. \\
+\bottomrule
+\end{tabularx}
+\fonteautor
+\end{table}
+}
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
   node distance=6mm,
-  every node/.style={draw, rounded corners, align=center, text width=8.6cm, minimum height=9mm, font=\small},
+  every node/.style={draw, rounded corners, align=center, text width=9.2cm, minimum height=9mm, font=\small},
   arrow/.style={-Latex, thick}
 ]
-\node (bruto) {Coleta bruta: Scopus, Web of Science e Crossref \\ 12.118 registros};
-\node (unico) [below=of bruto] {Corpus único após deduplicação por DOI e título \\ 9.542 registros};
-\node (nucleo1) [below=of unico] {Núcleo analítico revisado após triagem e auditoria \\ 3.678 registros};
-\node (nucleo2) [below=of nucleo1] {Núcleo de análise central após alinhamento às perguntas \\ 137 registros};
-\node (final) [below=of nucleo2, draw=black, very thick] {Núcleo final após auditoria qualitativa estruturada \\ \textbf{104 registros}};
+\node (bruto) {Coleta bruta nas três fontes \\ 12.118 registros};
+\node (unico) [below=of bruto] {Deduplicação por DOI e título normalizados \\ 9.542 registros únicos; 2.576 ocorrências removidas};
+\node (nucleo1) [below=of unico] {Pré-triagem automática, auditoria amostral e corte analítico \\ 3.678 registros; 5.864 não retidos};
+\node (nucleo2) [below=of nucleo1] {Alinhamento determinístico às perguntas de pesquisa \\ 137 registros centrais; 3.541 não selecionados};
+\node (final) [below=of nucleo2, draw=black, very thick] {Auditoria qualitativa estruturada \\ \textbf{104 registros}; 33 não retidos no núcleo final};
 \draw[arrow] (bruto) -- (unico);
 \draw[arrow] (unico) -- (nucleo1);
 \draw[arrow] (nucleo1) -- (nucleo2);
