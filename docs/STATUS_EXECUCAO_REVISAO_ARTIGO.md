@@ -349,3 +349,23 @@ A execução de `python scripts/python/verificar_artigo.py` após as alteraçõe
 divergências.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 10`.
+
+
+## Nota de continuidade
+
+A partir deste ponto (commit `59cbfd5`), a execução deste plano poderá continuar em outra sessão
+de trabalho, operando diretamente neste repositório. O arquivo de origem da execução continua
+sendo `docs/PLANO_EXECUCAO_REVISAO_ARTIGO.md`; este arquivo de status continua sendo o registro
+único e cumulativo de progresso — qualquer continuidade deve atualizar as seções existentes acima,
+não criar um novo arquivo de status paralelo.
+
+Pendência não bloqueante conhecida neste ponto: o fluxo de integração contínua
+(`.github/workflows/latex.yml`) falha no passo "Verificar margens do PDF" por um estouro de
+margem residual de 1,25pt (menos de meio milímetro) em `latex-artigo/sections/03_metodologia.tex`,
+linha 24 (fechamento da tabela `tab:alinhamentorq`, "Matriz de alinhamento entre perguntas,
+seleção, extração e resultados"). O estouro já foi reduzido de 115,27pt para 1,25pt por ajustes de
+largura de coluna nos commits `057b0c9` a `608df91`; o valor residual é o mesmo independentemente
+de qual das quatro colunas fixas da tabela recebe mais largura, o que sugere que a origem pode
+estar na última coluna flexível (`Y`, "Resultado correspondente") ou em um efeito de microtipografia
+não identificado. Essa pendência não afeta o conteúdo científico do artigo — apenas impede que a
+integração contínua regenere e publique automaticamente as tabelas, figuras e o PDF mais recentes.
