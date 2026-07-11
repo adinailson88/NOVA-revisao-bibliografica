@@ -33,7 +33,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 4 | Funil de seleção | Concluída | Commit exclusivo da Etapa 4 e commit de encerramento documental | Sem pendência documental |
 | 5 | Deduplicação | Concluída | Commit exclusivo da Etapa 5 | Sem pendência operacional |
 | 6 | Triagem e auditoria dos registros | Concluída | Artigo, mapa, relatório e verificador atualizados | Sem pendência bloqueante |
-| 7 | Texto completo e elegibilidade | Não iniciada | | |
+| 7 | Texto completo e elegibilidade | Concluída | Commit exclusivo da Etapa 7 | Verificador automático falha em item pré-existente (contagem de tabelas), anterior a esta etapa |
 | 8 | Dicionário de categorias e extração | Não iniciada | | |
 | 9 | Avaliação metodológica dos estudos | Não iniciada | | |
 | 10 | Auditoria dos resultados | Não iniciada | | |
@@ -191,3 +191,12 @@ Próxima ação: aguardar `AUTORIZO A ETAPA 6`.
 As camadas de seleção foram documentadas separadamente: pré-triagem determinística dos 9.542 registros, auditoria amostral de 100, resolução dos 4.276 casos de dúvida, reavaliação dos 3.678 registros, alinhamento de 137 registros centrais e auditoria qualitativa que consolidou 104 estudos. O artigo não atribui uso de IA ou ASReview sem evidência documental e declara a ausência de segundo avaliador independente. O verificador automático passou a conferir todos esses marcos.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 7`.
+
+
+## Registro da Etapa 7
+
+A avaliação de texto completo dos 104 estudos do núcleo final não ocorreu em nenhuma camada de triagem ou auditoria, o que já estava descrito por camada em `03_metodologia.tex`. Foi acrescentada uma declaração explícita de elegibilidade, incluindo o caso do registro sinalizado para verificação pontual e descartado sem leitura integral. Foi acrescentada uma limitação específica em `09_limitacoes.tex`, distinguindo análise documental de síntese de evidências de texto completo. Em `10_consideracoes.tex`, a expressão "confirma" foi substituída por uma formulação compatível com o nível documental de evidência. Foram apresentadas as Rotas A (manutenção em nível documental, adotada) e B (elevação para revisão sistemática com texto completo, não executada, com plano operacional descrito em `docs/RELATORIO_ETAPA_7.md`).
+
+A execução de `scripts/python/verificar_artigo.py` revelou uma falha pré-existente, anterior a esta etapa (confirmada no commit `523f44f`, encerramento da Etapa 6): o script exige exatamente 5 tabelas no artigo, mas há 8 tabelas presentes. Essa divergência não pertence ao escopo da Etapa 7 e não foi corrigida nesta etapa; permanece registrada como pendência.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 8`.
