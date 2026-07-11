@@ -401,7 +401,7 @@ metodos_gerais <- c(
 )
 metodos_estruturados <- c(
   "AHP", "TOPSIS", "ANP", "MCDM", "Delphi",
-  "Balanced scorecard", "Case-based reasoning", "Bayesian Best-Worst Method"
+  "balanced scorecard", "case-based reasoning", "Bayesian Best Worst Method"
 )
 rotulos_metodos <- stats::setNames(
   c(

@@ -21,6 +21,9 @@ O trabalho será realizado estritamente conforme o arquivo:
 | Etapa 3 | OK |
 | Etapa 4 | OK |
 | Etapa 5 | OK |
+| Etapa 6 | OK |
+| Etapa 7 | OK |
+| Etapa 8 | OK |
 
 ## Etapas
 
@@ -34,7 +37,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 5 | Deduplicação | Concluída | Commit exclusivo da Etapa 5 | Sem pendência operacional |
 | 6 | Triagem e auditoria dos registros | Concluída | Artigo, mapa, relatório e verificador atualizados | Sem pendência bloqueante |
 | 7 | Texto completo e elegibilidade | Concluída | Commit exclusivo da Etapa 7 e commit de regularização do verificador | Sem pendência bloqueante; decisão pendente sobre autorizar ou não a Rota B |
-| 8 | Dicionário de categorias e extração | Não iniciada | | |
+| 8 | Dicionário de categorias e extração | Concluída | Commit exclusivo da Etapa 8 | Regeneração local da Figura~11 pendente (ver relatório da Etapa 8) |
 | 9 | Avaliação metodológica dos estudos | Não iniciada | | |
 | 10 | Auditoria dos resultados | Não iniciada | | |
 | 11 | Discussão | Não iniciada | | |
@@ -277,3 +280,30 @@ A execução de `python scripts/python/verificar_artigo.py` após as alteraçõe
 divergências.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 8`.
+
+
+## Registro da Etapa 8
+
+A auditoria das categorias de extração (relatório completo em `docs/RELATORIO_ETAPA_8.md`) formalizou
+um codebook (`docs/CODEBOOK_CATEGORIAS_ETAPA_8.md`) com definição, inclusão, exclusão, exemplo
+positivo, exemplo negativo e regra de desempate para as seis dimensões de sustentabilidade, os
+quinze critérios de priorização, os dezenove métodos de apoio à decisão e os onze contextos de
+edificação já usados no núcleo final de 104 estudos. A auditoria identificou dois problemas: (1) o
+filtro que restringe a Tabela de dimensões às seis categorias-guarda-chuva, já existente no script
+gerador, não estava explicado na prosa do artigo; e (2) três rótulos de método
+(`balanced scorecard`, `case-based reasoning`, `Bayesian Best Worst Method`, um registro cada)
+estavam grafados de forma diferente entre o núcleo final e o script gerador da Figura~11,
+causando exclusão silenciosa desses métodos da figura e da enumeração em prosa, embora
+corretamente contabilizados na tabela numérica.
+
+Foram corrigidos, com alteração limitada ao escopo da Etapa 8: a grafia dos três rótulos em
+`scripts/r/10_gerar_produtos_artigo.R`; uma frase em `03_metodologia.tex` distinguindo dimensão de
+critério; e a enumeração de métodos formalmente nomeados em `06_metodos.tex`. Nenhum estudo do
+núcleo final foi recodificado e nenhum número agregado, além da correção pontual da enumeração de
+métodos, foi alterado. A regeneração da Figura~11 com a correção do script permanece pendente,
+por ausência de interpretador R no ambiente desta sessão.
+
+A execução de `python scripts/python/verificar_artigo.py` após as alterações concluiu sem
+divergências.
+
+Próxima ação: aguardar `AUTORIZO A ETAPA 9`.
