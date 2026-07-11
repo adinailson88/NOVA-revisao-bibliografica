@@ -149,6 +149,16 @@ readr::write_excel_csv(
   na = ""
 )
 
+contribuicao_long <- expandir_multivalor(
+  dados, "tipo_contribuicao_artigo", "tipo_contribuicao"
+)
+tabela36 <- resumir_multivalor(contribuicao_long, "tipo_contribuicao")
+readr::write_excel_csv(
+  tabela36,
+  file.path(DIR_FONTES, "tabela36_tipo_contribuicao_artigo_nucleo_final_104.csv"),
+  na = ""
+)
+
 ## Coocorrencias
 
 tabela31 <- criterios_long |>
@@ -291,7 +301,7 @@ readr::write_excel_csv(
 buscas <- readr::read_csv(ARQUIVO_BUSCAS, progress = FALSE)
 tabela_buscas_resumo <- buscas |>
   dplyr::mutate(
-    complemento_manual = stringr::str_detect(string_id, "complemento_manual"),
+    ajuste_consolidacao = stringr::str_detect(string_id, "complemento_manual|ajuste_consolidacao"),
     modelo = dplyr::case_when(
       base == "Scopus" ~ "TITLE-ABS-KEY com expressao booleana",
       base == "Web of Science" ~ "TS com expressao booleana",
@@ -300,9 +310,9 @@ tabela_buscas_resumo <- buscas |>
   ) |>
   dplyr::group_by(base, modelo) |>
   dplyr::summarise(
-    n_consultas = sum(!complemento_manual),
+    n_consultas = sum(!ajuste_consolidacao),
     registros_brutos = sum(retorno_bruto),
-    complemento_manual = sum(retorno_bruto[complemento_manual]),
+    ajuste_consolidacao = sum(retorno_bruto[ajuste_consolidacao]),
     .groups = "drop"
   )
 readr::write_excel_csv(
@@ -401,7 +411,7 @@ metodos_gerais <- c(
 )
 metodos_estruturados <- c(
   "AHP", "TOPSIS", "ANP", "MCDM", "Delphi",
-  "Balanced scorecard", "Case-based reasoning", "Bayesian Best-Worst Method"
+  "balanced scorecard", "case-based reasoning", "Bayesian Best Worst Method"
 )
 rotulos_metodos <- stats::setNames(
   c(

@@ -3,11 +3,11 @@ Scopus,scopus_nucleo_a1_manutencao_sustentabilidade,TITLE-ABS-KEY,2026-07-08,758
 Scopus,scopus_nucleo_a2_contexto_publico_universitario,TITLE-ABS-KEY,2026-07-08,430,
 Scopus,scopus_nucleo_a3_priorizacao_estrategia_manutencao,TITLE-ABS-KEY,2026-07-08,510,
 Scopus,scopus_nucleo_a4_gestao_ativos_ciclo_vida,TITLE-ABS-KEY,2026-07-08,909,
-Scopus,scopus_complemento_manual_mesmas_consultas,exportacao manual,2026-07-09,6,registros adicionais das mesmas consultas identificados por atualizacao do indice entre as datas de coleta
+Scopus,scopus_complemento_manual_eid,enriquecimento manual por EID,2026-07-09,5,registros existentes apenas no export manual e adicionados ao corpus
 Web of Science,wos_nucleo_a1_manutencao_sustentabilidade,TS (Topic),2026-07-08,610,busca manual
 Web of Science,wos_nucleo_a2_contexto_publico_universitario,TS (Topic),2026-07-08,557,busca manual
 Web of Science,wos_nucleo_a3_priorizacao_estrategia_manutencao,TS (Topic),2026-07-08,10,busca manual
-Web of Science,wos_nucleo_a4_gestao_ativos_ciclo_vida,TS (Topic),2026-07-08,502,busca manual
+Web of Science,wos_nucleo_a4_gestao_ativos_ciclo_vida,TS (Topic),2026-07-08,503,busca manual; total corrigido por recontagem sem ancora de linha e conferido por ER
 Crossref,crossref_nucleo_a1,query.bibliographic,2026-07-08,200,exportados de 1020726 correspondencias por relevancia
 Crossref,crossref_nucleo_a2,query.bibliographic,2026-07-08,200,exportados de 3978326 correspondencias por relevancia
 Crossref,crossref_nucleo_a3,query.bibliographic,2026-07-08,200,exportados de 1872263 correspondencias por relevancia
