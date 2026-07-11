@@ -429,3 +429,8 @@ A consolidação final reuniu as Etapas 0 a 16 e as duas tarefas pontuais de tex
 No total, 30 estudos foram lidos integralmente em tarefas pontuais e 14 forneceram evidências específicas incorporadas, sem modificação dos resultados agregados do núcleo de 104 registros. A revisão permanece integrativa sistematizada, com apoio bibliométrico e síntese temática, predominantemente documental. A matriz permanece conceitual e não validada empiricamente.
 
 O estado final está documentado em `docs/RELATORIO_FINAL_REVISAO_ARTIGO.md`. A integração à `main` não foi realizada.
+
+
+## Registro da consolidação pós-etapas
+
+Após autorização expressa para finalização, foram corrigidas oito codificações individuais sustentadas pelos 30 textos completos já lidos. Os produtos agregados devem ser regenerados a partir do CSV-fonte, e a matriz recebeu uma especificação operacional candidata, ajustável e ainda não validada empiricamente. Não se buscou texto completo dos 74 registros restantes. O ano de 2026 permanece explicitamente parcial e a rastreabilidade RIS por string foi preservada como documentada.
