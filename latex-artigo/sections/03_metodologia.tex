@@ -3,26 +3,57 @@
 
 A pesquisa foi estruturada como revisão integrativa sistematizada, com apoio bibliométrico e síntese temática. A revisão integrativa permite reunir estudos com diferentes delineamentos sob uma pergunta comum, desde que o processo de busca, seleção e síntese seja explicitado \parencite{whittemore_revisaointegrativa_2005,snyder_revisaometodologia_2019}. O apoio bibliométrico foi utilizado para organizar o corpus, descrever sua distribuição e orientar a síntese temática \parencite{donthu_bibliometria_2021}.
 
-A busca abrangeu o período de 2010 a 2026 nas bases Scopus, Web of Science e Crossref. As consultas foram organizadas em quatro eixos: manutenção e sustentabilidade; contexto público universitário; priorização da manutenção; e gestão de ativos no ciclo de vida. Scopus e Web of Science receberam quatro expressões booleanas abrangentes. O Crossref recebeu cinco consultas textuais mais curtas porque o parâmetro \texttt{query.bibliographic} ordena correspondências por relevância, em vez de executar a mesma lógica booleana aplicada nos campos \texttt{TITLE-ABS-KEY} e \texttt{TS} \parencite{crossref_restapi_2026}. A quinta consulta do Crossref individualizou o eixo de gestão de ativos e ciclo de vida. A Tabela~\ref{tab:estrategiabusca} apresenta os quantitativos consolidados.
+A organização do relato metodológico explicita pergunta, busca, seleção, extração e síntese, elementos de transparência e reprodutibilidade destacados por \textcite{hu_revisao_sintese_2026}. A referência é empregada apenas como parâmetro de relato; não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise, procedimentos não realizados.
+
+Para padronização terminológica, MCDM designa \textit{multi-criteria decision-making} e MCDA, \textit{multi-criteria decision analysis}. Entre os métodos nomeados, AHP corresponde a \textit{Analytic Hierarchy Process}, TOPSIS a \textit{Technique for Order Preference by Similarity to Ideal Solution} e ANP a \textit{Analytic Network Process}.
+
+A matriz de alinhamento da Tabela~\ref{tab:alinhamentorq} explicita a correspondência entre a pergunta central, as questões específicas, os critérios de seleção, os campos extraídos e os resultados apresentados. O contexto público universitário e os métodos de apoio à decisão foram campos de caracterização analítica, e não requisitos obrigatórios de inclusão.
 
 \begin{table}[H]
 \centering
-\caption{Estratégia de busca consolidada por base}
-\label{tab:estrategiabusca}
-\footnotesize
-\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{1.5cm} >{\RaggedRight\arraybackslash}p{3.4cm} >{\raggedleft\arraybackslash}p{1.8cm} Y}
+\caption{Matriz de alinhamento entre perguntas, seleção, extração e resultados}
+\label{tab:alinhamentorq}
+\scriptsize
+\begin{tabularx}{\dimexpr\textwidth-2pt\relax}{>{\RaggedRight\arraybackslash}p{1.8cm} >{\RaggedRight\arraybackslash}p{2.7cm} >{\RaggedRight\arraybackslash}p{2.3cm} >{\RaggedRight\arraybackslash}p{4.1cm} Y}
 \toprule
-Base & Consultas & Campo ou modelo & Registros brutos & Função no protocolo \\
+Elemento & Formulação sintética & Critério de seleção & Campo de extração & Resultado correspondente \\
 \midrule
-Scopus & 4 & \texttt{TITLE-ABS-KEY} com expressão booleana & 9.439 & Base bibliográfica principal. O total inclui seis registros adicionais das mesmas consultas identificados no export manual. \\
-Web of Science & 4 & \texttt{TS} com expressão booleana & 1.679 & Base bibliográfica independente para ampliar a cobertura e verificar sobreposições. \\
-Crossref & 5 & Consulta bibliográfica por relevância & 1.000 & Fonte complementar de metadados, com limite de 200 registros exportados por consulta. \\
-\midrule
-Total & 13 & & 12.118 & Volume anterior à deduplicação. \\
+RQ0 & Integração entre sustentabilidade, manutenção, gestão predial e apoio à decisão; elementos aplicáveis à priorização pública universitária. & Objeto predial e sustentabilidade obrigatórios; decisão e contexto como caracterização. & \texttt{rq0\_\allowbreak confirmada}; contribuição; critérios; métodos; contexto; dimensões. & Síntese integrada nas Seções~\ref{sec:criterios} a~\ref{sec:matriz}. \\
+RQ1 & Dimensões de sustentabilidade identificadas. & Sustentabilidade obrigatória. & \texttt{dimensoes\_\allowbreak sustentabilidade\_\allowbreak identificadas\_\allowbreak leitura}. & Seção~\ref{sec:criterios} e Gráfico~\ref{fig:dimensoes}. \\
+RQ2 & Critérios de priorização identificados. & Decisão e priorização como caracterização. & \texttt{criterios\_\allowbreak identificados\_\allowbreak leitura}. & Seção~\ref{sec:criterios} e Tabela~\ref{tab:criteriospriorizacao}. \\
+RQ3 & Métodos de apoio à decisão identificados. & Método de decisão como caracterização. & \texttt{metodos\_\allowbreak decisao\_\allowbreak identificados\_\allowbreak leitura}. & Seção~\ref{sec:metodos} e Gráfico~\ref{fig:metodos}. \\
+RQ4 & Contextos de edificação identificados. & Contexto como caracterização, sem recorte isolado. & \texttt{contexto\_\allowbreak edificacao\_\allowbreak identificado\_\allowbreak leitura}. & Seção~\ref{sec:aplicabilidade} e Tabela~\ref{tab:contexto}. \\
+RQ5 & Lacunas registradas para instituições públicas de ensino superior. & Contexto público/\allowbreak universitário como reforço não obrigatório. & \texttt{lacuna\_\allowbreak ou\_\allowbreak limite\_\allowbreak identificado\_\allowbreak leitura}; contribuição do artigo. & Seções~\ref{sec:aplicabilidade}, \ref{sec:limitacoes} e \ref{sec:consideracoes}. \\
 \bottomrule
 \end{tabularx}
 \fonteautor
 \end{table}
+
+
+A busca abrangeu publicações de 2010 a 2026 nas bases Scopus, Web of Science e Crossref. As 13 consultas e as exportações correspondentes foram executadas em 8 de julho de 2026. Na Scopus, o enriquecimento manual realizado em 9 de julho de 2026, por casamento de EID com a exportação do site, identificou cinco registros existentes apenas no arquivo manual e os incorporou ao corpus. Na Web of Science, a recontagem do quarto arquivo corrigiu o total de 502 para 503 registros; tratou-se de correção do método de contagem, não de novo registro. As consultas foram organizadas em quatro eixos: manutenção e sustentabilidade; contexto público universitário; priorização da manutenção; e gestão de ativos no ciclo de vida.
+
+Na Scopus, quatro expressões booleanas, sem filtros de idioma ou tipo documental, foram executadas em \texttt{TITLE-ABS-KEY}, com o intervalo anual incorporado à consulta. Quando o total excedia a janela de paginação de 5.000 resultados da interface de programação de aplicações (API), o script particionava a recuperação por subintervalos de ano. Na Web of Science, quatro buscas manuais, sem filtros de idioma ou tipo documental, foram registradas no campo \texttt{TS (Topic)}. No Crossref, cinco consultas textuais, sem filtros de idioma ou tipo documental, foram executadas por \texttt{query.bibliographic}, com filtro de data de publicação entre 2010-01-01 e 2026-12-31 e limite deliberado de 200 registros por consulta. Como esse mecanismo ordena correspondências por relevância, o Crossref foi tratado como fonte complementar de metadados, e não como equivalente às expressões booleanas das bases bibliográficas \parencite{crossref_restapi_2026}. A Tabela~\ref{tab:estrategiabusca} consolida os parâmetros verificáveis.
+
+\begin{table}[H]
+\centering
+\caption{Estratégia de busca documentada por base}
+\label{tab:estrategiabusca}
+\scriptsize
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.3cm} >{\RaggedRight\arraybackslash}p{1.6cm} >{\RaggedRight\arraybackslash}p{1.8cm} >{\RaggedRight\arraybackslash}p{2.3cm} >{\raggedleft\arraybackslash}p{1.2cm} Y}
+\toprule
+Base & Data documentada & Período & Campo ou modelo & Registros & Limites e função \\
+\midrule
+Scopus & 08/07/2026; enriquecimento em 09/07/2026 & 2010--2026 & 4 consultas em \texttt{TITLE-ABS-KEY} & 9.438 & Base principal; 9.433 da API e cinco exclusivos do export manual. \\
+Web of Science & 08/07/2026 & 2010--2026 & 4 buscas manuais em \texttt{TS (Topic)} & 1.680 & Base independente; A4 recontado em 503; associação A1--A4 aos RIS informada de memória. \\
+Crossref & 08/07/2026 & 2010--2026 & 5 consultas em \texttt{query.\allowbreak bibliographic} & 1.000 & Fonte complementar; 200 resultados por consulta, ordenados por relevância. \\
+\midrule
+Total & & & 13 consultas & 12.118 & Volume anterior à deduplicação. \\
+\bottomrule
+\end{tabularx}
+\fonteautor
+\end{table}
+
+As quatro expressões da Scopus, as quatro strings da Web of Science e as cinco consultas do Crossref foram preservadas. Na Web of Science, a associação individual entre cada arquivo RIS e as strings A1--A4 foi informada de memória pelo pesquisador, e não reconstruída a partir de registro contemporâneo da busca. As exportações ocorreram nas mesmas datas das consultas. Não foram aplicados filtros de idioma ou tipo documental. Não houve busca piloto, uso de estudos-semente ou pré-registro. O protocolo e a matriz conceitual foram elaborados antes da coleta. O marco inicial de 2010 foi adotado para mapear o desenvolvimento do tema desde o início da década de 2010 até a data da busca, preservando uma janela temporal contemporânea comum às três fontes.
 
 Os critérios de seleção combinaram aderência ao ambiente construído, manutenção ou gestão predial e sustentabilidade. Métodos de decisão, contexto público universitário e tipologia da edificação foram tratados como campos de caracterização analítica. A Tabela~\ref{tab:criteriosincluexclu} sintetiza as regras aplicadas.
 
@@ -47,20 +78,81 @@ Duplicidade & Consolidação & Fusão por DOI normalizado ou título normalizado
 \fonteautor
 \end{table}
 
-A coleta produziu 12.118 registros brutos. Esse total reúne 12.112 registros contabilizados nas consultas e seis registros adicionais da Scopus encontrados no export manual das mesmas expressões em razão da atualização do índice entre as datas de coleta. A deduplicação por DOI e título normalizado resultou em 9.542 registros únicos, com preservação da proveniência. A triagem e a resolução individual dos casos de dúvida definiram um núcleo analítico revisado de 3.678 registros. A reavaliação dos campos textuais e o alinhamento às perguntas de pesquisa produziram 137 registros centrais. A auditoria qualitativa estruturada desses registros consolidou o núcleo final de 104 estudos utilizado nos resultados. O fluxo completo está apresentado na Figura~\ref{fig:funil}.
+\subsection{Deduplicação e preservação da proveniência}
+
+A deduplicação foi executada após a padronização dos metadados das três fontes. O DOI foi convertido para minúsculas, com remoção dos prefixos de URL ou \texttt{doi:}, espaços e ponto final. O título foi convertido para minúsculas, decomposto para remoção de acentos, privado de pontuação e normalizado quanto aos espaços; títulos com menos de oito caracteres não foram usados para agrupamento.
+
+Registros com o mesmo DOI normalizado foram agrupados. Na ausência de DOI, títulos normalizados idênticos foram agrupados somente quando não havia conflito entre DOIs presentes ou entre identificadores próprios da mesma fonte. Em caso de conflito, os registros permaneceram separados. Para cada grupo fundido, foram preservados bases de origem, consultas de origem e identificadores brutos; o resumo mais longo disponível foi mantido e os demais metadados foram selecionados por completude e prioridade de fonte.
+
+A Tabela~\ref{tab:deduplicacao} apresenta os resultados e os controles conservadores da deduplicação.
+
+\begin{table}[H]
+\centering
+\caption{Resultados e controles da deduplicação}
+\label{tab:deduplicacao}
+\small
+\begin{tabularx}{\textwidth}{Y >{\raggedleft\arraybackslash}p{2.3cm} >{\RaggedRight\arraybackslash}p{5.7cm}}
+\toprule
+Indicador & Total & Interpretação \\
+\midrule
+Registros brutos normalizados & 12.118 & Uma linha por ocorrência recuperada antes da deduplicação. \\
+Registros únicos & 9.542 & Uma linha por grupo consolidado. \\
+Ocorrências removidas & 2.576 & Diferença entre registros brutos e únicos. \\
+Grupos com duplicidade & 1.808 & 1.635 agrupados por DOI e 173 apenas por título normalizado. \\
+Registros únicos com DOI & 8.264 & DOI presente após consolidação. \\
+Registros únicos sem DOI & 1.278 & Dependem de título e identificadores para controle de duplicidade. \\
+Conflitos preservados & 98 & 51 por DOI divergente e 47 por identificador próprio divergente; não foram mesclados. \\
+\bottomrule
+\end{tabularx}
+\fonteautor
+\end{table}
+
+A rotina não usa similaridade aproximada de títulos e não estabelece vínculo automático entre trabalho em evento e artigo posterior quando os identificadores diferem. Os conflitos detectados foram preservados como registros separados.
+
+A coleta produziu 12.118 registros brutos: 9.433 recuperados pela API da Scopus, cinco registros existentes apenas no export manual da Scopus, 1.680 da Web of Science e 1.000 do Crossref. A deduplicação por DOI normalizado e título normalizado removeu 2.576 ocorrências repetidas e resultou em 9.542 registros únicos, com preservação da proveniência.
+
+\subsection{Triagem, auditoria e consolidação do núcleo}
+
+A pré-triagem dos 9.542 registros foi uma classificação automática determinística, sem uso de modelo de linguagem, baseada no casamento de expressões em título e resumo. O script atribuiu cinco classes: relevante, complementar, dúvida, irrelevante e sem resumo. Para aferir essa classificação, foi sorteada, com semente 42, uma amostra estratificada de 100 registros, equivalente a 1,0\% do corpus único. Um único avaliador leu individualmente título e resumo e alterou 34 classificações; os outros 9.442 registros não foram lidos individualmente nessa auditoria amostral.
+
+O corte inicial reteve 3.786 registros: 3.472 classificados como relevantes e 314 casos de dúvida com apenas o bloco de objeto predial presente. Depois, uma tabela preservou decisões registro a registro para os 4.276 casos de dúvida: 206 foram marcados como relevantes e 4.070 como descarte. Um script R apenas validou e aplicou essas decisões por \texttt{id\_unico}, sem refazer a triagem. A documentação disponível preserva as decisões, regras, confiança e justificativas, mas não registra revisão independente nem procedimento de resolução de divergências entre avaliadores. O resultado foi um núcleo analítico revisado de 3.678 registros.
+
+Os 3.678 registros foram submetidos a duas camadas determinísticas em R, ambas sem modelo de linguagem e sem leitura de texto completo. A primeira reavaliou a força dos resumos e classificou 372 registros como núcleo forte, 830 como descritivos, 157 como contextuais e 2.319 como descarte. A segunda pontuou o alinhamento às perguntas de pesquisa em título, resumo, palavras-chave e campos extraídos: 137 foram classificados como centrais, 651 como secundários, 375 como descritivos, 157 como contextuais e 2.358 como exclusão. Assim, 137 registros seguiram para auditoria qualitativa e 3.541 não foram selecionados para a análise central.
+
+A auditoria qualitativa estruturada examinou, registro a registro, título, resumo, palavras-chave e campos extraídos dos 137 estudos, sem leitura integral. Um único conjunto de decisões manteve 104 no núcleo principal; entre os 33 restantes, 21 foram classificados como secundários, três apenas para mapeamento e nove foram excluídos. Um desses nove havia sido marcado para verificação pontual em texto completo e foi posteriormente descartado sem leitura integral. Não houve segundo avaliador independente. Os arquivos da auditoria não identificam ferramenta de inteligência artificial, modelo, versão ou prompt; por isso, não se atribui essa etapa a IA. A coluna \texttt{asreview\_label\_compativel} é apenas um campo de compatibilidade e não constitui evidência de uso do ASReview. A Tabela~\ref{tab:funilselecao} e a Figura~\ref{fig:funil} apresentam o fluxo.
+
+{\setlength{\tabcolsep}{2pt}
+\begin{table}[H]
+\centering
+\caption{Rastreabilidade do funil de seleção}
+\label{tab:funilselecao}
+\tiny
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{1.7cm} >{\raggedleft\arraybackslash}p{1.1cm} >{\RaggedRight\arraybackslash}p{2.5cm} >{\RaggedRight\arraybackslash}p{2.6cm} >{\RaggedRight\arraybackslash}p{2.0cm} >{\raggedleft\arraybackslash}p{1.1cm} >{\raggedleft\arraybackslash}p{1.2cm} Y}
+\toprule
+Etapa & Entrada & Procedimento & Critério & Responsável & Incluídos & Não retidos & Motivos \\
+\midrule
+Coleta e deduplicação & 12.118 & Normalização e agrupamento por DOI ou título, com proveniência preservada. & DOI normalizado; na ausência, título normalizado sem conflito de identificador. & Script Python. & 9.542 & 2.576 & Ocorrências duplicadas entre bases ou consultas. \\
+Pré-triagem e resolução & 9.542 & Regras em título e resumo; auditoria de 100; corte inicial de 3.786; decisão dos 4.276 casos de dúvida. & Classe relevante ou decisão revisada \texttt{RELEVANTE}. & Scripts Python/R; avaliador único na amostra; tabela de decisão. & 3.678 & 5.864 & 4.070 dúvidas descartadas; 796 irrelevantes; 566 sem resumo; 432 complementares. \\
+Alinhamento às RQs & 3.678 & Pontuação determinística de aderência às RQs e força do resumo. & Sinais de objeto, manutenção, sustentabilidade, decisão e contexto; sem exclusão forte. & Scripts R; regras aprovadas pelo pesquisador. & 137 & 3.541 & Uso secundário, descritivo, contextual ou exclusão da análise central. \\
+Auditoria qualitativa & 137 & Auditoria estruturada de título, resumo, palavras-chave e campos extraídos. & Aderência ao núcleo principal e suficiência documental. & Avaliador único, sem revisão independente. & 104 & 33 & 21 secundários; 3 apenas mapeamento; 9 excluídos, incluindo 1 pendência de texto completo descartada. \\
+\bottomrule
+\end{tabularx}
+\fonteautor
+\end{table}
+}
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
   node distance=6mm,
-  every node/.style={draw, rounded corners, align=center, text width=8.6cm, minimum height=9mm, font=\small},
+  every node/.style={draw, rounded corners, align=center, text width=9.2cm, minimum height=9mm, font=\small},
   arrow/.style={-Latex, thick}
 ]
-\node (bruto) {Coleta bruta: Scopus, Web of Science e Crossref \\ 12.118 registros};
-\node (unico) [below=of bruto] {Corpus único após deduplicação por DOI e título \\ 9.542 registros};
-\node (nucleo1) [below=of unico] {Núcleo analítico revisado após triagem e auditoria \\ 3.678 registros};
-\node (nucleo2) [below=of nucleo1] {Núcleo de análise central após alinhamento às perguntas \\ 137 registros};
-\node (final) [below=of nucleo2, draw=black, very thick] {Núcleo final após auditoria qualitativa estruturada \\ \textbf{104 registros}};
+\node (bruto) {Coleta bruta nas três fontes \\ 12.118 registros};
+\node (unico) [below=of bruto] {Deduplicação por DOI e título normalizados \\ 9.542 registros únicos; 2.576 ocorrências removidas};
+\node (nucleo1) [below=of unico] {Pré-triagem, auditoria amostral e resolução dos casos de dúvida \\ 3.786 no corte inicial; 3.678 após revisão};
+\node (nucleo2) [below=of nucleo1] {Alinhamento determinístico às perguntas de pesquisa \\ 137 registros centrais; 3.541 não selecionados};
+\node (final) [below=of nucleo2, draw=black, very thick] {Auditoria qualitativa estruturada \\ \textbf{104 registros}; 33 não retidos no núcleo final};
 \draw[arrow] (bruto) -- (unico);
 \draw[arrow] (unico) -- (nucleo1);
 \draw[arrow] (nucleo1) -- (nucleo2);
@@ -70,4 +162,8 @@ A coleta produziu 12.118 registros brutos. Esse total reúne 12.112 registros co
 \label{fig:funil}
 \end{figure}
 
-A extração do núcleo final utilizou título, resumo, palavras-chave e campos estruturados para identificar dimensões de sustentabilidade, critérios de priorização, métodos de apoio à decisão, contexto da edificação, ODS, ESG e lacunas relacionadas a instituições públicas de ensino superior. A unidade de contagem foi o registro único. Campos com múltiplas categorias foram tratados como respostas múltiplas, mantendo um único identificador por estudo em cada categoria.
+A avaliação de elegibilidade do núcleo final não incluiu leitura de texto completo dos 104 estudos. Título, resumo, palavras-chave e campos extraídos foram a base documental de todas as camadas de triagem e da auditoria qualitativa. Um dos 137 registros havia sido sinalizado para verificação pontual em texto completo e foi excluído sem que essa leitura fosse realizada. A inclusão dos 104 estudos no núcleo final representa, portanto, aderência aos critérios de seleção em nível documental, sem confirmação por elegibilidade em texto completo.
+
+A síntese permanece predominantemente apoiada em título, resumo, palavras-chave e campos estruturados, em razão do acesso institucional restrito a parte dos periódicos das bases consultadas. Em duas tarefas pontuais posteriores, 30 estudos com PDF disponível foram lidos integralmente; 14 forneceram evidências específicas incorporadas e citadas individualmente. Esse uso é indicado explicitamente por estudo e não altera a natureza predominantemente documental da seleção, da extração e dos resultados agregados do núcleo de 104 registros.
+
+A extração do núcleo final utilizou título, resumo, palavras-chave e campos estruturados para identificar dimensões de sustentabilidade, critérios de priorização, métodos de apoio à decisão, contexto da edificação, ODS, ESG e lacunas relacionadas a instituições públicas de ensino superior. A unidade de contagem foi o registro único. Campos com múltiplas categorias foram tratados como respostas múltiplas, mantendo um único identificador por estudo em cada categoria. Dimensão e critério são categorias analiticamente distintas: a dimensão é uma categoria-guarda-chuva (técnica-operacional, institucional, ambiental, ciclo de vida, econômica ou social), enquanto o critério é um atributo operacional específico dentro de uma dimensão; por isso, termos como energia, risco, conforto e segurança são contabilizados como critérios de priorização e não duplicam a contagem das seis dimensões-guarda-chuva. As definições, regras de inclusão e exclusão e exemplos de cada categoria estão detalhados em codebook de apoio à extração, mantido no repositório da revisão.
