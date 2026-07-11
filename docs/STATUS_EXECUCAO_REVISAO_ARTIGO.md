@@ -33,7 +33,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 4 | Funil de seleção | Concluída | Commit exclusivo da Etapa 4 e commit de encerramento documental | Sem pendência documental |
 | 5 | Deduplicação | Concluída | Commit exclusivo da Etapa 5 | Sem pendência operacional |
 | 6 | Triagem e auditoria dos registros | Concluída | Artigo, mapa, relatório e verificador atualizados | Sem pendência bloqueante |
-| 7 | Texto completo e elegibilidade | Concluída | Commit exclusivo da Etapa 7 | Verificador automático falha em item pré-existente (contagem de tabelas), anterior a esta etapa |
+| 7 | Texto completo e elegibilidade | Concluída | Commit exclusivo da Etapa 7 e commit de regularização do verificador | Sem pendência bloqueante; decisão pendente sobre autorizar ou não a Rota B |
 | 8 | Dicionário de categorias e extração | Não iniciada | | |
 | 9 | Avaliação metodológica dos estudos | Não iniciada | | |
 | 10 | Auditoria dos resultados | Não iniciada | | |
@@ -197,6 +197,25 @@ Próxima ação: aguardar `AUTORIZO A ETAPA 7`.
 
 A avaliação de texto completo dos 104 estudos do núcleo final não ocorreu em nenhuma camada de triagem ou auditoria, o que já estava descrito por camada em `03_metodologia.tex`. Foi acrescentada uma declaração explícita de elegibilidade, incluindo o caso do registro sinalizado para verificação pontual e descartado sem leitura integral. Foi acrescentada uma limitação específica em `09_limitacoes.tex`, distinguindo análise documental de síntese de evidências de texto completo. Em `10_consideracoes.tex`, a expressão "confirma" foi substituída por uma formulação compatível com o nível documental de evidência. Foram apresentadas as Rotas A (manutenção em nível documental, adotada) e B (elevação para revisão sistemática com texto completo, não executada, com plano operacional descrito em `docs/RELATORIO_ETAPA_7.md`).
 
-A execução de `scripts/python/verificar_artigo.py` revelou uma falha pré-existente, anterior a esta etapa (confirmada no commit `523f44f`, encerramento da Etapa 6): o script exige exatamente 5 tabelas no artigo, mas há 8 tabelas presentes. Essa divergência não pertence ao escopo da Etapa 7 e não foi corrigida nesta etapa; permanece registrada como pendência.
+A execução de `scripts/python/verificar_artigo.py` revelou uma falha pré-existente, anterior a esta etapa (confirmada no commit `523f44f`, encerramento da Etapa 6): o script exigia exatamente 5 tabelas no artigo, mas há 8 tabelas presentes, todas elas legítimas e correspondentes a produtos criados durante as Etapas 2 a 6 (matriz de alinhamento, estratégia de busca, critérios de seleção, deduplicação e rastreabilidade do funil em `03_metodologia.tex`, além das tabelas de base/tipo, critérios de priorização e contexto de edificação nas Seções de resultados). A constante do script nunca havia sido atualizada conforme essas tabelas foram legitimamente adicionadas.
+
+
+## Regularização do verificador automático (pós-Etapa 7)
+
+Corrigidos, em commit próprio de regularização, dois problemas do próprio verificador — não do artigo:
+
+1. A verificação de contagem de tabelas foi ajustada de 5 para 8, refletindo o número real e correto
+   de tabelas do artigo (nenhuma tabela foi removida ou criada por essa correção).
+2. A verificação da tabela redundante do funil (`"tab:funil" not in texto_tex`) gerava falso positivo,
+   pois o rótulo atual e legítimo `tab:funilselecao` contém a substring `tab:funil`. A verificação foi
+   ajustada para `"tab:funil}" not in texto_tex`, preservando a intenção original (impedir a
+   reintrodução da antiga tabela redundante) sem acusar a tabela de rastreabilidade legítima.
+3. A leitura de `04_TRIAGEM/decisao_duvidas_revisada.tsv` usava `delimiter="\\t"` (dois caracteres:
+   barra invertida e "t"), que o módulo `csv` rejeita por não ser um único caractere; corrigido para
+   `delimiter="\t"` (caractere de tabulação). Esse bug pré-existente impedia a conclusão de qualquer
+   execução do verificador que chegasse a essa checagem.
+
+Após as três correções, `python scripts/python/verificar_artigo.py` conclui sem divergências. Nenhum
+número, tabela, figura, citação ou referência do artigo foi alterado nesta regularização.
 
 Próxima ação: aguardar `AUTORIZO A ETAPA 8`.

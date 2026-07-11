@@ -146,10 +146,11 @@ Registrado após a execução do commit exclusivo da Etapa 7 (ver `docs/STATUS_E
 
 - Confirmar, junto ao pesquisador, se a Rota B deve ser autorizada em etapa futura ou se a revisão
   permanece na Rota A até a consolidação final.
-- `scripts/python/verificar_artigo.py` falha na verificação de contagem de tabelas desde antes da
-  Etapa 7 (8 tabelas presentes contra 5 esperadas pelo script). Essa divergência não foi corrigida
-  nesta etapa, por não pertencer ao escopo de texto completo e elegibilidade; permanece pendente para
-  correção em etapa futura de redação/padronização ou de ajuste do próprio verificador.
+- A divergência do verificador quanto à contagem de tabelas, registrada nesta etapa como pendente, foi
+  corrigida em commit próprio de regularização logo após o encerramento da Etapa 7 — ver
+  `docs/STATUS_EXECUCAO_REVISAO_ARTIGO.md`, seção "Regularização do verificador automático
+  (pós-Etapa 7)". A correção foi feita apenas no script (constante desatualizada e um bug de
+  delimitador de TSV); nenhuma tabela, número, figura, citação ou referência do artigo foi alterada.
 
 ## 12. Próxima etapa prevista
 
