@@ -1,5 +1,7 @@
 name: Gerar tabelas, graficos e PDF
 
+# Validacao controlada do artigo e dos produtos derivados.
+
 on:
   push:
     paths:
