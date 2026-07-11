@@ -98,5 +98,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: artigo-pdf
-          path: main.pdf
+          path: |
+            main.pdf
+            latex-artigo/figuras
+            latex-artigo/fontes
           if-no-files-found: error
