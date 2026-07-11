@@ -19,6 +19,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | Etapa 1 | OK |
 | Etapa 2 | OK |
 | Etapa 3 | OK |
+| Etapa 4 | OK |
 
 ## Etapas
 
@@ -28,7 +29,7 @@ O trabalho será realizado estritamente conforme o arquivo:
 | 1 | Auditoria do tipo de revisão | Concluída | Commit exclusivo da Etapa 1; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 2 |
 | 2 | Pergunta, objetivos e escopo | Concluída | Commit exclusivo da Etapa 2; hash registrado no relatório de execução | Aguardar autorização explícita para a Etapa 3 |
 | 3 | Estratégia de busca e reprodutibilidade | Concluída | Commit exclusivo da Etapa 3; hash registrado no relatório de execução | Pendências regularizadas; ressalva RIS×string e justificativa de 2010 permanecem documentadas |
-| 4 | Funil de seleção | Não iniciada | | |
+| 4 | Funil de seleção | Concluída | Commit exclusivo da Etapa 4; hash registrado no relatório de execução | Relatórios intermediários não presentes no repositório |
 | 5 | Deduplicação | Não iniciada | | |
 | 6 | Triagem e auditoria dos registros | Não iniciada | | |
 | 7 | Texto completo e elegibilidade | Não iniciada | | |
@@ -155,3 +156,18 @@ As pendências das Etapas 1–3 foram respondidas pelo pesquisador e incorporada
 - Total bruto preservado: 12.118.
 - O corte 2010–2026 foi mantido por corresponder à busca executada; não foi criada justificativa retrospectiva.
 - Os seis arquivos de `01_PROTOCOLO/` foram incorporados à branch de trabalho.
+
+
+## Registro da Etapa 4
+
+### Data
+2026-07-10
+
+### Diagnóstico
+O funil fecha numericamente, mas a redação anterior superestimava a extensão da revisão humana. A auditoria individual cobriu 100 de 9.542 registros; os demais mantiveram classificação automática.
+
+### Alterações
+Foi inserida tabela completa de rastreabilidade e a figura do funil foi corrigida. Automação, auditoria amostral, alinhamento determinístico e auditoria qualitativa passaram a ser relatados separadamente.
+
+### Próxima ação
+Parar e aguardar autorização explícita: `AUTORIZO A ETAPA 5`.
