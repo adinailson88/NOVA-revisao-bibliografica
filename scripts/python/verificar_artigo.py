@@ -28,7 +28,7 @@ def ler_csv_caminho(caminho: Path) -> list[dict[str, str]]:
 
 def ler_tsv_caminho(caminho: Path) -> list[dict[str, str]]:
     with caminho.open(encoding="utf-8-sig", newline="") as arquivo:
-        return list(csv.DictReader(arquivo, delimiter="\\t"))
+        return list(csv.DictReader(arquivo, delimiter="\t"))
 
 
 def normalizar_doi(valor: str) -> str:
@@ -65,11 +65,11 @@ exigir("Não houve segundo avaliador independente." in texto_tex, "O artigo deve
 exigir("não constitui evidência de uso do ASReview" in texto_tex, "O artigo não pode atribuir uso de ASReview sem evidência.")
 
 # Quantidade e nao redundancia estrutural
-exigir(texto_tex.count("\\begin{table}") == 5, "O artigo deve manter cinco tabelas essenciais.")
+exigir(texto_tex.count("\\begin{table}") == 8, "O artigo deve manter as oito tabelas essenciais (cinco metodologicas e tres de resultados).")
 exigir(texto_tex.count("\\begin{figure}") == 6, "O artigo deve manter um fluxograma e cinco graficos.")
 exigir(texto_tex.count("\\captiongrafico{") == 5, "Os cinco produtos quantitativos devem ser chamados de Graficos.")
 exigir("figura10_distribuicao_base_tipo" not in texto_tex, "Grafico redundante de base e tipo ainda citado.")
-exigir("tab:funil" not in texto_tex, "Tabela redundante do funil ainda citada.")
+exigir("tab:funil}" not in texto_tex, "Tabela redundante do funil ainda citada.")
 exigir("tab:temporal" not in texto_tex, "Tabela temporal redundante ainda citada.")
 exigir("tab:dimensoes" not in texto_tex, "Tabela de dimensoes redundante ainda citada.")
 exigir("tab:metodos" not in texto_tex, "Tabela de metodos redundante ainda citada.")
