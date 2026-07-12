@@ -90,10 +90,10 @@ jobs:
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
-      - name: Instalar conversor para Word
-        run: python -m pip install --disable-pip-version-check pdf2docx
+      - name: Instalar gerador do Word visual
+        run: python -m pip install --disable-pip-version-check PyMuPDF python-docx Pillow
 
-      - name: Gerar e validar versao Word
+      - name: Gerar e validar versao Word visual
         run: |
           python scripts/python/13_preparar_word.py
           test -s artigo.docx
