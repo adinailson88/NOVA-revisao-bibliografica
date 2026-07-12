@@ -67,7 +67,7 @@ exigir("não constitui evidência de uso do ASReview" in texto_tex, "O artigo n�
 
 # Quantidade e nao redundancia estrutural
 exigir(texto_tex.count("\\begin{table}") == 10, "O artigo deve conter dez tabelas, incluindo correntes teoricas e protocolo operacional.")
-exigir(texto_tex.count("\\begin{figure}") == 10, "O artigo deve conter o fluxograma, cinco graficos tematicos e quatro produtos bibliometricos.")
+exigir(texto_tex.count("\\begin{figure}") == 11, "O artigo deve conter dois fluxogramas, cinco graficos tematicos e quatro produtos bibliometricos.")
 exigir(texto_tex.count("\\captiongrafico{") == 9, "Os nove produtos quantitativos devem ser chamados de Graficos.")
 exigir("figura10_distribuicao_base_tipo" not in texto_tex, "Grafico redundante de base e tipo ainda citado.")
 exigir("tab:funil}" not in texto_tex, "Tabela redundante do funil ainda citada.")
@@ -365,6 +365,8 @@ exigir(
 
 
 # Rastreabilidade da matriz analitica (Etapa 12)
+exigir("fig:fluxoprotocolo" in texto_tex, "Fluxograma do protocolo ausente.")
+exigir("Rastreabilidade entre evidências e especificação operacional" in texto_tex, "Tabela do protocolo deve explicitar a rastreabilidade.")
 exigir(
     "Matriz analítica conceitual informada pela síntese da literatura" in texto_tex,
     "A matriz deve ser identificada como sintese conceitual, nao como modelo validado.",
