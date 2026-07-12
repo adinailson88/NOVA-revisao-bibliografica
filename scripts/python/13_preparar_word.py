@@ -52,7 +52,7 @@ rotulos = {
     **numerar_rotulos(texto, "figure"),
 }
 texto = re.sub(
-    r"\\begin\{tabularx\}\{[^}]*\}\{.*?\}(?P<corpo>.*?)\\end\{tabularx\}",
+    r"\\begin\{tabularx\}[^\\n]*\\n(?P<corpo>.*?)\\end\{tabularx\}",
     converter_tabularx,
     texto,
     flags=re.S,
