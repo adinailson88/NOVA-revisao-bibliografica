@@ -120,10 +120,15 @@ def corrigir_docx():
     for t in vazias:
         t._tbl.getparent().remove(t._tbl)
 
+    # O nome interno do estilo de titulo de secao varia entre versoes do Pandoc
+    # (ex.: "Heading 1" vs "Heading1"), entao reaproveita o estilo de um heading
+    # de nivel 1 ja existente no documento em vez de referenciar por nome fixo.
+    estilo_h1 = next((p.style for p in doc.paragraphs if p.text.strip() == "Introdução"), None)
     for p in doc.paragraphs:
         if p.style.name == "Bibliography":
             titulo = p.insert_paragraph_before("Referências")
-            titulo.style = doc.styles["Heading 1"]
+            if estilo_h1 is not None:
+                titulo.style = estilo_h1
             break
 
     doc.save(DESTINO)
