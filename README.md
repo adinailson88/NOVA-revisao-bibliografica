@@ -30,6 +30,7 @@ Scripts vigentes que geram ou validam os produtos apresentados:
 - [Gerador das tabelas e dos gráficos temáticos em R](scripts/r/10_gerar_produtos_artigo.R)
 - [Gerador da bibliometria ampliada em Python](scripts/python/11_gerar_bibliometria_ampliada.py)
 - [Gerador do inventário auditável das referências](scripts/python/12_gerar_lista_referencias.py)
+- [Preparador da versão Word a partir do LaTeX](scripts/python/13_preparar_word.py)
 - [Verificador de números, texto, citações e rastreabilidade](scripts/python/verificar_artigo.py)
 - [Workflow completo de geração e validação](.github/workflows/latex.yml)
 - [Demais scripts reprodutíveis em Python](scripts/python/)

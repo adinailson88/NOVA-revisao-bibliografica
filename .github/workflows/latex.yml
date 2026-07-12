@@ -10,6 +10,7 @@ on:
       - "scripts/python/verificar_artigo.py"
       - "scripts/python/11_gerar_bibliometria_ampliada.py"
       - "scripts/python/12_gerar_lista_referencias.py"
+      - "scripts/python/13_preparar_word.py"
       - "README.md"
       - "referencias/**"
       - "site/**"
@@ -90,9 +91,12 @@ jobs:
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
       - name: Gerar versao editavel em Word
+        run: python scripts/python/13_preparar_word.py
+
+      - name: Converter e validar Word
         working-directory: latex-artigo
         run: |
-          pandoc main.tex --from=latex --to=docx --citeproc --bibliography=references.bib --resource-path=.:figuras --output=../artigo.docx
+          pandoc .word-main.tex --from=latex --to=docx --citeproc --bibliography=references.bib --resource-path=.:figuras --output=../artigo.docx
           test -s ../artigo.docx
           unzip -t ../artigo.docx
           unzip -l ../artigo.docx | grep -q "word/document.xml"
