@@ -47,6 +47,8 @@ definição (nunca "alto" sem resumo, salvo termo de IA/ML inequívoco no própr
 | generative adversarial network, GAN | — |
 | autoencoder | — |
 | SHAP, LIME (técnicas de interpretabilidade de modelos de ML) | confirmam IA/ML apenas quando aplicadas a um modelo de ML já confirmado no mesmo estudo |
+| large language model, LLM, GPT, BERT, ChatGPT, foundation model | modelos de linguagem baseados em transformer |
+| generative AI, generative artificial intelligence, diffusion model | IA generativa (texto, imagem) |
 
 ### 2.2 Termos ambíguos — exigem contexto, nunca confirmam IA/ML isoladamente
 

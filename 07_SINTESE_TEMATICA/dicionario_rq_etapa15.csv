@@ -164,3 +164,5 @@ RQ6,ia_ml_ambiguo,anomaly detection,1,so confirma com tecnica de ML nomeada
 RQ6,ia_ml_ambiguo,remaining useful life,1,"RUL -- pode ser modelo fisico/estatistico, nao necessariamente ML"
 RQ6,ia_ml_ambiguo,fuzzy logic,1,IA simbolica classica -- nao confirma machine learning especificamente
 RQ6,ia_ml_ambiguo,data-driven,1,nao implica algoritmo de aprendizado
+RQ6,ia_ml_confirma,large language model,2,LLM -- adicionado apos gap identificado na auditoria (Etapa 5)
+RQ6,ia_ml_confirma,generative ai,2,IA generativa -- adicionado apos gap identificado na auditoria (Etapa 5)
