@@ -84,22 +84,21 @@ jobs:
       - name: Instalar TeX Live
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc latexmk biber texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures
+          sudo apt-get install -y latexmk biber texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures
 
       - name: Compilar PDF
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
-      - name: Gerar versao editavel em Word
-        run: python scripts/python/13_preparar_word.py
+      - name: Instalar conversor para Word
+        run: python -m pip install --disable-pip-version-check pdf2docx
 
-      - name: Converter e validar Word
-        working-directory: latex-artigo
+      - name: Gerar e validar versao Word
         run: |
-          pandoc word-main.tex --from=latex --to=docx --citeproc --bibliography=references.bib --resource-path=.:figuras --output=../artigo.docx
-          test -s ../artigo.docx
-          unzip -t ../artigo.docx
-          unzip -l ../artigo.docx | grep -q "word/document.xml"
+          python scripts/python/13_preparar_word.py
+          test -s artigo.docx
+          unzip -t artigo.docx
+          unzip -l artigo.docx | grep -q "word/document.xml"
 
       - name: Verificar margens do PDF
         run: |
