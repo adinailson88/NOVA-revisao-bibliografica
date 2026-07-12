@@ -417,7 +417,7 @@ rotulos_metodos <- stats::setNames(
   c(
     "Framework", "Apoio à decisão", "BIM", "Otimização", "Pontuação",
     "Custo do ciclo de vida", "Lógica difusa", "Ordenação", "IoT",
-    "Aprendizado de máquina", "Gêmeo digital", "AHP", "TOPSIS", "ANP",
+    "Aprendizado de máquina", "Digital twin", "AHP", "TOPSIS", "ANP",
     "MCDM", "Delphi", "Balanced scorecard", "Raciocínio baseado em casos",
     "Bayesian Best-Worst Method"
   ),
