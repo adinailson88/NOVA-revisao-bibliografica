@@ -1,11 +1,12 @@
-"""Gera main.docx a partir dos fontes LaTeX do artigo, para leitura fora do LaTeX.
+"""Gera artigo.docx a partir dos fontes LaTeX do artigo, para leitura fora do LaTeX.
 
 Requer Pandoc (https://pandoc.org/) e python-docx instalados. Uso:
 
-    python scripts/python/12_gerar_versao_word.py
+    python scripts/python/13_preparar_word.py
 
 O Pandoc converte main.tex (com citeproc, a partir de references.bib) para um
-docx intermediario. O leitor LaTeX do Pandoc nao reconhece os ambientes
+docx intermediario, preservando texto real, titulos, citacoes e a lista de
+referencias. O leitor LaTeX do Pandoc nao reconhece os ambientes
 tabularx/booktabs com especificacoes de coluna customizadas usados no artigo
 (ver latex-artigo/sections/*.tex), entao cada tabela sai como um paragrafo cru
 com celulas separadas por " & ". Este script detecta esses paragrafos e os
@@ -24,7 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 LATEX_DIR = ROOT / "latex-artigo"
 INTERMEDIARIO = LATEX_DIR / "_main_pandoc_bruto.docx"
-DESTINO = ROOT / "main.docx"
+DESTINO = ROOT / "artigo.docx"
 
 COLSPEC = re.compile(r"^(?:(?:>p[\d.]+cm|Y)\s*)+")
 
@@ -126,7 +127,11 @@ def corrigir_docx():
             break
 
     doc.save(DESTINO)
-    print("Salvo em", DESTINO)
+
+    if not DESTINO.exists() or DESTINO.stat().st_size == 0:
+        sys.exit("Falha ao gerar o Word.")
+
+    print(f"Word gerado com {len(doc.paragraphs)} paragrafos e {len(doc.tables)} tabelas.")
 
 
 if __name__ == "__main__":

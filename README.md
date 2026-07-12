@@ -1,25 +1,19 @@
 # Manutenção predial sustentável em edificações públicas universitárias
 
-**[Ler o artigo completo em PDF](main.pdf)** · **[Baixar versão em Word (.docx)](main.docx)**
+## Arquivos para leitura
 
-> **Última atualização do artigo:** 12/07/2026, 16h32 (horário de Brasília), no branch `agent/bibliometria-ampliada-pages`.
-> O PDF é recompilado automaticamente pelo workflow [Gerar tabelas, gráficos e PDF](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml) a cada push que altera o artigo; o commit do bot ("CI: atualiza tabelas, graficos e PDF") confirma que o `main.pdf` reflete a versão mais recente dos fontes. Veja o [histórico de execuções](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml) para conferir a última compilação bem-sucedida.
+- **[Ler o artigo completo em PDF](main.pdf)**
+- **[Baixar a versão Word para leitura e comentários](artigo.docx?raw=1)**
+- **[Consultar a lista auditável de referências](referencias/lista_referencias.csv)**
+- **[Consultar os arquivos e evidências bibliográficas](referencias/)**
+
+> **Última atualização do artigo:** 12/07/2026 às 16h50 (horário de Brasília, UTC-03:00), no branch `agent/bibliometria-ampliada-pages`.
 >
-> ⚠️ Ao atualizar o artigo, atualize também a data/hora e o branch desta nota, e regenere o `main.docx` (ver seção [Versão em Word](#versão-em-word)).
-
-## Referências e material auditável para o orientador
-
-- **[`08_REFERENCIAS/`](08_REFERENCIAS/)** — pasta com o `.bib` usado na compilação, uma
-  planilha (CSV e XLSX) das 35 referências citadas no texto, e a planilha completa (CSV e
-  XLSX) dos 104 registros do núcleo final que fundamentam a síntese temática, com
-  metadados de auditoria. Ver o `README.md` da pasta para a relação entre as duas listas.
-- **Scripts que geram os produtos do artigo:**
-  - [`scripts/python/verificar_artigo.py`](scripts/python/verificar_artigo.py) — checagem automática de consistência (contagens, citações, números do corpus) rodada a cada build.
-  - [`scripts/python/11_gerar_bibliometria_ampliada.py`](scripts/python/11_gerar_bibliometria_ampliada.py) — gera os gráficos e tabelas da camada bibliométrica ampliada (fontes, mapa temático, rede de coocorrência, evolução temática).
-  - [`scripts/python/12_gerar_versao_word.py`](scripts/python/12_gerar_versao_word.py) — gera o `main.docx` a partir dos fontes LaTeX (ver [Versão em Word](#versão-em-word)).
-  - [`scripts/python/13_gerar_planilha_referencias.py`](scripts/python/13_gerar_planilha_referencias.py) — gera as planilhas de `08_REFERENCIAS/` a partir do `.bib` e do núcleo final.
-  - [`scripts/r/10_gerar_produtos_artigo.R`](scripts/r/10_gerar_produtos_artigo.R) — gera as demais tabelas e gráficos derivados do núcleo final de 104 registros.
-  - [`scripts/python/`](scripts/python/) — demais scripts de coleta, deduplicação, triagem e consolidação do corpus.
+> O PDF e o Word são regenerados pelo workflow **[Gerar tabelas, gráficos, PDF e Word](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml)** a cada push que altera o artigo. A página do workflow permite conferir cada execução, seu commit, horário, etapas e resultado. O commit automático `CI: atualiza tabelas, graficos, PDF e Word [skip ci]` confirma que os arquivos derivados refletem os fontes do branch.
+>
+> O PDF compilado é a versão editorial de referência para citação e submissão. O Word é gerado a partir dos mesmos fontes LaTeX (texto, tabelas e citações reais, não uma imagem do PDF), para leitura e comentários fora do LaTeX — ver [Versão em Word](#versão-em-word).
+>
+> ⚠️ Ao atualizar o artigo, atualize também a data/hora e o branch desta nota.
 
 ## Sobre
 
@@ -33,20 +27,40 @@ O texto utiliza citação autor-data e referências formatadas em padrão ABNT.
 
 ## Versão em Word
 
-`main.docx` é gerado a partir dos fontes LaTeX (não do PDF, que o Pandoc não converte de
-volta), via [Pandoc](https://pandoc.org/) com citeproc, para leitura e comentários fora do
-LaTeX (ex.: revisão pelo orientador no Word). O texto corrido, os títulos, as citações e a
-lista de referências vêm do próprio `references.bib`; as 11 tabelas do artigo são
-reconstruídas como tabelas nativas do Word por
-[`scripts/python/12_gerar_versao_word.py`](scripts/python/12_gerar_versao_word.py), porque
-o Pandoc não interpreta os ambientes `tabularx`/`booktabs` customizados usados no artigo. O
+`artigo.docx` é gerado a partir dos fontes LaTeX (não do PDF, que não é reconvertido para
+texto), via [Pandoc](https://pandoc.org/) com citeproc, a partir do `references.bib`. O
+texto corrido, os títulos, as citações e a lista de referências ficam com texto real e
+selecionável; as 11 tabelas do artigo são reconstruídas como tabelas nativas do Word por
+[`scripts/python/13_preparar_word.py`](scripts/python/13_preparar_word.py), porque o Pandoc
+não interpreta os ambientes `tabularx`/`booktabs` customizados usados no artigo. O
 fluxograma em TikZ e a formatação ABNT fina não são preservados — o `main.pdf` continua
 sendo a versão de referência para citação e submissão. Para regenerar após uma atualização
 do artigo (requer [Pandoc](https://pandoc.org/installing.html) instalado):
 
 ```
-python scripts/python/12_gerar_versao_word.py
+python scripts/python/13_preparar_word.py
 ```
+
+## Reprodutibilidade e auditoria
+
+Scripts vigentes que geram ou validam os produtos apresentados:
+
+- [Gerador das tabelas e dos gráficos temáticos em R](scripts/r/10_gerar_produtos_artigo.R)
+- [Gerador da bibliometria ampliada em Python](scripts/python/11_gerar_bibliometria_ampliada.py)
+- [Gerador do inventário auditável das referências](scripts/python/12_gerar_lista_referencias.py)
+- [Gerador da versão Word a partir dos fontes LaTeX](scripts/python/13_preparar_word.py)
+- [Gerador das planilhas XLSX e do núcleo final para auditoria](scripts/python/14_gerar_planilhas_auditoria_referencias.py)
+- [Verificador de números, texto, citações e rastreabilidade](scripts/python/verificar_artigo.py)
+- [Workflow completo de geração e validação](.github/workflows/latex.yml)
+- [Demais scripts reprodutíveis em Python](scripts/python/)
+- [Scripts históricos da análise em R](05_ANALISE_R/scripts/)
+
+A pasta [`referencias/`](referencias/) reúne o arquivo BibTeX efetivamente usado, a
+planilha (CSV e XLSX) das referências citadas no texto e a planilha (CSV e XLSX) dos 104
+registros do núcleo final que fundamentam a síntese temática, com metadados de auditoria
+(dimensões, critérios, métodos, RQs confirmadas, nível de confiança). Ver o `README.md` da
+pasta para a relação entre as duas listas. PDFs protegidos por direito autoral não são
+redistribuídos pelo repositório.
 
 ## Estrutura deste repositório
 
@@ -55,10 +69,7 @@ python scripts/python/12_gerar_versao_word.py
 - `04_TRIAGEM/`: matrizes de pré-triagem e triagem auditada, amostra e resolução de dúvidas.
 - `05_ANALISE_R/`: produtos históricos da análise, organizados em `scripts/`, `tabelas/` e `figuras/`.
 - `07_SINTESE_TEMATICA/`: matrizes, dicionários, relatórios e recortes da síntese até o núcleo final.
-- `08_REFERENCIAS/`: `.bib` e planilhas (CSV/XLSX) das referências citadas e do núcleo final de 104 registros — material auditável independente do LaTeX.
 - `latex-artigo/`: fonte LaTeX, dados derivados e gráficos efetivamente utilizados no artigo.
-- `scripts/python/`: scripts reprodutíveis de coleta, consolidação, triagem e verificação.
-- `scripts/r/10_gerar_produtos_artigo.R`: fonte vigente das tabelas derivadas e dos gráficos utilizados no texto.
+- `referencias/`: inventário auditável das referências citadas, planilhas do núcleo final e mapa das evidências.
+- `scripts/`: rotinas reprodutíveis de geração, análise e verificação.
 - `docs/`: plano, relatórios por etapa, inventários e mapa de rastreabilidade.
-
-Os dados derivados e os scripts serão vinculados ao depósito público indicado na versão submetida do artigo.
