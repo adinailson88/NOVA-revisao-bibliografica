@@ -27,7 +27,7 @@ secao.right_margin = Mm(1)
 secao.header_distance = Mm(0)
 secao.footer_distance = Mm(0)
 
-primeiro = documento.paragraphs[0]
+primeiro = documento.add_paragraph()
 with TemporaryDirectory() as temporario:
     pasta = Path(temporario)
     for numero, pagina in enumerate(pdf):
