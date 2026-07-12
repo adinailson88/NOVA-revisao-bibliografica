@@ -139,14 +139,18 @@ jobs:
 
       - name: Publicar artefato do GitHub Pages
         if: github.event_name == 'push'
+        continue-on-error: true
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy-pages:
+    # GitHub Pages em repositorio privado exige plano pago (Pro/Team/Enterprise).
+    # Enquanto o repositorio for privado no plano gratuito, este job e ignorado.
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    continue-on-error: true
     permissions:
       pages: write
       id-token: write
