@@ -19,7 +19,7 @@ Para padronização terminológica, MCDM designa \textit{multi-criteria decision
 
 A matriz de alinhamento da Tabela~\ref{tab:alinhamentorq} explicita a correspondência entre a pergunta central, as questões específicas, os critérios de seleção, os campos extraídos e os resultados apresentados. O contexto público universitário e os métodos de apoio à decisão foram campos de caracterização analítica, e não requisitos obrigatórios de inclusão.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Matriz de alinhamento entre perguntas, seleção, extração e resultados}
 \label{tab:alinhamentorq}
@@ -44,7 +44,7 @@ A busca abrangeu publicações de 2010 a 2026 nas bases Scopus, Web of Science e
 
 Na Scopus, quatro expressões booleanas, sem filtros de idioma ou tipo documental, foram executadas em \texttt{TITLE-ABS-KEY}, com o intervalo anual incorporado à consulta. Quando o total excedia a janela de paginação de 5.000 resultados da interface de programação de aplicações (API), o script particionava a recuperação por subintervalos de ano. Na Web of Science, quatro buscas manuais, sem filtros de idioma ou tipo documental, foram registradas no campo \texttt{TS (Topic)}. No Crossref, cinco consultas textuais, sem filtros de idioma ou tipo documental, foram executadas por \texttt{query.bibliographic}, com filtro de data de publicação entre 2010-01-01 e 2026-12-31 e limite deliberado de 200 registros por consulta. Como esse mecanismo ordena correspondências por relevância, o Crossref foi tratado como fonte complementar de metadados, e não como equivalente às expressões booleanas das bases bibliográficas \parencite{crossref_restapi_2026}. A Tabela~\ref{tab:estrategiabusca} consolida os parâmetros verificáveis.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Estratégia de busca documentada por base}
 \label{tab:estrategiabusca}
@@ -67,7 +67,7 @@ As quatro expressões da Scopus, as quatro strings da Web of Science e as cinco 
 
 Os critérios de seleção combinaram aderência ao ambiente construído, manutenção ou gestão predial e sustentabilidade. Métodos de decisão, contexto público universitário e tipologia da edificação foram tratados como campos de caracterização analítica. A Tabela~\ref{tab:criteriosincluexclu} sintetiza as regras aplicadas.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Critérios de seleção e caracterização do corpus}
 \label{tab:criteriosincluexclu}
@@ -96,7 +96,7 @@ Registros com o mesmo DOI normalizado foram agrupados. Na ausência de DOI, tít
 
 A Tabela~\ref{tab:deduplicacao} apresenta os resultados e os controles conservadores da deduplicação.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Resultados e controles da deduplicação}
 \label{tab:deduplicacao}
@@ -132,7 +132,7 @@ Os 3.678 registros foram submetidos a duas camadas determinísticas em R, ambas 
 A auditoria qualitativa estruturada examinou, registro a registro, título, resumo, palavras-chave e campos extraídos dos 137 estudos, sem leitura integral. Um único conjunto de decisões manteve 104 no núcleo principal; entre os 33 restantes, 21 foram classificados como secundários, três apenas para mapeamento e nove foram excluídos. Um desses nove havia sido marcado para verificação pontual em texto completo e foi posteriormente descartado sem leitura integral. Não houve segundo avaliador independente. Os arquivos da auditoria não identificam ferramenta de inteligência artificial, modelo, versão ou prompt; por isso, não se atribui essa etapa a IA. A coluna \texttt{asreview\_label\_compativel} é apenas um campo de compatibilidade e não constitui evidência de uso do ASReview. A Tabela~\ref{tab:funilselecao} e a Figura~\ref{fig:funil} apresentam o fluxo.
 
 {\setlength{\tabcolsep}{2pt}
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Rastreabilidade do funil de seleção}
 \label{tab:funilselecao}
@@ -151,7 +151,7 @@ Auditoria qualitativa & 137 & Auditoria estruturada de título, resumo, palavras
 \end{table}
 }
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[
   node distance=6mm,
