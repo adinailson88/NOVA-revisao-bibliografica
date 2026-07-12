@@ -1,7 +1,7 @@
 \section{Matriz analítica conceitual informada pela síntese da literatura}
 \label{sec:matriz}
 
-O Gráfico~\ref{fig:heatmap} apresenta a coocorrência documental entre os dez critérios de priorização e os dez instrumentos de apoio à decisão mais frequentes. Desempenho operacional e \textit{framework} aparecem conjuntamente em 88 registros. Informação e dados apresentam 71 coocorrências com \textit{framework} e 26 com BIM. Custo e \textit{framework} aparecem em 56 registros, enquanto vida útil e custo do ciclo de vida aparecem conjuntamente em 13. O último par reúne um critério, vida útil, e uma abordagem identificada na extração, custo do ciclo de vida; não comprova que ambos tenham sido operacionalizados como variáveis no mesmo modelo.
+O Gráfico~\ref{fig:heatmap} apresenta a coocorrência documental entre os dez critérios e os dez instrumentos de apoio à decisão mais frequentes. Desempenho operacional e \textit{framework} aparecem conjuntamente em 88 registros; informação e dados têm 71 coocorrências com \textit{framework} e 26 com BIM; custo e \textit{framework} aparecem em 56; e vida útil e custo do ciclo de vida, em 13. Essas relações registram codificação simultânea, sem comprovar operacionalização conjunta, associação estatística ou causalidade.
 
 \begin{figure}[H]
 \centering
@@ -10,7 +10,7 @@ O Gráfico~\ref{fig:heatmap} apresenta a coocorrência documental entre os dez c
 \label{fig:heatmap}
 \end{figure}
 
-O Gráfico~\ref{fig:matrizanalitica} reorganiza as coocorrências segundo cinco dimensões usadas na síntese conceitual. A dimensão técnica-operacional apresenta 95 coocorrências com \textit{framework}, 25 com \textit{decision support} e 26 com BIM. A dimensão institucional apresenta 85 coocorrências com \textit{framework}, seguida da ambiental com 77, da econômica com 55 e da social com 53. A dimensão ciclo de vida, identificada em 60 registros, não foi tratada como grupo independente nesse gráfico; ela funciona como eixo transversal que relaciona decisões presentes ao desempenho, aos custos e aos impactos ao longo do tempo.
+O Gráfico~\ref{fig:matrizanalitica} reorganiza as coocorrências em cinco dimensões. A técnica-operacional apresenta 95 coocorrências com \textit{framework}, 25 com \textit{decision support} e 26 com BIM; a institucional tem 85 com \textit{framework}, seguida da ambiental com 77, da econômica com 55 e da social com 53. A dimensão ciclo de vida, identificada em 60 registros, não forma grupo independente: ela funciona como eixo transversal entre desempenho, custos e impactos no tempo.
 
 \begin{figure}[H]
 \centering
@@ -19,36 +19,61 @@ O Gráfico~\ref{fig:matrizanalitica} reorganiza as coocorrências segundo cinco 
 \label{fig:matrizanalitica}
 \end{figure}
 
-A matriz analítica conceitual organiza evidências extraídas e elementos propostos em níveis distintos. Entre os critérios diretamente codificados, a dimensão ambiental reúne energia, emissões de carbono, água e resíduos; a econômica contém o critério genérico custo; a social reúne segurança, conforto e satisfação dos usuários; e a técnica-operacional reúne desempenho, informação e dados, vida útil, risco, condição física, manutenibilidade e qualidade do serviço. O dicionário de mapeamento registra a origem desses vínculos e as ambiguidades conhecidas, como a possibilidade de o risco assumir natureza institucional em aplicações específicas.
+A matriz distingue evidência extraída de especificação proposta. Energia, emissões, água e resíduos foram associados à dimensão ambiental; custo, à econômica; segurança, conforto e satisfação, à social; e desempenho, informação, vida útil, risco, condição, manutenibilidade e qualidade do serviço, à técnica-operacional. A dimensão institucional foi identificada em 92 registros, mas conformidade, governança e capacidade de execução são desdobramentos candidatos, sem frequências individualizadas. As frequências não constituem pesos da matriz.
 
-A dimensão institucional foi identificada diretamente nos campos documentais de 92 registros, mas governança, conformidade e capacidade de execução não foram contabilizadas como critérios individualizados na tabela de critérios. Esses três elementos são desdobramentos conceituais propostos para futura operacionalização, e não frequências extraídas. Do mesmo modo, custo de manutenção e custo do ciclo de vida não foram medidos separadamente como critérios no corpus: a categoria auditada foi custo, enquanto \textit{life-cycle cost} foi registrada entre as abordagens de decisão.
+A Tabela~\ref{tab:protocolooperacional} explicita por que cada indicador candidato entrou no protocolo. Ela combina recorrência no núcleo temático, conexões bibliométricas e evidências específicas dos estudos lidos integralmente. A cadeia aumenta a rastreabilidade, mas não transforma frequência em preferência nem substitui validação institucional.
 
-As coocorrências representam codificações simultâneas no mesmo registro; não estimam associação estatística, efeito, causalidade, peso ou importância. As frequências não constituem pesos da matriz. A menção a pontuação, AHP, TOPSIS, ANP e otimização indica alternativas encontradas na literatura, não uma seleção metodológica empiricamente validada.
-
-Para tornar a arquitetura testável sem antecipar uma calibração inexistente, a Tabela~\ref{tab:protocolooperacional} apresenta um protocolo operacional candidato. Os indicadores são exemplos implementáveis com dados administrativos usuais; sua seleção definitiva, definição de limiares e disponibilidade devem ser verificadas em cada instituição.
-
+{\setlength{\tabcolsep}{3pt}
 \begin{table}[H]
 \centering
-\caption{Protocolo operacional candidato para futura validação}
+\caption{Rastreabilidade entre evidências e especificação operacional}
 \label{tab:protocolooperacional}
-\scriptsize
-\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.1cm} >{\RaggedRight\arraybackslash}p{2.5cm} >{\RaggedRight\arraybackslash}p{3.1cm} >{\RaggedRight\arraybackslash}p{2.5cm} Y}
+\tiny
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.6cm} >{\RaggedRight\arraybackslash}p{4.4cm} >{\RaggedRight\arraybackslash}p{4.5cm} Y}
 \toprule
-Dimensão & Critério candidato & Indicador e unidade & Fonte e periodicidade & Preferência \\
+Dimensão e critério & Evidência da revisão & Indicador candidato, fonte e periodicidade & Preferência \\
 \midrule
-Técnica-operacional & Desempenho e falha & Ordens recorrentes por sistema, \% das ordens & Ordens de serviço, mensal & Menor \\
-Técnica-operacional & Condição e vida útil & Índice de condição, escala institucional & Inspeção e cadastro, semestral & Maior \\
-Institucional & Conformidade & Requisitos atendidos, \% & Laudos e auditorias, anual & Maior \\
-Econômica & Custo da intervenção & Custo estimado por área, R\$/m$^2$ & Orçamentos e SINAPI, semestral & Menor \\
-Ambiental & Intensidade energética & Consumo anual por área, kWh/m$^2$/ano & Faturas ou medidores, mensal & Menor \\
-Social & Impacto nos usuários & Reclamações por 100 usuários & Ouvidoria e chamados, trimestral & Menor \\
+Técnica-operacional: desempenho e falha & Desempenho em 93 registros; gestão de facilidades conectada a operação e manutenção na rede. & Ordens recorrentes por sistema, \% das ordens; ordens de serviço; mensal. & Menor \\
+Técnica-operacional: informação e dados & Informação em 76 registros; BIM em 26 e \textit{digital twin} em oito; perdas de informação observadas por \textcite{tan_fluxoinformacao_2018}. & Ativos com cadastro e histórico completos, \%; cadastro e ordens; trimestral. & Maior \\
+Técnica-operacional: condição e vida útil & Condição em 27, vida útil em 40 e ciclo de vida em 60; manutenibilidade apoiada por \textcite{othman_manutenibilidadeesi_2023}. & Índice de condição, escala institucional; inspeção e cadastro; semestral. & Maior \\
+Institucional: conformidade & Dimensão institucional em 92 registros; adaptação contextual necessária em \textcite{talib_hospitalfm_2013}. & Requisitos atendidos, \%; laudos e auditorias; anual. & Maior \\
+Econômica: custo & Custo em 60 registros; previsão e ciclo de vida em \textcite{kim_estimativacustoseducacional_2018,nageli_ciclovida_2019}. & Custo estimado por área, R\$/m$^2$; orçamentos e SINAPI; semestral. & Menor \\
+Ambiental: energia & Dimensão ambiental em 84 e energia em 36 registros; crescimento de ciclo de vida e carbono no período recente. & Consumo anual por área, kWh/m$^2$/ano; faturas ou medidores; mensal. & Menor \\
+Social: impacto nos usuários & Dimensão social em 57; conforto em 17, segurança em 17 e satisfação em nove registros. & Reclamações por 100 usuários; ouvidoria e chamados; trimestral. & Menor \\
 \bottomrule
 \end{tabularx}
 \fonteautor
 \end{table}
+}
 
-O fluxo candidato possui seis etapas: definir a unidade decisória; validar critérios e indicadores; verificar qualidade e comparabilidade dos dados; normalizar apenas indicadores compatíveis; elicitar pesos com atores institucionais; e testar estabilidade antes de publicar a prioridade. Pesos podem ser obtidos por Delphi, AHP, BWM ou outro procedimento justificado somente após validação de conteúdo. A escolha da função de agregação deve declarar se a compensação entre critérios é aceitável. Análises de sensibilidade devem variar pesos, limiares e tratamento de dados ausentes, observando mudanças de ordenação e de classe de prioridade.
+O processo decisório candidato está resumido na Figura~\ref{fig:fluxoprotocolo}. A unidade de comparação deve ser definida antes da coleta; critérios e indicadores são validados antes dos pesos; e a prioridade só é divulgada após análise de sensibilidade e registro das escolhas.
 
-Risco estrutural, risco à vida, segurança contra incêndio e descumprimento legal constituem candidatos a regras de veto não compensatórias. Um ativo que ultrapasse limiar definido por norma, laudo ou autoridade competente não pode ter sua prioridade reduzida por economia, conforto ou bom desempenho ambiental em outros critérios. O ciclo de vida permanece transversal e é incorporado aos indicadores pertinentes, evitando dupla contagem.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=7mm and 7mm,
+  etapa/.style={draw, rounded corners, align=center, text width=3.6cm, minimum height=10mm, font=\scriptsize},
+  veto/.style={draw, rounded corners, very thick, align=center, text width=11.7cm, minimum height=8mm, font=\scriptsize},
+  seta/.style={-Latex, thick}
+]
+\node[etapa] (e1) {1. Definir unidade decisória};
+\node[etapa, right=of e1] (e2) {2. Validar critérios e indicadores};
+\node[etapa, right=of e2] (e3) {3. Verificar qualidade dos dados};
+\node[etapa, below=of e3] (e4) {4. Normalizar, ponderar e agregar};
+\node[etapa, left=of e4] (e5) {5. Aplicar vetos e sensibilidade};
+\node[etapa, left=of e5] (e6) {6. Registrar e publicar a prioridade};
+\node[veto, below=of e5] (v) {Veto não compensatório: risco estrutural, risco à vida, incêndio ou descumprimento legal acima de limiar técnico ou normativo};
+\draw[seta] (e1) -- (e2);
+\draw[seta] (e2) -- (e3);
+\draw[seta] (e3) -- (e4);
+\draw[seta] (e4) -- (e5);
+\draw[seta] (e5) -- (e6);
+\draw[seta] (e5) -- (v);
+\end{tikzpicture}
+\caption{Fluxo candidato para aplicação e auditoria do protocolo}
+\label{fig:fluxoprotocolo}
+\end{figure}
 
-Mesmo com essa especificação, a matriz não é um modelo validado nem um instrumento pronto para decisão. Sua contribuição é oferecer uma arquitetura conceitual e operacional rastreável para futura validação em instituições públicas de ensino superior. As frequências não constituem pesos da matriz. Pesos, limiares, indicadores e regras devem ser validados com participação dos atores institucionais e testados com dados reais.
+Pesos podem ser elicitados por Delphi, AHP, BWM ou procedimento justificado somente após validação de conteúdo. A função de agregação deve declarar o grau de compensação aceitável, e a sensibilidade deve variar pesos, limiares e tratamento de dados ausentes. Risco estrutural, risco à vida, incêndio e descumprimento legal operam como vetos: desempenho econômico ou ambiental favorável não compensa a violação do limiar definido por norma, laudo ou autoridade competente. O ciclo de vida permanece transversal para evitar dupla contagem.
+
+Mesmo com essa especificação, a matriz não é um modelo validado nem um instrumento pronto para decisão. Indicadores, pesos, limiares e regras requerem participação institucional e teste com dados reais; a contribuição atual é uma arquitetura rastreável para essa validação.
