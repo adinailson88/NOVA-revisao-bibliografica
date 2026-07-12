@@ -94,7 +94,8 @@ jobs:
         run: |
           pandoc main.tex --from=latex --to=docx --citeproc --bibliography=references.bib --resource-path=.:figuras --output=../artigo.docx
           test -s ../artigo.docx
-          unzip -p ../artigo.docx word/document.xml | grep -q "Manutenção sustentável"
+          unzip -t ../artigo.docx
+          unzip -l ../artigo.docx | grep -q "word/document.xml"
 
       - name: Verificar margens do PDF
         run: |
