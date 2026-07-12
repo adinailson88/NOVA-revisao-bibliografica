@@ -11,7 +11,7 @@
 >
 > O PDF e o Word são regenerados pelo workflow **[Gerar tabelas, gráficos, PDF e Word](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml)**. A página do workflow permite conferir cada execução, seu commit, horário, etapas e resultado. O commit automático `CI: atualiza tabelas, graficos, PDF e Word [skip ci]` confirma que os arquivos derivados refletem os fontes do branch.
 >
-> O PDF compilado é a versão editorial de referência. O Word é uma versão editável derivada do LaTeX e pode apresentar pequenas diferenças de paginação ou posicionamento de elementos flutuantes.
+> O PDF compilado é a versão editorial de referência. O Word é uma versão de distribuição derivada do PDF validado e pode apresentar pequenas diferenças de paginação ou posicionamento de elementos flutuantes.
 
 ## Sobre
 
@@ -30,7 +30,7 @@ Scripts vigentes que geram ou validam os produtos apresentados:
 - [Gerador das tabelas e dos gráficos temáticos em R](scripts/r/10_gerar_produtos_artigo.R)
 - [Gerador da bibliometria ampliada em Python](scripts/python/11_gerar_bibliometria_ampliada.py)
 - [Gerador do inventário auditável das referências](scripts/python/12_gerar_lista_referencias.py)
-- [Preparador da versão Word a partir do LaTeX](scripts/python/13_preparar_word.py)
+- [Conversor da versão Word a partir do PDF validado](scripts/python/13_preparar_word.py)
 - [Verificador de números, texto, citações e rastreabilidade](scripts/python/verificar_artigo.py)
 - [Workflow completo de geração e validação](.github/workflows/latex.yml)
 - [Demais scripts reprodutíveis em Python](scripts/python/)
