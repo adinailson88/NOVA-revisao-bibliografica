@@ -66,7 +66,7 @@ exigir("Não houve segundo avaliador independente." in texto_tex, "O artigo deve
 exigir("não constitui evidência de uso do ASReview" in texto_tex, "O artigo não pode atribuir uso de ASReview sem evidência.")
 
 # Quantidade e nao redundancia estrutural
-exigir(texto_tex.count("\\begin{table}") == 10, "O artigo deve conter dez tabelas, incluindo correntes teoricas e protocolo operacional.")
+exigir(texto_tex.count("\\begin{table}") == 11, "O artigo deve conter onze tabelas, incluindo correntes teoricas, rastreabilidade do protocolo e especificacao dos indicadores.")
 exigir(texto_tex.count("\\begin{figure}") == 11, "O artigo deve conter dois fluxogramas, cinco graficos tematicos e quatro produtos bibliometricos.")
 exigir(texto_tex.count("\\captiongrafico{") == 9, "Os nove produtos quantitativos devem ser chamados de Graficos.")
 exigir("figura10_distribuicao_base_tipo" not in texto_tex, "Grafico redundante de base e tipo ainda citado.")

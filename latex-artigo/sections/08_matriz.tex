@@ -21,30 +21,49 @@ O Gráfico~\ref{fig:matrizanalitica} reorganiza as coocorrências em cinco dimen
 
 A matriz distingue evidência extraída de especificação proposta. Energia, emissões, água e resíduos foram associados à dimensão ambiental; custo, à econômica; segurança, conforto e satisfação, à social; e desempenho, informação, vida útil, risco, condição, manutenibilidade e qualidade do serviço, à técnica-operacional. A dimensão institucional foi identificada em 92 registros, mas conformidade, governança e capacidade de execução são desdobramentos candidatos, sem frequências individualizadas. As frequências não constituem pesos da matriz.
 
-A Tabela~\ref{tab:protocolooperacional} explicita por que cada indicador candidato entrou no protocolo. Ela combina recorrência no núcleo temático, conexões bibliométricas e evidências específicas dos estudos lidos integralmente. A cadeia aumenta a rastreabilidade, mas não transforma frequência em preferência nem substitui validação institucional.
+A Tabela~\ref{tab:protocolooperacional} explicita por que cada indicador candidato entrou no protocolo, combinando recorrência no núcleo temático, conexões bibliométricas e evidências específicas dos estudos lidos integralmente. A Tabela~\ref{tab:especificacaoindicadores} detalha a especificação operacional correspondente, com indicador, fonte dos dados, periodicidade e direção de preferência.
 
-{\setlength{\tabcolsep}{3pt}
 \begin{table}[H]
 \centering
 \caption{Rastreabilidade entre evidências e especificação operacional}
 \label{tab:protocolooperacional}
-\tiny
-\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.6cm} >{\RaggedRight\arraybackslash}p{4.4cm} >{\RaggedRight\arraybackslash}p{4.5cm} Y}
+\scriptsize
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{4.2cm} Y}
 \toprule
-Dimensão e critério & Evidência da revisão & Indicador candidato, fonte e periodicidade & Preferência \\
+Dimensão e critério & Evidência da revisão \\
 \midrule
-Técnica-operacional: desempenho e falha & Desempenho em 93 registros; gestão de facilidades conectada a operação e manutenção na rede. & Ordens recorrentes por sistema, \% das ordens; ordens de serviço; mensal. & Menor \\
-Técnica-operacional: informação e dados & Informação em 76 registros; BIM em 26 e \textit{digital twin} em oito; perdas de informação observadas por \textcite{tan_fluxoinformacao_2018}. & Ativos com cadastro e histórico completos, \%; cadastro e ordens; trimestral. & Maior \\
-Técnica-operacional: condição e vida útil & Condição em 27, vida útil em 40 e ciclo de vida em 60; manutenibilidade apoiada por \textcite{othman_manutenibilidadeesi_2023}. & Índice de condição, escala institucional; inspeção e cadastro; semestral. & Maior \\
-Institucional: conformidade & Dimensão institucional em 92 registros; adaptação contextual necessária em \textcite{talib_hospitalfm_2013}. & Requisitos atendidos, \%; laudos e auditorias; anual. & Maior \\
-Econômica: custo & Custo em 60 registros; previsão e ciclo de vida em \textcite{kim_estimativacustoseducacional_2018,nageli_ciclovida_2019}. & Custo estimado por área, R\$/m$^2$; orçamentos e SINAPI; semestral. & Menor \\
-Ambiental: energia & Dimensão ambiental em 84 e energia em 36 registros; crescimento de ciclo de vida e carbono no período recente. & Consumo anual por área, kWh/m$^2$/ano; faturas ou medidores; mensal. & Menor \\
-Social: impacto nos usuários & Dimensão social em 57; conforto em 17, segurança em 17 e satisfação em nove registros. & Reclamações por 100 usuários; ouvidoria e chamados; trimestral. & Menor \\
+Técnica-operacional: desempenho e falha & Desempenho em 93 registros; gestão de facilidades conectada a operação e manutenção na rede. \\
+Técnica-operacional: informação e dados & Informação em 76 registros; BIM em 26 e \textit{digital twin} em oito; perdas de informação observadas por \textcite{tan_fluxoinformacao_2018}. \\
+Técnica-operacional: condição e vida útil & Condição em 27, vida útil em 40 e ciclo de vida em 60; manutenibilidade apoiada por \textcite{othman_manutenibilidadeesi_2023}. \\
+Institucional: conformidade & Dimensão institucional em 92 registros; adaptação contextual necessária em \textcite{talib_hospitalfm_2013}. \\
+Econômica: custo & Custo em 60 registros; previsão e ciclo de vida em \textcite{kim_estimativacustoseducacional_2018,nageli_ciclovida_2019}. \\
+Ambiental: energia & Dimensão ambiental em 84 e energia em 36 registros; crescimento de ciclo de vida e carbono no período recente. \\
+Social: impacto nos usuários & Dimensão social em 57; conforto em 17, segurança em 17 e satisfação em nove registros. \\
 \bottomrule
 \end{tabularx}
 \fonteautor
 \end{table}
-}
+
+\begin{table}[H]
+\centering
+\caption{Especificação operacional candidata dos indicadores}
+\label{tab:especificacaoindicadores}
+\scriptsize
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.9cm} Y >{\RaggedRight\arraybackslash}p{2.6cm} >{\RaggedRight\arraybackslash}p{1.7cm} >{\RaggedRight\arraybackslash}p{1.6cm}}
+\toprule
+Critério & Indicador candidato & Fonte dos dados & Periodicidade & Preferência \\
+\midrule
+Desempenho e falha & Ordens recorrentes por sistema, \% das ordens & Ordens de serviço & Mensal & Menor \\
+Informação e dados & Ativos com cadastro e histórico completos, \% & Cadastro e ordens & Trimestral & Maior \\
+Condição e vida útil & Índice de condição, escala institucional & Inspeção e cadastro & Semestral & Maior \\
+Conformidade & Requisitos atendidos, \% & Laudos e auditorias & Anual & Maior \\
+Custo & Custo estimado por área, R\$/m$^2$ & Orçamentos e SINAPI & Semestral & Menor \\
+Energia & Consumo anual por área, kWh/m$^2$/ano & Faturas ou medidores & Mensal & Menor \\
+Impacto nos usuários & Reclamações por 100 usuários & Ouvidoria e chamados & Trimestral & Menor \\
+\bottomrule
+\end{tabularx}
+\fonteautor
+\end{table}
 
 O processo decisório candidato está resumido na Figura~\ref{fig:fluxoprotocolo}. A unidade de comparação deve ser definida antes da coleta; critérios e indicadores são validados antes dos pesos; e a prioridade só é divulgada após análise de sensibilidade e registro das escolhas.
 
