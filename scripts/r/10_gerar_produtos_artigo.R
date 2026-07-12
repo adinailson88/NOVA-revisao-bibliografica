@@ -356,8 +356,8 @@ grafico_temporal <- ggplot2::ggplot(
 ggplot2::ggsave(
   file.path(DIR_FIGURAS, "figura09_distribuicao_temporal_nucleo_final_104.png"),
   grafico_temporal,
-  width = 9,
-  height = 4.8,
+  width = 7.2,
+  height = 4.2,
   dpi = 300,
   bg = "white"
 )

@@ -73,6 +73,17 @@ def savefig(path):
     plt.close()
 
 
+# Tons de cinza e tipografia alinhados aos graficos do script R (tema_artigo).
+plt.rcParams.update({
+    "font.size": 12,
+    "axes.titlesize": 13,
+    "axes.labelsize": 12,
+    "xtick.labelsize": 11,
+    "ytick.labelsize": 11,
+    "legend.fontsize": 10,
+})
+
+
 d = pd.read_csv(ROOT / "07_SINTESE_TEMATICA" / "matriz_extracao_final_reavaliada_resumos.csv", low_memory=False)
 d = d[d["estrato_uso_resumo"].eq("A_nucleo_forte")].copy()
 d["ano"] = pd.to_numeric(d["ano"], errors="coerce").astype("Int64")
@@ -99,13 +110,13 @@ sources["zona_bradford_aproximada"] = pd.cut(cum_articles, bins=[0, total/3, 2*t
 sources.to_csv(TAB / "fontes_relevantes_372.csv", index=False)
 
 top = sources.head(15).sort_values("registros")
-plt.figure(figsize=(10, 6.5))
-plt.barh(top["fonte"], top["registros"], color="#2563a6")
+plt.figure(figsize=(9, 6))
+plt.barh(top["fonte"], top["registros"], color="0.72", edgecolor="black", linewidth=.35)
 plt.xlabel("Registros no corpus bibliométrico (n=372)")
 plt.ylabel("")
 plt.title("Fontes mais frequentes no corpus bibliométrico")
 for i, v in enumerate(top["registros"]):
-    plt.text(v + .12, i, str(v), va="center", fontsize=8)
+    plt.text(v + .12, i, str(v), va="center", fontsize=10)
 savefig(FIG / "figura_fontes_relevantes_372.png")
 
 # ---------- Matriz de coocorrencia ----------
@@ -145,16 +156,18 @@ dist=1-np.clip(A,0,1)
 np.fill_diagonal(dist,0)
 pos=MDS(n_components=2,dissimilarity="precomputed",random_state=42,n_init=4,max_iter=500).fit_transform(dist)
 clusters=KMeans(n_clusters=min(5,max(2,nnet//6)),random_state=42,n_init=20).fit_predict(A)
-colors=plt.cm.Set2(np.linspace(0,1,clusters.max()+1))
-plt.figure(figsize=(12,9))
+colors=plt.cm.Greys(np.linspace(0.25,0.6,clusters.max()+1))
+plt.figure(figsize=(9.5,7.5))
 for i in range(nnet):
     for j in range(i+1,nnet):
         if A[i,j]>=threshold and co[i,j] >= 2:
-            plt.plot([pos[i,0],pos[j,0]],[pos[i,1],pos[j,1]],color="#9ca3af",alpha=.25+0.65*A[i,j],lw=.5+3*A[i,j],zorder=1)
+            plt.plot([pos[i,0],pos[j,0]],[pos[i,1],pos[j,1]],color="0.62",alpha=.25+0.65*A[i,j],lw=.5+3*A[i,j],zorder=1)
 sizes=np.array([freq[terms[i]] for i in range(nnet)])
-plt.scatter(pos[:,0],pos[:,1],s=45+sizes*18,c=[colors[c] for c in clusters],edgecolor="white",linewidth=.8,zorder=2)
+plt.scatter(pos[:,0],pos[:,1],s=45+sizes*18,c=[colors[c] for c in clusters],edgecolor="black",linewidth=.6,zorder=2)
+# Abreviacoes apenas para exibicao, evitando sobreposicao de rotulos longos.
+ROTULOS_REDE={"building information modeling (bim)":"BIM","internet of things":"IoT"}
 for i,t in enumerate(terms[:nnet]):
-    plt.text(pos[i,0],pos[i,1],t,fontsize=7.5,ha="center",va="center",zorder=3)
+    plt.text(pos[i,0],pos[i,1],ROTULOS_REDE.get(t,t),fontsize=10.5,ha="center",va="center",zorder=3)
 plt.title("Rede normalizada de coocorrência de palavras-chave")
 plt.axis("off")
 savefig(FIG/"figura_rede_coocorrencia_372.png")
@@ -174,22 +187,23 @@ for c in range(k):
 themes=pd.DataFrame(themes)
 themes.to_csv(TAB/"mapa_tematico_372.csv",index=False)
 cx,dy=themes.centralidade.median(),themes.densidade.median()
-plt.figure(figsize=(10,7))
-plt.axvline(cx,color="#9ca3af",ls="--",lw=1); plt.axhline(dy,color="#9ca3af",ls="--",lw=1)
-plt.scatter(themes.centralidade,themes.densidade,s=120+themes.frequencia*4,c=plt.cm.Set2(np.linspace(0,1,len(themes))),alpha=.85,edgecolor="white")
+greys_temas=plt.cm.Greys(np.linspace(0.3,0.65,len(themes)))
+plt.figure(figsize=(8.5,6))
+plt.axvline(cx,color="0.55",ls="--",lw=1); plt.axhline(dy,color="0.55",ls="--",lw=1)
+plt.scatter(themes.centralidade,themes.densidade,s=120+themes.frequencia*4,c=greys_temas,alpha=.9,edgecolor="black",linewidth=.6)
 handles=[]
 for z,(_,r) in enumerate(themes.iterrows()):
-    plt.text(r.centralidade,r.densidade,f"T{z+1}",ha="center",va="center",fontsize=8,fontweight="bold")
-    handles.append(Line2D([0],[0],marker="o",color="w",markerfacecolor=plt.cm.Set2(z/max(1,len(themes)-1)),
+    plt.text(r.centralidade,r.densidade,f"T{z+1}",ha="center",va="center",fontsize=10,fontweight="bold")
+    handles.append(Line2D([0],[0],marker="o",color="w",markerfacecolor=greys_temas[z],markeredgecolor="black",
                           markersize=8,label=f"T{z+1}: {r.rotulo}"))
 plt.xlabel("Centralidade no campo")
 plt.ylabel("Densidade interna")
 plt.title("Mapa temático do corpus bibliométrico")
-plt.text(.98,.98,"Temas motores",transform=plt.gca().transAxes,ha="right",va="top",fontsize=9,color="#4b5563")
-plt.text(.02,.98,"Temas especializados",transform=plt.gca().transAxes,ha="left",va="top",fontsize=9,color="#4b5563")
-plt.text(.98,.02,"Temas básicos",transform=plt.gca().transAxes,ha="right",va="bottom",fontsize=9,color="#4b5563")
-plt.text(.02,.02,"Temas emergentes/declinantes",transform=plt.gca().transAxes,ha="left",va="bottom",fontsize=9,color="#4b5563")
-plt.legend(handles=handles,loc="upper center",bbox_to_anchor=(.5,-.11),ncol=2,frameon=False,fontsize=7.5)
+plt.text(.98,.98,"Temas motores",transform=plt.gca().transAxes,ha="right",va="top",fontsize=10,color="0.25")
+plt.text(.02,.98,"Temas especializados",transform=plt.gca().transAxes,ha="left",va="top",fontsize=10,color="0.25")
+plt.text(.98,.02,"Temas básicos",transform=plt.gca().transAxes,ha="right",va="bottom",fontsize=10,color="0.25")
+plt.text(.02,.02,"Temas emergentes/declinantes",transform=plt.gca().transAxes,ha="left",va="bottom",fontsize=10,color="0.25")
+plt.legend(handles=handles,loc="upper center",bbox_to_anchor=(.5,-.13),ncol=2,frameon=False,fontsize=9)
 savefig(FIG/"figura_mapa_tematico_372.png")
 
 # ---------- Evolucao tematica ----------
@@ -209,11 +223,11 @@ evol.to_csv(TAB/"evolucao_tematica_dois_periodos_372.csv",index=False)
 
 plot=evol.sort_values("delta_pp")
 y=np.arange(len(plot))
-plt.figure(figsize=(10,8))
-plt.hlines(y,plot["2010–2020 (%)"],plot["2021–2026 (%)"],color="#d1d5db",lw=2)
-plt.scatter(plot["2010–2020 (%)"],y,color="#d97706",s=55,label="2010–2020")
-plt.scatter(plot["2021–2026 (%)"],y,color="#2563a6",s=55,label="2021–2026")
-plt.yticks(y,plot.termo,fontsize=8)
+plt.figure(figsize=(8,6.4))
+plt.hlines(y,plot["2010–2020 (%)"],plot["2021–2026 (%)"],color="0.78",lw=2)
+plt.scatter(plot["2010–2020 (%)"],y,color="0.72",edgecolor="black",linewidth=.5,s=70,label="2010–2020")
+plt.scatter(plot["2021–2026 (%)"],y,color="0.15",edgecolor="black",linewidth=.5,s=70,label="2021–2026")
+plt.yticks(y,plot.termo,fontsize=11)
 plt.xlabel("Percentual de registros do período")
 plt.title("Evolução das palavras-chave entre dois períodos")
 plt.legend(frameon=False)
