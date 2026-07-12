@@ -221,7 +221,11 @@ script_r = SCRIPT_R.read_text(encoding="utf-8")
 script_bib = SCRIPT_BIB.read_text(encoding="utf-8")
 graficos_citados = set(re.findall(r"\{figuras/([^}]+\.(?:png|pdf))\}", texto_tex))
 for grafico in graficos_citados:
-    exigir(grafico in script_r or grafico in script_bib, f"Grafico sem geracao em script versionado: {grafico}")
+    nome_base = grafico.rsplit(".", 1)[0]
+    exigir(
+        grafico in script_r or grafico in script_bib or nome_base in script_r or nome_base in script_bib,
+        f"Grafico sem geracao em script versionado: {grafico}",
+    )
 
 
 # Auditoria ampliada dos resultados (Etapa 10)
