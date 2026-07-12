@@ -25,6 +25,30 @@ A dimensão institucional foi identificada diretamente nos campos documentais de
 
 As coocorrências representam codificações simultâneas no mesmo registro; não estimam associação estatística, efeito, causalidade, peso ou importância. As frequências não constituem pesos da matriz. A menção a pontuação, AHP, TOPSIS, ANP e otimização indica alternativas encontradas na literatura, não uma seleção metodológica empiricamente validada.
 
-Para tornar a arquitetura testável, propõe-se uma especificação operacional inicial e ajustável: pesos dimensionais de 30\% para técnica-operacional, 20\% para institucional, 20\% para econômica, 15\% para ambiental e 15\% para social; normalização min--max, com inversão para critérios de custo; agregação aditiva em escala de 0 a 100; e risco à vida, segurança ou conformidade legal como regra de veto, não compensável por bom desempenho em outros critérios. O ciclo de vida permanece transversal e é incorporado nos indicadores pertinentes, evitando dupla contagem. A análise de sensibilidade deve variar cada peso em $\pm 20\%$, renormalizar o vetor e comparar estabilidade do ordenamento e sobreposição das prioridades. Indicadores, fontes, direções de preferência e cenários estão especificados como protocolo candidato, sem converter frequências documentais em pesos.
+Para tornar a arquitetura testável sem antecipar uma calibração inexistente, a Tabela~\ref{tab:protocolooperacional} apresenta um protocolo operacional candidato. Os indicadores são exemplos implementáveis com dados administrativos usuais; sua seleção definitiva, definição de limiares e disponibilidade devem ser verificadas em cada instituição.
 
-Mesmo com essa especificação, a matriz não é um modelo validado nem um instrumento pronto para decisão. Sua contribuição é oferecer uma arquitetura conceitual rastreável para futura validação em instituições públicas de ensino superior. Os pesos devem ser revistos com participação dos atores institucionais, e a validade empírica requer dados de manutenção, custos, condição dos ativos, consumo de recursos, riscos e percepção dos usuários.
+\begin{table}[H]
+\centering
+\caption{Protocolo operacional candidato para futura validação}
+\label{tab:protocolooperacional}
+\scriptsize
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.1cm} >{\RaggedRight\arraybackslash}p{2.5cm} >{\RaggedRight\arraybackslash}p{3.1cm} >{\RaggedRight\arraybackslash}p{2.5cm} Y}
+\toprule
+Dimensão & Critério candidato & Indicador e unidade & Fonte e periodicidade & Preferência \\
+\midrule
+Técnica-operacional & Desempenho e falha & Ordens recorrentes por sistema, \% das ordens & Ordens de serviço, mensal & Menor \\
+Técnica-operacional & Condição e vida útil & Índice de condição, escala institucional & Inspeção e cadastro, semestral & Maior \\
+Institucional & Conformidade & Requisitos atendidos, \% & Laudos e auditorias, anual & Maior \\
+Econômica & Custo da intervenção & Custo estimado por área, R\$/m$^2$ & Orçamentos e SINAPI, semestral & Menor \\
+Ambiental & Intensidade energética & Consumo anual por área, kWh/m$^2$/ano & Faturas ou medidores, mensal & Menor \\
+Social & Impacto nos usuários & Reclamações por 100 usuários & Ouvidoria e chamados, trimestral & Menor \\
+\bottomrule
+\end{tabularx}
+\fonteautor
+\end{table}
+
+O fluxo candidato possui seis etapas: definir a unidade decisória; validar critérios e indicadores; verificar qualidade e comparabilidade dos dados; normalizar apenas indicadores compatíveis; elicitar pesos com atores institucionais; e testar estabilidade antes de publicar a prioridade. Pesos podem ser obtidos por Delphi, AHP, BWM ou outro procedimento justificado somente após validação de conteúdo. A escolha da função de agregação deve declarar se a compensação entre critérios é aceitável. Análises de sensibilidade devem variar pesos, limiares e tratamento de dados ausentes, observando mudanças de ordenação e de classe de prioridade.
+
+Risco estrutural, risco à vida, segurança contra incêndio e descumprimento legal constituem candidatos a regras de veto não compensatórias. Um ativo que ultrapasse limiar definido por norma, laudo ou autoridade competente não pode ter sua prioridade reduzida por economia, conforto ou bom desempenho ambiental em outros critérios. O ciclo de vida permanece transversal e é incorporado aos indicadores pertinentes, evitando dupla contagem.
+
+Mesmo com essa especificação, a matriz não é um modelo validado nem um instrumento pronto para decisão. Sua contribuição é oferecer uma arquitetura conceitual e operacional rastreável para futura validação em instituições públicas de ensino superior. As frequências não constituem pesos da matriz. Pesos, limiares, indicadores e regras devem ser validados com participação dos atores institucionais e testados com dados reais.
