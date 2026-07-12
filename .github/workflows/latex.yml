@@ -96,7 +96,7 @@ jobs:
       - name: Converter e validar Word
         working-directory: latex-artigo
         run: |
-          pandoc .word-main.tex --from=latex --to=docx --citeproc --bibliography=references.bib --resource-path=.:figuras --output=../artigo.docx
+          pandoc word-main.tex --from=latex --to=docx --citeproc --bibliography=references.bib --resource-path=.:figuras --output=../artigo.docx
           test -s ../artigo.docx
           unzip -t ../artigo.docx
           unzip -l ../artigo.docx | grep -q "word/document.xml"
