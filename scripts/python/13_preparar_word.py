@@ -71,7 +71,7 @@ autor = re.search(r"\\author\{(.*?)\}\s*\\date", texto, re.S).group(1)
 corpo = re.search(r"\\begin\{document\}(.*?)\\end\{document\}", texto, re.S).group(1)
 corpo = corpo.replace(
     r"\maketitle",
-    "\\\\section*{" + titulo + "}\\n\\\\begin{center}" + autor + "\\\\end{center}",
+    "\\section*{" + titulo + "}\n\\begin{center}" + autor + "\\end{center}",
 )
 SAIDA.write_text(corpo, encoding="utf-8")
 print(f"Fonte intermediaria para Word criada em {SAIDA.relative_to(ROOT)}.")
