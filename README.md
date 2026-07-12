@@ -2,6 +2,11 @@
 
 **[Ler o artigo completo em PDF](main.pdf)**
 
+> **Última atualização do artigo:** 12/07/2026, no branch `agent/bibliometria-ampliada-pages`.
+> O PDF é recompilado automaticamente pelo workflow [Gerar tabelas, gráficos e PDF](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml) a cada push que altera o artigo; o commit do bot ("CI: atualiza tabelas, graficos e PDF") confirma que o `main.pdf` reflete a versão mais recente dos fontes.
+>
+> ⚠️ Ao atualizar o artigo, atualize também a data e o branch desta nota.
+
 ## Sobre
 
 Revisão integrativa sistematizada sobre manutenção predial e gestão de edificações como estratégia de sustentabilidade do ambiente construído. O artigo analisa critérios de sustentabilidade, métodos de apoio à decisão, ODS, ESG e lacunas aplicáveis a edificações públicas universitárias.
