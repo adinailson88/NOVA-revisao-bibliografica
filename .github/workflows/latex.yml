@@ -1,4 +1,4 @@
-name: Gerar tabelas, graficos e PDF
+name: Gerar tabelas, graficos, PDF e Word
 
 # Validacao controlada do artigo e dos produtos derivados.
 
@@ -9,6 +9,9 @@ on:
       - "scripts/r/10_gerar_produtos_artigo.R"
       - "scripts/python/verificar_artigo.py"
       - "scripts/python/11_gerar_bibliometria_ampliada.py"
+      - "scripts/python/12_gerar_lista_referencias.py"
+      - "README.md"
+      - "referencias/**"
       - "site/**"
       - ".github/workflows/latex.yml"
   pull_request:
@@ -16,6 +19,10 @@ on:
       - "latex-artigo/**"
       - "scripts/r/10_gerar_produtos_artigo.R"
       - "scripts/python/verificar_artigo.py"
+      - "scripts/python/11_gerar_bibliometria_ampliada.py"
+      - "scripts/python/12_gerar_lista_referencias.py"
+      - "README.md"
+      - "referencias/**"
       - ".github/workflows/latex.yml"
   workflow_dispatch:
 
@@ -67,17 +74,27 @@ jobs:
           MPLCONFIGDIR: /tmp/matplotlib
         run: python scripts/python/11_gerar_bibliometria_ampliada.py
 
+      - name: Gerar inventario auditavel das referencias
+        run: python scripts/python/12_gerar_lista_referencias.py
+
       - name: Verificar dados, texto e referencias
         run: python scripts/python/verificar_artigo.py
 
       - name: Instalar TeX Live
         run: |
           sudo apt-get update
-          sudo apt-get install -y latexmk biber texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures
+          sudo apt-get install -y pandoc latexmk biber texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures
 
       - name: Compilar PDF
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+
+      - name: Gerar versao editavel em Word
+        working-directory: latex-artigo
+        run: |
+          pandoc main.tex --from=latex --to=docx --citeproc --bibliography=references.bib --resource-path=.:figuras --output=../artigo.docx
+          test -s ../artigo.docx
+          unzip -p ../artigo.docx word/document.xml | grep -q "Manutenção sustentável"
 
       - name: Verificar margens do PDF
         run: |
@@ -103,20 +120,22 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md main.pdf
+          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx main.pdf
           if git diff --cached --quiet; then
             echo "Produtos inalterados."
           else
-            git commit -m "CI: atualiza tabelas, graficos e PDF [skip ci]"
+            git commit -m "CI: atualiza tabelas, graficos, PDF e Word [skip ci]"
             git push
           fi
 
       - name: Publicar PDF como artefato
         uses: actions/upload-artifact@v4
         with:
-          name: artigo-pdf
+          name: artigo-pdf-word-referencias
           path: |
             main.pdf
+            artigo.docx
+            referencias
             latex-artigo/figuras
             latex-artigo/fontes
           if-no-files-found: error
