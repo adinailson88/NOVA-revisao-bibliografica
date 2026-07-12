@@ -19,8 +19,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: artigo-${{ github.ref }}
@@ -107,57 +105,3 @@ jobs:
             latex-artigo/figuras
             latex-artigo/fontes
           if-no-files-found: error
-
-      - name: Montar site do GitHub Pages
-        if: github.event_name == 'push'
-        run: |
-          mkdir -p site
-          cp main.pdf site/main.pdf
-          cat > site/index.html <<'HTML'
-          <!doctype html>
-          <html lang="pt-BR">
-          <head>
-            <meta charset="utf-8">
-            <title>Manutencao predial sustentavel em edificacoes publicas universitarias</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <style>
-              html, body { margin: 0; height: 100%; font-family: system-ui, sans-serif; background: #525659; }
-              header { padding: 0.6rem 1rem; background: #2c2c2c; color: #eee; font-size: 0.95rem; }
-              header a { color: #9ecbff; }
-              iframe { width: 100%; height: calc(100% - 44px); border: none; display: block; }
-            </style>
-          </head>
-          <body>
-            <header>
-              Manutencao predial sustentavel em edificacoes publicas universitarias &mdash;
-              <a href="main.pdf">abrir/baixar PDF</a>
-            </header>
-            <iframe src="main.pdf"></iframe>
-          </body>
-          </html>
-          HTML
-
-      - name: Publicar artefato do GitHub Pages
-        if: github.event_name == 'push'
-        continue-on-error: true
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  deploy-pages:
-    # GitHub Pages em repositorio privado exige plano pago (Pro/Team/Enterprise).
-    # Enquanto o repositorio for privado no plano gratuito, este job e ignorado.
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Publicar no GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
