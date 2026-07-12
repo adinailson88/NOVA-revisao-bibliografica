@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 ARTIGO = ROOT / "latex-artigo"
 MAIN = ARTIGO / "main.tex"
-SAIDA = ARTIGO / ".word-main.tex"
+SAIDA = ARTIGO / "word-main.tex"
 
 
 def expandir_inputs(texto: str) -> str:
@@ -66,5 +66,12 @@ texto = re.sub(
     texto,
 )
 texto = re.sub(r"\\(?:scriptsize|footnotesize|small)\b", "", texto)
-SAIDA.write_text(texto, encoding="utf-8")
+titulo = re.search(r"\\title\{([^}]+)\}", texto, re.S).group(1)
+autor = re.search(r"\\author\{(.*?)\}\s*\\date", texto, re.S).group(1)
+corpo = re.search(r"\\begin\{document\}(.*?)\\end\{document\}", texto, re.S).group(1)
+corpo = corpo.replace(
+    r"\maketitle",
+    "\\\\section*{" + titulo + "}\\n\\\\begin{center}" + autor + "\\\\end{center}",
+)
+SAIDA.write_text(corpo, encoding="utf-8")
 print(f"Fonte intermediaria para Word criada em {SAIDA.relative_to(ROOT)}.")
