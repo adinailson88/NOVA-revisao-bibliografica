@@ -293,14 +293,20 @@ Implementação concluída nos fontes e na configuração:
   identificação posicional dos 17 registros ou publicação exclusiva do núcleo histórico —
   commit `0544647`.
 
-A inspeção estática confirmou todos os novos controles. Nenhuma execução de workflow foi
-associada automaticamente aos commits produzidos pela interface de conteúdo; por isso, a
-execução integral do pipeline Python ainda deve ser confirmada no próximo disparo de CI.
-Nenhum script R foi executado e nenhum PDF ou DOCX foi alterado.
+A inspeção estática confirmou todos os novos controles. Como nenhuma execução de workflow
+foi associada automaticamente aos commits produzidos pela interface de conteúdo, o gerador
+Python foi executado em ambiente temporário reconstruído apenas com as entradas versionadas.
+A execução confirmou 121 registros, 17 incorporados pela diferença entre conjuntos, bases
+113/51/6, tipos documentais 90/20/11, aprendizado de máquina em 26 registros e ODS/ESG em
+1/0. As 12 tabelas CSV geradas foram semanticamente idênticas às versões da branch. As cinco
+imagens mantiveram dimensões idênticas; diferenças rasterizadas entre 3,6% e 6,7% dos canais
+foram atribuídas ao ambiente de renderização, sem mudança nos dados ou na geometria dos
+gráficos. Para evitar ruído binário, as imagens versionadas foram preservadas. Nenhum script
+R foi executado e nenhum PDF ou DOCX foi alterado.
 
 ## Etapa atual
 
-**Etapa 6 — pipeline e workflow alinhados ao núcleo de 121; execução de CI ainda pendente.**
+**Etapa 6 — pipeline Python executado e produtos de 121 confirmados; CI remoto ainda pendente.**
 
 A próxima etapa será o ajuste fino global do artigo: reduzir repetições, melhorar transições,
 reforçar a distinção entre evidência extraída e proposta normativa e revisar resumo,
