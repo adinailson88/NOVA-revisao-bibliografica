@@ -26,6 +26,19 @@ restante do lote continua caracterizado apenas no nível documental.
 - REG_10348 e REG_12451 acrescentaram sobretudo qualificação metodológica e limites de
   generalização; não foram tratados como validação empírica autônoma de IA em manutenção.
 
+## Links diretos para download dos textos abertos
+
+Os links abaixo apontam para o PDF disponibilizado pelo editor. Se o navegador abrir o
+documento em vez de baixá-lo, use a opção de salvar do próprio visualizador.
+
+- REG_05418: [PDF — Sustainability](https://www.mdpi.com/2071-1050/17/9/4140/pdf)
+- REG_10348: [PDF — Sustainability](https://www.mdpi.com/2071-1050/18/1/541/pdf)
+- REG_10391: [PDF — Sustainability](https://www.mdpi.com/2071-1050/17/22/10313/pdf)
+- REG_10862: [PDF — IOP Publishing](https://iopscience.iop.org/article/10.1088/1755-1315/1554/1/012036/pdf)
+- REG_12351: [PDF — Energies](https://www.mdpi.com/1996-1073/5/11/4497/pdf)
+- REG_12451: [PDF — Emerald](https://www.emerald.com/ijbpa/article-pdf/44/9/52/11698276/ijbpa-02-2026-0060en.pdf)
+- REG_12511: [PDF — Frontiers in Sustainability](https://www.frontiersin.org/journals/sustainability/articles/10.3389/frsus.2026.1751337/pdf)
+
 ## Matriz registro a registro
 
 | ID | DOI | Situação do texto | Resultado da leitura pontual |
