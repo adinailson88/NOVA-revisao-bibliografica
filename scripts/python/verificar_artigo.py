@@ -447,4 +447,27 @@ exigir(
     "O uso de Hu et al. deve explicitar os procedimentos nao realizados.",
 )
 
+
+# Integracao metodologica da busca complementar de sensibilidade (Etapa 2)
+exigir(
+    "Como verificação complementar, formulou-se a RQ6" in texto_tex,
+    "A introducao deve formular explicitamente a RQ6.",
+)
+exigir(
+    "RQ6 & Efeito da busca de sensibilidade" in texto_tex,
+    "A matriz de alinhamento deve incluir a RQ6.",
+)
+exigir(
+    "não foram acrescentados à camada bibliométrica de 372" in texto_tex,
+    "O método deve justificar a separacao entre a busca direcionada e a camada bibliometrica.",
+)
+exigir(
+    "O núcleo final de 104 registros permaneceu como base" not in texto_tex,
+    "O método ainda apresenta o núcleo histórico de 104 como núcleo final vigente.",
+)
+exigir(
+    "104 registros no núcleo original" in texto_tex,
+    "O funil principal deve identificar 104 como núcleo original.",
+)
+
 print("Verificacao do artigo concluida sem divergencias.")
