@@ -209,9 +209,41 @@ Implementação textual e documental concluída:
 A verificação estática confirmou 26 linhas, totais de 12.118 e 6.728, distribuição de consultas
 4/4/5 na busca principal e 1/1/10 na sensibilidade, além das duas lacunas documentais esperadas.
 
+### Etapa 4 — leitura integral pontual dos 17 registros incorporados
+
+Implementação textual e documental concluída:
+
+- A diferença exata entre o núcleo histórico de 104 e o núcleo vigente de 121 confirmou 17
+  registros, documentados individualmente em
+  `docs/RELATORIO_USO_TEXTO_COMPLETO_17_REGISTROS_IA_ML.md` — commit `9153034`.
+- Foram localizados e consultados sete textos integrais em acesso aberto: REG_05418,
+  REG_10348, REG_10391, REG_10862, REG_12351, REG_12451 e REG_12511.
+- Dez registros permaneceram no nível de título e resumo: nove sem versão integral aberta
+  verificável e um declarado aberto pelo editor, mas sem recuperação efetiva do conteúdo
+  integral nesta sessão.
+- Cinco dos sete textos lidos acrescentaram resultados quantitativos, desenho de validação ou
+  limitações ausentes da evidência curta preservada no corpus.
+- Cinco referências verificadas foram acrescentadas ao arquivo bibliográfico — commit
+  `ff1f57c`.
+- A Seção de métodos de apoio à decisão passou a responder diretamente à RQ6, distinguindo
+  previsão, diagnóstico, classificação, otimização e uso como camada de evidência, sem tratar
+  o módulo computacional como substituto da governança multicritério — commit `e74de83`.
+- O método e as limitações registram agora três lotes pontuais, totalizando 37 textos
+  integrais consultados, dos quais 19 forneceram evidências específicas — commits
+  `a91a94b` e `8d05237`.
+- O verificador passou a exigir o relatório, os 17 identificadores, as novas contagens e as
+  cinco citações individuais — commit `8fad026`.
+
+A validação estática cruzada dos 14 arquivos LaTeX, das 40 entradas bibliográficas, do
+relatório e dos novos controles não encontrou citação sem referência, referência não citada
+ou identificador ausente. O comando Python completo, LaTeX, Biber, controle de
+`Overfull \\hbox` e inspeção visual permanecem deliberadamente adiados, conforme decisão
+do pesquisador de consolidar primeiro os textos e não trabalhar no PDF por enquanto.
+
 ## Etapa atual
 
-**Etapa 3 — conteúdo e dados salvos; compilação deliberadamente adiada.**
+**Etapa 4 — conteúdo científico e rastreabilidade salvos; compilação deliberadamente adiada.**
 
-A próxima etapa será identificar os 17 registros incorporados, localizar versões legais em
-acesso aberto e preparar a leitura integral pontual, sem alterar PDF ou DOCX.
+A próxima etapa será a síntese científica integrada da busca de sensibilidade: consolidar a
+resposta à RQ6, avaliar a tabela comparativa dos 17 registros e ajustar a transição entre
+resultados, discussão e protocolo, sem alterar PDF ou DOCX.
