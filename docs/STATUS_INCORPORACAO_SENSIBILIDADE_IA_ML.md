@@ -399,6 +399,42 @@ prosa; as ocorrências de ` -- ` permanecem restritas aos comandos TikZ excluíd
 verificador. PDF e DOCX permaneceram inalterados.
 
 
+
+### Etapa 7 — ajuste das seções de resultados e síntese
+
+As seções de bibliometria, panorama, critérios, métodos, aplicabilidade e matriz foram
+revisadas para melhorar a progressão analítica e reduzir repetição:
+
+- a bibliometria passou a encerrar com uma transição explícita entre estrutura documental e
+  síntese temática, sem atribuir maturidade decisória à coocorrência de termos;
+- o panorama passou a distinguir composição documental, proveniência entre bases e
+  qualidade da evidência;
+- critérios, métodos e contextos passaram a responder explicitamente às RQ1, RQ2, RQ3 e
+  RQ4;
+- tecnologias digitais foram separadas de requisitos mínimos para aplicação do protocolo;
+- as evidências de texto completo sobre integração digital, simulação e métodos decisórios
+  foram consolidadas na seção de métodos;
+- a discussão passou a remeter a essa consolidação, evitando repetir os mesmos estudos,
+  números e exemplos;
+- a matriz passou a explicitar sua contribuição arquitetural à RQ0 e a preservar a
+  distinção entre especificação candidata e instrumento validado.
+
+Commits incrementais:
+
+- `869a850`: transição entre bibliometria e síntese;
+- `c985c53`: delimitação da composição documental;
+- `aaea9da`: respostas às RQ1 e RQ2;
+- `602ace0`: compactação das evidências e separação entre tecnologia e requisito;
+- `35546c4`: resposta à RQ4 e limite de transferência;
+- `1b8318b`: contribuição da matriz para a RQ0;
+- `a480507`: redução da repetição das leituras integrais na discussão.
+
+A conferência estrutural posterior confirmou 13 seções, 11 tabelas, 11 figuras e nove
+legendas quantitativas. Permanecem 43 entradas bibliográficas e 43 chaves citadas, sem
+referências órfãs ou citações ausentes. Não foram identificados travessões na prosa nem
+marcadores de rascunho. PDF e DOCX permaneceram inalterados.
+
+
 ## Etapa atual
 
 **Etapa 7 — ajuste fino iniciado pelo resumo, introdução e fundamentos.**
