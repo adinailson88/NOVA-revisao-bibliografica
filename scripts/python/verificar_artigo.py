@@ -513,4 +513,24 @@ exigir(
     "O funil principal deve identificar 104 como núcleo original.",
 )
 
+
+# Estrategia unificada e fluxo em dois bracos (Etapa 3)
+for declaracao in (
+    "Estratégia de busca consolidada por rodada e base",
+    "Subtotal da busca principal",
+    "Subtotal da busca de sensibilidade",
+    "não constitui corpus homogêneo",
+    "Fluxo integrado da busca principal e da busca complementar de sensibilidade",
+    "Núcleo temático vigente",
+):
+    exigir(declaracao in texto_tex, f"Integracao das duas buscas ausente: {declaracao}")
+exigir(
+    texto_tex.count("String nativa exata não preservada") == 2,
+    "As duas lacunas documentais de string nativa devem permanecer explícitas na tabela.",
+)
+exigir(
+    "Fluxo de seleção do corpus" not in texto_tex,
+    "A legenda antiga do fluxo ainda está presente.",
+)
+
 print("Verificacao do artigo concluida sem divergencias.")
