@@ -79,24 +79,24 @@ jobs:
         run: python scripts/python/verificar_artigo.py
 
       - name: Instalar TeX Live
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
         run: |
           sudo apt-get update
           sudo apt-get install -y latexmk biber texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures poppler-utils
 
       - name: Compilar PDF
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
       - name: Instalar Pandoc e gerador do Word
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
         run: |
           sudo apt-get install -y pandoc
           python -m pip install --disable-pip-version-check python-docx
 
       - name: Gerar e validar versao Word
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
         run: |
           python scripts/python/13_preparar_word.py
           test -s artigo.docx
@@ -104,7 +104,7 @@ jobs:
           unzip -l artigo.docx | grep -q "word/document.xml"
 
       - name: Verificar margens do PDF
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
         run: |
           python - <<'PY'
           import re
@@ -118,14 +118,14 @@ jobs:
           PY
 
       - name: Preparar PDF compilado e site
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
         run: |
           cp latex-artigo/main.pdf main.pdf
           mkdir -p site
           cp main.pdf site/artigo.pdf
 
       - name: Publicar produtos da compilacao completa
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -138,7 +138,7 @@ jobs:
           fi
 
       - name: Publicar produtos como artefato
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: artigo-pdf-word-referencias
