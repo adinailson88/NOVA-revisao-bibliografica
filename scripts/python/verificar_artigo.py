@@ -52,7 +52,9 @@ def exigir(condicao: bool, mensagem: str) -> None:
 tex_arquivos = [ARTIGO / "main.tex", *sorted(SECOES.glob("*.tex"))]
 texto_tex = "\n".join(p.read_text(encoding="utf-8") for p in tex_arquivos)
 texto_prosa = "\n".join(
-    linha for linha in texto_tex.splitlines() if not linha.lstrip().startswith("\\draw")
+    linha
+    for linha in texto_tex.splitlines()
+    if not linha.lstrip().startswith(("\\draw", "\\path"))
 )
 
 # Estilo solicitado
