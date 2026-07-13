@@ -435,6 +435,33 @@ referências órfãs ou citações ausentes. Não foram identificados travessõe
 marcadores de rascunho. PDF e DOCX permaneceram inalterados.
 
 
+
+### Etapa 7 — concisão das limitações e legibilidade da tabela operacional
+
+A revisão de concisão preservou todas as restrições metodológicas consideradas críticas e
+removeu repetições internas:
+
+- a seção de limitações foi reduzida para aproximadamente 362 palavras, mantendo cobertura,
+  avaliador único, ausência de elegibilidade integral em texto completo, força de evidência,
+  incompletude bibliométrica, restrições da sensibilidade e caráter não validado do
+  protocolo;
+- a tabela de especificação dos indicadores passou de cinco para quatro colunas;
+- periodicidade e direção de preferência foram reunidas em uma coluna, permitindo elevar a
+  fonte de `scriptsize` para `footnotesize`;
+- a busca global não identificou frases longas repetidas literalmente; as ressalvas mantidas
+  no resumo, na matriz e na discussão possuem funções distintas.
+
+Commits incrementais:
+
+- `c4fc587`: condensação das limitações;
+- `47f08b8`: simplificação da tabela de indicadores.
+
+A conferência posterior manteve 11 tabelas, 11 figuras, 43 entradas bibliográficas e 43
+chaves citadas, sem citações ausentes ou referências órfãs. Não foram identificados
+travessões na prosa. A legibilidade final e eventuais caixas excedentes ainda precisam ser
+confirmadas na compilação acumulada, que permanece adiada; PDF e DOCX não foram alterados.
+
+
 ## Etapa atual
 
 **Etapa 7 — ajuste fino iniciado pelo resumo, introdução e fundamentos.**
