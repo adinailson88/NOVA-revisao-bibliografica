@@ -494,6 +494,44 @@ for id_registro in (
     exigir(id_registro in texto_relatorio_ia, f"Registro ausente no relatorio de texto completo: {id_registro}")
 
 
+# Sintese cientifica comparativa da RQ6 (Etapa 5)
+sintese_ia = ler_csv("tabela_sintese_ia_ml_17.csv")
+exigir(len(sintese_ia) == 17, f"Linhas da sintese IA/ML divergentes: {len(sintese_ia)}")
+ids_sintese_ia = [linha["id_unico"] for linha in sintese_ia]
+exigir(len(ids_sintese_ia) == len(set(ids_sintese_ia)), "id_unico duplicado na sintese IA/ML.")
+funcoes_ia: dict[str, int] = {}
+bases_documentais_ia: dict[str, int] = {}
+for linha in sintese_ia:
+    funcoes_ia[linha["funcao_analitica_predominante"]] = (
+        funcoes_ia.get(linha["funcao_analitica_predominante"], 0) + 1
+    )
+    bases_documentais_ia[linha["base_documental"]] = (
+        bases_documentais_ia.get(linha["base_documental"], 0) + 1
+    )
+exigir(
+    funcoes_ia
+    == {
+        "previsao": 8,
+        "previsao_otimizacao": 2,
+        "diagnostico_classificacao": 2,
+        "sintese_integracao": 5,
+    },
+    f"Funcoes analiticas IA/ML divergentes: {funcoes_ia}",
+)
+exigir(
+    bases_documentais_ia == {"titulo_resumo": 10, "texto_integral": 7},
+    f"Base documental IA/ML divergente: {bases_documentais_ia}",
+)
+for declaracao in (
+    "Dez concentram-se em previsão ou previsão combinada à otimização",
+    "dois em diagnóstico e classificação de danos",
+    "cinco em síntese ou integração tecnológica",
+    "Nenhum dos 17 demonstrou uma cadeia completa",
+    "Em resposta à RQ6",
+):
+    exigir(declaracao in texto_tex, f"Sintese comparativa da RQ6 ausente: {declaracao}")
+
+
 # Padronizacao terminologica e editorial (Etapa 14)
 for declaracao in (
     "ambiental, social e de governança (ESG",
