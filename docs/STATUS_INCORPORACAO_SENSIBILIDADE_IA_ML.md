@@ -543,3 +543,20 @@ adiados para a compilação acumulada.
 - Executado `python scripts/python/verificar_artigo.py`: verificação concluída sem divergências.
 - Commits incrementais: `21f9595` e `327de28`.
 - Próximo passo: compilação LaTeX completa, inspeção de `Overfull \\hbox`, revisão visual do PDF e regeneração/validação de `artigo.docx`.
+
+
+## Etapa final — PDF e Word concluídos (2026-07-13)
+
+- O gerador Word passou a converter quatro figuras PDF em PNG, numerar 12 referências cruzadas deixadas pelo Pandoc e renderizar/inserir os dois fluxogramas TikZ.
+- `artigo.docx` foi regenerado com Pandoc: 203 parágrafos, 13 tabelas e 11 figuras. A estrutura ZIP/OOXML foi validada e as 38 páginas renderizadas foram inspecionadas, sem imagens vazias, cortes ou marcadores cruzados brutos.
+- O único `Overfull \\hbox` persistente foi removido permitindo a quebra do caminho `latex-artigo/fontes/tabela_estrategia_busca.csv` com `\\nolinkurl`.
+- A execução [#178](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/runs/29278156203) concluiu com sucesso todas as etapas: produtos Python, verificador, `latexmk`/Biber, Pandoc, validação do Word, verificação de margens, publicação dos produtos e artefato.
+- O PDF final foi estabilizado em 31 páginas e 1.256.992 bytes; o log registrou `Nenhum Overfull hbox detectado.`
+- O commit automático de produtos foi `fd87ed3`; o workflow foi restaurado à política normal de compilação manual ou por `push` na `main` no commit `4686d0a`.
+- A branch foi sincronizada com a `main` sem alterar a `main`; o PR #4 permanece aberto, draft e mergeável.
+- Commits desta etapa: `08b5b13`, `f323aff`, `4632f7e`, `c404bfc`, `b8097e4`, `9a7d341`, `f54441c`, `fd87ed3` e `4686d0a`.
+
+### Pendências desta incorporação
+
+- Nenhuma divergência numérica, erro de compilação ou estouro de margem permanece.
+- A decisão de retirar o PR do modo draft e revisar/mesclar em `main` continua reservada ao pesquisador.
