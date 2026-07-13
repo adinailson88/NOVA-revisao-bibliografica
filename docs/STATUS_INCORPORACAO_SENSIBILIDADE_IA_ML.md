@@ -1,151 +1,156 @@
-# Status — Incorporação da busca de sensibilidade IA/ML ao núcleo do artigo
+# Status — Consolidação da busca de sensibilidade IA/ML e ajuste científico do artigo
 
-Arquivo único e cumulativo de continuidade para esta tarefa. Qualquer sessão futura (neste
-computador ou em outro) deve **atualizar as seções abaixo**, não criar um novo arquivo de
-status paralelo. Segue o mesmo padrão de `docs/STATUS_EXECUCAO_REVISAO_ARTIGO.md` (que
-documenta um fluxo de trabalho anterior e independente, na branch `revisao-metodologica-controlada`
-— não confundir os dois).
+Arquivo único e cumulativo de continuidade desta tarefa. Atualizar este documento ao final de
+cada etapa. Não criar arquivo de status paralelo.
 
-## Repositório e branch
+## Estado verificado em 13/07/2026
 
-- URL: https://github.com/adinailson88/NOVA-revisao-bibliografica
-- Branch de trabalho: `agent/incorporacao-busca-sensibilidade-ia`
-- Branch de origem (fork point): `agent/bibliometria-ampliada-pages`
-- Último commit nesta tarefa: `3df7a3c11bf81c8bca536f09bdc018a68b0bf21d` (2026-07-12)
-- Nenhum PR foi aberto. Nenhuma alteração foi feita na `main`.
-- Clone local de trabalho usado nesta sessão: `C:\Users\adina\AppData\Local\Temp\nova-revisao`
-  (fora do repositório do artigo em si — recriar com `git clone` se necessário em outra máquina).
+- Repositório: `adinailson88/NOVA-revisao-bibliografica`
+- Branch: `agent/incorporacao-busca-sensibilidade-ia`
+- Pull Request: #4, em modo draft, base `main`
+- HEAD verificado antes desta atualização: `29b6869250aa97029f81e6f94273b336ff21ea64`
+- Situação do PR na verificação: aberto, porém não mergeável; requer sincronização e resolução
+  de conflitos antes da consolidação final.
+- Último workflow verificado: “Gerar tabelas, graficos, PDF e Word”, execução 139, concluída
+  com sucesso.
+- `artigo.docx` já está presente entre os arquivos modificados do PR. A antiga anotação de que
+  o DOCX ainda aguardava regeneração foi superada pelo workflow.
+- A versão vigente da síntese temática contém 121 registros: 104 do núcleo original e 17
+  incorporados após a busca complementar de sensibilidade.
 
-## Objetivo da tarefa
+## Objetivo vigente
 
-Incorporar ao artigo os resultados de uma busca complementar de **sensibilidade para
-inteligência artificial (IA) e aprendizado de máquina**, já executada manualmente pelo usuário
-fora deste ambiente (Scopus, Web of Science, Crossref), porque a busca original do núcleo
-capturou IA/ML apenas incidentalmente. Nenhuma nova busca foi executada nesta tarefa.
+Consolidar metodológica e textualmente a busca complementar de sensibilidade para inteligência
+artificial e aprendizado de máquina, corrigir inconsistências entre os diferentes produtos do
+pipeline e, somente depois, executar o ajuste fino global do artigo.
 
-## Regras fixas desta tarefa (memória do projeto + decisões do usuário nesta sessão)
+A busca de sensibilidade não substitui a busca principal. Sua função é verificar quanto uma
+expressão explicitamente dedicada a IA/aprendizado de máquina altera a identificação de métodos
+informacionais e preditivos relacionados à manutenção e à gestão de edificações.
 
-- Nunca registrar em arquivos do projeto que algo foi "feito/auditado por IA" — relatórios
-  descrevem o *processo* (ex. "classificação por correspondência de termos"), nunca atribuem
-  autoria a IA.
-- Scripts **Python**: escritos e executados diretamente nesta sessão.
-- Scripts **R**: **não escritos nem executados** nesta sessão, por regra do projeto. Um prompt
-  para execução via Codex foi preparado (`docs/PROMPT_R_REEXECUCAO_PIPELINE_SENSIBILIDADE.md`),
-  mas os artefatos dessa execução nunca foram commitados na branch. **Decisão do usuário
-  (2026-07-12, sessão de continuação)**: em vez de insistir na execução R, a lógica de
-  `scripts/r/10_gerar_produtos_artigo.R` foi **recriada em Python**
-  (`scripts/python/gerar_produtos_artigo_nucleo_ampliado.py`), replicando termo a termo as
-  mesmas regras de agregação/rotulagem. Isso resolveu o bloqueio sem violar a regra "sem R".
-- Não forçar os números antigos do núcleo (104/137/372) — os novos totais saem do dado real,
-  mesmo quando o crescimento é pequeno (o núcleo cresceu para 121, não para milhares, depois de
-  duas recalibrações do critério de triagem — ver "Decisões de calibração" abaixo).
-- Não declarar sucesso com erro de compilação ou divergência numérica — `verificar_artigo.py`
-  deve passar sem divergências antes de qualquer relatório de conclusão.
+## Regras permanentes
 
-## Estado atual: TAREFA CONCLUÍDA NESTA RODADA
+- Relatar os procedimentos executados, sem atribuir autoria ou revisão a sistemas automatizados.
+- Não executar nem criar scripts R neste fluxo. Quando necessário, reproduzir a lógica em Python.
+- Não forçar totais históricos ou atuais; todo número deve ser recalculado dos dados versionados.
+- Não declarar sucesso com divergência numérica, erro de compilação, referência indefinida ou
+  `Overfull \\hbox`.
+- Preservar os produtos históricos de 104 registros, mas identificar sem ambiguidade quais
+  produtos são históricos e quais são vigentes.
+- Não criar outro PR e não fazer merge em `main` durante esta tarefa.
+- Não apagar relatórios, dados brutos ou decisões que sustentem a rastreabilidade. Informações
+  de continuidade comprovadamente obsoletas podem ser substituídas neste arquivo.
 
-Todas as fases previstas (organização dos dados brutos → normalização → deduplicação →
-codebook/RQ6 → auditoria de classe IA/ML → triagem → reavaliação de 7 registros → consolidação
-do corpus → geração de produtos derivados → atualização do texto LaTeX → validação →
-compilação) foram executadas e commitadas. Resumo verificável nos commits (`git log --oneline`
-na branch) e nos relatórios listados na seção seguinte.
+## Produtos já concluídos e preservados
 
-## Números finais (para referência rápida sem precisar reler os relatórios)
+- Coleta complementar: 6.728 ocorrências brutas, sendo 3.169 da Scopus, 1.559 da Web of Science
+  e 2.000 do Crossref.
+- Normalização e deduplicação contra o corpus original.
+- Classificação determinística dos 4.889 registros novos únicos segundo o codebook RQ6.
+- Revisão individual de título e resumo dos candidatos ao núcleo da sensibilidade.
+- Incorporação de 12 novos registros e promoção de cinco registros já presentes no corpus,
+  elevando o núcleo temático de 104 para 121.
+- Geração, por Python, das tabelas e figuras identificadas pelo sufixo
+  `_nucleo_ampliado_121`.
+- Atualização preliminar do resumo, método, resultados, discussão, limitações e considerações
+  finais com as novas contagens.
 
-| Métrica | Valor |
-|---|---|
-| Núcleo original | 104 registros |
-| **Núcleo ampliado (atual)** | **121 registros** (+17) |
-| Bruto da busca de sensibilidade | 6.728 (3.169 Scopus + 1.559 WoS + 2.000 Crossref) |
-| Já existiam no corpus original | 359 |
-| Novos únicos auditados (classe IA/ML) | 4.889 (100%, sem amostragem) |
-| Núcleo da sensibilidade (após revisão manual) | 12 |
-| Secundários da sensibilidade | 289 |
-| Registros REG_ promovidos na reavaliação dos 7 | 5 (de 7) |
-| Método "machine learning" no núcleo | 9 → 26 (achado central) |
+## Pendências científicas identificadas na auditoria de 13/07/2026
 
-## Arquivos-chave desta tarefa (para retomar rapidamente)
+### 1. Consolidação técnica do PR
 
-- `docs/CODEBOOK_SENSIBILIDADE_IA_ML.md` — regras de classificação de IA/ML (RQ6).
-- `docs/REAVALIACAO_7_REGISTROS_SENSIBILIDADE.md` — decisão registro a registro dos 7 REG_.
-- `docs/PROMPT_R_REEXECUCAO_PIPELINE_SENSIBILIDADE.md` — prompt originalmente preparado para
-  Codex (não usado ao final; substituído pela reimplementação em Python).
-- `docs/RELATORIO_EXECUCAO_R_NUCLEO_AMPLIADO.md` — comparativo completo 104 vs 121, geração dos
-  produtos derivados.
-- `04_TRIAGEM/relatorio_triagem_sensibilidade.md` — funil de triagem, incluindo a correção
-  manual dos 8 falsos positivos de contexto (indústria/aeroespacial/veicular).
-- `03_PROCESSADOS/relatorio_deduplicacao_sensibilidade.md`, `relatorio_normalizacao_sensibilidade_ia.md`,
-  `relatorio_auditoria_ia_ml.md` — relatórios de cada etapa de processamento.
-- `latex-artigo/fontes/nucleo_final_pos_auditoria_resumos_v2_sensibilidade.csv` — o núcleo de
-  121 registros vigente (o arquivo original de 104 permanece preservado, sem sobrescrita).
-- `scripts/python/gerar_produtos_artigo_nucleo_ampliado.py` — reimplementação Python do script R,
-  gera tabela26–36 e figura09/11/12/13/14 com sufixo `_nucleo_ampliado_121`.
-- `scripts/python/verificar_artigo.py` — atualizado para ler o núcleo de 121; passa sem
-  divergências.
+- Sincronizar a branch com `main` e resolver a condição não mergeável.
+- Confirmar que o workflow não substituiu produtos vigentes de 121 por produtos históricos de
+  104 registros.
+- Validar conjuntamente `main.pdf`, `artigo.docx`, tabelas, figuras e arquivos auxiliares.
+- Atualizar a descrição do PR para refletir a base atual e as pendências reais.
 
-## Decisões de calibração (importante para não repetir o mesmo erro)
+### 2. Integração metodológica da RQ6
 
-A triagem automática de núcleo passou por duas correções nesta sessão:
+- Inserir a RQ6 na introdução como questão complementar de sensibilidade.
+- Acrescentar a RQ6 à matriz de alinhamento entre pergunta, seleção, extração e resultados.
+- Corrigir a redação que ainda apresenta 104 registros como núcleo final vigente.
+- Explicar que a camada bibliométrica de 372 registros permanece derivada da busca principal;
+  incorporar nela os resultados de uma busca deliberadamente enriquecida para IA alteraria a
+  estrutura temática observada.
+- Diferenciar claramente classificação determinística, revisão individual de título e resumo e
+  leitura integral.
 
-1. **Primeira versão**: usava só detecção lexical de "maintenance" → gerou 2.484 falsos
-   candidatos a núcleo (24x o núcleo original). Corrigida reaproveitando a lógica real de
-   Bloco A (objeto predial) + Bloco B (sustentabilidade) de `scripts/python/pre_triagem.py`
-   (o mesmo critério que gerou a classe "relevante" no corpus original) combinada com a classe
-   de IA/ML já auditada → gerou 20 candidatos.
-2. **Segunda correção (revisão manual)**: dos 20 candidatos, 8 eram falsos positivos de
-   contexto (IA/ML confirmada + termo "maintenance" presente, mas em domínio industrial,
-   aeroespacial ou veicular sem nenhuma ponte predial real — ex. manutenção preditiva de
-   maquinário de manufatura, bombas moleculares de instalação de fusão nuclear, estações de
-   recarga veicular). Removidos manualmente após leitura do resumo completo de cada um →
-   núcleo final de 12 da sensibilidade.
+### 3. Estratégia de busca e fluxo de seleção
 
-**Lição para sessões futuras**: qualquer novo critério de triagem automática para este corpus
-deve ser testado contra a ordem de grandeza esperada (núcleo original é ~1% do corpus
-consolidado) antes de aceitar o resultado como final.
+- Unificar `latex-artigo/fontes/tabela_estrategia_busca.csv`, preservando a separação entre
+  busca principal e busca de sensibilidade.
+- Incluir as consultas, campos, datas e totais reais da rodada de sensibilidade.
+- Atualizar `scripts/python/verificar_artigo.py` para recalcular e validar os dois blocos de
+  busca, sem tratar a soma operacional como corpus homogêneo.
+- Substituir o funil que termina em 104 por fluxo com dois braços: busca principal e busca de
+  sensibilidade, convergindo no núcleo temático de 121.
 
-## Pendências conhecidas (não bloqueantes)
+### 4. Leitura integral dos 17 registros incorporados
 
-- **`artigo.docx`** não foi regenerado localmente nesta sessão por ausência de Pandoc no
-  ambiente. Será regenerado automaticamente pelo workflow de CI (`.github/workflows/latex.yml`)
-  no próximo push que não tenha `[skip ci]`.
-- **CI de regeneração automática** (`CI: atualiza tabelas, graficos, PDF e Word [skip ci]`) roda
-  a cada push e usa o script R **original** (`10_gerar_produtos_artigo.R`, focado no núcleo de
-  104) para os produtos que ele já gerava antes (figuras `_372`, `referencias/*.xlsx`) — isso é
-  **esperado e inofensivo**: esses produtos não fazem parte do escopo desta tarefa (núcleo
-  ampliado) e o CI não sabe gerar os artefatos `_nucleo_ampliado_121` (esses só existem via o
-  script Python desta tarefa). Se o CI abrir conflito de merge em `main.pdf` num push futuro,
-  resolver mantendo a versão local mais recente (`git checkout --ours main.pdf`), pois o CI
-  roda com os LaTeX sources do momento do push anterior e pode ficar defasado em relação a
-  edições feitas na mesma sessão após o push que o disparou.
-- **Merge/push**: sempre `git fetch` + checar `git log HEAD..origin/<branch>` antes de dar push,
-  porque o CI cria commits automáticos na mesma branch a cada push. Isso já aconteceu duas vezes
-  nesta sessão (commits `b0d89c8` e `1a43b5d`) e exigiu merge manual do `main.pdf`.
-- **Tabela de estratégia de busca** (`latex-artigo/fontes/tabela_estrategia_busca.csv`,
-  referenciada por `03_metodologia.tex` e por `verificar_artigo.py`) **não foi atualizada** com
-  as consultas da busca de sensibilidade — permanece com os 12.118 registros/13 consultas
-  originais. A busca de sensibilidade é descrita separadamente, em prosa, na nova Seção 3.5
-  (`sec:buscaia`). Se uma tarefa futura decidir unificar as duas tabelas, isso exigirá também
-  atualizar as asserções correspondentes em `verificar_artigo.py`.
+- Identificar exatamente os 17 registros que diferenciam os núcleos de 104 e 121.
+- Procurar versões legais em acesso aberto e documentar as tentativas.
+- Extrair, quando disponíveis, contexto predial, problema, técnica computacional, dados,
+  variável-alvo, métricas, validação, integração com decisão e limitações.
+- Registrar página, seção, tabela ou figura de cada evidência incorporada.
+- Não apresentar leitura de resumo como leitura integral.
+- Produzir relatório conforme o padrão dos dois lotes anteriores de texto completo.
 
-## Como retomar em outra máquina
+### 5. Síntese científica de IA/aprendizado de máquina
 
-```bash
-git clone https://github.com/adinailson88/NOVA-revisao-bibliografica.git
-cd NOVA-revisao-bibliografica
-git checkout agent/incorporacao-busca-sensibilidade-ia
-python scripts/python/verificar_artigo.py   # deve passar sem divergencias
-cd latex-artigo && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-```
+- Responder diretamente à RQ6.
+- Distinguir previsão, diagnóstico, classificação, otimização e apoio à decisão.
+- Verificar se os modelos alimentam critérios multicritério ou permanecem como módulos
+  preditivos isolados.
+- Avaliar necessidades de dados, interoperabilidade, explicabilidade, deriva e validação
+  externa apenas quando sustentadas pelos estudos.
+- Posicionar IA/aprendizado de máquina como possível camada de produção de evidências para os
+  critérios, não como substituta da governança multicritério.
+- Criar tabela comparativa compacta, preferencialmente como material suplementar.
 
-Requer: Python 3 com `matplotlib` (para `gerar_produtos_artigo_nucleo_ampliado.py`, só necessário
-se for preciso regenerar tabelas/figuras), MiKTeX/TeXLive com `biblatex-abnt` e `latexmk`.
+### 6. Reprodutibilidade do pipeline vigente
 
-## Próxima ação sugerida
+- Fazer o verificador recalcular totais diretamente do núcleo e comparar resultados com texto,
+  tabelas e gráficos.
+- Revisar o workflow que ainda pode executar produtos orientados ao núcleo histórico de 104.
+- Garantir que CI, pipeline Python e artigo utilizem explicitamente os produtos vigentes de 121.
+- Preservar os produtos históricos sem permitir que sejam confundidos com os atuais.
 
-Nenhuma pendência bloqueante para o estado atual do artigo. Ações possíveis para uma próxima
-sessão, se desejado pelo usuário:
-1. Regenerar `artigo.docx` num ambiente com Pandoc.
-2. Decidir se a tabela de estratégia de busca deve incorporar as consultas de sensibilidade.
-3. Considerar leitura de texto completo pontual dos 17 novos registros do núcleo (mesmo padrão
-   já aplicado aos 30 estudos do núcleo original — ver `docs/STATUS_EXECUCAO_REVISAO_ARTIGO.md`),
-   caso o usuário autorize essa tarefa fora do escopo documental desta rodada.
+### 7. Ajuste fino global do artigo
+
+Executar somente depois das etapas anteriores:
+
+- reduzir repetição dos mesmos estudos entre fundamentos, métodos e discussão;
+- reforçar afirmações teóricas ainda pouco referenciadas;
+- melhorar as transições entre bibliometria, síntese temática e protocolo;
+- distinguir evidência extraída, síntese do autor e indicador operacional proposto;
+- revisar tabelas extensas, resumo, abstract, palavras-chave e conclusão;
+- controlar a extensão do texto, transferindo rastreabilidade detalhada para material
+  suplementar quando necessário;
+- realizar revisão final de coerência numérica, terminológica, bibliográfica e visual.
+
+## Ordem de execução e critério de passagem
+
+1. Consolidação técnica e documental do PR.
+2. Arquitetura metodológica e RQ6.
+3. Estratégia de busca e novo fluxo de seleção.
+4. Leitura integral dos 17 registros.
+5. Síntese científica da busca de sensibilidade.
+6. Reprodutibilidade do pipeline vigente.
+7. Ajuste fino global.
+
+Ao final de cada etapa:
+
+1. executar `python scripts/python/verificar_artigo.py`;
+2. compilar integralmente com LaTeX e Biber;
+3. verificar referências indefinidas e `Overfull \\hbox`;
+4. conferir visualmente PDF e DOCX quando alterados;
+5. atualizar este arquivo;
+6. fazer commit e push incremental na branch do PR #4.
+
+## Etapa atual
+
+**Etapa 1 — Consolidação técnica e documental do PR.**
+
+Esta atualização substitui informações de continuidade obsoletas, preserva os resultados
+históricos relevantes e registra a sequência obrigatória para a próxima rodada de trabalho.
