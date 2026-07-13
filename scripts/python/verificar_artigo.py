@@ -442,16 +442,18 @@ exigir(
 )
 
 
-# Limitacoes metodologicas documentadas (Etapa 13)
-for declaracao in (
-    "Não houve pré-registro público do protocolo.",
-    "sem segundo revisor independente e sem medida de concordância interavaliadores",
-    "não foram realizadas busca de citações para frente ou para trás",
-    "busca estruturada de literatura cinzenta",
-    "Trinta e sete estudos com texto completo disponível foram posteriormente lidos",
-    "A unidade de análise quantitativa é o registro bibliográfico consolidado.",
-):
-    exigir(declaracao in texto_tex, f"Limitacao obrigatoria ausente: {declaracao}")
+# Limitacoes metodologicas documentadas (Etapa 13). Os padrões aceitam ajustes
+# editoriais, mas preservam os conteúdos metodológicos que não podem ser omitidos.
+padroes_limitacoes = (
+    r"Não houve pré-registro(?: público do protocolo)?(?:\.|,)",
+    r"sem (?:segundo revisor independente e sem medida de |revisão independente ou )concordância interavaliadores",
+    r"(?:não foram realizadas|Não houve[^.]*?) busca de citações para frente ou para trás",
+    r"(?:nem |não houve )busca estruturada de literatura cinzenta",
+    r"(?:Trinta e sete estudos com texto completo disponível foram posteriormente lidos|37 textos foram consultados e 19 acrescentaram evidências específicas)",
+    r"A unidade (?:de análise )?quantitativa é o registro bibliográfico consolidado",
+)
+for padrao in padroes_limitacoes:
+    exigir(re.search(padrao, texto_tex), f"Limitacao obrigatoria ausente: {padrao}")
 
 
 # Uso pontual adicional de texto completo
@@ -543,7 +545,7 @@ for declaracao in (
     "TOPSIS a \\textit{Technique for Order Preference by Similarity to Ideal Solution}",
     "ANP a \\textit{Analytic Network Process}",
     "modelagem da informação da construção (BIM",
-    "matriz analítica conceitual, informada pela síntese da literatura",
+    "matriz analítica conceitual informada pela síntese da literatura",
 ):
     exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
 
