@@ -123,20 +123,63 @@ exigir(
 
 # Estrategia de busca
 buscas = ler_csv("tabela_estrategia_busca.csv")
-total_bruto = sum(inteiro(linha["retorno_bruto"]) for linha in buscas)
-exigir(total_bruto == 12118, f"Total bruto divergente: {total_bruto}")
-n_consultas = {
-    base: sum(
+exigir(len(buscas) == 26, f"Linhas da estratégia unificada divergentes: {len(buscas)}")
+
+totais_rodada: dict[str, int] = {}
+for linha in buscas:
+    rodada = linha["rodada"]
+    totais_rodada[rodada] = totais_rodada.get(rodada, 0) + inteiro(linha["retorno_bruto"])
+exigir(
+    totais_rodada == {"principal": 12118, "sensibilidade_ia_ml": 6728},
+    f"Totais por rodada divergentes: {totais_rodada}",
+)
+exigir(
+    sum(totais_rodada.values()) == 18846,
+    "A soma operacional das duas rodadas deve ser 18.846 ocorrencias, sem equivaler a corpus homogeneo.",
+)
+
+def contar_consultas(rodada: str, base: str) -> int:
+    return sum(
         1
         for linha in buscas
-        if linha["base"] == base and "complemento_manual" not in linha["string_id"]
+        if linha["rodada"] == rodada
+        and linha["base"] == base
+        and "complemento_manual" not in linha["string_id"]
     )
+
+
+consultas_principais = {
+    base: contar_consultas("principal", base)
     for base in ("Scopus", "Web of Science", "Crossref")
 }
 exigir(
-    n_consultas == {"Scopus": 4, "Web of Science": 4, "Crossref": 5},
-    f"Numero de consultas divergente: {n_consultas}",
+    consultas_principais == {"Scopus": 4, "Web of Science": 4, "Crossref": 5},
+    f"Número de consultas principais divergente: {consultas_principais}",
 )
+consultas_sensibilidade = {
+    base: contar_consultas("sensibilidade_ia_ml", base)
+    for base in ("Scopus", "Web of Science", "Crossref")
+}
+exigir(
+    consultas_sensibilidade == {"Scopus": 1, "Web of Science": 1, "Crossref": 10},
+    f"Número de consultas de sensibilidade divergente: {consultas_sensibilidade}",
+)
+
+consultas_nao_preservadas = [
+    linha["string_id"]
+    for linha in buscas
+    if linha["consulta_documentada"] == "Informação insuficiente para verificar."
+]
+exigir(
+    consultas_nao_preservadas
+    == ["scopus_nucleo_a5_sensibilidade_ia_ml", "wos_nucleo_a5_sensibilidade_ia_ml"],
+    f"Lacunas documentais das strings de sensibilidade divergentes: {consultas_nao_preservadas}",
+)
+for linha in buscas:
+    exigir(linha["data_execucao"].strip() != "", f"Data ausente em {linha['string_id']}")
+    exigir(linha["periodo"] == "2010-2026", f"Período divergente em {linha['string_id']}")
+    exigir(linha["consulta_documentada"].strip() != "", f"Consulta não documentada em {linha['string_id']}")
+
 
 # Produtos processados da deduplicacao
 normalizados = ler_csv_caminho(PROCESSADOS / "registros_normalizados.csv")
