@@ -369,6 +369,36 @@ PDF e DOCX não foram compilados nem alterados nesta etapa, conforme orientaçã
 pesquisador.
 
 
+
+### Etapa 7 — ajuste de discussão, limitações e conclusão
+
+A continuação do ajuste fino preservou a regra de suporte bibliográfico e reforçou a
+distinção entre resultados do corpus, interpretação e proposição dos autores:
+
+- a discussão passou a responder explicitamente à RQ0, sem apresentar os componentes
+  encontrados na literatura como modelo já transferível;
+- a interpretação sobre ODS e ESG foi separada entre resultado lexical do corpus e
+  compatibilidade com literatura externa;
+- o protocolo e sua agenda de validação foram identificados como proposições do artigo;
+- as limitações passaram a registrar a ausência das strings nativas exatas de Scopus e Web
+  of Science na sensibilidade e a impossibilidade de interpretar o aumento de aprendizado
+  de máquina como prevalência no campo;
+- a conclusão deixou de atribuir eficácia antecipada ao protocolo, removeu prazos
+  institucionais arbitrários e eliminou comentários editoriais sobre uma futura versão do
+  artigo.
+
+Commits incrementais:
+
+- `c539dfe`: síntese, resposta à RQ0 e autoria na discussão;
+- `d9056b0`: limites adicionais da busca de sensibilidade;
+- `a0d123d`: conclusão mais científica e não prescritiva.
+
+A conferência cruzada posterior manteve 13 seções, 43 entradas bibliográficas e 43 chaves
+citadas, sem referências órfãs ou citações ausentes. Não foram introduzidos travessões na
+prosa; as ocorrências de ` -- ` permanecem restritas aos comandos TikZ excluídos pelo
+verificador. PDF e DOCX permaneceram inalterados.
+
+
 ## Etapa atual
 
 **Etapa 7 — ajuste fino iniciado pelo resumo, introdução e fundamentos.**
