@@ -14,6 +14,7 @@ PROCESSADOS = ROOT / "03_PROCESSADOS"
 TRIAGEM = ROOT / "04_TRIAGEM"
 SINTESE = ROOT / "07_SINTESE_TEMATICA"
 SCRIPT_R = ROOT / "scripts" / "r" / "10_gerar_produtos_artigo.R"
+SCRIPT_BIB = ROOT / "scripts" / "python" / "11_gerar_bibliometria_ampliada.py"
 
 
 def ler_csv(nome: str) -> list[dict[str, str]]:
@@ -65,9 +66,9 @@ exigir("Não houve segundo avaliador independente." in texto_tex, "O artigo deve
 exigir("não constitui evidência de uso do ASReview" in texto_tex, "O artigo não pode atribuir uso de ASReview sem evidência.")
 
 # Quantidade e nao redundancia estrutural
-exigir(texto_tex.count("\\begin{table}") == 8, "O artigo deve manter as oito tabelas essenciais (cinco metodologicas e tres de resultados).")
-exigir(texto_tex.count("\\begin{figure}") == 6, "O artigo deve manter um fluxograma e cinco graficos.")
-exigir(texto_tex.count("\\captiongrafico{") == 5, "Os cinco produtos quantitativos devem ser chamados de Graficos.")
+exigir(texto_tex.count("\\begin{table}") == 11, "O artigo deve conter onze tabelas, incluindo correntes teoricas, rastreabilidade do protocolo e especificacao dos indicadores.")
+exigir(texto_tex.count("\\begin{figure}") == 11, "O artigo deve conter dois fluxogramas, cinco graficos tematicos e quatro produtos bibliometricos.")
+exigir(texto_tex.count("\\captiongrafico{") == 9, "Os nove produtos quantitativos devem ser chamados de Graficos.")
 exigir("figura10_distribuicao_base_tipo" not in texto_tex, "Grafico redundante de base e tipo ainda citado.")
 exigir("tab:funil}" not in texto_tex, "Tabela redundante do funil ainda citada.")
 exigir("tab:temporal" not in texto_tex, "Tabela temporal redundante ainda citada.")
@@ -215,11 +216,16 @@ mencoes = ler_csv("tabela35_mencoes_ods_esg_nucleo_final_104.csv")
 mencoes_obtidas = {linha["marcador"]: inteiro(linha["total_registros"]) for linha in mencoes}
 exigir(mencoes_obtidas == {"ODS ou SDG": 1, "ESG": 0}, f"ODS/ESG divergentes: {mencoes_obtidas}")
 
-# Todo grafico citado deve ser produzido pelo script R
+# Todo grafico citado deve ser produzido por um script versionado
 script_r = SCRIPT_R.read_text(encoding="utf-8")
-graficos_citados = set(re.findall(r"\{figuras/([^}]+\.png)\}", texto_tex))
+script_bib = SCRIPT_BIB.read_text(encoding="utf-8")
+graficos_citados = set(re.findall(r"\{figuras/([^}]+\.(?:png|pdf))\}", texto_tex))
 for grafico in graficos_citados:
-    exigir(grafico in script_r, f"Grafico sem geracao no script R: {grafico}")
+    nome_base = grafico.rsplit(".", 1)[0]
+    exigir(
+        grafico in script_r or grafico in script_bib or nome_base in script_r or nome_base in script_bib,
+        f"Grafico sem geracao em script versionado: {grafico}",
+    )
 
 
 # Auditoria ampliada dos resultados (Etapa 10)
@@ -359,6 +365,8 @@ exigir(
 
 
 # Rastreabilidade da matriz analitica (Etapa 12)
+exigir("fig:fluxoprotocolo" in texto_tex, "Fluxograma do protocolo ausente.")
+exigir("Rastreabilidade entre evidências e especificação operacional" in texto_tex, "Tabela do protocolo deve explicitar a rastreabilidade.")
 exigir(
     "Matriz analítica conceitual informada pela síntese da literatura" in texto_tex,
     "A matriz deve ser identificada como sintese conceitual, nao como modelo validado.",
