@@ -446,7 +446,7 @@ for declaracao in (
     "sem segundo revisor independente e sem medida de concordância interavaliadores",
     "não foram realizadas busca de citações para frente ou para trás",
     "busca estruturada de literatura cinzenta",
-    "Trinta estudos com PDF disponível foram posteriormente lidos",
+    "Trinta e sete estudos com texto completo disponível foram posteriormente lidos",
     "A unidade de análise quantitativa é o registro bibliográfico consolidado.",
 ):
     exigir(declaracao in texto_tex, f"Limitacao obrigatoria ausente: {declaracao}")
@@ -454,8 +454,8 @@ for declaracao in (
 
 # Uso pontual adicional de texto completo
 exigir(
-    "30 estudos com PDF disponível foram lidos integralmente; 14 forneceram evidências específicas" in texto_tex,
-    "O método deve registrar os dois lotes de texto completo.",
+    "37 estudos com texto completo disponível foram lidos integralmente; 19 forneceram evidências específicas" in texto_tex,
+    "O método deve registrar os três lotes de texto completo.",
 )
 for chave in (
     "aldairi_lean6sbm_2017",
@@ -465,8 +465,33 @@ for chave in (
     "talib_hospitalfm_2013",
     "conejos_verticalgreenery_2019",
     "tan_fluxoinformacao_2018",
+    "motuziene_ventilacaoia_2025",
+    "das_iotai_2025",
+    "wu_gnnvidautil_2025",
+    "suh_demandaenergiaagua_2012",
+    "alici_iotambientes_2026",
 ):
     exigir(chave in chaves_citadas, f"Estudo de texto completo sem citacao: {chave}")
+
+
+# Leitura integral dos registros incorporados pela sensibilidade (Etapa 4)
+relatorio_ia = ROOT / "docs" / "RELATORIO_USO_TEXTO_COMPLETO_17_REGISTROS_IA_ML.md"
+exigir(relatorio_ia.exists(), "Relatorio dos 17 registros IA/ML ausente.")
+texto_relatorio_ia = relatorio_ia.read_text(encoding="utf-8")
+for declaracao in (
+    "17 registros identificados sem ambiguidade",
+    "7 textos integrais consultados",
+    "5 dos 7 textos lidos acrescentaram",
+    "não foram registrados como leitura integral",
+):
+    exigir(declaracao in texto_relatorio_ia, f"Rastreabilidade da Etapa 4 ausente: {declaracao}")
+for id_registro in (
+    "REG_02383", "REG_07814", "REG_07815", "REG_05418", "REG_06840",
+    "REG_09883", "REG_10348", "REG_10391", "REG_10862", "REG_11003",
+    "REG_11158", "REG_11346", "REG_11489", "REG_11552", "REG_12351",
+    "REG_12451", "REG_12511",
+):
+    exigir(id_registro in texto_relatorio_ia, f"Registro ausente no relatorio de texto completo: {id_registro}")
 
 
 # Padronizacao terminologica e editorial (Etapa 14)
