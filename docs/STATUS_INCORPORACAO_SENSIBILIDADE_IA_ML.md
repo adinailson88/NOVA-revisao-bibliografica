@@ -462,6 +462,38 @@ travessões na prosa. A legibilidade final e eventuais caixas excedentes ainda p
 confirmadas na compilação acumulada, que permanece adiada; PDF e DOCX não foram alterados.
 
 
+
+### Etapa 7 — revisão linguística e uniformidade terminológica
+
+A revisão global foi realizada somente nos arquivos-fonte, mantendo PDF e DOCX reservados
+para a última etapa:
+
+- a primeira ocorrência no corpo do artigo passou a apresentar “inteligência artificial
+  (IA) e aprendizado de máquina”; as ocorrências seguintes foram uniformizadas;
+- a construção “IA/aprendizado de máquina” foi eliminada;
+- o anglicismo `codebook` foi substituído por “manual de codificação”;
+- parágrafos longos da introdução, metodologia, métodos e discussão foram divididos por
+  função argumentativa;
+- resultado documental e proposição do protocolo foram separados em parágrafos distintos;
+- as respostas às RQ3 e RQ5 foram explicitadas nas seções de métodos e aplicabilidade;
+- os resumos em português e inglês permaneceram em parágrafo único, conforme a forma
+  editorial vigente.
+
+Commits de conteúdo:
+
+- `06c63a6`, `c49f99c`, `47ba6b8`, `df4a1c4` e `22563bc`:
+  uniformidade terminológica e divisão dos parágrafos;
+- `bf084db` e `5f3602f`: explicitação das respostas às RQ3 e RQ5.
+
+Quatro sequências de quebra de linha foram inicialmente registradas como texto literal e
+corrigidas imediatamente nos commits `a759774`, `5c419fa`, `ec426d8` e `5c7906e`.
+A conferência posterior confirmou ausência dessas sequências nos fontes.
+
+A validação estrutural manteve 13 seções, 11 tabelas, 11 figuras, 43 entradas
+bibliográficas e 43 chaves citadas, sem referências órfãs, citações ausentes, travessões na
+prosa ou marcadores de rascunho. PDF e DOCX não foram compilados nem alterados.
+
+
 ## Etapa atual
 
 **Etapa 7 — ajuste fino iniciado pelo resumo, introdução e fundamentos.**
