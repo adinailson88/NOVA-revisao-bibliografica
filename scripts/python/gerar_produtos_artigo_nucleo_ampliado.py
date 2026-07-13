@@ -55,6 +55,7 @@ NUCLEO_PATH = os.path.join(FONTES_DIR, "nucleo_final_pos_auditoria_resumos_v2_se
 DICIONARIO_PATH = os.path.join(FONTES_DIR, "dicionario_criterio_dimensao_etapa17.csv")
 CORPUS_V2_PATH = os.path.join(BASE_DIR, "03_PROCESSADOS", "corpus_consolidado_v2_sensibilidade.csv")
 TIPOS_104_PATH = os.path.join(FONTES_DIR, "tabela34_distribuicao_base_tipo_nucleo_final_104.csv")
+NUCLEO_104_PATH = os.path.join(BASE_DIR, "07_SINTESE_TEMATICA", "nucleo_final_pos_auditoria_resumos.csv")
 
 SUFIXO = "_nucleo_ampliado_121"
 
@@ -110,12 +111,21 @@ def main():
     os.makedirs(FIGURAS_DIR, exist_ok=True)
 
     dados = ler_csv(NUCLEO_PATH)
-    if len(dados) != 121:
-        raise SystemExit(f"Esperado 121 registros, encontrado {len(dados)}.")
+    historico = ler_csv(NUCLEO_104_PATH)
     ids_unicos = [r["id_unico"] for r in dados]
+    ids_historicos = {r["id_unico"] for r in historico}
     if len(ids_unicos) != len(set(ids_unicos)):
         raise SystemExit("id_unico duplicado no nucleo ampliado.")
+    if len(ids_historicos) != len(historico):
+        raise SystemExit("id_unico duplicado no nucleo historico.")
     N = len(dados)
+    n_historico = len(historico)
+    ids_novos_calculados = set(ids_unicos) - ids_historicos
+    if N != 121 or n_historico != 104 or len(ids_novos_calculados) != 17:
+        raise SystemExit(
+            "Composicao dos nucleos divergente: "
+            f"vigente={N}, historico={n_historico}, incorporados={len(ids_novos_calculados)}."
+        )
 
     dicionario = {r["criterio"]: r["dimensao_roteiro"] for r in ler_csv(DICIONARIO_PATH)}
 
@@ -290,8 +300,12 @@ def main():
             tipos_harmonizados[harmonizar_tipo_raw(r["categoria"])] += int(r["total_registros"])
 
     corpus_v2 = {r["id_unico"]: r for r in ler_csv(CORPUS_V2_PATH)}
-    ids_originais = set(ids_unicos[:104])
-    ids_novos = set(ids_unicos[104:])
+    ids_originais = set(ids_unicos) & ids_historicos
+    ids_novos = ids_novos_calculados
+    if len(ids_originais) != n_historico:
+        raise SystemExit(
+            f"Nem todos os {n_historico} registros historicos estao no nucleo vigente."
+        )
     for id_unico in ids_novos:
         linha_corpus = corpus_v2.get(id_unico)
         if linha_corpus is None:
