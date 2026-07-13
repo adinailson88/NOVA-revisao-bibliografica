@@ -13,9 +13,25 @@ Entrada:
 - 03_PROCESSADOS/corpus_consolidado_v2_sensibilidade.csv (para tipo_documento raw dos 121)
 - latex-artigo/fontes/tabela34_distribuicao_base_tipo_nucleo_final_104.csv (tipo_documento raw dos 104 originais)
 
-Saida (todas com sufixo _nucleo_ampliado_121, NAO sobrescrevem os arquivos _nucleo_final_104):
-- latex-artigo/fontes/tabela26..36_..._nucleo_ampliado_121.csv
-- latex-artigo/figuras/figura09,11,12,13,14_..._nucleo_ampliado_121.png
+Saida (todas com sufixo _nucleo_ampliado_121, NAO sobrescrevem os arquivos _nucleo_final_104),
+nomes literais (para conferencia por scripts/python/verificar_artigo.py):
+- latex-artigo/fontes/tabela26_criterios_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela27_dimensoes_sustentabilidade_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela28_metodos_decisao_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela29_contexto_edificacao_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela30_lacunas_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela31_coocorrencia_criterio_metodo_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela32_coocorrencia_dimensao_metodo_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela33_distribuicao_temporal_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela34_bases_origem_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela34_tipos_documentais_harmonizados_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela35_mencoes_ods_esg_nucleo_ampliado_121.csv
+- latex-artigo/fontes/tabela36_tipo_contribuicao_artigo_nucleo_ampliado_121.csv
+- latex-artigo/figuras/figura09_distribuicao_temporal_nucleo_ampliado_121.png
+- latex-artigo/figuras/figura11_metodos_mcdm_mais_frequentes_nucleo_ampliado_121.png
+- latex-artigo/figuras/figura12_dimensoes_sustentabilidade_nucleo_ampliado_121.png
+- latex-artigo/figuras/figura13_heatmap_criterios_metodos_nucleo_ampliado_121.png
+- latex-artigo/figuras/figura14_matriz_analitica_dimensao_metodo_nucleo_ampliado_121.png
 - docs/RELATORIO_EXECUCAO_R_NUCLEO_AMPLIADO.md (comparativo 104 vs 121)
 """
 

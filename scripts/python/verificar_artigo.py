@@ -14,6 +14,7 @@ PROCESSADOS = ROOT / "03_PROCESSADOS"
 TRIAGEM = ROOT / "04_TRIAGEM"
 SINTESE = ROOT / "07_SINTESE_TEMATICA"
 SCRIPT_R = ROOT / "scripts" / "r" / "10_gerar_produtos_artigo.R"
+SCRIPT_NUCLEO_AMPLIADO = ROOT / "scripts" / "python" / "gerar_produtos_artigo_nucleo_ampliado.py"
 SCRIPT_BIB = ROOT / "scripts" / "python" / "11_gerar_bibliometria_ampliada.py"
 
 
@@ -89,8 +90,13 @@ exigir("@phdthesis" not in bib.lower() and "@mastersthesis" not in bib.lower(), 
 exigir(len(re.findall(r"@article\{", bib, flags=re.I)) >= 16, "Bibliografia cientifica insuficiente.")
 
 # Corpus final
-nucleo = ler_csv("nucleo_final_pos_auditoria_resumos.csv")
-exigir(len(nucleo) == 104, "O nucleo final deve ter 104 registros.")
+# O nucleo foi ampliado de 104 para 121 registros em 2026-07-12 pela busca complementar de
+# sensibilidade para IA/aprendizado de maquina (docs/PROMPT_R_REEXECUCAO_PIPELINE_SENSIBILIDADE.md,
+# docs/RELATORIO_EXECUCAO_R_NUCLEO_AMPLIADO.md). O arquivo historico de 104 registros
+# (nucleo_final_pos_auditoria_resumos.csv) permanece preservado, sem sobrescrita; o arquivo
+# vigente para o artigo passa a ser a versao ampliada.
+nucleo = ler_csv("nucleo_final_pos_auditoria_resumos_v2_sensibilidade.csv")
+exigir(len(nucleo) == 121, "O nucleo final deve ter 121 registros (104 originais + 17 da busca de sensibilidade IA/ML).")
 ids = [linha["id_unico"] for linha in nucleo]
 exigir(len(ids) == len(set(ids)), "id_unico duplicado no nucleo final.")
 
@@ -101,13 +107,13 @@ for linha in nucleo:
     combinacoes[combinacao] = combinacoes.get(combinacao, 0) + 1
     for base in combinacao.split("|"):
         contagem_bases[base] += 1
-exigir(contagem_bases == {"Scopus": 98, "WoS": 49, "Crossref": 6}, f"Bases divergentes: {contagem_bases}")
+exigir(contagem_bases == {"Scopus": 113, "WoS": 51, "Crossref": 6}, f"Bases divergentes: {contagem_bases}")
 exigir(
     combinacoes
     == {
-        "Scopus": 52,
+        "Scopus": 67,
         "Scopus|WoS": 41,
-        "WoS": 5,
+        "WoS": 7,
         "Crossref|Scopus|WoS": 3,
         "Crossref|Scopus": 2,
         "Crossref": 1,
@@ -185,8 +191,8 @@ exigir(len(nucleo_reavaliado) == 3678, f"Núcleo reavaliado divergente: {len(nuc
 exigir(len(nucleo_central) == 137, f"Núcleo central divergente: {len(nucleo_central)}")
 exigir(len(auditoria_137) == 137, f"Auditoria qualitativa divergente: {len(auditoria_137)}")
 
-# Tabelas geradas pelo R
-dimensoes = ler_csv("tabela27_dimensoes_sustentabilidade_nucleo_final_104.csv")
+# Tabelas geradas pelo pipeline do nucleo ampliado (121)
+dimensoes = ler_csv("tabela27_dimensoes_sustentabilidade_nucleo_ampliado_121.csv")
 dimensoes_esperadas = {
     "tecnica_operacional",
     "institucional",
@@ -200,30 +206,36 @@ exigir(
     "Tabela de dimensoes contem criterios ou perdeu dimensoes canonicas.",
 )
 
-tipos = ler_csv("tabela34_tipos_documentais_harmonizados_nucleo_final_104.csv")
+tipos = ler_csv("tabela34_tipos_documentais_harmonizados_nucleo_ampliado_121.csv")
 tipos_obtidos = {linha["tipo_harmonizado"]: inteiro(linha["total_registros"]) for linha in tipos}
 exigir(
     tipos_obtidos
     == {
-        "Artigo de periodico": 79,
-        "Trabalho em evento": 15,
-        "Livro ou serie de livro": 10,
+        "Artigo de periodico": 90,
+        "Trabalho em evento": 20,
+        "Livro ou serie de livro": 11,
     },
     f"Tipos documentais divergentes: {tipos_obtidos}",
 )
 
-mencoes = ler_csv("tabela35_mencoes_ods_esg_nucleo_final_104.csv")
+mencoes = ler_csv("tabela35_mencoes_ods_esg_nucleo_ampliado_121.csv")
 mencoes_obtidas = {linha["marcador"]: inteiro(linha["total_registros"]) for linha in mencoes}
 exigir(mencoes_obtidas == {"ODS ou SDG": 1, "ESG": 0}, f"ODS/ESG divergentes: {mencoes_obtidas}")
 
 # Todo grafico citado deve ser produzido por um script versionado
 script_r = SCRIPT_R.read_text(encoding="utf-8")
+script_nucleo_ampliado = SCRIPT_NUCLEO_AMPLIADO.read_text(encoding="utf-8")
 script_bib = SCRIPT_BIB.read_text(encoding="utf-8")
 graficos_citados = set(re.findall(r"\{figuras/([^}]+\.(?:png|pdf))\}", texto_tex))
 for grafico in graficos_citados:
     nome_base = grafico.rsplit(".", 1)[0]
     exigir(
-        grafico in script_r or grafico in script_bib or nome_base in script_r or nome_base in script_bib,
+        grafico in script_r
+        or grafico in script_nucleo_ampliado
+        or grafico in script_bib
+        or nome_base in script_r
+        or nome_base in script_nucleo_ampliado
+        or nome_base in script_bib,
         f"Grafico sem geracao em script versionado: {grafico}",
     )
 
@@ -234,68 +246,68 @@ def mapa_totais(nome: str, chave: str) -> dict[str, int]:
 
 
 dimensoes_totais = mapa_totais(
-    "tabela27_dimensoes_sustentabilidade_nucleo_final_104.csv",
+    "tabela27_dimensoes_sustentabilidade_nucleo_ampliado_121.csv",
     "dimensao_identificada_leitura",
 )
 exigir(
     dimensoes_totais
     == {
-        "tecnica_operacional": 102,
-        "institucional": 92,
-        "ambiental": 84,
-        "ciclo_de_vida": 60,
-        "economica": 59,
-        "social": 57,
+        "tecnica_operacional": 116,
+        "institucional": 97,
+        "ambiental": 92,
+        "ciclo_de_vida": 65,
+        "economica": 63,
+        "social": 59,
     },
     f"Dimensoes divergentes: {dimensoes_totais}",
 )
 
-criterios_totais = mapa_totais("tabela26_criterios_nucleo_final_104.csv", "criterio")
+criterios_totais = mapa_totais("tabela26_criterios_nucleo_ampliado_121.csv", "criterio")
 exigir(
     criterios_totais
     == {
-        "desempenho_operacional": 93,
-        "informacao_dados": 76,
-        "custo": 60,
-        "vida_util": 40,
-        "energia": 36,
-        "risco": 31,
-        "condicao_fisica": 27,
-        "manutenibilidade": 19,
-        "conforto": 17,
-        "seguranca": 17,
+        "desempenho_operacional": 99,
+        "informacao_dados": 82,
+        "custo": 63,
+        "energia": 44,
+        "vida_util": 44,
+        "condicao_fisica": 34,
+        "risco": 33,
+        "manutenibilidade": 25,
+        "conforto": 22,
+        "seguranca": 18,
         "emissoes_carbono": 15,
         "residuos": 13,
         "satisfacao_usuario": 9,
+        "agua": 6,
         "qualidade_servico": 6,
-        "agua": 5,
     },
     f"Criterios divergentes: {criterios_totais}",
 )
 
 metodos_totais = mapa_totais(
-    "tabela28_metodos_decisao_nucleo_final_104.csv",
+    "tabela28_metodos_decisao_nucleo_ampliado_121.csv",
     "metodo_identificado_leitura",
 )
 exigir(
     metodos_totais
     == {
-        "framework": 96,
-        "BIM": 26,
-        "decision support": 25,
-        "optimization": 18,
+        "framework": 101,
+        "decision support": 29,
+        "BIM": 28,
+        "machine learning": 26,
+        "optimization": 19,
         "scoring": 17,
-        "life-cycle cost": 13,
-        "fuzzy": 10,
+        "life-cycle cost": 16,
+        "IoT": 13,
+        "digital twin": 11,
+        "fuzzy": 11,
         "ranking": 9,
-        "IoT": 9,
-        "machine learning": 9,
-        "digital twin": 8,
         "AHP": 5,
         "TOPSIS": 4,
-        "ANP": 2,
         "Delphi": 3,
         "MCDM": 3,
+        "ANP": 2,
         "Bayesian Best Worst Method": 1,
         "balanced scorecard": 1,
         "case-based reasoning": 1,
@@ -304,60 +316,60 @@ exigir(
 )
 
 contextos_totais = mapa_totais(
-    "tabela29_contexto_edificacao_nucleo_final_104.csv",
+    "tabela29_contexto_edificacao_nucleo_ampliado_121.csv",
     "contexto_identificado_leitura",
 )
 exigir(
     contextos_totais
     == {
-        "edificio_generico": 93,
-        "portfolio_predial": 58,
+        "edificio_generico": 101,
+        "portfolio_predial": 59,
         "hospital": 17,
-        "edificio_comercial": 15,
-        "edificio_residencial": 12,
-        "universidade": 11,
+        "edificio_comercial": 16,
+        "edificio_residencial": 15,
+        "universidade": 14,
         "campus": 10,
+        "patrimonio_historico": 6,
         "edificio_publico": 5,
         "escola": 5,
-        "patrimonio_historico": 4,
         "museu": 1,
         "nao_identificado_no_resumo": 1,
     },
     f"Contextos divergentes: {contextos_totais}",
 )
 
-lacunas_totais = mapa_totais("tabela30_lacunas_nucleo_final_104.csv", "categoria")
+lacunas_totais = mapa_totais("tabela30_lacunas_nucleo_ampliado_121.csv", "categoria")
 exigir(
     lacunas_totais
     == {
         "com_lacuna_identificada_no_resumo": 76,
-        "sem_lacuna_identificada_no_resumo": 28,
+        "sem_lacuna_identificada_no_resumo": 45,
         "lacuna_especifica_ies_publicas": 12,
     },
     f"Lacunas divergentes: {lacunas_totais}",
 )
 
-temporal = mapa_totais("tabela33_distribuicao_temporal_nucleo_final_104.csv", "ano")
-exigir(sum(temporal.values()) == 104, f"Total temporal divergente: {sum(temporal.values())}")
-exigir(sum(v for a, v in temporal.items() if 2019 <= int(a) <= 2026) == 88, "Total de 2019 a 2026 divergente.")
-exigir(temporal.get("2025") == 25, f"Total de 2025 divergente: {temporal.get('2025')}")
+temporal = mapa_totais("tabela33_distribuicao_temporal_nucleo_ampliado_121.csv", "ano")
+exigir(sum(temporal.values()) == 121, f"Total temporal divergente: {sum(temporal.values())}")
+exigir(sum(v for a, v in temporal.items() if 2019 <= int(a) <= 2026) == 101, "Total de 2019 a 2026 divergente.")
+exigir(temporal.get("2025") == 29, f"Total de 2025 divergente: {temporal.get('2025')}")
 
 contribuicoes_totais = mapa_totais(
-    "tabela36_tipo_contribuicao_artigo_nucleo_final_104.csv",
+    "tabela36_tipo_contribuicao_artigo_nucleo_ampliado_121.csv",
     "tipo_contribuicao",
 )
 exigir(
     contribuicoes_totais
     == {
-        "criterios_de_sustentabilidade": 104,
+        "gestao_manutencao_predial": 115,
+        "energia_desempenho_operacional": 105,
         "criterios_de_priorizacao": 104,
+        "criterios_de_sustentabilidade": 104,
+        "custo_ciclo_de_vida": 86,
         "metodo_multicriterio_ou_decisao": 80,
-        "gestao_manutencao_predial": 104,
         "facility_management": 57,
-        "energia_desempenho_operacional": 97,
-        "custo_ciclo_de_vida": 82,
-        "risco_seguranca_conforto": 53,
-        "contexto_publico_universitario": 17,
+        "risco_seguranca_conforto": 57,
+        "contexto_publico_universitario": 20,
         "lacuna_para_ies_publicas": 12,
     },
     f"Tipos de contribuicao divergentes: {contribuicoes_totais}",
