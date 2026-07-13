@@ -139,14 +139,16 @@ Executar somente depois das etapas anteriores:
 6. Reprodutibilidade do pipeline vigente.
 7. Ajuste fino global.
 
-Ao final de cada etapa:
+Durante as etapas de conteúdo, atualizar apenas fontes `.tex`, dados, scripts Python e
+documentação. Por decisão do pesquisador em 13/07/2026, não regenerar nem editar `main.pdf` ou
+`artigo.docx` por enquanto. A compilação integral, Biber, referências indefinidas,
+`Overfull \\hbox` e conferência visual de PDF/DOCX serão executados conjuntamente após a
+consolidação dos textos. Em cada etapa intermediária:
 
-1. executar `python scripts/python/verificar_artigo.py`;
-2. compilar integralmente com LaTeX e Biber;
-3. verificar referências indefinidas e `Overfull \\hbox`;
-4. conferir visualmente PDF e DOCX quando alterados;
-5. atualizar este arquivo;
-6. fazer commit e push incremental na branch do PR #4.
+1. executar validações estáticas e verificações numéricas possíveis;
+2. atualizar este arquivo;
+3. fazer commit incremental na branch do PR #4;
+4. não declarar validação de compilação ou visual antes da etapa acumulada correspondente.
 
 ## Registro de execução
 
@@ -182,9 +184,34 @@ Verificação estática por leitura dos arquivos passou para os cinco controles 
 completa por Python, LaTeX, Biber, inspeção de `Overfull \\hbox` e regeneração de PDF/DOCX
 ainda precisa ser confirmada pelo workflow ou por checkout local.
 
+### Etapa 3 — estratégia de busca e fluxo integrado
+
+Implementação textual e documental concluída:
+
+- `tabela_estrategia_busca.csv` ampliada para 26 linhas: 13 consultas principais, um
+  enriquecimento manual por EID e 12 consultas de sensibilidade — commit `186a188`.
+- Totais mantidos em blocos independentes: 12.118 ocorrências na busca principal e 6.728 na
+  busca de sensibilidade.
+- As strings originais e as dez consultas Crossref da sensibilidade foram preservadas
+  integralmente.
+- As strings nativas exatas da Scopus e da Web of Science na sensibilidade não constam dos
+  arquivos recebidos; foram registradas como “Informação insuficiente para verificar”, sem
+  reconstrução por inferência.
+- `verificar_artigo.py` atualizado para validar rodada, base, número de consultas, datas,
+  período, totais e lacunas documentais — commits `655a452` e `e6f89d8`.
+- Metodologia reescrita para separar as finalidades das duas rodadas e impedir que 18.846 seja
+  tratado como corpus homogêneo.
+- Fluxo metodológico substituído por estrutura em dois braços, convergindo no núcleo vigente de
+  121 registros — commits `9959589` e `f79005d`.
+- Log de busca atualizado com as dez consultas Crossref verificadas e as duas lacunas de
+  string nativa — commit `46e5a8c`.
+
+A verificação estática confirmou 26 linhas, totais de 12.118 e 6.728, distribuição de consultas
+4/4/5 na busca principal e 1/1/10 na sensibilidade, além das duas lacunas documentais esperadas.
+
 ## Etapa atual
 
-**Etapa 2 — arquitetura metodológica e RQ6, aguardando validação completa.**
+**Etapa 3 — conteúdo e dados salvos; compilação deliberadamente adiada.**
 
-Depois da validação, a próxima etapa será unificar a estratégia de busca e construir o fluxo de
-seleção em dois braços, convergindo no núcleo temático de 121 registros.
+A próxima etapa será identificar os 17 registros incorporados, localizar versões legais em
+acesso aberto e preparar a leitura integral pontual, sem alterar PDF ou DOCX.
