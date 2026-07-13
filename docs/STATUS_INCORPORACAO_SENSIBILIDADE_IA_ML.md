@@ -148,9 +148,43 @@ Ao final de cada etapa:
 5. atualizar este arquivo;
 6. fazer commit e push incremental na branch do PR #4.
 
+## Registro de execução
+
+### Etapa 1 — consolidação técnica e documental
+
+- Plano e estado atual registrados no commit `837286d`.
+- Descrição e título do PR #4 atualizados; removidas informações obsoletas.
+- A comparação entre a branch e a `main` mostrou que os dois commits exclusivos da `main`
+  alteram somente oito artefatos binários gerados pelo CI: `artigo.docx`, `main.pdf`, quatro
+  figuras bibliométricas e duas planilhas.
+- Os fontes LaTeX e scripts não divergem por causa desses dois commits.
+- As versões da branch foram preservadas para não substituir produtos do núcleo vigente de 121
+  por artefatos potencialmente associados ao núcleo histórico de 104.
+- A incorporação formal da `main` permanece pendente porque o PR continua não mergeável; a
+  resolução deve ocorrer depois de uma nova compilação validada dos fontes atuais.
+
+### Etapa 2 — arquitetura metodológica e RQ6
+
+Implementação iniciada:
+
+- RQ6 formulada na introdução como verificação complementar, sem redefinir retrospectivamente a
+  busca principal — commit `ccc0ff1`.
+- RQ6 acrescentada à matriz de alinhamento metodológico.
+- Camada bibliométrica de 372 explicitamente vinculada à busca principal.
+- Núcleo original de 104 diferenciado do núcleo temático vigente de 121.
+- Justificado que os resultados da busca deliberadamente enriquecida para IA não entram na
+  estrutura bibliométrica geral.
+- Funil existente rotulado como fluxo da busca principal até o núcleo original.
+- Verificações de regressão adicionadas a `verificar_artigo.py` — commits `1db9d52` e
+  `192d98e`.
+
+Verificação estática por leitura dos arquivos passou para os cinco controles novos. A validação
+completa por Python, LaTeX, Biber, inspeção de `Overfull \\hbox` e regeneração de PDF/DOCX
+ainda precisa ser confirmada pelo workflow ou por checkout local.
+
 ## Etapa atual
 
-**Etapa 1 — Consolidação técnica e documental do PR.**
+**Etapa 2 — arquitetura metodológica e RQ6, aguardando validação completa.**
 
-Esta atualização substitui informações de continuidade obsoletas, preserva os resultados
-históricos relevantes e registra a sequência obrigatória para a próxima rodada de trabalho.
+Depois da validação, a próxima etapa será unificar a estratégia de busca e construir o fluxo de
+seleção em dois braços, convergindo no núcleo temático de 121 registros.
