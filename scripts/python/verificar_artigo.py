@@ -482,13 +482,16 @@ for chave in (
 relatorio_ia = ROOT / "docs" / "RELATORIO_USO_TEXTO_COMPLETO_17_REGISTROS_IA_ML.md"
 exigir(relatorio_ia.exists(), "Relatorio dos 17 registros IA/ML ausente.")
 texto_relatorio_ia = relatorio_ia.read_text(encoding="utf-8")
-for declaracao in (
-    "17 registros identificados sem ambiguidade",
-    "7 textos integrais consultados",
-    "5 dos 7 textos lidos acrescentaram",
-    "não foram registrados como leitura integral",
+for padrao in (
+    r"17 registros identificados sem ambiguidade",
+    r"7 textos integrais consultados",
+    r"5 dos 7 textos lidos acrescentaram",
+    r"não foram\s+registrados como leitura integral",
 ):
-    exigir(declaracao in texto_relatorio_ia, f"Rastreabilidade da Etapa 4 ausente: {declaracao}")
+    exigir(
+        re.search(padrao, texto_relatorio_ia),
+        f"Rastreabilidade da Etapa 4 ausente: {padrao}",
+    )
 for id_registro in (
     "REG_02383", "REG_07814", "REG_07815", "REG_05418", "REG_06840",
     "REG_09883", "REG_10348", "REG_10391", "REG_10862", "REG_11003",
