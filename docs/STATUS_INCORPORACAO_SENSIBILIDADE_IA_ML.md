@@ -270,10 +270,39 @@ A validação estática confirmou 17 linhas únicas, distribuição funcional 8/
 documental 10/7 e sete links diretos. A execução completa de Python e a compilação continuam
 adiadas para a etapa acumulada, sem alteração de PDF ou DOCX.
 
+### Etapa 6 — reprodutibilidade do pipeline vigente
+
+Implementação concluída nos fontes e na configuração:
+
+- O gerador Python do núcleo ampliado passou a identificar os 17 incorporados pela diferença
+  real entre os conjuntos de identificadores dos núcleos vigente e histórico, sem depender da
+  posição das linhas — commit `5e61d71`.
+- O gerador de planilhas de auditoria passou a publicar
+  `nucleo_final_121_registros.csv/.xlsx` como produto vigente e a preservar
+  `nucleo_final_104_registros.csv/.xlsx` como produto histórico — commit `5c52c86`.
+- O workflow deixou de instalar ou executar R e passou a chamar
+  `gerar_produtos_artigo_nucleo_ampliado.py` antes da verificação — commit `7a4da72`.
+- Em pushes de branch e no PR, o workflow agora executa apenas os produtos Python e
+  `verificar_artigo.py`. TeX, Biber, PDF e Word ficaram condicionados a execução manual ou
+  push na `main`, respeitando o adiamento da compilação.
+- O README principal passou a declarar a possível defasagem temporária de PDF/DOCX e a
+  arquitetura atual de 121 registros — commit `4deb4de`.
+- O README de referências passou a distinguir o núcleo vigente de 121 do histórico de 104 e
+  a documentar o terceiro lote de leitura integral — commit `833b6a4`.
+- O verificador ganhou controles de regressão para impedir execução de R no workflow,
+  identificação posicional dos 17 registros ou publicação exclusiva do núcleo histórico —
+  commit `0544647`.
+
+A inspeção estática confirmou todos os novos controles. Nenhuma execução de workflow foi
+associada automaticamente aos commits produzidos pela interface de conteúdo; por isso, a
+execução integral do pipeline Python ainda deve ser confirmada no próximo disparo de CI.
+Nenhum script R foi executado e nenhum PDF ou DOCX foi alterado.
+
 ## Etapa atual
 
-**Etapa 5 — síntese científica da RQ6 salva; compilação deliberadamente adiada.**
+**Etapa 6 — pipeline e workflow alinhados ao núcleo de 121; execução de CI ainda pendente.**
 
-A próxima etapa será alinhar o pipeline e o workflow ao núcleo vigente de 121 registros,
-impedindo que rotinas históricas de 104 substituam produtos atuais e ampliando a verificação
-reprodutível, sem executar scripts R.
+A próxima etapa será o ajuste fino global do artigo: reduzir repetições, melhorar transições,
+reforçar a distinção entre evidência extraída e proposta normativa e revisar resumo,
+discussão, limitações e conclusão. A compilação acumulada permanecerá para o fechamento
+posterior autorizado pelo pesquisador.
