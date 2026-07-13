@@ -533,3 +533,13 @@ A execução integral do verificador e a inspeção de caixas excedentes permane
 A continuação revisará resultados, transições para a matriz, discussão, limitações e
 considerações finais, preservando o modelo estrutural já consolidado. PDF e DOCX continuam
 adiados para a compilação acumulada.
+
+
+## Etapa final — checkpoint de verificação textual (2026-07-13)
+
+- Restaurada, em redação direta, a declaração de que a matriz não é um modelo validado nem um instrumento pronto para decisão.
+- Atualizados os asserts de limitações metodológicas para reconhecer ajustes editoriais sem afrouxar os conteúdos obrigatórios: ausência de pré-registro, de revisão independente/concordância, de busca de citações e literatura cinzenta, escopo das 37 leituras e unidade quantitativa.
+- Ajustada a verificação da denominação “matriz analítica conceitual informada pela síntese da literatura” à forma vigente no texto.
+- Executado `python scripts/python/verificar_artigo.py`: verificação concluída sem divergências.
+- Commits incrementais: `21f9595` e `327de28`.
+- Próximo passo: compilação LaTeX completa, inspeção de `Overfull \\hbox`, revisão visual do PDF e regeneração/validação de `artigo.docx`.
