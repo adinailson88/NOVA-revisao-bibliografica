@@ -240,10 +240,40 @@ ou identificador ausente. O comando Python completo, LaTeX, Biber, controle de
 `Overfull \\hbox` e inspeção visual permanecem deliberadamente adiados, conforme decisão
 do pesquisador de consolidar primeiro os textos e não trabalhar no PDF por enquanto.
 
+### Etapa 5 — síntese científica comparativa da busca de sensibilidade
+
+Implementação textual e documental concluída:
+
+- O relatório dos 17 registros passou a conter sete links diretos para os PDFs abertos
+  disponibilizados pelos editores — commit `8beac5f`.
+- Foi criada a matriz suplementar
+  `latex-artigo/fontes/tabela_sintese_ia_ml_17.csv`, com identificador, DOI, função
+  analítica predominante, técnica, contexto, variável-alvo, base documental, integração com
+  decisão e limite verificável — commit `6de2579`.
+- A classificação por função predominante resultou em oito registros de previsão, dois de
+  previsão combinada à otimização, dois de diagnóstico/classificação e cinco de
+  síntese/integração.
+- A Seção de métodos explicita que a distribuição descreve o lote enriquecido, não a
+  prevalência independente no campo, e posiciona os modelos como produtores de evidência
+  para critérios — commit `ea065a2`.
+- A discussão passou a separar acurácia preditiva de legitimidade decisória e a explicitar
+  requisitos de dados, domínio de validade, responsabilização e contestabilidade —
+  commit `253900d`.
+- As considerações finais respondem diretamente à RQ6 e registram que nenhum dos 17 estudos
+  demonstrou a cadeia completa entre treinamento, validação externa, ponderação
+  multicritério, vetos e decisão pública auditável — commit `83dabd4`.
+- O verificador passou a recalcular as 17 linhas, a distribuição funcional e a cobertura
+  documental de sete textos integrais e dez registros baseados em título/resumo — commit
+  `ff76146`.
+
+A validação estática confirmou 17 linhas únicas, distribuição funcional 8/2/2/5, cobertura
+documental 10/7 e sete links diretos. A execução completa de Python e a compilação continuam
+adiadas para a etapa acumulada, sem alteração de PDF ou DOCX.
+
 ## Etapa atual
 
-**Etapa 4 — conteúdo científico e rastreabilidade salvos; compilação deliberadamente adiada.**
+**Etapa 5 — síntese científica da RQ6 salva; compilação deliberadamente adiada.**
 
-A próxima etapa será a síntese científica integrada da busca de sensibilidade: consolidar a
-resposta à RQ6, avaliar a tabela comparativa dos 17 registros e ajustar a transição entre
-resultados, discussão e protocolo, sem alterar PDF ou DOCX.
+A próxima etapa será alinhar o pipeline e o workflow ao núcleo vigente de 121 registros,
+impedindo que rotinas históricas de 104 substituam produtos atuais e ampliando a verificação
+reprodutível, sem executar scripts R.
