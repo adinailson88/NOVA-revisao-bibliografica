@@ -494,6 +494,38 @@ bibliográficas e 43 chaves citadas, sem referências órfãs, citações ausent
 prosa ou marcadores de rascunho. PDF e DOCX não foram compilados nem alterados.
 
 
+
+### Etapa 7 — auditoria final dos arquivos-fonte
+
+A auditoria foi realizada sem compilação e sem alteração de PDF ou DOCX:
+
+- os 35 rótulos LaTeX são únicos, não há referência cruzada ausente e todos os rótulos de
+  tabelas e figuras são chamados no texto;
+- quatro gráficos bibliométricos que possuíam rótulo, mas não chamada textual explícita,
+  passaram a ser referenciados nos parágrafos correspondentes;
+- dimensões, 15 critérios, métodos, contextos, lacunas, distribuição temporal, bases,
+  tipos documentais, ODS/ESG e a classificação funcional dos 17 registros foram
+  confrontados com os CSVs do núcleo de 121;
+- os totais 116/97/92/65/63/59, 99/82/63/44/44, 101 registros em 2019--2026,
+  29 em 2025, 113/51/6 por base, 90/20/11 por tipo, 12 lacunas específicas e a
+  distribuição 10/2/5 foram confirmados;
+- um contexto não identificado no resumo, presente no CSV, foi acrescentado ao texto e à
+  tabela de aplicabilidade;
+- a bibliografia contém 43 entradas, das quais 41 artigos; há 39 DOIs, nenhum DOI
+  duplicado e nenhum artigo sem autor, título, periódico ou ano;
+- títulos e legendas foram conferidos, mantendo 11 tabelas, nove gráficos quantitativos e
+  dois fluxogramas.
+
+Commits incrementais:
+
+- `b4ec900`: chamadas explícitas aos quatro gráficos bibliométricos;
+- `d08892f`: inclusão do contexto não identificado no resumo.
+
+A auditoria não encontrou divergência numérica remanescente nos elementos confrontados.
+A execução integral do verificador e a inspeção de caixas excedentes permanecem reservadas
+à etapa final, junto à compilação. PDF e DOCX continuam inalterados.
+
+
 ## Etapa atual
 
 **Etapa 7 — ajuste fino iniciado pelo resumo, introdução e fundamentos.**
