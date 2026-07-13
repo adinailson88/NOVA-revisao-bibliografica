@@ -1,12 +1,16 @@
-name: Gerar tabelas, graficos, PDF e Word
+name: Validar fontes e gerar artigo
 
-# Validacao controlada do artigo e dos produtos derivados.
+# Em branches e pull requests, valida apenas fontes e produtos reprodutiveis em Python.
+# PDF e Word sao regenerados somente por execucao manual ou por push na main.
 
 on:
   push:
     paths:
       - "latex-artigo/**"
-      - "scripts/r/10_gerar_produtos_artigo.R"
+      - "03_PROCESSADOS/corpus_consolidado_v2_sensibilidade.csv"
+      - "07_SINTESE_TEMATICA/nucleo_final_pos_auditoria_resumos.csv"
+      - "07_SINTESE_TEMATICA/matriz_extracao_final_reavaliada_resumos.csv"
+      - "scripts/python/gerar_produtos_artigo_nucleo_ampliado.py"
       - "scripts/python/verificar_artigo.py"
       - "scripts/python/11_gerar_bibliometria_ampliada.py"
       - "scripts/python/12_gerar_lista_referencias.py"
@@ -19,7 +23,10 @@ on:
   pull_request:
     paths:
       - "latex-artigo/**"
-      - "scripts/r/10_gerar_produtos_artigo.R"
+      - "03_PROCESSADOS/corpus_consolidado_v2_sensibilidade.csv"
+      - "07_SINTESE_TEMATICA/nucleo_final_pos_auditoria_resumos.csv"
+      - "07_SINTESE_TEMATICA/matriz_extracao_final_reavaliada_resumos.csv"
+      - "scripts/python/gerar_produtos_artigo_nucleo_ampliado.py"
       - "scripts/python/verificar_artigo.py"
       - "scripts/python/11_gerar_bibliometria_ampliada.py"
       - "scripts/python/12_gerar_lista_referencias.py"
@@ -49,29 +56,13 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref || github.ref }}
 
-      - name: Configurar R
-        uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: release
+      - name: Instalar dependencias Python
+        run: python -m pip install --disable-pip-version-check pandas numpy matplotlib scikit-learn openpyxl
 
-      - name: Instalar pacotes R
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            any::readr
-            any::dplyr
-            any::tidyr
-            any::stringr
-            any::ggplot2
-            any::scales
-
-      - name: Gerar tabelas e graficos
-        run: |
-          rm -f latex-artigo/figuras/figura10_distribuicao_base_tipo_nucleo_final_104.png
-          Rscript scripts/r/10_gerar_produtos_artigo.R
-
-      - name: Instalar dependencias da bibliometria
-        run: python -m pip install --disable-pip-version-check pandas numpy matplotlib scikit-learn
+      - name: Gerar tabelas e graficos do nucleo vigente
+        env:
+          MPLCONFIGDIR: /tmp/matplotlib
+        run: python scripts/python/gerar_produtos_artigo_nucleo_ampliado.py
 
       - name: Gerar camada bibliometrica ampliada
         env:
@@ -81,30 +72,31 @@ jobs:
       - name: Gerar inventario auditavel das referencias
         run: python scripts/python/12_gerar_lista_referencias.py
 
-      - name: Instalar dependencias das planilhas de auditoria
-        run: python -m pip install --disable-pip-version-check openpyxl
-
-      - name: Gerar planilhas XLSX e nucleo final para auditoria
+      - name: Gerar planilhas dos nucleos vigente e historico
         run: python scripts/python/14_gerar_planilhas_auditoria_referencias.py
 
       - name: Verificar dados, texto e referencias
         run: python scripts/python/verificar_artigo.py
 
       - name: Instalar TeX Live
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           sudo apt-get update
           sudo apt-get install -y latexmk biber texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures
 
       - name: Compilar PDF
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
       - name: Instalar Pandoc e gerador do Word
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           sudo apt-get install -y pandoc
           python -m pip install --disable-pip-version-check python-docx
 
       - name: Gerar e validar versao Word
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           python scripts/python/13_preparar_word.py
           test -s artigo.docx
@@ -112,6 +104,7 @@ jobs:
           unzip -l artigo.docx | grep -q "word/document.xml"
 
       - name: Verificar margens do PDF
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           python - <<'PY'
           import re
@@ -125,25 +118,27 @@ jobs:
           PY
 
       - name: Preparar PDF compilado e site
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           cp latex-artigo/main.pdf main.pdf
           mkdir -p site
           cp main.pdf site/artigo.pdf
 
-      - name: Publicar PDF e produtos gerados
-        if: github.event_name == 'push'
+      - name: Publicar produtos da compilacao completa
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx main.pdf
+          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx main.pdf site/artigo.pdf
           if git diff --cached --quiet; then
             echo "Produtos inalterados."
           else
-            git commit -m "CI: atualiza tabelas, graficos, PDF e Word [skip ci]"
+            git commit -m "CI: atualiza produtos do nucleo vigente, PDF e Word [skip ci]"
             git push
           fi
 
-      - name: Publicar PDF como artefato
+      - name: Publicar produtos como artefato
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v4
         with:
           name: artigo-pdf-word-referencias
@@ -154,7 +149,6 @@ jobs:
             latex-artigo/figuras
             latex-artigo/fontes
           if-no-files-found: error
-
 
   deploy-pages:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
