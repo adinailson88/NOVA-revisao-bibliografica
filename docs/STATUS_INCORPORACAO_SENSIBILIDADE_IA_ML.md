@@ -304,11 +304,26 @@ foram atribuídas ao ambiente de renderização, sem mudança nos dados ou na ge
 gráficos. Para evitar ruído binário, as imagens versionadas foram preservadas. Nenhum script
 R foi executado e nenhum PDF ou DOCX foi alterado.
 
+### Etapa 7 — ajuste fino global da escrita
+
+Implementação iniciada:
+
+- Resumo e abstract reestruturados em objetivo, método, resultados e contribuição, com os
+  totais recalculados do pipeline e resposta compacta à RQ6 — commit `340054a`.
+- Introdução ampliada para explicitar a lacuna entre diagnóstico técnico, sustentabilidade,
+  digitalização e decisão pública, além da contribuição em três níveis — commit `afe46fe`.
+- Fundamentos teóricos ajustados para distinguir plataforma informacional, modelo preditivo e
+  decisão institucional, com integração das evidências de texto completo da sensibilidade —
+  commit `b5a5710`.
+- O filtro editorial do verificador foi corrigido para não confundir comando de caminho TikZ
+  com travessão na prosa — commit `6e81714`.
+- A conferência cruzada manteve 11 tabelas, 11 figuras, 40 referências citadas e nenhuma
+  citação sem entrada bibliográfica.
+
 ## Etapa atual
 
-**Etapa 6 — pipeline Python executado e produtos de 121 confirmados; CI remoto ainda pendente.**
+**Etapa 7 — ajuste fino iniciado pelo resumo, introdução e fundamentos.**
 
-A próxima etapa será o ajuste fino global do artigo: reduzir repetições, melhorar transições,
-reforçar a distinção entre evidência extraída e proposta normativa e revisar resumo,
-discussão, limitações e conclusão. A compilação acumulada permanecerá para o fechamento
-posterior autorizado pelo pesquisador.
+A continuação revisará resultados, transições para a matriz, discussão, limitações e
+considerações finais, preservando o modelo estrutural já consolidado. PDF e DOCX continuam
+adiados para a compilação acumulada.
