@@ -596,4 +596,47 @@ exigir(
     "A legenda antiga do fluxo ainda está presente.",
 )
 
+
+# Reprodutibilidade do nucleo vigente (Etapa 6)
+workflow = (ROOT / ".github" / "workflows" / "latex.yml").read_text(encoding="utf-8")
+gerador_vigente = SCRIPT_NUCLEO_AMPLIADO.read_text(encoding="utf-8")
+planilhas_auditoria = (
+    ROOT / "scripts" / "python" / "14_gerar_planilhas_auditoria_referencias.py"
+).read_text(encoding="utf-8")
+readme_raiz = (ROOT / "README.md").read_text(encoding="utf-8")
+readme_referencias = (ROOT / "referencias" / "README.md").read_text(encoding="utf-8")
+
+exigir("Rscript " not in workflow, "O workflow vigente ainda executa script R.")
+exigir("setup-r" not in workflow, "O workflow vigente ainda instala ambiente R.")
+exigir(
+    "python scripts/python/gerar_produtos_artigo_nucleo_ampliado.py" in workflow,
+    "O workflow nao gera os produtos tematicos vigentes por Python.",
+)
+exigir(
+    "github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'" in workflow,
+    "PDF e Word devem permanecer restritos a execucao manual ou main.",
+)
+exigir(
+    "ids_novos_calculados = set(ids_unicos) - ids_historicos" in gerador_vigente,
+    "O gerador vigente deve derivar os 17 incorporados pela diferenca entre nucleos.",
+)
+exigir(
+    "ids_unicos[104:]" not in gerador_vigente,
+    "O gerador vigente ainda depende da posicao das linhas para identificar incorporacoes.",
+)
+for declaracao in (
+    'NUCLEO_121 =',
+    'publicar_nucleo(NUCLEO_121, 121, "vigente")',
+    'publicar_nucleo(NUCLEO_104, 104, "historico")',
+):
+    exigir(declaracao in planilhas_auditoria, f"Separacao dos nucleos ausente: {declaracao}")
+exigir(
+    "núcleo temático vigente de 121" in readme_raiz,
+    "README principal nao identifica o nucleo vigente.",
+)
+exigir(
+    "nucleo_final_121_registros.csv" in readme_referencias,
+    "README de referencias nao documenta o nucleo vigente para auditoria.",
+)
+
 print("Verificacao do artigo concluida sem divergencias.")
