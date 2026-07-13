@@ -17,14 +17,20 @@
 \usepackage{ragged2e}
 \usepackage{microtype}
 \usepackage{caption}
-\usepackage{float}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,filecolor=black]{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
 
 \captionsetup{labelsep=period,justification=centering,font=small}
 \captionsetup[table]{position=top}
 \captionsetup[figure]{position=bottom}
+
+% Flutuacao de figuras e tabelas: o texto seguinte e adiantado quando o
+% elemento nao cabe na pagina, reduzindo espacos em branco.
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.5}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
 \newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 \newcommand{\fonteautor}{\par\smallskip{\footnotesize Fonte: elaborado pelo autor.\par}}
 \newcommand{\captiongrafico}[1]{\captionsetup{name=Gráfico}\caption{#1}}
@@ -33,7 +39,7 @@
 \usepackage[backend=biber,style=abnt]{biblatex}
 \addbibresource{references.bib}
 
-\title{Manutenção predial sustentável em edificações públicas universitárias: critérios, apoio multicritério e lacunas}
+\title{Manutenção sustentável em edificações universitárias públicas: revisão bibliométrica e protocolo multicritério}
 \author{Adinailson Guimarães de Oliveira \\ Programa de Pós-Graduação em Biossistemas \\ Universidade Federal do Sul da Bahia (UFSB)}
 \date{}
 
@@ -49,6 +55,7 @@
 \input{sections/01_introducao}
 \input{sections/02_revisao}
 \input{sections/03_metodologia}
+\input{sections/04_bibliometria_ampliada}
 \input{sections/04_panorama}
 \input{sections/05_criterios}
 \input{sections/06_metodos}

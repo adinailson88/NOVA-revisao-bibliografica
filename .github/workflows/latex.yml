@@ -1,4 +1,4 @@
-name: Gerar tabelas, graficos e PDF
+name: Gerar tabelas, graficos, PDF e Word
 
 # Validacao controlada do artigo e dos produtos derivados.
 
@@ -8,17 +8,32 @@ on:
       - "latex-artigo/**"
       - "scripts/r/10_gerar_produtos_artigo.R"
       - "scripts/python/verificar_artigo.py"
+      - "scripts/python/11_gerar_bibliometria_ampliada.py"
+      - "scripts/python/12_gerar_lista_referencias.py"
+      - "scripts/python/13_preparar_word.py"
+      - "scripts/python/14_gerar_planilhas_auditoria_referencias.py"
+      - "README.md"
+      - "referencias/**"
+      - "site/**"
       - ".github/workflows/latex.yml"
   pull_request:
     paths:
       - "latex-artigo/**"
       - "scripts/r/10_gerar_produtos_artigo.R"
       - "scripts/python/verificar_artigo.py"
+      - "scripts/python/11_gerar_bibliometria_ampliada.py"
+      - "scripts/python/12_gerar_lista_referencias.py"
+      - "scripts/python/13_preparar_word.py"
+      - "scripts/python/14_gerar_planilhas_auditoria_referencias.py"
+      - "README.md"
+      - "referencias/**"
       - ".github/workflows/latex.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: artigo-${{ github.ref }}
@@ -55,6 +70,23 @@ jobs:
           rm -f latex-artigo/figuras/figura10_distribuicao_base_tipo_nucleo_final_104.png
           Rscript scripts/r/10_gerar_produtos_artigo.R
 
+      - name: Instalar dependencias da bibliometria
+        run: python -m pip install --disable-pip-version-check pandas numpy matplotlib scikit-learn
+
+      - name: Gerar camada bibliometrica ampliada
+        env:
+          MPLCONFIGDIR: /tmp/matplotlib
+        run: python scripts/python/11_gerar_bibliometria_ampliada.py
+
+      - name: Gerar inventario auditavel das referencias
+        run: python scripts/python/12_gerar_lista_referencias.py
+
+      - name: Instalar dependencias das planilhas de auditoria
+        run: python -m pip install --disable-pip-version-check openpyxl
+
+      - name: Gerar planilhas XLSX e nucleo final para auditoria
+        run: python scripts/python/14_gerar_planilhas_auditoria_referencias.py
+
       - name: Verificar dados, texto e referencias
         run: python scripts/python/verificar_artigo.py
 
@@ -66,6 +98,18 @@ jobs:
       - name: Compilar PDF
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+
+      - name: Instalar Pandoc e gerador do Word
+        run: |
+          sudo apt-get install -y pandoc
+          python -m pip install --disable-pip-version-check python-docx
+
+      - name: Gerar e validar versao Word
+        run: |
+          python scripts/python/13_preparar_word.py
+          test -s artigo.docx
+          unzip -t artigo.docx
+          unzip -l artigo.docx | grep -q "word/document.xml"
 
       - name: Verificar margens do PDF
         run: |
@@ -80,28 +124,66 @@ jobs:
           print("Nenhum Overfull hbox detectado.")
           PY
 
-      - name: Preparar PDF compilado
-        run: cp latex-artigo/main.pdf main.pdf
+      - name: Preparar PDF compilado e site
+        run: |
+          cp latex-artigo/main.pdf main.pdf
+          mkdir -p site
+          cp main.pdf site/artigo.pdf
 
       - name: Publicar PDF e produtos gerados
         if: github.event_name == 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A latex-artigo/figuras latex-artigo/fontes main.pdf
+          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx main.pdf
           if git diff --cached --quiet; then
             echo "Produtos inalterados."
           else
-            git commit -m "CI: atualiza tabelas, graficos e PDF [skip ci]"
+            git commit -m "CI: atualiza tabelas, graficos, PDF e Word [skip ci]"
             git push
           fi
 
       - name: Publicar PDF como artefato
         uses: actions/upload-artifact@v4
         with:
-          name: artigo-pdf
+          name: artigo-pdf-word-referencias
           path: |
             main.pdf
+            artigo.docx
+            referencias
             latex-artigo/figuras
             latex-artigo/fontes
           if-no-files-found: error
+
+
+  deploy-pages:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Preparar site com o PDF compilado
+        run: |
+          mkdir -p site
+          cp main.pdf site/artigo.pdf
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Enviar artefato do Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+      - name: Publicar GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
