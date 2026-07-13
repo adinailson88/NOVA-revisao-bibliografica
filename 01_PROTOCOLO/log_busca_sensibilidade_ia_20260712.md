@@ -51,3 +51,44 @@ Diferente do núcleo original, esta busca de sensibilidade é tratada como um co
 completa contra `corpus_consolidado.csv` (ver `03_PROCESSADOS/relatorio_deduplicacao_sensibilidade.md`)
 e auditoria temática dedicada de IA/ML (ver `docs/CODEBOOK_SENSIBILIDADE_IA_ML.md` e
 `03_PROCESSADOS/sensibilidade_auditoria_classe_ia_ml.csv`).
+
+
+## Verificação documental das consultas — 13/07/2026
+
+A estratégia foi consolidada em
+`latex-artigo/fontes/tabela_estrategia_busca.csv`, mantendo separadas a busca principal e a
+busca de sensibilidade.
+
+### Scopus e Web of Science
+
+Os arquivos recebidos preservam campo, data, período, identificador da rodada e totais
+exportados, mas não contêm as strings nativas exatas usadas nas interfaces da Scopus e da Web of
+Science. Portanto, a formulação exata dessas duas consultas não foi reconstruída por inferência
+e foi registrada como:
+
+> Informação insuficiente para verificar.
+
+Essa limitação refere-se à expressão nativa, não às contagens: 3.169 registros na Scopus e
+1.559 na Web of Science foram recontados diretamente nos arquivos brutos.
+
+### Crossref
+
+O arquivo bruto preserva `string_id` e `query_bibliographic` em cada linha. As dez consultas,
+com 200 registros por consulta, foram verificadas:
+
+| string_id | query.bibliographic |
+|---|---|
+| `crossref_ia_01` | building maintenance artificial intelligence machine learning |
+| `crossref_ia_02` | facility management deep learning neural networks |
+| `crossref_ia_03` | building condition assessment random forest support vector machine decision tree |
+| `crossref_ia_04` | predictive maintenance building facilities anomaly detection fault diagnosis |
+| `crossref_ia_05` | building operation energy reinforcement learning LSTM transformer |
+| `crossref_ia_06` | building inspection computer vision image recognition convolutional neural network |
+| `crossref_ia_07` | building maintenance natural language processing work orders |
+| `crossref_ia_08` | university building maintenance neural network cost prediction |
+| `crossref_ia_09` | facility management generative AI large language model |
+| `crossref_ia_10` | digital twin building maintenance machine learning |
+
+A soma de 12.118 ocorrências da busca principal e 6.728 da busca de sensibilidade resulta em
+18.846 ocorrências operacionais. Esse valor não representa corpus bruto homogêneo, pois as
+rodadas possuem finalidades e estratégias diferentes.
