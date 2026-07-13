@@ -7,13 +7,11 @@
 - **[Consultar a lista auditável de referências](referencias/lista_referencias.csv)**
 - **[Consultar os arquivos e evidências bibliográficas](referencias/)**
 
-> **Última atualização do artigo:** 12/07/2026 às 16h50 (horário de Brasília, UTC-03:00), no branch `agent/bibliometria-ampliada-pages`.
+> **Estado dos fontes:** consolidação em andamento na branch `agent/incorporacao-busca-sensibilidade-ia`, com núcleo temático vigente de 121 registros.
 >
-> O PDF e o Word são regenerados pelo workflow **[Gerar tabelas, gráficos, PDF e Word](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml)** a cada push que altera o artigo. A página do workflow permite conferir cada execução, seu commit, horário, etapas e resultado. O commit automático `CI: atualiza tabelas, graficos, PDF e Word [skip ci]` confirma que os arquivos derivados refletem os fontes do branch.
+> Durante a consolidação textual, pushes e pull requests executam apenas o pipeline Python e o verificador. PDF e Word são regenerados pelo workflow **[Validar fontes e gerar artigo](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml)** somente por execução manual ou por push na `main`.
 >
-> O PDF compilado é a versão editorial de referência para citação e submissão. O Word é gerado a partir dos mesmos fontes LaTeX (texto, tabelas e citações reais, não uma imagem do PDF), para leitura e comentários fora do LaTeX — ver [Versão em Word](#versão-em-word).
->
-> ⚠️ Ao atualizar o artigo, atualize também a data/hora e o branch desta nota.
+> Por isso, os arquivos `main.pdf` e `artigo.docx` podem permanecer temporariamente anteriores aos fontes `.tex`. Essa defasagem é deliberada e será encerrada pela compilação acumulada, com Biber, controle de referências e inspeção de margens.
 
 ## Sobre
 
@@ -21,7 +19,7 @@ Revisão integrativa sistematizada sobre manutenção predial e gestão de edifi
 
 ## O que foi feito
 
-Busca bibliométrica em Scopus, Web of Science e Crossref, no período de 2010 a 2026. O processo partiu de 12.118 registros brutos e resultou em um núcleo final de 104 registros após deduplicação, triagem e auditoria qualitativa estruturada.
+Busca bibliométrica em Scopus, Web of Science e Crossref, no período de 2010 a 2026. O processo principal partiu de 12.118 ocorrências brutas e resultou em um núcleo original de 104 registros após deduplicação, triagem e auditoria qualitativa estruturada. Uma busca complementar de sensibilidade para IA/aprendizado de máquina recuperou 6.728 ocorrências e incorporou 17 registros, formando o núcleo temático vigente de 121. A camada bibliométrica de 372 permanece derivada apenas da busca principal.
 
 O texto utiliza citação autor-data e referências formatadas em padrão ABNT.
 
@@ -45,7 +43,7 @@ python scripts/python/13_preparar_word.py
 
 Scripts vigentes que geram ou validam os produtos apresentados:
 
-- [Gerador das tabelas e dos gráficos temáticos em R](scripts/r/10_gerar_produtos_artigo.R)
+- [Gerador Python das tabelas e dos gráficos do núcleo vigente de 121](scripts/python/gerar_produtos_artigo_nucleo_ampliado.py)
 - [Gerador da bibliometria ampliada em Python](scripts/python/11_gerar_bibliometria_ampliada.py)
 - [Gerador do inventário auditável das referências](scripts/python/12_gerar_lista_referencias.py)
 - [Gerador da versão Word a partir dos fontes LaTeX](scripts/python/13_preparar_word.py)
@@ -56,9 +54,9 @@ Scripts vigentes que geram ou validam os produtos apresentados:
 - [Scripts históricos da análise em R](05_ANALISE_R/scripts/)
 
 A pasta [`referencias/`](referencias/) reúne o arquivo BibTeX efetivamente usado, a
-planilha (CSV e XLSX) das referências citadas no texto e a planilha (CSV e XLSX) dos 104
-registros do núcleo final que fundamentam a síntese temática, com metadados de auditoria
-(dimensões, critérios, métodos, RQs confirmadas, nível de confiança). Ver o `README.md` da
+planilha (CSV e XLSX) das referências citadas, o núcleo vigente de 121 registros e o núcleo
+original de 104 preservado como produto histórico, com metadados de auditoria (dimensões,
+critérios, métodos, RQs confirmadas e nível de confiança). Ver o `README.md` da
 pasta para a relação entre as duas listas. PDFs protegidos por direito autoral não são
 redistribuídos pelo repositório.
 
