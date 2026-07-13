@@ -41,30 +41,40 @@ RQ6 & Efeito da busca de sensibilidade sobre a identificação de IA e aprendiza
 \end{table}
 
 
-A busca abrangeu publicações de 2010 a 2026 nas bases Scopus, Web of Science e Crossref. As 13 consultas e as exportações correspondentes foram executadas em 8 de julho de 2026. Na Scopus, o enriquecimento manual realizado em 9 de julho de 2026, por casamento de EID com a exportação do site, identificou cinco registros existentes apenas no arquivo manual e os incorporou ao corpus. Na Web of Science, a recontagem do quarto arquivo corrigiu o total de 502 para 503 registros; tratou-se de correção do método de contagem, não de novo registro. As consultas foram organizadas em quatro eixos: manutenção e sustentabilidade; contexto público universitário; priorização da manutenção; e gestão de ativos no ciclo de vida.
+A busca principal abrangeu publicações de 2010 a 2026 nas bases Scopus, Web of Science e Crossref. Suas 13 consultas foram executadas em 8 de julho de 2026. Na Scopus, o enriquecimento manual realizado em 9 de julho de 2026, por casamento de EID com a exportação do site, identificou cinco registros existentes apenas no arquivo manual e os incorporou ao corpus. Na Web of Science, a recontagem do quarto arquivo corrigiu o total de 502 para 503 registros; tratou-se de correção do método de contagem, não de novo registro. As consultas principais foram organizadas em quatro eixos: manutenção e sustentabilidade; contexto público universitário; priorização da manutenção; e gestão de ativos no ciclo de vida.
 
-Na Scopus, quatro expressões booleanas, sem filtros de idioma ou tipo documental, foram executadas em \texttt{TITLE-ABS-KEY}, com o intervalo anual incorporado à consulta. Quando o total excedia a janela de paginação de 5.000 resultados da interface de programação de aplicações (API), o script particionava a recuperação por subintervalos de ano. Na Web of Science, quatro buscas manuais, sem filtros de idioma ou tipo documental, foram registradas no campo \texttt{TS (Topic)}. No Crossref, cinco consultas textuais, sem filtros de idioma ou tipo documental, foram executadas por \texttt{query.bibliographic}, com filtro de data de publicação entre 2010-01-01 e 2026-12-31 e limite deliberado de 200 registros por consulta. Como esse mecanismo ordena correspondências por relevância, o Crossref foi tratado como fonte complementar de metadados, e não como equivalente às expressões booleanas das bases bibliográficas \parencite{crossref_restapi_2026}. A Tabela~\ref{tab:estrategiabusca} consolida os parâmetros verificáveis.
+Na Scopus, quatro expressões booleanas, sem filtros de idioma ou tipo documental, foram executadas em \texttt{TITLE-ABS-KEY}, com o intervalo anual incorporado à consulta. Quando o total excedia a janela de paginação de 5.000 resultados da interface de programação de aplicações (API), o script particionava a recuperação por subintervalos de ano. Na Web of Science, quatro buscas manuais, sem filtros de idioma ou tipo documental, foram registradas no campo \texttt{TS (Topic)}. No Crossref, cinco consultas textuais, sem filtros de idioma ou tipo documental, foram executadas por \texttt{query.bibliographic}, com filtro de data de publicação entre 2010-01-01 e 2026-12-31 e limite deliberado de 200 registros por consulta. Como esse mecanismo ordena correspondências por relevância, o Crossref foi tratado como fonte complementar de metadados, e não como equivalente às expressões booleanas das bases bibliográficas \parencite{crossref_restapi_2026}.
+
+A busca complementar de sensibilidade foi executada em 12 de julho de 2026 nas mesmas três fontes. Os arquivos recebidos preservam uma exportação Scopus com 3.169 registros, duas partes não sobrepostas da Web of Science com 1.559 registros e dez consultas Crossref com 200 registros cada. As dez expressões textuais do Crossref estão registradas linha a linha no arquivo bruto. As strings nativas exatas usadas na Scopus e na Web of Science não foram preservadas nos arquivos exportados recebidos; por isso, não foram reconstruídas por inferência. Essa lacuna é declarada na tabela-fonte, sem impedir a verificação dos campos, datas, período e totais efetivamente exportados.
+
+A Tabela~\ref{tab:estrategiabusca} consolida as duas rodadas. O arquivo \texttt{latex-artigo/fontes/tabela\_estrategia\_busca.csv} preserva uma linha por consulta, com expressão documentada, campo, data, período, retorno bruto e observação. A soma de 18.846 corresponde apenas ao volume operacional das duas rodadas antes da deduplicação e não constitui corpus homogêneo, porque a busca de sensibilidade foi deliberadamente enriquecida para IA/aprendizado de máquina.
 
 \begin{table}[htbp]
 \centering
-\caption{Estratégia de busca documentada por base}
+\caption{Estratégia de busca consolidada por rodada e base}
 \label{tab:estrategiabusca}
 \scriptsize
-\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.3cm} >{\RaggedRight\arraybackslash}p{1.6cm} >{\RaggedRight\arraybackslash}p{1.8cm} >{\RaggedRight\arraybackslash}p{2.3cm} >{\raggedleft\arraybackslash}p{1.2cm} Y}
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{2.1cm} >{\RaggedRight\arraybackslash}p{2.1cm} >{\RaggedRight\arraybackslash}p{1.6cm} >{\RaggedRight\arraybackslash}p{3.0cm} >{\raggedleft\arraybackslash}p{1.3cm} Y}
 \toprule
-Base & Data documentada & Período & Campo ou modelo & Registros & Limites e função \\
+Rodada & Base & Data & Campo e consultas & Registros & Documentação \\
 \midrule
-Scopus & 08/07/2026; enriquecimento em 09/07/2026 & 2010--2026 & 4 consultas em \texttt{TITLE-ABS-KEY} & 9.438 & Base principal; 9.433 da API e cinco exclusivos do export manual. \\
-Web of Science & 08/07/2026 & 2010--2026 & 4 buscas manuais em \texttt{TS (Topic)} & 1.680 & Base independente; A4 recontado em 503; associação A1--A4 aos RIS informada de memória. \\
-Crossref & 08/07/2026 & 2010--2026 & 5 consultas em \texttt{query.\allowbreak bibliographic} & 1.000 & Fonte complementar; 200 resultados por consulta, ordenados por relevância. \\
+Principal & Scopus & 08--09/07/2026 & 4 em \texttt{TITLE-ABS-KEY}; enriquecimento por EID & 9.438 & Strings preservadas; 9.433 da API e cinco do export manual. \\
+Principal & Web of Science & 08/07/2026 & 4 em \texttt{TS (Topic)} & 1.680 & Strings preservadas; quarta exportação recontada em 503. \\
+Principal & Crossref & 08/07/2026 & 5 em \texttt{query.bibliographic} & 1.000 & Consultas preservadas; 200 resultados por relevância. \\
+\cmidrule(lr){1-6}
+\multicolumn{4}{r}{Subtotal da busca principal} & 12.118 & 13 consultas, antes da deduplicação. \\
 \midrule
-Total & & & 13 consultas & 12.118 & Volume anterior à deduplicação. \\
+Sensibilidade IA/ML & Scopus & 12/07/2026 & 1 exportação de \texttt{TITLE-ABS-KEY} & 3.169 & String nativa exata não preservada no arquivo recebido. \\
+Sensibilidade IA/ML & Web of Science & 12/07/2026 & 1 busca em \texttt{TS (Topic)}, exportada em duas partes & 1.559 & String nativa exata não preservada nos RIS recebidos. \\
+Sensibilidade IA/ML & Crossref & 12/07/2026 & 10 em \texttt{query.bibliographic} & 2.000 & Consultas preservadas; 200 resultados por relevância. \\
+\cmidrule(lr){1-6}
+\multicolumn{4}{r}{Subtotal da busca de sensibilidade} & 6.728 & 12 consultas, antes da deduplicação. \\
 \bottomrule
 \end{tabularx}
-\fonteautor
+\par\smallskip{\footnotesize Nota: a soma operacional das rodadas é 18.846 ocorrências, mas não representa um único corpus bruto. Fonte: elaborado pelo autor a partir dos logs e arquivos exportados.\par}
 \end{table}
 
-As quatro expressões da Scopus, as quatro strings da Web of Science e as cinco consultas do Crossref foram preservadas. Na Web of Science, a associação individual entre cada arquivo RIS e as strings A1--A4 foi informada de memória pelo pesquisador, e não reconstruída a partir de registro contemporâneo da busca. As exportações ocorreram nas mesmas datas das consultas. Não foram aplicados filtros de idioma ou tipo documental. Não houve busca piloto, uso de estudos-semente ou pré-registro. O protocolo e a matriz conceitual foram elaborados antes da coleta. O marco inicial de 2010 foi adotado para mapear o desenvolvimento do tema desde o início da década de 2010 até a data da busca, preservando uma janela temporal contemporânea comum às três fontes.
+Na busca principal, as quatro expressões da Scopus, as quatro strings da Web of Science e as cinco consultas do Crossref foram preservadas. Na Web of Science, a associação individual entre cada arquivo RIS e as strings A1--A4 foi informada de memória pelo pesquisador, e não reconstruída a partir de registro contemporâneo da busca. Na busca de sensibilidade, foram preservadas integralmente as dez consultas Crossref, mas não as strings nativas exatas das exportações Scopus e Web of Science. Não foram aplicados filtros de idioma ou tipo documental na busca principal. Não houve busca piloto, uso de estudos-semente ou pré-registro. O protocolo e a matriz conceitual foram elaborados antes da coleta principal; a RQ6 e sua busca de sensibilidade foram formalizadas posteriormente para testar a insuficiência temática identificada. O marco inicial de 2010 foi adotado para mapear o desenvolvimento do tema desde o início da década de 2010 até a data da busca, preservando uma janela temporal contemporânea comum às três fontes.
 
 Os critérios de seleção combinaram aderência ao ambiente construído, manutenção ou gestão predial e sustentabilidade. Métodos de decisão, contexto público universitário e tipologia da edificação foram tratados como campos de caracterização analítica. A Tabela~\ref{tab:criteriosincluexclu} sintetiza as regras aplicadas.
 
@@ -155,21 +165,26 @@ Auditoria qualitativa & 137 & Auditoria estruturada de título, resumo, palavras
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[
-  node distance=6mm,
-  every node/.style={draw, rounded corners, align=center, text width=9.2cm, minimum height=9mm, font=\small},
+  node distance=6mm and 8mm,
+  etapa/.style={draw, rounded corners, align=center, text width=6.0cm, minimum height=10mm, font=\scriptsize},
+  final/.style={draw=black, very thick, rounded corners, align=center, text width=9.2cm, minimum height=10mm, font=\small},
   arrow/.style={-Latex, thick}
 ]
-\node (bruto) {Coleta bruta nas três fontes \\ 12.118 registros};
-\node (unico) [below=of bruto] {Deduplicação por DOI e título normalizados \\ 9.542 registros únicos; 2.576 ocorrências removidas};
-\node (nucleo1) [below=of unico] {Pré-triagem, auditoria amostral e resolução dos casos de dúvida \\ 3.786 no corte inicial; 3.678 após revisão};
-\node (nucleo2) [below=of nucleo1] {Alinhamento determinístico às perguntas de pesquisa \\ 137 registros centrais; 3.541 não selecionados};
-\node (final) [below=of nucleo2, draw=black, very thick] {Auditoria qualitativa estruturada \\ \textbf{104 registros no núcleo original}; 33 não retidos};
-\draw[arrow] (bruto) -- (unico);
-\draw[arrow] (unico) -- (nucleo1);
-\draw[arrow] (nucleo1) -- (nucleo2);
-\draw[arrow] (nucleo2) -- (final);
+\node[etapa] (p1) {Busca principal \\ 12.118 ocorrências};
+\node[etapa, right=of p1] (s1) {Busca de sensibilidade IA/ML \\ 6.728 ocorrências};
+\node[etapa, below=of p1] (p2) {Deduplicação por DOI e título \\ 9.542 registros únicos};
+\node[etapa, below=of s1] (s2) {Deduplicação interna e contra o corpus principal \\ 359 já existentes; 4.889 novos únicos};
+\node[etapa, below=of p2] (p3) {Triagem, alinhamento e auditoria documental \\ 104 registros no núcleo original};
+\node[etapa, below=of s2] (s3) {Classificação RQ6 e revisão dos candidatos \\ 12 novos; cinco registros existentes promovidos};
+\path (p3) -- (s3) node[midway, below=15mm, final] (f) {Núcleo temático vigente \\ \textbf{121 registros}};
+\draw[arrow] (p1) -- (p2);
+\draw[arrow] (p2) -- (p3);
+\draw[arrow] (s1) -- (s2);
+\draw[arrow] (s2) -- (s3);
+\draw[arrow] (p3) |- (f);
+\draw[arrow] (s3) |- (f);
 \end{tikzpicture}
-\caption{Fluxo de seleção da busca principal até o núcleo temático original}
+\caption{Fluxo integrado da busca principal e da busca complementar de sensibilidade}
 \label{fig:funil}
 \end{figure}
 
