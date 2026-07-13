@@ -320,6 +320,55 @@ Implementação iniciada:
 - A conferência cruzada manteve 11 tabelas, 11 figuras, 40 referências citadas e nenhuma
   citação sem entrada bibliográfica.
 
+
+### Etapa 7 — suporte bibliográfico das assertivas gerais
+
+Foi aplicada a regra editorial solicitada pelo orientador: afirmações gerais ou teóricas
+precisam de apoio bibliográfico; resultados calculados pelo próprio estudo, decisões
+metodológicas declaradas e proposições explicitamente apresentadas como contribuição dos
+autores não recebem citação externa artificial.
+
+A conferência abrangeu todas as seções do artigo e concentrou alterações nos pontos em que
+havia afirmações gerais sem apoio suficientemente próximo:
+
+- a introdução passou a apoiar explicitamente decisões reativas, combinação de dados,
+  integração multicritério e fragmentação entre diagnóstico, digitalização e decisão;
+- os fundamentos passaram a citar a organização das correntes, a influência da
+  manutenibilidade, o tratamento transversal do ciclo de vida e as funções dos métodos
+  multicritério;
+- a metodologia passou a apoiar as definições dos métodos e a distinção entre plataforma
+  digital, modelo treinado e mecanismo decisório;
+- a seção de aplicabilidade incorporou evidências de estudos de caso em universidades
+  públicas;
+- a matriz candidata passou a apoiar bibliograficamente elicitação de pesos e vetos
+  normativos.
+
+O acervo bibliográfico disponibilizado pelo pesquisador foi consultado de forma seletiva.
+Três artigos foram acrescentados por aderência direta, após conferência de seus textos e
+metadados: Lateef, Khamidi e Idrus (2010), Maia, Scheer e Freitas (2016) e Barbosa et al.
+(2020). A bibliografia passou de 40 para 43 entradas; as 43 estão citadas e não há chave
+citada sem entrada correspondente.
+
+Commits incrementais desta conferência:
+
+- `4bb0eee`: inclusão das três referências;
+- `17a8acc`: suporte bibliográfico na introdução;
+- `ef80516` e `12d96a8`: suporte bibliográfico nos fundamentos;
+- `4e22b44`: definições e distinções metodológicas;
+- `e921e5e`: evidências de casos universitários públicos;
+- `cd97885`: fundamentação dos procedimentos candidatos do protocolo.
+
+A execução de `python scripts/python/verificar_artigo.py` em cópia diagnóstica sincronizada
+com a branch aprovou as verificações iniciais de estilo, estrutura, citações e bibliografia.
+A execução não pôde alcançar as asserções numéricas porque a cópia reconstruída nesta
+sessão não contém os grandes arquivos históricos de entrada, começando por
+`03_PROCESSADOS/registros_normalizados.csv`. A conferência cruzada independente confirmou
+13 seções, 43 entradas bibliográficas, 43 chaves citadas, nenhuma citação ausente e nenhuma
+referência órfã. A execução integral do verificador permanece pendente em checkout completo.
+PDF e DOCX não foram compilados nem alterados nesta etapa, conforme orientação vigente do
+pesquisador.
+
+
 ## Etapa atual
 
 **Etapa 7 — ajuste fino iniciado pelo resumo, introdução e fundamentos.**
