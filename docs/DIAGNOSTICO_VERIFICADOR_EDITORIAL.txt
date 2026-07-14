@@ -5,11 +5,12 @@ EXCLUSIVOS_372=263
 EXCLUSIVOS_121=12
 SAIDA=latex-artigo/fontes/intersecao_camadas_372_121.csv
 Traceback (most recent call last):
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/verificar_artigo_integrado.py", line 193, in <module>
+  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/verificar_artigo_integrado.py", line 218, in <module>
     exec(compile(fonte, str(ORIGINAL), "exec"), {"__name__": "__main__", "__file__": str(ORIGINAL)})
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/verificar_artigo.py", line 555, in <module>
-    
+  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/verificar_artigo.py", line 569, in <module>
+    exigir(
+        ^^^^
   File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/verificar_artigo.py", line 49, in exigir
     raise AssertionError(mensagem)
-AssertionError: Sintese comparativa da RQ6 ausente: Dez concentram-se em previsão ou previsão combinada à otimização
+AssertionError: Padronizacao terminologica ausente: AHP corresponde a \textit{Analytic Hierarchy Process}
 codigo_saida=1
