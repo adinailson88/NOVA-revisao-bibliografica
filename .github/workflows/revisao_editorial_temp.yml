@@ -1,0 +1,37 @@
+name: Revisão editorial temporária
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [agent/revisao-editorial-enxuta]
+    paths:
+      - .github/workflows/revisao_editorial_temp.yml
+
+permissions:
+  contents: write
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout da branch editorial
+        uses: actions/checkout@v4
+        with:
+          ref: agent/revisao-editorial-enxuta
+          fetch-depth: 0
+
+      - name: Aplicar consolidação e auditar referências
+        run: python scripts/python/16_consolidar_metodologia_editorial.py
+
+      - name: Registrar resultados
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latex-artigo/sections/03_metodologia.tex latex-artigo/sections/08_matriz.tex latex-artigo/suplemento/material_suplementar.tex docs/REVISAO_EDITORIAL_ENXUTA_2026-07-14.md
+          if git diff --cached --quiet; then
+            echo "Consolidação já aplicada."
+          else
+            git commit -m "Consolida metodologia e preserva tabelas suplementares"
+            git push origin agent/revisao-editorial-enxuta
+          fi
