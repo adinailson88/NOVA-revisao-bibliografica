@@ -21,17 +21,23 @@ jobs:
           ref: agent/revisao-editorial-enxuta
           fetch-depth: 0
 
-      - name: Atualizar testes para a redação consolidada
-        run: python scripts/python/17_atualizar_verificador_editorial.py
+      - name: Atualizar testes e registrar diagnóstico
+        run: |
+          set +e
+          python scripts/python/17_atualizar_verificador_editorial.py > docs/DIAGNOSTICO_VERIFICADOR_EDITORIAL.txt 2>&1
+          codigo=$?
+          cat docs/DIAGNOSTICO_VERIFICADOR_EDITORIAL.txt
+          echo "codigo_saida=$codigo" >> docs/DIAGNOSTICO_VERIFICADOR_EDITORIAL.txt
+          exit 0
 
-      - name: Registrar verificador atualizado
+      - name: Registrar resultado
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/python/verificar_artigo_integrado.py
+          git add scripts/python/verificar_artigo_integrado.py docs/DIAGNOSTICO_VERIFICADOR_EDITORIAL.txt
           if git diff --cached --quiet; then
-            echo "Verificador já atualizado."
+            echo "Sem alterações."
           else
-            git commit -m "Atualiza verificador para revisão editorial enxuta"
+            git commit -m "Registra diagnóstico do verificador editorial"
             git push origin agent/revisao-editorial-enxuta
           fi
