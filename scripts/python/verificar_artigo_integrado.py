@@ -25,10 +25,6 @@ bloco_estilo_novo = '''texto_prosa_sem_base_wos = texto_prosa.replace("Web of Sc
 exigir(" -- " not in texto_prosa_sem_base_wos, "Foi encontrado travessao em sintaxe LaTeX no artigo.")
 '''
 
-# O fragmento textual evita ambiguidade de escapes ao localizar a asserção no código-fonte.
-bloco_estrutura_antigo = '== 11, "O artigo deve conter onze tabelas'
-bloco_estrutura_novo = '== 12, "O artigo deve conter doze tabelas'
-
 bloco_lacunas = '''consultas_nao_preservadas = [
     linha["string_id"]
     for linha in buscas
@@ -95,13 +91,40 @@ bloco_restricao_temporario = '''exigir(
 )
 '''
 
-for antigo, novo, nome in (
+substituicoes = (
     (bloco_estilo_antigo, bloco_estilo_novo, "controle editorial"),
-    (bloco_estrutura_antigo, bloco_estrutura_novo, "quantidade de tabelas"),
+    ('== 11, "O artigo deve conter onze tabelas', '== 12, "O artigo deve conter doze tabelas', "quantidade de tabelas"),
     (bloco_lacunas, bloco_documentado, "lacunas das strings"),
     (bloco_texto_antigo, bloco_texto_novo, "controle textual"),
     (bloco_restricao_antigo, bloco_restricao_temporario, "restrição temporária de compilação"),
-):
+    (
+        "Rastreabilidade entre evidências e especificação operacional",
+        "Rastreabilidade entre evidências e critérios candidatos",
+        "título da tabela de rastreabilidade",
+    ),
+    (
+        "Matriz analítica conceitual informada pela síntese da literatura",
+        "Matriz de indicadores e fluxo para parametrização multicritério",
+        "identidade da matriz",
+    ),
+    (
+        "As frequências não constituem pesos da matriz.",
+        "As frequências documentais sustentam a seleção inicial dos critérios, mas não constituem pesos nem definem sua importância normativa.",
+        "declaração sobre frequências e pesos",
+    ),
+    (
+        "não é um modelo validado nem um instrumento pronto para decisão",
+        "não constitui método multicritério parametrizado, modelo validado ou instrumento pronto para decisão",
+        "estado não validado da especificação",
+    ),
+    (
+        '"matriz analítica conceitual informada pela síntese da literatura",',
+        '"Matriz de indicadores e fluxo para parametrização multicritério",',
+        "padronização terminológica da matriz",
+    ),
+)
+
+for antigo, novo, nome in substituicoes:
     if antigo not in fonte:
         raise RuntimeError(f"Bloco antigo não localizado em verificar_artigo.py: {nome}.")
     fonte = fonte.replace(antigo, novo, 1)
@@ -120,7 +143,6 @@ for trecho in (
     if trecho not in texto_protocolo:
         raise AssertionError(f"Trecho obrigatório ausente no protocolo: {trecho}")
 
-# A interseção é regenerada antes das demais verificações e permanece auditável em CSV.
 runpy.run_path(
     str(ROOT / "scripts" / "python" / "15_calcular_intersecao_nucleos.py"),
     run_name="__main__",
