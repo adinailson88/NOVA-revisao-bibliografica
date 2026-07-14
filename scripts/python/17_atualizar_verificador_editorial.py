@@ -28,7 +28,7 @@ def main() -> None:
         text = text.replace(individual_entries, "", 1)
 
     variable_anchor = "substituicoes = (\n"
-    term_blocks = r'''bloco_terminologia_antigo = '''for declaracao in (
+    term_blocks = r"""bloco_terminologia_antigo = '''for declaracao in (
     "ambiental, social e de governança (ESG",
     "MCDM designa \\textit{multi-criteria decision-making}",
     "MCDA, \\textit{multi-criteria decision analysis}",
@@ -53,7 +53,7 @@ bloco_terminologia_novo = '''for declaracao in (
     exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
 '''
 
-'''
+"""
     if "bloco_terminologia_antigo =" not in text:
         if variable_anchor not in text:
             raise RuntimeError("Âncora das substituições não localizada.")
