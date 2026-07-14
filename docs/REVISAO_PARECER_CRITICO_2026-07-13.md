@@ -20,7 +20,7 @@ Revisão integral dos pontos apresentados no parecer crítico sobre o artigo, co
 
 - [x] Parecer recebido e convertido em lista de verificação.
 - [x] Branch `agent/revisao-parecer-critico` criada a partir do `main` no commit `ee00030`.
-- [x] PR rascunho nº 5 aberto para preservar a versão estável da `main`.
+- [x] PR nº 5 aberto para preservar a versão estável da `main` durante a revisão.
 - [x] Conferência do resumo, introdução, fundamentos teóricos, metodologia, resultados, discussão, limitações, considerações e workflow.
 - [x] Confirmada e corrigida a ausência de declaração explícita da interseção 372 × 121.
 - [x] Interseção calculada por script: 109 registros comuns; 263 exclusivos da camada bibliométrica; 12 exclusivos do núcleo temático.
@@ -47,11 +47,13 @@ Revisão integral dos pontos apresentados no parecer crítico sobre o artigo, co
 - [x] Discussão da RQ6 condensada para evitar desproporção em relação às RQ1–RQ5.
 - [x] `Como proposição dos autores` corrigido para `Como proposição do autor`.
 - [x] Verificador atualizado para exigir as correções do parecer e impedir regressão das formulações superadas.
-- [x] Primeira falha de validação diagnosticada como erro de escape no adaptador do contador de tabelas; controle corrigido no commit `e6a2d4d`.
-- [ ] Verificador integrado executado sem falhas após a correção do adaptador.
-- [ ] PDF compilado sem erro e sem conteúdo ultrapassando margens.
-- [ ] Word gerado, validado como pacote OOXML e reconvertido integralmente em PDF.
-- [ ] Workflows temporários de diagnóstico removidos após a validação.
+- [x] Falhas encontradas durante a validação foram corrigidas na fonte: controle legado de tabelas, asserções da matriz, escapes LaTeX e expressões regulares do gerador Word e largura do cabeçalho da tabela-glossário.
+- [x] Verificador integrado executado sem divergências de dados, texto, citações, referências, strings ou controles específicos do parecer.
+- [x] PDF compilado integralmente em formato A4, sem erro e sem `Overfull hbox` na execução final.
+- [x] Word gerado com as 12 tabelas e os fluxogramas, validado como pacote OOXML e reconvertido integralmente em PDF pelo LibreOffice.
+- [x] Artefatos PDF e Word publicados pela execução nº 280 do workflow `Validar fontes e gerar artigo`.
+- [ ] Workflows e arquivos temporários de diagnóstico removidos após a validação.
+- [ ] Workflow permanente restaurado para o comportamento normal da `main`.
 - [ ] Revisão final de coerência, rastreabilidade e estado do PR concluída.
 
-Este arquivo é atualizado durante a execução para preservar o histórico verificável de cada alteração e de cada falha encontrada.
+Este arquivo preserva o histórico verificável das alterações, dos erros encontrados durante a compilação e das respectivas correções.
