@@ -49,6 +49,7 @@ jobs:
             echo "Arquivos inalterados."
           else
             git commit -m "Atualiza controles e diagnóstico da revisão editorial"
+            git reset --hard HEAD
             git pull --rebase origin agent/revisao-editorial-enxuta
             git push origin agent/revisao-editorial-enxuta
           fi
