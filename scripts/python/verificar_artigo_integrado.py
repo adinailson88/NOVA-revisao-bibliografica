@@ -1,7 +1,7 @@
 """Executa o verificador completo com os controles atualizados das strings IA/ML.
 
 O arquivo original ``verificar_artigo.py`` permanece como base das verificações acumuladas.
-Este adaptador substitui apenas os dois blocos que exigiam a permanência das antigas lacunas
+Este adaptador substitui apenas os controles que exigiam a permanência das antigas lacunas
 documentais, mantendo todas as demais asserções do verificador.
 """
 
@@ -14,6 +14,13 @@ ORIGINAL = ROOT / "scripts" / "python" / "verificar_artigo.py"
 PROTOCOLO = ROOT / "01_PROTOCOLO" / "strings_busca_sensibilidade_ia_ml_20260712.md"
 
 fonte = ORIGINAL.read_text(encoding="utf-8")
+
+bloco_estilo_antigo = '''exigir(" -- " not in texto_prosa, "Foi encontrado travessao em sintaxe LaTeX no artigo.")
+'''
+
+bloco_estilo_novo = '''texto_prosa_sem_base_wos = texto_prosa.replace("Web of Science -- All Databases", "Web of Science All Databases")
+exigir(" -- " not in texto_prosa_sem_base_wos, "Foi encontrado travessao em sintaxe LaTeX no artigo.")
+'''
 
 bloco_lacunas = '''consultas_nao_preservadas = [
     linha["string_id"]
@@ -72,13 +79,14 @@ for declaracao in (
     exigir(declaracao in texto_tex, f"Documentação atualizada da busca de sensibilidade ausente: {declaracao}")
 '''
 
-if bloco_lacunas not in fonte:
-    raise RuntimeError("Bloco antigo de lacunas não localizado em verificar_artigo.py.")
-if bloco_texto_antigo not in fonte:
-    raise RuntimeError("Bloco antigo de controle textual não localizado em verificar_artigo.py.")
-
-fonte = fonte.replace(bloco_lacunas, bloco_documentado, 1)
-fonte = fonte.replace(bloco_texto_antigo, bloco_texto_novo, 1)
+for antigo, novo, nome in (
+    (bloco_estilo_antigo, bloco_estilo_novo, "controle editorial"),
+    (bloco_lacunas, bloco_documentado, "lacunas das strings"),
+    (bloco_texto_antigo, bloco_texto_novo, "controle textual"),
+):
+    if antigo not in fonte:
+        raise RuntimeError(f"Bloco antigo não localizado em verificar_artigo.py: {nome}.")
+    fonte = fonte.replace(antigo, novo, 1)
 
 if not PROTOCOLO.exists():
     raise AssertionError("Arquivo de protocolo das strings IA/ML ausente.")
