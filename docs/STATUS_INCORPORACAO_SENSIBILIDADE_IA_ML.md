@@ -1,12 +1,10 @@
 # Status — Consolidação da busca de sensibilidade IA/ML e ajuste científico do artigo
 
-Arquivo único e cumulativo de continuidade desta tarefa. Atualizar este documento ao final de cada etapa. Não criar arquivo de status paralelo.
-
-## Estado consolidado em 13/07/2026
+## Estado consolidado
 
 - Repositório: `adinailson88/NOVA-revisao-bibliografica`.
-- Branch: `agent/incorporacao-busca-sensibilidade-ia`.
-- Pull Request: #4, em modo draft, base `main`.
+- Branch de trabalho: `agent/incorporacao-busca-sensibilidade-ia`.
+- Pull Request: #4.
 - Núcleo temático vigente: 121 registros, sendo 104 do núcleo original e 17 incorporados após a busca complementar de sensibilidade.
 - Camada bibliométrica: 372 registros derivados exclusivamente da busca principal.
 - Busca de sensibilidade: 6.728 ocorrências brutas, sendo 3.169 da Scopus, 1.559 da Web of Science e 2.000 do Crossref.
@@ -24,9 +22,8 @@ Arquivo único e cumulativo de continuidade desta tarefa. Atualizar este documen
 - Preservação explícita dos produtos históricos de 104 registros.
 - Revisão de suporte bibliográfico das assertivas gerais.
 - Revisão global de concisão, coerência terminológica, resultados, discussão, limitações e conclusão.
-- Compilação integral anterior concluída sem divergência numérica, referência indefinida ou `Overfull \hbox`.
 
-## Encerramento das lacunas documentais das strings
+## Strings da busca complementar
 
 As expressões integrais da busca complementar foram fornecidas pelo pesquisador e incorporadas ao repositório.
 
@@ -61,18 +58,22 @@ As strings e os parâmetros estão registrados em:
 - `01_PROTOCOLO/log_busca_sensibilidade_ia_20260712.md`;
 - `latex-artigo/fontes/tabela_estrategia_busca.csv`.
 
-A antiga declaração “Informação insuficiente para verificar” foi removida da tabela-fonte, do método e das limitações. O verificador integrado passou a exigir a presença das strings completas, da opção All Databases, da data, do período e da declaração de ausência de filtros adicionais.
+## Validação final
 
-## Alterações desta consolidação documental
+A execução completa nº 206 do workflow `Validar fontes e gerar artigo` foi concluída com sucesso. Foram validados:
 
-- `d2ee7a8`: criação do registro integral das strings.
-- `96fd94a`: atualização do log da busca complementar.
-- `d159ad4`: atualização das limitações.
-- `d1b38cf`: integração das strings completas na tabela-fonte.
-- `55c8000`: atualização da metodologia e da tabela apresentada no artigo.
-- `a0821e2` e `f480b7c`: adaptação do verificador acumulado.
-- `c4c2a21`: atualização do workflow para executar o verificador integrado.
+- geração das tabelas e gráficos do núcleo vigente;
+- camada bibliométrica ampliada;
+- inventário e planilhas de referências;
+- coerência numérica, textual e bibliográfica;
+- documentação das strings da busca de sensibilidade;
+- compilação do PDF;
+- geração e integridade do arquivo Word;
+- ausência de estouro de margens no PDF;
+- publicação dos produtos como artefato.
 
-## Estado final desta etapa
+Após a restauração da política normal do workflow, a execução nº 209 foi concluída com sucesso. O workflow voltou a gerar PDF e Word apenas por execução manual ou na `main`, mantendo nas branches e pull requests as verificações reprodutíveis em Python.
 
-As lacunas documentais das strings estão encerradas nos arquivos-fonte. O PR #4 permanece aberto, em modo draft e mergeável. A execução automatizada correspondente aos últimos commits ainda deve aparecer e ser conferida no GitHub Actions antes da retirada do modo draft e do merge na `main`.
+## Situação final
+
+Não permanecem lacunas documentais das strings, divergências numéricas conhecidas, erros de compilação ou falhas do verificador. O PR está apto para retirada do modo draft e merge na `main`.
