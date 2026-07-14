@@ -33,7 +33,15 @@
 \renewcommand{\floatpagefraction}{0.8}
 \newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 \newcommand{\fonteautor}{\par\smallskip{\footnotesize Fonte: elaborado pelo autor.\par}}
-\newcommand{\captiongrafico}[1]{\captionsetup{name=Gráfico}\caption{#1}}
+
+% Graficos usam contador proprio, independente do contador de figuras.
+\newcounter{grafico}
+\renewcommand{\thegrafico}{\arabic{grafico}}
+\providecommand*{\graficoautorefname}{Gráfico}
+\newcommand{\captiongrafico}[1]{%
+  \refstepcounter{grafico}%
+  \caption*{Gráfico \thegrafico. #1}%
+}
 \setlength{\emergencystretch}{2em}
 
 \usepackage[backend=biber,style=abnt]{biblatex}
