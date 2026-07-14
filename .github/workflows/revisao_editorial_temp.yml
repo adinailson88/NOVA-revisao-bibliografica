@@ -21,17 +21,17 @@ jobs:
           ref: agent/revisao-editorial-enxuta
           fetch-depth: 0
 
-      - name: Aplicar consolidação e auditar referências
-        run: python scripts/python/16_consolidar_metodologia_editorial.py
+      - name: Atualizar testes para a redação consolidada
+        run: python scripts/python/17_atualizar_verificador_editorial.py
 
-      - name: Registrar resultados
+      - name: Registrar verificador atualizado
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latex-artigo/sections/03_metodologia.tex latex-artigo/sections/08_matriz.tex latex-artigo/suplemento/material_suplementar.tex docs/REVISAO_EDITORIAL_ENXUTA_2026-07-14.md
+          git add scripts/python/verificar_artigo_integrado.py
           if git diff --cached --quiet; then
-            echo "Consolidação já aplicada."
+            echo "Verificador já atualizado."
           else
-            git commit -m "Consolida metodologia e preserva tabelas suplementares"
+            git commit -m "Atualiza verificador para revisão editorial enxuta"
             git push origin agent/revisao-editorial-enxuta
           fi
