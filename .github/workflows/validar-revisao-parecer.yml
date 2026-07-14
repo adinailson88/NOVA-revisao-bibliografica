@@ -124,9 +124,14 @@ jobs:
           cat docs/VALIDACAO_PRODUTOS_LOG.txt
           exit 0
 
+      - name: Gerar resumo dos produtos
+        run: |
+          grep -aE "^(PDF_BYTES|MARGENS|CONTEUDO_FORA_DA_MARGEM_PT|Pages:|Page size:|PDF_STATUS|WORD_BYTES|OOXML|LIBREOFFICE_RECONVERSAO|WORD_STATUS)=" docs/VALIDACAO_PRODUTOS_LOG.txt > docs/VALIDACAO_PRODUTOS_RESUMO.txt || true
+          cat docs/VALIDACAO_PRODUTOS_RESUMO.txt
+
       - name: Salvar validação dos produtos na branch
         run: |
-          git add docs/VALIDACAO_PRODUTOS_LOG.txt
+          git add docs/VALIDACAO_PRODUTOS_LOG.txt docs/VALIDACAO_PRODUTOS_RESUMO.txt
           if git diff --cached --quiet; then
             echo "Validação dos produtos inalterada."
           else
