@@ -206,21 +206,6 @@ substituicoes = (
         "formulação da RQ6 na introdução",
     ),
     (
-        'AHP corresponde a \\textit{Analytic Hierarchy Process}',
-        'AHP, TOPSIS e ANP correspondem, respectivamente, a \\textit{Analytic Hierarchy Process}',
-        'definição conjunta de AHP',
-    ),
-    (
-        'TOPSIS a \\textit{Technique for Order Preference by Similarity to Ideal Solution}',
-        '\\textit{Technique for Order Preference by Similarity to Ideal Solution}',
-        'definição conjunta de TOPSIS',
-    ),
-    (
-        'ANP a \\textit{Analytic Network Process}',
-        '\\textit{Analytic Network Process}',
-        'definição conjunta de ANP',
-    ),
-    (
         "não foram acrescentados à camada bibliométrica de 372",
         "não foram acrescentados à camada de 372",
         "separação entre busca direcionada e camada bibliométrica",
