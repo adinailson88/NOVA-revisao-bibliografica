@@ -1,0 +1,67 @@
+\section*{Material suplementar}
+
+\subsection*{Tabela S1 --- Resultados e controles da deduplicação}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{Y >{\raggedleft\arraybackslash}p{2.3cm} >{\RaggedRight\arraybackslash}p{5.7cm}}
+\toprule
+Indicador & Total & Interpretação \\
+\midrule
+Registros brutos normalizados & 12.118 & Uma linha por ocorrência recuperada antes da deduplicação. \\
+Registros únicos & 9.542 & Uma linha por grupo consolidado. \\
+Ocorrências removidas & 2.576 & Diferença entre registros brutos e únicos. \\
+Grupos com duplicidade & 1.808 & 1.635 agrupados por DOI e 173 apenas por título normalizado. \\
+Registros únicos com DOI & 8.264 & DOI presente após consolidação. \\
+Registros únicos sem DOI & 1.278 & Controle por título e identificadores. \\
+Conflitos preservados & 98 & 51 por DOI divergente e 47 por identificador próprio divergente. \\
+\bottomrule
+\end{tabularx}
+\fonteautor
+\end{table}
+
+\clearpage
+\subsection*{Tabela S2 --- Matriz comparativa dos 17 registros da busca de sensibilidade}
+
+\begin{landscape}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\tiny
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{1.25cm} >{\RaggedRight\arraybackslash}p{2.35cm} >{\RaggedRight\arraybackslash}p{3.35cm} >{\RaggedRight\arraybackslash}p{3.0cm} >{\RaggedRight\arraybackslash}p{1.6cm} >{\RaggedRight\arraybackslash}p{5.0cm} >{\RaggedRight\arraybackslash}p{5.3cm}}
+\caption{Matriz comparativa dos 17 registros incorporados pela busca de sensibilidade}\label{tab:s2}\\
+\toprule
+Registro & Função analítica & Técnica computacional & Contexto e objeto & Base documental & Integração com a decisão & Limite verificado \\
+\midrule
+\endfirsthead
+\multicolumn{7}{c}{\tablename\ \thetable\ -- continuação}\\
+\toprule
+Registro & Função analítica & Técnica computacional & Contexto e objeto & Base documental & Integração com a decisão & Limite verificado \\
+\midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{Continua na página seguinte}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{REG\_02383} & Previsão & Regressão múltipla; rede neural de retropropagação & Universidade; custos e orçamento de manutenção & Título e resumo & Previsão para planejamento orçamentário & Texto integral não verificado \\
+\texttt{REG\_07814} & Previsão & Rede neural de retropropagação & Universidade; custos de manutenção e custo do ciclo de vida & Título e resumo & Previsão para planejamento de custos & Capítulo com acesso restrito \\
+\texttt{REG\_07815} & Previsão & Rede neural de retropropagação & Universidade; custos e orçamento no ciclo de vida & Título e resumo & Previsão para planejamento de custos & Texto integral não verificado \\
+\texttt{REG\_05418} & Previsão e otimização & \textit{Extreme learning machine}; recozimento simulado & Edifício comercial; ocupação, ventilação e energia & Texto integral & Saída aciona controle operacional de ventilação & Validação em três edifícios; transferência institucional não demonstrada \\
+\texttt{REG\_06840} & Previsão & Rede neural profunda; gêmeo digital & Edificação genérica; conforto térmico e ambiente interno & Título e resumo & Previsão associada ao sistema de gestão predial & Métricas e validação integral não verificadas \\
+\texttt{REG\_09883} & Diagnóstico e classificação & Rede neural convolucional; perceptron multicamada & Edifício residencial; danos em parede externa & Título e resumo & Classificação vinculada a sugestão de manutenção & Métricas e regras de decisão não verificadas integralmente \\
+\texttt{REG\_10348} & Síntese e integração & Gêmeo digital; BIM; IA & Edificação genérica; energia, desempenho e manutenção preditiva & Texto integral & Infraestrutura informacional para monitoramento e recomendação & Revisão exploratória; barreiras de interoperabilidade e governança \\
+\texttt{REG\_10391} & Síntese e integração & IoT; IA; AIoT & Edificação genérica; energia, conforto e manutenção preditiva & Texto integral & Estrutura conceitual para decisão estratégica & Ausência de dados empíricos próprios; viés para o Norte Global \\
+\texttt{REG\_10862} & Previsão & GCN; GraphSAGE; GAT & Edificação genérica; vida útil de componentes do envelope & Texto integral & Estimativa alimenta manutenção preditiva e potencial de reúso & GCN com $R^2=0{,}83$; generalização externa não demonstrada \\
+\texttt{REG\_11003} & Previsão & \textit{Random forest}; lógica fuzzy & Patrimônio histórico; vida útil, risco e condição & Título e resumo & Previsão declarada como apoio à decisão & Amostra e métricas não verificadas integralmente \\
+\texttt{REG\_11158} & Síntese e integração & IoT; IA & Edificação genérica; sistemas elétricos legados e energia & Título e resumo & Integração estratégica e manutenção preditiva & Aplicação e validação não verificadas integralmente \\
+\texttt{REG\_11346} & Previsão e otimização & IoT; modelo preditivo por aprendizado profundo & Patrimônio histórico; energia, ocupação e conforto & Título e resumo & Monitoramento e otimização operacional & Texto integral aberto declarado, mas não recuperado nesta etapa \\
+\texttt{REG\_11489} & Diagnóstico e classificação & Rede de cápsulas & Edificação genérica; anomalias térmicas no envelope & Título e resumo & Diagnóstico informa \textit{retrofit} e manutenção & Métricas e validação integral não verificadas \\
+\texttt{REG\_11552} & Previsão & Modelos e conjuntos de aprendizado de máquina & Edifício residencial; concreto deteriorado & Título e resumo & Previsão informa programação de manutenção & Dados e transferência ao edifício não verificados integralmente \\
+\texttt{REG\_12351} & Previsão & Perceptron multicamada & Edifício residencial; eletricidade, gás e água & Texto integral & Estimativas apoiam planejamento e gestão de facilidades & Trinta complexos; oito fatores; erro distinto por variável \\
+\texttt{REG\_12451} & Síntese e integração & UAV; visão computacional; BIM; gêmeo digital; IA & Edificação genérica; condição, segurança e patologia & Texto integral & Caminho causal conceitual para manutenção proativa & Revisão de 33 estudos; aplicação operacional integrada não testada \\
+\texttt{REG\_12511} & Síntese e integração & IoT; IA & Edificação genérica; energia, conforto e sustentabilidade & Texto integral & Recomendações multissetoriais para integração & 76 estudos heterogêneos; 46,05\% omitem ao menos uma dimensão \\
+\end{longtable}
+\end{landscape}
+
+\noindent\textit{Fonte: elaborado pelo autor a partir de \nolinkurl{latex-artigo/fontes/tabela_sintese_ia_ml_17.csv}. A versão integral em formato aberto acompanha este suplemento em \nolinkurl{latex-artigo/suplemento/tabela_s2_matriz_17_registros.csv}.}
