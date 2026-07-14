@@ -524,9 +524,6 @@ LaTeX Warning: Reference `tab:glossariocamadas' on page 5 undefined on input li
 ne 8.
 
 
-Overfull \hbox (0.54305pt too wide) in paragraph at lines 25--25
- []|\T1/lmr/m/n/10.95 (-20) Registros|
-
 LaTeX Warning: Citation 'hu_revisao_sintese_2026' on page 5 undefined on input 
 line 29.
 
@@ -1079,7 +1076,7 @@ nts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
 /public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmtt8.pfb>
-Output written on main.pdf (29 pages, 1253960 bytes).
+Output written on main.pdf (29 pages, 1253974 bytes).
 Transcript written on main.log.
 Latexmk: Missing bbl file 'main.bbl' in following:
  No file main.bbl.
@@ -1344,10 +1341,7 @@ abnt'.
 b/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm
 /lm-ec.enc}]) (./sections/01_introducao.tex [2]) (./sections/02_revisao.tex
 [3] [4]) (./sections/03_metodologia.tex
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd)
-Overfull \hbox (0.54305pt too wide) in paragraph at lines 25--25
- []|\T1/lmr/m/n/10.95 (-20) Registros|
-[5] [6] [7]
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd) [5] [6] [7]
 Underfull \hbox (badness 2326) in paragraph at lines 91--91
 []|\T1/lmr/m/n/8 (+20) 5 em 
 
@@ -1388,7 +1382,7 @@ ts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmtt8.pfb>
-Output written on main.pdf (32 pages, 1261885 bytes).
+Output written on main.pdf (32 pages, 1261887 bytes).
 Transcript written on main.log.
 Latexmk: Getting log file 'main.log'
 Latexmk: Examining 'main.fls'
@@ -1649,10 +1643,7 @@ abnt'.
 b/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm
 /lm-ec.enc}]) (./sections/01_introducao.tex [2]) (./sections/02_revisao.tex
 [3] [4]) (./sections/03_metodologia.tex
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd)
-Overfull \hbox (0.54305pt too wide) in paragraph at lines 25--25
- []|\T1/lmr/m/n/10.95 (-20) Registros|
-[5] [6] [7]
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd) [5] [6] [7]
 Underfull \hbox (badness 2326) in paragraph at lines 91--91
 []|\T1/lmr/m/n/8 (+20) 5 em 
 
@@ -1682,7 +1673,7 @@ ts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmtt8.pfb>
-Output written on main.pdf (32 pages, 1261885 bytes).
+Output written on main.pdf (32 pages, 1261887 bytes).
 Transcript written on main.log.
 Latexmk: Getting log file 'main.log'
 Latexmk: Examining 'main.fls'
@@ -1915,10 +1906,7 @@ abnt'.
 b/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/lm
 /lm-ec.enc}]) (./sections/01_introducao.tex [2]) (./sections/02_revisao.tex
 [3] [4]) (./sections/03_metodologia.tex
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd)
-Overfull \hbox (0.54305pt too wide) in paragraph at lines 25--25
- []|\T1/lmr/m/n/10.95 (-20) Registros|
-[5] [6] [7]
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd) [5] [6] [7]
 Underfull \hbox (badness 2326) in paragraph at lines 91--91
 []|\T1/lmr/m/n/8 (+20) 5 em 
 
@@ -1948,7 +1936,7 @@ ts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmtt8.pfb>
-Output written on main.pdf (32 pages, 1261885 bytes).
+Output written on main.pdf (32 pages, 1261887 bytes).
 Transcript written on main.log.
 Latexmk: Getting log file 'main.log'
 Latexmk: Examining 'main.fls'
@@ -1959,7 +1947,7 @@ Latexmk: Bibliography file(s) from .bcf file:
   references.bib
 Latexmk: All targets (main.pdf) are up-to-date
 
-PDF_BYTES=1261885
+PDF_BYTES=1261887
 MARGENS=OK
 Pages:           32
 Page size:       595.276 x 841.89 pts (A4)
@@ -2140,7 +2128,7 @@ Referencias cruzadas numeradas: 14
 Fluxogramas TikZ inseridos: 2
 Word gerado com 206 paragrafos e 14 tabelas.
 Word aberto e resalvo com sucesso pelo LibreOffice.
-Word validado: 1183084 bytes.
+Word validado: 1183083 bytes.
 Archive:  artigo.docx
     testing: _rels/.rels              OK
     testing: docProps/core.xml        OK
@@ -2168,7 +2156,7 @@ Archive:  artigo.docx
 No errors detected in compressed data of artigo.docx.
 Warning: failed to launch javaldx - java may not function correctly
 convert /home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/artigo.docx as a Writer document -> /tmp/word_check/artigo.pdf using filter : writer_pdf_Export
-WORD_BYTES=1183084
+WORD_BYTES=1183083
 Pages:           42
 Page size:       612 x 792 pts (letter)
 OOXML=OK
