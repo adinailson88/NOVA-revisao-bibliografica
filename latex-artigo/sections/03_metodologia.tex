@@ -26,15 +26,15 @@ Núcleo temático vigente & 121 & Núcleo original acrescido de 17 registros inc
 \fonteautor
 \end{table}
 
-A organização do relato metodológico explicita pergunta, busca, seleção, extração e síntese, elementos de transparência e reprodutibilidade destacados por \textcite{hu_revisao_sintese_2026}. A referência é empregada apenas como parâmetro de relato; não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise, procedimentos não realizados.
+A organização do relato explicita pergunta, busca, seleção, extração e síntese, elementos de transparência e reprodutibilidade destacados por \textcite{hu_revisao_sintese_2026}. O escopo declarado distingue esses procedimentos das etapas de pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo e metanálise.
 
 \subsection{Reprodutibilidade, ciência aberta e limites da automação}
 
 Consultas, exportações, manual de codificação, matrizes intermediárias, scripts determinísticos, figuras e verificações automatizadas foram versionados no repositório da pesquisa. O fluxo preserva identificadores, proveniência das bases, regras de deduplicação, decisões de triagem e parâmetros da síntese, permitindo que resultados numéricos e produtos bibliométricos sejam recompilados a partir dos arquivos disponíveis. Essa rastreabilidade constitui uma contribuição de ciência aberta, ainda que não substitua pré-registro nem revisão independente.
 
-O caráter determinístico das rotinas reduz variações de execução: a mesma entrada, a mesma versão do código e os mesmos parâmetros produzem a mesma saída. Isso não elimina subjetividade. O manual de codificação, os limiares, as categorias, as expressões de busca e as decisões humanas sobre casos duvidosos incorporam escolhas analíticas. A automação torna essas escolhas mais auditáveis, mas não as converte em verdade objetiva.
+O caráter determinístico reduz variações de execução: a mesma entrada, versão do código e parâmetros produzem a mesma saída. A subjetividade permanece explicitada no manual de codificação, nos limiares, nas categorias, nas expressões de busca e nas decisões sobre casos duvidosos. A automação torna essas escolhas reproduzíveis e auditáveis.
 
-A literatura cinzenta não foi incluída em busca estruturada porque o desenho priorizou fontes com metadados bibliográficos interoperáveis e campos necessários à deduplicação e à análise. Essa decisão melhora a comparabilidade dos registros, mas pode reduzir a cobertura de relatórios técnicos, normas internas, planos de manutenção e experiências institucionais não indexadas. Portanto, a ausência desses documentos é uma limitação de cobertura e não deve ser apresentada como evidência de maior qualidade do corpus.
+O desenho priorizou fontes com metadados bibliográficos interoperáveis e campos necessários à deduplicação e à análise. Essa escolha favorece a comparabilidade e delimita a cobertura de relatórios técnicos, normas internas, planos de manutenção e experiências institucionais presentes na literatura cinzenta.
 
 A matriz de alinhamento da Tabela~\ref{tab:alinhamentorq} explicita a correspondência entre a pergunta central, as questões específicas, os critérios de seleção, os campos extraídos e os resultados apresentados. O contexto público universitário e os métodos de apoio à decisão foram campos de caracterização analítica, e não requisitos obrigatórios de inclusão.
 
@@ -123,32 +123,7 @@ A deduplicação foi executada após a padronização dos metadados das três fo
 
 Registros com o mesmo DOI normalizado foram agrupados. Na ausência de DOI, títulos normalizados idênticos foram agrupados somente quando não havia conflito entre DOIs presentes ou entre identificadores próprios da mesma fonte. Em caso de conflito, os registros permaneceram separados. A hierarquia entre identificador persistente e campos bibliográficos, assim como a decisão conservadora de não fundir registros potencialmente distintos, foi adaptada da abordagem baseada em regras de \textcite{jiang_deduplicacao_regras_2014}, que compara DOI, título, periódico, autores e ano diante de inconsistências entre bases. O procedimento desta revisão foi mais restritivo por exigir igualdade do DOI normalizado ou, na sua ausência, igualdade do título normalizado sem conflito de identificadores. Para cada grupo fundido, foram preservados bases de origem, consultas de origem e identificadores brutos; o resumo mais longo disponível foi mantido e os demais metadados foram selecionados por completude e prioridade de fonte.
 
-A Tabela~\ref{tab:deduplicacao} apresenta os resultados e os controles conservadores da deduplicação.
-
-\begin{table}[htbp]
-\centering
-\caption{Resultados e controles da deduplicação}
-\label{tab:deduplicacao}
-\small
-\begin{tabularx}{\textwidth}{Y >{\raggedleft\arraybackslash}p{2.3cm} >{\RaggedRight\arraybackslash}p{5.7cm}}
-\toprule
-Indicador & Total & Interpretação \\
-\midrule
-Registros brutos normalizados & 12.118 & Uma linha por ocorrência recuperada antes da deduplicação. \\
-Registros únicos & 9.542 & Uma linha por grupo consolidado. \\
-Ocorrências removidas & 2.576 & Diferença entre registros brutos e únicos. \\
-Grupos com duplicidade & 1.808 & 1.635 agrupados por DOI e 173 apenas por título normalizado. \\
-Registros únicos com DOI & 8.264 & DOI presente após consolidação. \\
-Registros únicos sem DOI & 1.278 & Dependem de título e identificadores para controle de duplicidade. \\
-Conflitos preservados & 98 & 51 por DOI divergente e 47 por identificador próprio divergente; não foram mesclados. \\
-\bottomrule
-\end{tabularx}
-\fonteautor
-\end{table}
-
-A rotina não usa similaridade aproximada de títulos e não estabelece vínculo automático entre trabalho em evento e artigo posterior quando os identificadores diferem. Os conflitos detectados foram preservados como registros separados.
-
-A coleta produziu 12.118 registros brutos: 9.433 recuperados pela API da Scopus, cinco registros existentes apenas no export manual da Scopus, 1.680 da Web of Science e 1.000 do Crossref. A deduplicação por DOI normalizado e título normalizado removeu 2.576 ocorrências repetidas e resultou em 9.542 registros únicos, com preservação da proveniência.
+A aplicação dessas regras consolidou 12.118 ocorrências em 9.542 registros únicos e removeu 2.576 repetições. Dos 1.808 grupos com duplicidade, 1.635 foram agrupados por DOI e 173 por título normalizado; 98 conflitos de identificadores permaneceram separados. O procedimento adotou igualdade exata e preservou distinções entre trabalhos de evento e artigos posteriores. A Tabela S1 do material suplementar apresenta os indicadores completos.
 
 \subsection{Triagem, auditoria e consolidação do núcleo}
 
@@ -206,9 +181,7 @@ Auditoria qualitativa & 137 & Auditoria estruturada de título, resumo, palavras
 \label{fig:funil}
 \end{figure}
 
-A avaliação de elegibilidade do núcleo temático original não incluiu leitura de texto completo dos 104 estudos. Título, resumo, palavras-chave e campos extraídos foram a base documental de todas as camadas de triagem e da auditoria qualitativa. Um dos 137 registros havia sido sinalizado para verificação pontual em texto completo e foi excluído sem que essa leitura fosse realizada. A inclusão dos 104 estudos no núcleo original representa, portanto, aderência aos critérios de seleção em nível documental, sem confirmação por elegibilidade em texto completo.
-
-A síntese permanece predominantemente apoiada em título, resumo, palavras-chave e campos estruturados, em razão do acesso institucional restrito a parte dos periódicos das bases consultadas. Em três tarefas pontuais posteriores, 37 estudos com texto completo disponível foram lidos integralmente; 19 forneceram evidências específicas incorporadas e citadas individualmente. O terceiro lote corresponde aos 17 registros incorporados pela busca de sensibilidade: sete textos integrais abertos puderam ser consultados e cinco acrescentaram resultados quantitativos, desenho de validação ou limitações ausentes do resumo. Esse uso é indicado explicitamente por estudo e não altera a natureza predominantemente documental da seleção, da extração e dos resultados agregados; os dez registros restantes do lote de sensibilidade permanecem caracterizados por título e resumo.
+A elegibilidade e a extração do núcleo temático apoiaram-se predominantemente em título, resumo, palavras-chave e campos estruturados. Entre 37 textos completos consultados em tarefas posteriores, 19 acrescentaram evidências específicas citadas individualmente. No lote de sensibilidade, sete dos 17 textos estavam disponíveis integralmente e cinco ampliaram resultados quantitativos, desenho de validação ou limitações; os demais permaneceram caracterizados pela documentação bibliográfica disponível.
 
 A extração do núcleo final utilizou título, resumo, palavras-chave e campos estruturados para identificar dimensões de sustentabilidade, critérios de priorização, métodos de apoio à decisão, contexto da edificação, ODS, ESG e lacunas relacionadas a instituições públicas de ensino superior. A unidade de contagem foi o registro único. Campos com múltiplas categorias foram tratados como respostas múltiplas, mantendo um único identificador por estudo em cada categoria. Dimensão e critério são categorias analiticamente distintas: a dimensão é uma categoria-guarda-chuva (técnica-operacional, institucional, ambiental, ciclo de vida, econômica ou social), enquanto o critério é um atributo operacional específico dentro de uma dimensão; por isso, termos como energia, risco, conforto e segurança são contabilizados como critérios de priorização e não duplicam a contagem das seis dimensões-guarda-chuva. As definições, regras de inclusão e exclusão e exemplos de cada categoria estão detalhados em manual de codificação de apoio à extração, mantido no repositório da revisão.
 
