@@ -55,5 +55,8 @@ Revisão integral dos pontos apresentados no parecer crítico sobre o artigo, co
 - [x] Workflows e arquivos temporários de diagnóstico removidos após a validação.
 - [x] Workflow permanente restaurado para executar a compilação completa na `main` ou manualmente, mantendo no PR a validação de dados, texto e referências.
 - [x] Revisão final de coerência e rastreabilidade concluída; a execução nº 289 confirmou o estado limpo do PR sem divergências.
+- [x] PR nº 5 integrado à `main` por squash no commit `b144951`.
+- [x] Compilação definitiva da `main` concluída; o commit automático `554fc8f` atualizou `main.pdf`, `artigo.docx`, `site/artigo.pdf` e `site/artigo.docx`.
+- [x] Hashes das cópias da raiz e do site conferidos: PDF `e4b4a2d630aa41a97f022d8b75493954029f153a`; Word `017815d348508d75354e7bcc4d51163ae3b87109`.
 
 Este arquivo preserva o histórico verificável das alterações, dos erros encontrados durante a compilação e das respectivas correções.
