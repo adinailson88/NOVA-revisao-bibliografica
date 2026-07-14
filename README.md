@@ -2,16 +2,17 @@
 
 ## Arquivos para leitura
 
-- **[Ler o artigo completo em PDF](main.pdf)**
-- **[Baixar a versão Word para leitura e comentários](artigo.docx?raw=1)**
+Os links abaixo apontam para arquivos publicados no GitHub Pages e funcionam sem depender do visualizador de arquivos binários do aplicativo GitHub:
+
+- **[Abrir ou baixar o artigo em PDF](https://adinailson88.github.io/NOVA-revisao-bibliografica/artigo.pdf)**
+- **[Baixar a versão Word validada](https://adinailson88.github.io/NOVA-revisao-bibliografica/artigo.docx)**
+- **[Abrir a página do artigo com os botões de download](https://adinailson88.github.io/NOVA-revisao-bibliografica/)**
 - **[Consultar a lista auditável de referências](referencias/lista_referencias.csv)**
 - **[Consultar os arquivos e evidências bibliográficas](referencias/)**
 
-> **Estado dos fontes:** consolidação em andamento na branch `agent/incorporacao-busca-sensibilidade-ia`, com núcleo temático vigente de 121 registros.
+> **Estado atual:** núcleo temático vigente de 121 registros, com o núcleo histórico de 104 preservado.
 >
-> Durante a consolidação textual, pushes e pull requests executam apenas o pipeline Python e o verificador. PDF e Word são regenerados pelo workflow **[Validar fontes e gerar artigo](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml)** somente por execução manual ou por push na `main`.
->
-> Por isso, os arquivos `main.pdf` e `artigo.docx` podem permanecer temporariamente anteriores aos fontes `.tex`. Essa defasagem é deliberada e será encerrada pela compilação acumulada, com Biber, controle de referências e inspeção de margens.
+> O PDF e o Word são regenerados pelo workflow **[Validar fontes e gerar artigo](https://github.com/adinailson88/NOVA-revisao-bibliografica/actions/workflows/latex.yml)** em cada atualização da `main`. O Word é aberto e resalvo pelo LibreOffice, validado como pacote OOXML e convertido novamente em PDF como teste de abertura antes da publicação.
 
 ## Sobre
 
@@ -25,17 +26,17 @@ O texto utiliza citação autor-data e referências formatadas em padrão ABNT.
 
 ## Versão em Word
 
-`artigo.docx` é gerado a partir dos fontes LaTeX (não do PDF, que não é reconvertido para
-texto), via [Pandoc](https://pandoc.org/) com citeproc, a partir do `references.bib`. O
-texto corrido, os títulos, as citações e a lista de referências ficam com texto real e
-selecionável; as 11 tabelas do artigo são reconstruídas como tabelas nativas do Word por
-[`scripts/python/13_preparar_word.py`](scripts/python/13_preparar_word.py), porque o Pandoc
-não interpreta os ambientes `tabularx`/`booktabs` customizados usados no artigo. O
-fluxograma em TikZ e a formatação ABNT fina não são preservados — o `main.pdf` continua
-sendo a versão de referência para citação e submissão. Para regenerar após uma atualização
-do artigo (requer [Pandoc](https://pandoc.org/installing.html) instalado):
+`artigo.docx` é gerado a partir dos fontes LaTeX, e não por reconversão do PDF. O Pandoc preserva texto, títulos, citações e referências; o script [`scripts/python/13_preparar_word.py`](scripts/python/13_preparar_word.py) reconstrói as tabelas nativas, converte figuras incompatíveis, insere os fluxogramas e corrige referências cruzadas. Em seguida, o documento é aberto e resalvo pelo LibreOffice e submetido a três controles:
 
-```
+1. integridade do pacote ZIP/OOXML;
+2. abertura pela biblioteca `python-docx`;
+3. conversão integral para PDF pelo LibreOffice.
+
+O `main.pdf` permanece a versão de referência para citação e submissão.
+
+Para regenerar localmente, com Pandoc, LibreOffice, LaTeX e Python instalados:
+
+```bash
 python scripts/python/13_preparar_word.py
 ```
 
@@ -46,19 +47,14 @@ Scripts vigentes que geram ou validam os produtos apresentados:
 - [Gerador Python das tabelas e dos gráficos do núcleo vigente de 121](scripts/python/gerar_produtos_artigo_nucleo_ampliado.py)
 - [Gerador da bibliometria ampliada em Python](scripts/python/11_gerar_bibliometria_ampliada.py)
 - [Gerador do inventário auditável das referências](scripts/python/12_gerar_lista_referencias.py)
-- [Gerador da versão Word a partir dos fontes LaTeX](scripts/python/13_preparar_word.py)
+- [Gerador e validador da versão Word](scripts/python/13_preparar_word.py)
 - [Gerador das planilhas XLSX e do núcleo final para auditoria](scripts/python/14_gerar_planilhas_auditoria_referencias.py)
 - [Verificador de números, texto, citações e rastreabilidade](scripts/python/verificar_artigo.py)
 - [Workflow completo de geração e validação](.github/workflows/latex.yml)
 - [Demais scripts reprodutíveis em Python](scripts/python/)
 - [Scripts históricos da análise em R](05_ANALISE_R/scripts/)
 
-A pasta [`referencias/`](referencias/) reúne o arquivo BibTeX efetivamente usado, a
-planilha (CSV e XLSX) das referências citadas, o núcleo vigente de 121 registros e o núcleo
-original de 104 preservado como produto histórico, com metadados de auditoria (dimensões,
-critérios, métodos, RQs confirmadas e nível de confiança). Ver o `README.md` da
-pasta para a relação entre as duas listas. PDFs protegidos por direito autoral não são
-redistribuídos pelo repositório.
+A pasta [`referencias/`](referencias/) reúne o arquivo BibTeX efetivamente usado, a planilha das referências citadas, o núcleo vigente de 121 registros e o núcleo original de 104 preservado como produto histórico, com metadados de auditoria. PDFs protegidos por direito autoral não são redistribuídos pelo repositório.
 
 ## Estrutura deste repositório
 
