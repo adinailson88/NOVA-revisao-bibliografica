@@ -190,10 +190,10 @@ def inserir_figuras_tikz(doc):
                 continue
             fonte_tex = raiz / f"figura_tikz_{indice}.tex"
             fonte_tex.write_text(
-                "\documentclass[tikz,border=5pt]{standalone}\n"
-                "\usepackage[utf8]{inputenc}\n\usepackage[T1]{fontenc}\n"
-                "\usetikzlibrary{arrows.meta,positioning}\n\begin{document}\n"
-                f"{tikz}\n\end{{document}}\n",
+                r"\documentclass[tikz,border=5pt]{standalone}" "\n"
+                r"\usepackage[utf8]{inputenc}" "\n" r"\usepackage[T1]{fontenc}" "\n"
+                r"\usetikzlibrary{arrows.meta,positioning}" "\n" r"\begin{document}" "\n"
+                f"{tikz}\n" r"\end{document}" "\n",
                 encoding="utf-8",
             )
             subprocess.run(
