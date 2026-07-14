@@ -52,24 +52,34 @@ completa contra `corpus_consolidado.csv` (ver `03_PROCESSADOS/relatorio_deduplic
 e auditoria temática dedicada de IA/ML (ver `docs/CODEBOOK_SENSIBILIDADE_IA_ML.md` e
 `03_PROCESSADOS/sensibilidade_auditoria_classe_ia_ml.csv`).
 
+## Verificação documental das consultas — atualização em 13/07/2026
 
-## Verificação documental das consultas — 13/07/2026
+As strings completas, os campos, o período, a data, os filtros e os parâmetros operacionais da
+rodada foram consolidados em
+`01_PROTOCOLO/strings_busca_sensibilidade_ia_ml_20260712.md`.
 
-A estratégia foi consolidada em
-`latex-artigo/fontes/tabela_estrategia_busca.csv`, mantendo separadas a busca principal e a
-busca de sensibilidade.
+### Scopus
 
-### Scopus e Web of Science
+- Campo: `TITLE-ABS-KEY`.
+- Período: 2010–2026.
+- Data da execução: 12/07/2026.
+- Filtros adicionais: nenhum além do período de publicação.
+- Total: 3.169 ocorrências brutas.
+- String nativa integral: documentada no arquivo de protocolo indicado acima.
 
-Os arquivos recebidos preservam campo, data, período, identificador da rodada e totais
-exportados, mas não contêm as strings nativas exatas usadas nas interfaces da Scopus e da Web of
-Science. Portanto, a formulação exata dessas duas consultas não foi reconstruída por inferência
-e foi registrada como:
+### Web of Science
 
-> Informação insuficiente para verificar.
+- Base consultada: Web of Science — All Databases.
+- Campo: Topic (`TS`).
+- Período: 2010–2026.
+- Data da execução: 12/07/2026.
+- Filtros adicionais: nenhum além do período de publicação.
+- Total: 1.559 ocorrências brutas.
+- String nativa integral: documentada no arquivo de protocolo indicado acima.
 
-Essa limitação refere-se à expressão nativa, não às contagens: 3.169 registros na Scopus e
-1.559 na Web of Science foram recontados diretamente nos arquivos brutos.
+A busca foi executada na opção All Databases. Os registros exportados apresentam indexação na
+Web of Science Core Collection; essa indexação não altera a identificação da base efetivamente
+consultada.
 
 ### Crossref
 
@@ -88,6 +98,17 @@ com 200 registros por consulta, foram verificadas:
 | `crossref_ia_08` | university building maintenance neural network cost prediction |
 | `crossref_ia_09` | facility management generative AI large language model |
 | `crossref_ia_10` | digital twin building maintenance machine learning |
+
+Parâmetros comuns: endpoint `https://api.crossref.org/works`, parâmetro
+`query.bibliographic`, filtro `from-pub-date:2010-01-01,until-pub-date:2026-12-31`, `rows=200` e
+ordenação por relevância. As 2.000 ocorrências correspondem a 1.993 registros após deduplicação
+interna.
+
+## Situação documental
+
+As lacunas anteriormente registradas para as expressões nativas da Scopus e da Web of Science
+foram encerradas com o fornecimento das strings efetivamente utilizadas pelo pesquisador. Não foi
+necessário refazer as buscas nem reconstruir consultas por inferência.
 
 A soma de 12.118 ocorrências da busca principal e 6.728 da busca de sensibilidade resulta em
 18.846 ocorrências operacionais. Esse valor não representa corpus bruto homogêneo, pois as
