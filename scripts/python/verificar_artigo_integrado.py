@@ -25,10 +25,9 @@ bloco_estilo_novo = '''texto_prosa_sem_base_wos = texto_prosa.replace("Web of Sc
 exigir(" -- " not in texto_prosa_sem_base_wos, "Foi encontrado travessao em sintaxe LaTeX no artigo.")
 '''
 
-bloco_estrutura_antigo = '''exigir(texto_tex.count("\\begin{table}") == 11, "O artigo deve conter onze tabelas, incluindo correntes teoricas, rastreabilidade do protocolo e especificacao dos indicadores.")
-'''
-bloco_estrutura_novo = '''exigir(texto_tex.count("\\begin{table}") == 12, "O artigo deve conter doze tabelas, incluindo o glossário dos conjuntos analíticos.")
-'''
+# O fragmento textual evita ambiguidade de escapes ao localizar a asserção no código-fonte.
+bloco_estrutura_antigo = '== 11, "O artigo deve conter onze tabelas'
+bloco_estrutura_novo = '== 12, "O artigo deve conter doze tabelas'
 
 bloco_lacunas = '''consultas_nao_preservadas = [
     linha["string_id"]
