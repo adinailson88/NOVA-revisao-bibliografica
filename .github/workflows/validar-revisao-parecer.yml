@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validar:
@@ -26,7 +26,7 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check pandas numpy matplotlib scikit-learn openpyxl python-docx
 
-      - name: Regenerar produtos e verificar artigo
+      - name: Regenerar produtos
         env:
           MPLCONFIGDIR: /tmp/matplotlib
         run: |
@@ -34,7 +34,31 @@ jobs:
           python scripts/python/11_gerar_bibliometria_ampliada.py
           python scripts/python/12_gerar_lista_referencias.py
           python scripts/python/14_gerar_planilhas_auditoria_referencias.py
-          python scripts/python/verificar_artigo_integrado.py
+
+      - name: Executar verificador e registrar diagnóstico
+        id: verificar
+        run: |
+          set +e
+          python scripts/python/verificar_artigo_integrado.py > docs/VALIDACAO_PARECER_LOG.txt 2>&1
+          status=$?
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          cat docs/VALIDACAO_PARECER_LOG.txt
+          exit 0
+
+      - name: Salvar diagnóstico na branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/VALIDACAO_PARECER_LOG.txt latex-artigo/fontes/intersecao_camadas_372_121.csv
+          if git diff --cached --quiet; then
+            echo "Diagnóstico inalterado."
+          else
+            git commit -m "Registra diagnóstico da revisão crítica [skip ci]"
+            git push
+          fi
+
+      - name: Confirmar verificador
+        run: test "${{ steps.verificar.outputs.status }}" -eq 0
 
       - name: Instalar compiladores
         run: |
