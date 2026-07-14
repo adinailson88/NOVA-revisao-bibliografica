@@ -1,5 +1,5 @@
 Traceback (most recent call last):
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/verificar_artigo_integrado.py", line 211, in <module>
+  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/verificar_artigo_integrado.py", line 237, in <module>
     raise RuntimeError(f"Bloco antigo não localizado em verificar_artigo.py: {nome}.")
-RuntimeError: Bloco antigo não localizado em verificar_artigo.py: definição conjunta de AHP.
+RuntimeError: Bloco antigo não localizado em verificar_artigo.py: padronização terminológica consolidada.
 codigo_saida=1

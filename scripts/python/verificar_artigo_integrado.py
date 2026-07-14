@@ -122,6 +122,31 @@ bloco_textocompleto_novo = '''exigir(
 )
 '''
 
+bloco_terminologia_antigo = '''for declaracao in (
+    "ambiental, social e de governança (ESG",
+    "MCDM designa \\textit{multi-criteria decision-making}",
+    "MCDA, \\textit{multi-criteria decision analysis}",
+    "AHP corresponde a \\textit{Analytic Hierarchy Process}",
+    "TOPSIS a \\textit{Technique for Order Preference by Similarity to Ideal Solution}",
+    "ANP a \\textit{Analytic Network Process}",
+    "modelagem da informação da construção (BIM",
+    "matriz analítica conceitual informada pela síntese da literatura",
+):
+    exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
+'''
+bloco_terminologia_novo = '''for declaracao in (
+    "ambiental, social e de governança (ESG",
+    "MCDM designa \\textit{multi-criteria decision-making}",
+    "MCDA, \\textit{multi-criteria decision analysis}",
+    "AHP, TOPSIS e ANP correspondem, respectivamente, a \\textit{Analytic Hierarchy Process}",
+    "\\textit{Technique for Order Preference by Similarity to Ideal Solution}",
+    "\\textit{Analytic Network Process}",
+    "modelagem da informação da construção (BIM",
+    "Matriz de indicadores e fluxo para parametrização multicritério",
+):
+    exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
+'''
+
 substituicoes = (
     (bloco_estilo_antigo, bloco_estilo_novo, "controle editorial"),
     (bloco_lacunas, bloco_documentado, "lacunas das strings"),
@@ -129,6 +154,7 @@ substituicoes = (
     (bloco_restricao_antigo, bloco_restricao_atual, "restrição de compilação"),
     (bloco_limitacoes_antigo, bloco_limitacoes_novo, "limitações consolidadas"),
     (bloco_textocompleto_antigo, bloco_textocompleto_novo, "uso pontual de texto completo"),
+    (bloco_terminologia_antigo, bloco_terminologia_novo, "padronização terminológica consolidada"),
     (
         "Rastreabilidade entre evidências e especificação operacional",
         "Rastreabilidade entre evidências e critérios candidatos",
