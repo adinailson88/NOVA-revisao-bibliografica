@@ -185,7 +185,7 @@ Auditoria qualitativa & 137 & Auditoria estruturada de título, resumo, palavras
 \begin{tikzpicture}[
   node distance=6mm and 8mm,
   etapa/.style={draw, rounded corners, align=center, text width=6.0cm, minimum height=10mm, font=\scriptsize},
-  final/.style={draw=black, very thick, rounded corners, align=center, text width=9.2cm, minimum height=10mm, font=\small},
+  final/.style={draw=black, very thick, rounded corners, align=center, text width=6.0cm, minimum height=10mm, font=\small},
   arrow/.style={-Latex, thick}
 ]
 \node[etapa] (p1) {Busca principal \\ 12.118 ocorrências};
@@ -199,8 +199,8 @@ Auditoria qualitativa & 137 & Auditoria estruturada de título, resumo, palavras
 \draw[arrow] (p2) -- (p3);
 \draw[arrow] (s1) -- (s2);
 \draw[arrow] (s2) -- (s3);
-\draw[arrow] (p3) |- (f);
-\draw[arrow] (s3) |- (f);
+\draw[arrow, rounded corners=2mm] (p3.south) |- (f.west);
+\draw[arrow, rounded corners=2mm] (s3.south) |- (f.east);
 \end{tikzpicture}
 \caption{Fluxo integrado da busca principal e da busca complementar de sensibilidade}
 \label{fig:funil}
