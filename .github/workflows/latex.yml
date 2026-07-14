@@ -45,7 +45,22 @@ jobs:
         run: python scripts/python/14_gerar_planilhas_auditoria_referencias.py
 
       - name: Verificar dados, texto, referencias e strings da sensibilidade
-        run: python scripts/python/verificar_artigo_integrado.py
+        id: verificar
+        continue-on-error: true
+        run: python scripts/python/verificar_artigo_integrado.py > docs/DIAGNOSTICO_VERIFICADOR.txt 2>&1
+
+      - name: Publicar diagnóstico quando houver falha
+        if: steps.verificar.outcome == 'failure'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/DIAGNOSTICO_VERIFICADOR.txt
+          git commit -m "CI: registra segunda falha do verificador [skip ci]" || true
+          git push
+
+      - name: Interromper em caso de falha do verificador
+        if: steps.verificar.outcome == 'failure'
+        run: exit 1
 
       - name: Instalar TeX Live
         run: |
