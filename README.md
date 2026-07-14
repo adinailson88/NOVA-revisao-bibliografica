@@ -2,11 +2,11 @@
 
 ## Arquivos para leitura
 
-Os links abaixo apontam para arquivos publicados no GitHub Pages e funcionam sem depender do visualizador de arquivos binários do aplicativo GitHub:
+Os links abaixo apontam diretamente para os arquivos validados na branch `main` e não dependem do GitHub Pages:
 
-- **[Abrir ou baixar o artigo em PDF](https://adinailson88.github.io/NOVA-revisao-bibliografica/artigo.pdf)**
-- **[Baixar a versão Word validada](https://adinailson88.github.io/NOVA-revisao-bibliografica/artigo.docx)**
-- **[Abrir a página do artigo com os botões de download](https://adinailson88.github.io/NOVA-revisao-bibliografica/)**
+- **[Abrir ou baixar o artigo em PDF](https://github.com/adinailson88/NOVA-revisao-bibliografica/raw/refs/heads/main/main.pdf)**
+- **[Baixar a versão Word validada](https://github.com/adinailson88/NOVA-revisao-bibliografica/raw/refs/heads/main/artigo.docx)**
+- **[Visualizar o PDF dentro do repositório](https://github.com/adinailson88/NOVA-revisao-bibliografica/blob/main/main.pdf)**
 - **[Consultar a lista auditável de referências](referencias/lista_referencias.csv)**
 - **[Consultar os arquivos e evidências bibliográficas](referencias/)**
 
