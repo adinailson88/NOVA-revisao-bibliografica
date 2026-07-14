@@ -52,8 +52,8 @@ Revisão integral dos pontos apresentados no parecer crítico sobre o artigo, co
 - [x] PDF compilado integralmente em formato A4, sem erro e sem `Overfull hbox` na execução final.
 - [x] Word gerado com as 12 tabelas e os fluxogramas, validado como pacote OOXML e reconvertido integralmente em PDF pelo LibreOffice.
 - [x] Artefatos PDF e Word publicados pela execução nº 280 do workflow `Validar fontes e gerar artigo`.
-- [ ] Workflows e arquivos temporários de diagnóstico removidos após a validação.
-- [ ] Workflow permanente restaurado para o comportamento normal da `main`.
-- [ ] Revisão final de coerência, rastreabilidade e estado do PR concluída.
+- [x] Workflows e arquivos temporários de diagnóstico removidos após a validação.
+- [x] Workflow permanente restaurado para executar a compilação completa na `main` ou manualmente, mantendo no PR a validação de dados, texto e referências.
+- [x] Revisão final de coerência e rastreabilidade concluída; a execução nº 289 confirmou o estado limpo do PR sem divergências.
 
 Este arquivo preserva o histórico verificável das alterações, dos erros encontrados durante a compilação e das respectivas correções.
