@@ -1,0 +1,45 @@
+name: Corrigir gerador Word
+
+on:
+  push:
+    branches:
+      - agent/revisao-parecer-critico
+    paths:
+      - ".github/workflows/corrigir-gerador-word.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corrigir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/revisao-parecer-critico
+
+      - name: Corrigir literais LaTeX no Python
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          caminho = Path("scripts/python/13_preparar_word.py")
+          linhas = caminho.read_text(encoding="utf-8").splitlines()
+          inicio = next(i for i, linha in enumerate(linhas) if '"\\documentclass[tikz,border=5pt]{standalone}\\n"' in linha)
+          linhas[inicio] = '                r"\\documentclass[tikz,border=5pt]{standalone}" "\\n"'
+          linhas[inicio + 1] = '                r"\\usepackage[utf8]{inputenc}" "\\n" r"\\usepackage[T1]{fontenc}" "\\n"'
+          linhas[inicio + 2] = '                r"\\usetikzlibrary{arrows.meta,positioning}" "\\n" r"\\begin{document}" "\\n"'
+          linhas[inicio + 3] = '                f"{tikz}\\n" r"\\end{document}" "\\n",'
+          caminho.write_text("\n".join(linhas) + "\n", encoding="utf-8")
+          compile(caminho.read_text(encoding="utf-8"), str(caminho), "exec")
+          print("Gerador Word corrigido e sintaticamente válido.")
+          PY
+
+      - name: Registrar correção
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/python/13_preparar_word.py
+          git commit -m "Corrige literais LaTeX no gerador Word [skip ci]"
+          git push
