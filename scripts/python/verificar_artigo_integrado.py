@@ -1,8 +1,8 @@
 """Executa o verificador completo com controles editoriais atualizados.
 
 O arquivo original ``verificar_artigo.py`` permanece como base das verificações acumuladas.
-Este adaptador substitui somente controles obsoletos e acrescenta testes de regressão para
-as correções realizadas após o parecer crítico.
+Este adaptador substitui controles textuais obsoletos e acrescenta testes de regressão para
+as revisões metodológica e editorial.
 """
 
 from __future__ import annotations
@@ -16,6 +16,7 @@ ORIGINAL = ROOT / "scripts" / "python" / "verificar_artigo.py"
 PROTOCOLO = ROOT / "01_PROTOCOLO" / "strings_busca_sensibilidade_ia_ml_20260712.md"
 ARTIGO = ROOT / "latex-artigo"
 SECOES = ARTIGO / "sections"
+SUPLEMENTO = ARTIGO / "suplemento" / "material_suplementar.tex"
 
 fonte = ORIGINAL.read_text(encoding="utf-8")
 
@@ -85,18 +86,49 @@ bloco_restricao_antigo = '''exigir(
     "PDF e Word devem permanecer restritos a execucao manual ou main.",
 )
 '''
-bloco_restricao_temporario = '''exigir(
+bloco_restricao_atual = '''exigir(
     "python scripts/python/gerar_produtos_artigo_nucleo_ampliado.py" in workflow,
     "O workflow final deve continuar gerando os produtos temáticos vigentes.",
 )
 '''
 
+bloco_limitacoes_antigo = '''padroes_limitacoes = (
+    r"Não houve pré-registro(?: público do protocolo)?(?:\\.|,)",
+    r"sem (?:segundo revisor independente e sem medida de |revisão independente ou )concordância interavaliadores",
+    r"(?:não foram realizadas|Não houve[^.]*?) busca de citações para frente ou para trás",
+    r"(?:nem |não houve )busca estruturada de literatura cinzenta",
+    r"(?:Trinta e sete estudos com texto completo disponível foram posteriormente lidos|37 textos foram consultados e 19 acrescentaram evidências específicas)",
+    r"A unidade (?:de análise )?quantitativa é o registro bibliográfico consolidado",
+)
+'''
+bloco_limitacoes_novo = '''padroes_limitacoes = (
+    r"deixou para estudos futuros pré-registro",
+    r"Triagem e codificação foram conduzidas por um avaliador",
+    r"rastreamento de citações",
+    r"busca estruturada de literatura cinzenta",
+    r"37 leituras integrais, das quais 19 acrescentaram evidências específicas",
+    r"A unidade quantitativa é o registro consolidado",
+)
+'''
+
+bloco_textocompleto_antigo = '''exigir(
+    "37 estudos com texto completo disponível foram lidos integralmente; 19 forneceram evidências específicas" in texto_tex,
+    "O método deve registrar os três lotes de texto completo.",
+)
+'''
+bloco_textocompleto_novo = '''exigir(
+    "Entre 37 textos completos consultados em tarefas posteriores, 19 acrescentaram evidências específicas" in texto_tex,
+    "O método deve registrar o uso pontual de texto completo.",
+)
+'''
+
 substituicoes = (
     (bloco_estilo_antigo, bloco_estilo_novo, "controle editorial"),
-    ('== 11, "O artigo deve conter onze tabelas', '== 12, "O artigo deve conter doze tabelas', "quantidade de tabelas"),
     (bloco_lacunas, bloco_documentado, "lacunas das strings"),
     (bloco_texto_antigo, bloco_texto_novo, "controle textual"),
-    (bloco_restricao_antigo, bloco_restricao_temporario, "restrição temporária de compilação"),
+    (bloco_restricao_antigo, bloco_restricao_atual, "restrição de compilação"),
+    (bloco_limitacoes_antigo, bloco_limitacoes_novo, "limitações consolidadas"),
+    (bloco_textocompleto_antigo, bloco_textocompleto_novo, "uso pontual de texto completo"),
     (
         "Rastreabilidade entre evidências e especificação operacional",
         "Rastreabilidade entre evidências e critérios candidatos",
@@ -109,13 +141,18 @@ substituicoes = (
     ),
     (
         "As frequências não constituem pesos da matriz.",
-        "As frequências documentais sustentam a seleção inicial dos critérios, mas não constituem pesos nem definem sua importância normativa.",
+        "As frequências sustentam a seleção inicial, enquanto pesos e importância normativa serão definidos na validação institucional.",
         "declaração sobre frequências e pesos",
     ),
     (
+        "ela funciona como eixo transversal",
+        "a dimensão ciclo de vida atua transversalmente",
+        "transversalidade do ciclo de vida",
+    ),
+    (
         "não é um modelo validado nem um instrumento pronto para decisão",
-        "não constitui método multicritério parametrizado, modelo validado ou instrumento pronto para decisão",
-        "estado não validado da especificação",
+        "O produto entrega uma especificação para validação futura",
+        "estado da especificação",
     ),
     (
         '"matriz analítica conceitual informada pela síntese da literatura",',
@@ -163,10 +200,10 @@ texto_artigo = "\n".join(
 controles_parecer = (
     "especificação para parametrização multicritério",
     "109 dos 121 registros do núcleo temático vigente também pertencem ao estrato bibliométrico de 372",
-    "12 registros (9,9\\%) foram classificados especificamente",
+    "Doze registros (9,9\\%) foram classificados especificamente",
     "proposições do autor para validação institucional",
-    "não constitui método multicritério parametrizado",
-    "Como proposição do autor",
+    "O produto entrega uma especificação para validação futura",
+    "A contribuição central é uma especificação operacional candidata e rastreável",
     "Intensidade energética em base móvel de 12 meses",
 )
 for trecho in controles_parecer:
@@ -178,9 +215,22 @@ for trecho_proibido in (
     "Orçamentos e SINAPI",
     "Consumo anual por área",
     "protocolo multicritério adaptável",
+    "Em resposta à RQ",
 ):
     if trecho_proibido in texto_artigo:
         raise AssertionError(f"Formulação superada ainda presente no artigo: {trecho_proibido}")
+
+if not SUPLEMENTO.exists():
+    raise AssertionError("Material suplementar da revisão editorial ausente.")
+texto_suplemento = SUPLEMENTO.read_text(encoding="utf-8")
+for trecho in (
+    "Tabela S1 --- Resultados e controles da deduplicação",
+    "Tabela S2 --- Matriz comparativa dos 17 registros da busca de sensibilidade",
+    "Registros brutos normalizados & 12.118",
+    "Conflitos preservados & 98",
+):
+    if trecho not in texto_suplemento:
+        raise AssertionError(f"Conteúdo suplementar obrigatório ausente: {trecho}")
 
 with (ARTIGO / "fontes" / "intersecao_camadas_372_121.csv").open(
     encoding="utf-8-sig", newline=""
@@ -201,4 +251,4 @@ esperado_intersecao = {
 if resultado_intersecao != esperado_intersecao:
     raise AssertionError(f"Interseção entre camadas divergente: {resultado_intersecao}")
 
-print("Controles do parecer crítico: OK")
+print("Controles do parecer crítico e da revisão editorial: OK")
