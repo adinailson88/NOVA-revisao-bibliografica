@@ -148,7 +148,7 @@ def corrigir_referencias_cruzadas(doc):
     contadores = {"tab": 0, "fig": 0}
     for fonte in sorted((LATEX_DIR / "sections").glob("*.tex")):
         conteudo = fonte.read_text(encoding="utf-8")
-        for tipo, rotulo in re.findall(r"\\label\{(tab|fig):([^}]+)\}", conteudo):
+        for tipo, rotulo in re.findall(r"\label\{(tab|fig):([^}]+)\}", conteudo):
             contadores[tipo] += 1
             numeros[f"{tipo}:{rotulo}"] = str(contadores[tipo])
 
@@ -173,7 +173,7 @@ def inserir_figuras_tikz(doc):
         sys.exit("pdflatex e pdftoppm sao necessarios para preservar fluxogramas TikZ.")
 
     padrao = re.compile(
-        r"\\begin\{figure\}.*?(\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}).*?\\caption\{([^{}]+)\}",
+        r"\begin\{figure\}.*?(\begin\{tikzpicture\}.*?\end\{tikzpicture\}).*?\caption\{([^{}]+)\}",
         re.DOTALL,
     )
     blocos = []
@@ -190,10 +190,10 @@ def inserir_figuras_tikz(doc):
                 continue
             fonte_tex = raiz / f"figura_tikz_{indice}.tex"
             fonte_tex.write_text(
-                "\\documentclass[tikz,border=5pt]{standalone}\n"
-                "\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n"
-                "\\usetikzlibrary{arrows.meta,positioning}\n\\begin{document}\n"
-                f"{tikz}\n\\end{document}\n",
+                "\documentclass[tikz,border=5pt]{standalone}\n"
+                "\usepackage[utf8]{inputenc}\n\usepackage[T1]{fontenc}\n"
+                "\usetikzlibrary{arrows.meta,positioning}\n\begin{document}\n"
+                f"{tikz}\n\end{{document}}\n",
                 encoding="utf-8",
             )
             subprocess.run(
