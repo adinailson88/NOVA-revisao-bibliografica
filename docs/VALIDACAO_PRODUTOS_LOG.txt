@@ -1417,8 +1417,8 @@ INFO - Processing section 0
 INFO - Looking for bibtex file 'references.bib' for section 0
 INFO - LaTeX decoding ...
 INFO - Found BibTeX data source 'references.bib'
-INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
 INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
 INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'pt-BR'
 INFO - No sort tailoring available for locale 'pt-BR'
 INFO - Writing 'main.bbl' with encoding 'UTF-8'
@@ -1965,10 +1965,35 @@ Pages:           32
 Page size:       595.276 x 841.89 pts (A4)
 PDF_STATUS=0
 VALIDAÇÃO DO WORD
-/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py:193: SyntaxWarning: invalid escape sequence '\d'
-  "\documentclass[tikz,border=5pt]{standalone}\n"
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 194
-    "\usepackage[utf8]{inputenc}\n\usepackage[T1]{fontenc}\n"
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 0-1: truncated \uXXXX escape
+Figuras PDF convertidas para PNG: 4
+Tabelas reconstruidas: 12
+Traceback (most recent call last):
+  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 290, in <module>
+    corrigir_docx()
+  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 237, in corrigir_docx
+    corrigir_referencias_cruzadas(doc)
+  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 151, in corrigir_referencias_cruzadas
+    for tipo, rotulo in re.findall(r"\label\{(tab|fig):([^}]+)\}", conteudo):
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/re/__init__.py", line 217, in findall
+    return _compile(pattern, flags).findall(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/re/__init__.py", line 307, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/re/_compiler.py", line 745, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/re/_parser.py", line 979, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/re/_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/re/_parser.py", line 544, in _parse
+    code = _escape(source, this, state)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/re/_parser.py", line 443, in _escape
+    raise source.error("bad escape %s" % escape, len(escape))
+re.error: bad escape \l at position 0
 WORD_STATUS=1
