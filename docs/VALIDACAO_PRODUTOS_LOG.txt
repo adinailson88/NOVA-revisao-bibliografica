@@ -468,72 +468,42 @@ LaTeX Warning: Citation 'das_iotai_2025' on page 4 undefined on input line 31.
 
 
 LaTeX Warning: Citation 'deng_bimdigitaltwins_2021' on page 4 undefined on inpu
-t line 31.
+t line 33.
 
 
 LaTeX Warning: Citation 'gispert_ontologiaativos_2025' on page 4 undefined on i
-nput line 31.
+nput line 33.
 
 
 LaTeX Warning: Citation 'goretti_bimoem_2023' on page 4 undefined on input line
- 31.
-
-
-LaTeX Warning: Citation 'deng_bimdigitaltwins_2021' on page 4 undefined on inpu
-t line 31.
-
-
-LaTeX Warning: Citation 'gispert_ontologiaativos_2025' on page 4 undefined on i
-nput line 31.
-
-
-LaTeX Warning: Citation 'goretti_bimoem_2023' on page 4 undefined on input line
- 31.
+ 33.
 
 
 LaTeX Warning: Citation 'motuziene_ventilacaoia_2025' on page 4 undefined on in
-put line 31.
+put line 33.
 
 
 LaTeX Warning: Citation 'wu_gnnvidautil_2025' on page 4 undefined on input line
- 31.
+ 33.
 
 
-LaTeX Warning: Citation 'das_iotai_2025' on page 4 undefined on input line 31.
+LaTeX Warning: Citation 'das_iotai_2025' on page 4 undefined on input line 33.
 
 
-LaTeX Warning: Citation 'das_iotai_2025' on page 4 undefined on input line 31.
+LaTeX Warning: Citation 'das_iotai_2025' on page 4 undefined on input line 33.
 
-
-LaTeX Warning: Citation 'deng_bimdigitaltwins_2021' on page 4 undefined on inpu
-t line 31.
-
-
-LaTeX Warning: Citation 'gispert_ontologiaativos_2025' on page 4 undefined on i
-nput line 31.
-
-
-LaTeX Warning: Citation 'goretti_bimoem_2023' on page 4 undefined on input line
- 31.
-
-
-Overfull \hbox (37.90883pt too wide) in paragraph at lines 31--32
-\T1/lmr/m/n/12 (-20) ([]; []; [];
-
-Overfull \hbox (42.38678pt too wide) in paragraph at lines 31--32
-\T1/lmr/m/n/12 (-20) ([]; []; []);
 [4]
 
 LaTeX Warning: Citation 'alfalah_frameworkeducacional_2022' on page 5 undefined
- on input line 33.
+ on input line 35.
 
 
 LaTeX Warning: Citation 'naji_campusdelphi_2023' on page 5 undefined on input l
-ine 33.
+ine 35.
 
 
 LaTeX Warning: Citation 'masmoudi_ahptopsis_2026' on page 5 undefined on input 
-line 33.
+line 35.
 
 ) (./sections/03_metodologia.tex
 
@@ -1109,7 +1079,7 @@ nts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
 /public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmtt8.pfb>
-Output written on main.pdf (29 pages, 1254036 bytes).
+Output written on main.pdf (29 pages, 1253962 bytes).
 Transcript written on main.log.
 Latexmk: Missing bbl file 'main.bbl' in following:
  No file main.bbl.
@@ -1418,7 +1388,7 @@ ts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmtt8.pfb>
-Output written on main.pdf (32 pages, 1262588 bytes).
+Output written on main.pdf (32 pages, 1261885 bytes).
 Transcript written on main.log.
 Latexmk: Getting log file 'main.log'
 Latexmk: Examining 'main.fls'
@@ -1712,7 +1682,7 @@ ts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmtt8.pfb>
-Output written on main.pdf (32 pages, 1262588 bytes).
+Output written on main.pdf (32 pages, 1261885 bytes).
 Transcript written on main.log.
 Latexmk: Getting log file 'main.log'
 Latexmk: Examining 'main.fls'
@@ -1978,7 +1948,7 @@ ts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmtt8.pfb>
-Output written on main.pdf (32 pages, 1262588 bytes).
+Output written on main.pdf (32 pages, 1261885 bytes).
 Transcript written on main.log.
 Latexmk: Getting log file 'main.log'
 Latexmk: Examining 'main.fls'
@@ -1989,22 +1959,16 @@ Latexmk: Bibliography file(s) from .bcf file:
   references.bib
 Latexmk: All targets (main.pdf) are up-to-date
 
-PDF_BYTES=1262588
+PDF_BYTES=1261885
 MARGENS=OK
 Pages:           32
 Page size:       595.276 x 841.89 pts (A4)
 PDF_STATUS=0
 VALIDAÇÃO DO WORD
-Figuras PDF convertidas para PNG: 4
-Tabelas reconstruidas: 12
-Referencias cruzadas numeradas: 14
-Traceback (most recent call last):
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 290, in <module>
-    corrigir_docx()
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 238, in corrigir_docx
-    inserir_figuras_tikz(doc)
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 196, in inserir_figuras_tikz
-    f"{tikz}\n\\end{document}\n",
-                    ^^^^^^^^
-NameError: name 'document' is not defined
+/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py:193: SyntaxWarning: invalid escape sequence '\d'
+  "\documentclass[tikz,border=5pt]{standalone}\n"
+  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 194
+    "\usepackage[utf8]{inputenc}\n\usepackage[T1]{fontenc}\n"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 0-1: truncated \uXXXX escape
 WORD_STATUS=1
