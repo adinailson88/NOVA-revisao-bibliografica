@@ -1,0 +1,5 @@
+  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/17_atualizar_verificador_editorial.py", line 39
+    bloco_limitacoes_antigo = '''padroes_limitacoes = (
+                                 ^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax
+codigo_saida=1
