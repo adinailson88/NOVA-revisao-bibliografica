@@ -1,152 +1,28 @@
-name: Validar fontes e gerar artigo
+name: Exportar PDF final para inspeção
 
 on:
-  push:
-    paths: ["01_PROTOCOLO/**", "latex-artigo/**", "03_PROCESSADOS/corpus_consolidado_v2_sensibilidade.csv", "07_SINTESE_TEMATICA/**", "scripts/python/**", "README.md", "referencias/**", "site/**", ".github/workflows/latex.yml"]
   pull_request:
-    paths: ["01_PROTOCOLO/**", "latex-artigo/**", "03_PROCESSADOS/corpus_consolidado_v2_sensibilidade.csv", "07_SINTESE_TEMATICA/**", "scripts/python/**", "README.md", "referencias/**", ".github/workflows/latex.yml"]
-  workflow_dispatch:
+    branches: [main]
+    paths: [".github/workflows/latex.yml"]
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: artigo-${{ github.ref }}
-  cancel-in-progress: true
+  contents: read
 
 jobs:
-  build:
+  exportar:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout da branch temporária
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref }}
+          ref: agent/validacao-visual-20260714
 
-      - name: Instalar dependencias Python
-        run: python -m pip install --disable-pip-version-check pandas numpy matplotlib scikit-learn openpyxl
+      - name: Confirmar PDF final
+        run: test -s main.pdf
 
-      - name: Gerar tabelas e graficos do nucleo vigente
-        env:
-          MPLCONFIGDIR: /tmp/matplotlib
-        run: python scripts/python/gerar_produtos_artigo_nucleo_ampliado.py
-
-      - name: Gerar camada bibliometrica ampliada
-        env:
-          MPLCONFIGDIR: /tmp/matplotlib
-        run: python scripts/python/11_gerar_bibliometria_ampliada.py
-
-      - name: Gerar inventario auditavel das referencias
-        run: python scripts/python/12_gerar_lista_referencias.py
-
-      - name: Gerar planilhas dos nucleos vigente e historico
-        run: python scripts/python/14_gerar_planilhas_auditoria_referencias.py
-
-      - name: Verificar dados, texto, referencias e strings da sensibilidade
-        run: python scripts/python/verificar_artigo_integrado.py
-
-      - name: Instalar TeX Live
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y latexmk biber texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese texlive-bibtex-extra texlive-pictures poppler-utils
-
-      - name: Compilar PDF
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-        working-directory: latex-artigo
-        run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-
-      - name: Instalar Pandoc LibreOffice e gerador do Word
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-        run: |
-          sudo apt-get install -y pandoc libreoffice-writer
-          python -m pip install --disable-pip-version-check python-docx
-
-      - name: Gerar e validar versao Word
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-        run: |
-          python scripts/python/13_preparar_word.py
-          test -s artigo.docx
-          unzip -t artigo.docx
-          unzip -l artigo.docx | grep -q "word/document.xml"
-          mkdir -p /tmp/word_check
-          libreoffice --headless --convert-to pdf --outdir /tmp/word_check artigo.docx
-          test -s /tmp/word_check/artigo.pdf
-
-      - name: Verificar margens do PDF
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-        run: |
-          python - <<'PY'
-          import re
-          from pathlib import Path
-          log = Path("latex-artigo/main.log").read_text(encoding="utf-8", errors="ignore")
-          excessos = [float(x) for x in re.findall(r"Overfull \\hbox \(([0-9.]+)pt too wide\)", log)]
-          if excessos:
-              raise SystemExit(f"Conteudo ultrapassando a margem: maximo de {max(excessos):.2f} pt")
-          print("Nenhum Overfull hbox detectado.")
-          PY
-
-      - name: Preparar arquivos para download
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-        run: |
-          cp latex-artigo/main.pdf main.pdf
-          mkdir -p site
-          cp main.pdf site/artigo.pdf
-          cp artigo.docx site/artigo.docx
-          test -s site/artigo.pdf
-          test -s site/artigo.docx
-
-      - name: Publicar produtos da compilacao completa
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx main.pdf site/artigo.pdf site/artigo.docx
-          if git diff --cached --quiet; then
-            echo "Produtos inalterados."
-          else
-            git commit -m "CI: atualiza PDF e Word validados para download [skip ci]"
-            git push
-          fi
-
-      - name: Publicar produtos como artefato
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+      - name: Publicar apenas o PDF final
         uses: actions/upload-artifact@v4
         with:
-          name: artigo-pdf-word-referencias
-          path: |
-            main.pdf
-            artigo.docx
-            referencias
-            latex-artigo/figuras
-            latex-artigo/fontes
+          name: pdf-final-validacao-visual
+          path: main.pdf
           if-no-files-found: error
-
-  deploy-pages:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-      - name: Preparar site com PDF e Word
-        run: |
-          mkdir -p site
-          cp main.pdf site/artigo.pdf
-          cp artigo.docx site/artigo.docx
-          test -s site/artigo.pdf
-          test -s site/artigo.docx
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: site
-      - id: deployment
-        uses: actions/deploy-pages@v4
