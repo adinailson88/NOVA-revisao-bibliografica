@@ -181,11 +181,6 @@ substituicoes = (
         "estado da especificação",
     ),
     (
-        '"matriz analítica conceitual informada pela síntese da literatura",',
-        '"Matriz de indicadores e fluxo para parametrização multicritério",',
-        "padronização terminológica da matriz",
-    ),
-    (
         "Dez concentram-se em previsão ou previsão combinada à otimização",
         "dez estudos em previsão ou previsão com otimização",
         "síntese quantitativa das funções de IA",
