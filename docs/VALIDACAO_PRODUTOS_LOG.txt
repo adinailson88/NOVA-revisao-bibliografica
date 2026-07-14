@@ -1079,7 +1079,7 @@ nts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
 /public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmtt8.pfb>
-Output written on main.pdf (29 pages, 1253962 bytes).
+Output written on main.pdf (29 pages, 1253960 bytes).
 Transcript written on main.log.
 Latexmk: Missing bbl file 'main.bbl' in following:
  No file main.bbl.
@@ -1111,8 +1111,8 @@ INFO - Processing section 0
 INFO - Looking for bibtex file 'references.bib' for section 0
 INFO - LaTeX decoding ...
 INFO - Found BibTeX data source 'references.bib'
-INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'pt-BR'
 INFO - No sort tailoring available for locale 'pt-BR'
 INFO - Writing 'main.bbl' with encoding 'UTF-8'
@@ -1417,8 +1417,8 @@ INFO - Processing section 0
 INFO - Looking for bibtex file 'references.bib' for section 0
 INFO - LaTeX decoding ...
 INFO - Found BibTeX data source 'references.bib'
-INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
+INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
 INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'pt-BR'
 INFO - No sort tailoring available for locale 'pt-BR'
 INFO - Writing 'main.bbl' with encoding 'UTF-8'
@@ -1965,35 +1965,212 @@ Pages:           32
 Page size:       595.276 x 841.89 pts (A4)
 PDF_STATUS=0
 VALIDAÇÃO DO WORD
+
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600 ecbx0900
+mktexpk: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1+0/600; nonstopmode; input ecbx0900
+This is METAFONT, Version 2.71828182 (TeX Live 2023/Debian) (preloaded base=mf)
+
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecbx0900.mf
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecbx.mf
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exroman.mf
+ Ok (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exaccess.mf
+ Ok) (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/expseudo.mf
+ Ok) (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exruwest.mf
+ Ok [192] [193] [194] [195] [196] [197] [198] [199] [200] [201] [202] [203]
+[204] [205] [206] [207] [208] [209] [210] [211] [212] [213] [214] [215]
+[216] [217] [218] [219] [220] [221] [222] [223])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrlwest.mf
+ Ok [224] [225] [226] [227] [228] [229] [230] [231] [232] [233] [234] [235]
+[236] [237] [238] [239] [240] [241] [242] [243] [244] [245] [246] [247]
+[248] [249] [250] [251] [252] [253] [254] [255])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrueast.mf
+ Ok [128] [129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139]
+[140] [141] [142] [143] [144] [145] [146] [147] [148] [149] [150] [151]
+[152] [153] [154] [155] [156] [157])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrleast.mf
+ Ok [158] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
+[171] [172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182]
+[183] [184] [185] [186] [187] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exbraces.mf
+ Ok [94] [126] [23] [40] [41] [60] [124] [62] [91] [93] [92] [123] [125]
+[95] [127] [32])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/expunct.mf
+ Ok [14] [15] [19] [20] [13] [18] [33] [39] [42] [43] [44] [46] [47] [58]
+[59] [61] [96] [189] [17] [45] [16] [21] [22])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exaccent.mf
+ Ok [0] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exsign.mf
+ Ok [24] [34] [35] [36] [37] [64] [191] [159])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrlig.mf
+ Ok [25] [26] [28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exromp.mf
+ Ok [38] [63] [190])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf
+ Ok [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78]
+[79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf
+ Ok [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108]
+[109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120]
+[121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrdigit.mf
+ Ok [48] [49] [50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrligtb.mf
+ Ok) ) ) )
+Font metrics written on ecbx0900.tfm.
+Output written on ecbx0900.600gf (256 characters, 45332 bytes).
+Transcript written on ecbx0900.log.
+mktexpk: /home/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk: successfully generated.
+
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600 ecrm0900
+mktexpk: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1+0/600; nonstopmode; input ecrm0900
+This is METAFONT, Version 2.71828182 (TeX Live 2023/Debian) (preloaded base=mf)
+
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm0900.mf
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exroman.mf
+ Ok (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exaccess.mf
+ Ok) (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/expseudo.mf
+ Ok) (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exruwest.mf
+ Ok [192] [193] [194] [195] [196] [197] [198] [199] [200] [201] [202] [203]
+[204] [205] [206] [207] [208] [209] [210] [211] [212] [213] [214] [215]
+[216] [217] [218] [219] [220] [221] [222] [223])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrlwest.mf
+ Ok [224] [225] [226] [227] [228] [229] [230] [231] [232] [233] [234] [235]
+[236] [237] [238] [239] [240] [241] [242] [243] [244] [245] [246] [247]
+[248] [249] [250] [251] [252] [253] [254] [255])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrueast.mf
+ Ok [128] [129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139]
+[140] [141] [142] [143] [144] [145] [146] [147] [148] [149] [150] [151]
+[152] [153] [154] [155] [156] [157])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrleast.mf
+ Ok [158] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
+[171] [172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182]
+[183] [184] [185] [186] [187] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exbraces.mf
+ Ok [94] [126] [23] [40] [41] [60] [124] [62] [91] [93] [92] [123] [125]
+[95] [127] [32])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/expunct.mf
+ Ok [14] [15] [19] [20] [13] [18] [33] [39] [42] [43] [44] [46] [47] [58]
+[59] [61] [96] [189] [17] [45] [16] [21] [22])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exaccent.mf
+ Ok [0] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exsign.mf
+ Ok [24] [34] [35] [36] [37] [64] [191] [159])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrlig.mf
+ Ok [25] [26] [28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exromp.mf
+ Ok [38] [63] [190])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf
+ Ok [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78]
+[79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf
+ Ok [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108]
+[109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120]
+[121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrdigit.mf
+ Ok [48] [49] [50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrligtb.mf
+ Ok) ) ) )
+(some charht values had to be adjusted by as much as 0.07498pt)
+Font metrics written on ecrm0900.tfm.
+Output written on ecrm0900.600gf (256 characters, 46448 bytes).
+Transcript written on ecrm0900.log.
+mktexpk: /home/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk: successfully generated.
+
+kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600 ecrm0700
+mktexpk: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1+0/600; nonstopmode; input ecrm0700
+This is METAFONT, Version 2.71828182 (TeX Live 2023/Debian) (preloaded base=mf)
+
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm0700.mf
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exbase.mf)
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/ecrm.mf
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exroman.mf
+ Ok (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exaccess.mf
+ Ok) (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/expseudo.mf
+ Ok) (/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exruwest.mf
+ Ok [192] [193] [194] [195] [196] [197] [198] [199] [200] [201] [202] [203]
+[204] [205] [206] [207] [208] [209] [210] [211] [212] [213] [214] [215]
+[216] [217] [218] [219] [220] [221] [222] [223])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrlwest.mf
+ Ok [224] [225] [226] [227] [228] [229] [230] [231] [232] [233] [234] [235]
+[236] [237] [238] [239] [240] [241] [242] [243] [244] [245] [246] [247]
+[248] [249] [250] [251] [252] [253] [254] [255])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrueast.mf
+ Ok [128] [129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139]
+[140] [141] [142] [143] [144] [145] [146] [147] [148] [149] [150] [151]
+[152] [153] [154] [155] [156] [157])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrleast.mf
+ Ok [158] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
+[171] [172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182]
+[183] [184] [185] [186] [187] [188])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exbraces.mf
+ Ok [94] [126] [23] [40] [41] [60] [124] [62] [91] [93] [92] [123] [125]
+[95] [127] [32])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/expunct.mf
+ Ok [14] [15] [19] [20] [13] [18] [33] [39] [42] [43] [44] [46] [47] [58]
+[59] [61] [96] [189] [17] [45] [16] [21] [22])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exaccent.mf
+ Ok [0] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exsign.mf
+ Ok [24] [34] [35] [36] [37] [64] [191] [159])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrlig.mf
+ Ok [25] [26] [28] [27] [29] [30] [31])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exromp.mf
+ Ok [38] [63] [190])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrulett.mf
+ Ok [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78]
+[79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrllett.mf
+ Ok [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108]
+[109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120]
+[121] [122])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrdigit.mf
+ Ok [48] [49] [50] [51] [52] [53] [54] [55] [56] [57])
+(/usr/share/texlive/texmf-dist/fonts/source/jknappen/ec/exrligtb.mf
+ Ok) ) ) )
+Font metrics written on ecrm0700.tfm.
+Output written on ecrm0700.600gf (256 characters, 37344 bytes).
+Transcript written on ecrm0700.log.
+mktexpk: /home/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk: successfully generated.
 Figuras PDF convertidas para PNG: 4
 Tabelas reconstruidas: 12
-Traceback (most recent call last):
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 290, in <module>
-    corrigir_docx()
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 237, in corrigir_docx
-    corrigir_referencias_cruzadas(doc)
-  File "/home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/scripts/python/13_preparar_word.py", line 151, in corrigir_referencias_cruzadas
-    for tipo, rotulo in re.findall(r"\label\{(tab|fig):([^}]+)\}", conteudo):
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/re/__init__.py", line 217, in findall
-    return _compile(pattern, flags).findall(string)
-           ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/re/__init__.py", line 307, in _compile
-    p = _compiler.compile(pattern, flags)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/re/_compiler.py", line 745, in compile
-    p = _parser.parse(p, flags)
-        ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/re/_parser.py", line 979, in parse
-    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/re/_parser.py", line 460, in _parse_sub
-    itemsappend(_parse(source, state, verbose, nested + 1,
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/re/_parser.py", line 544, in _parse
-    code = _escape(source, this, state)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/re/_parser.py", line 443, in _escape
-    raise source.error("bad escape %s" % escape, len(escape))
-re.error: bad escape \l at position 0
-WORD_STATUS=1
+Referencias cruzadas numeradas: 14
+Fluxogramas TikZ inseridos: 2
+Word gerado com 206 paragrafos e 14 tabelas.
+Word aberto e resalvo com sucesso pelo LibreOffice.
+Word validado: 1183084 bytes.
+Archive:  artigo.docx
+    testing: _rels/.rels              OK
+    testing: docProps/core.xml        OK
+    testing: docProps/app.xml         OK
+    testing: docProps/custom.xml      OK
+    testing: word/styles.xml          OK
+    testing: word/_rels/document.xml.rels   OK
+    testing: word/media/image1.png    OK
+    testing: word/media/image3.png    OK
+    testing: word/media/image4.png    OK
+    testing: word/media/image11.png   OK
+    testing: word/numbering.xml       OK
+    testing: word/fontTable.xml       OK
+    testing: word/settings.xml        OK
+    testing: word/theme/theme1.xml    OK
+    testing: [Content_Types].xml      OK
+    testing: word/media/image9.png    OK
+    testing: word/media/image8.png    OK
+    testing: word/media/image7.png    OK
+    testing: word/media/image10.png   OK
+    testing: word/media/image6.png    OK
+    testing: word/media/image5.png    OK
+    testing: word/media/image2.png    OK
+    testing: word/document.xml        OK
+No errors detected in compressed data of artigo.docx.
+Warning: failed to launch javaldx - java may not function correctly
+convert /home/runner/work/NOVA-revisao-bibliografica/NOVA-revisao-bibliografica/artigo.docx as a Writer document -> /tmp/word_check/artigo.pdf using filter : writer_pdf_Export
+WORD_BYTES=1183084
+Pages:           42
+Page size:       612 x 792 pts (letter)
+OOXML=OK
+LIBREOFFICE_RECONVERSAO=OK
+WORD_STATUS=0
