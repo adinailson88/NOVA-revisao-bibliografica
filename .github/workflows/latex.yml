@@ -6,12 +6,14 @@ name: Validar fontes e gerar artigo
 on:
   push:
     paths:
+      - "01_PROTOCOLO/**"
       - "latex-artigo/**"
       - "03_PROCESSADOS/corpus_consolidado_v2_sensibilidade.csv"
       - "07_SINTESE_TEMATICA/nucleo_final_pos_auditoria_resumos.csv"
       - "07_SINTESE_TEMATICA/matriz_extracao_final_reavaliada_resumos.csv"
       - "scripts/python/gerar_produtos_artigo_nucleo_ampliado.py"
       - "scripts/python/verificar_artigo.py"
+      - "scripts/python/verificar_artigo_integrado.py"
       - "scripts/python/11_gerar_bibliometria_ampliada.py"
       - "scripts/python/12_gerar_lista_referencias.py"
       - "scripts/python/13_preparar_word.py"
@@ -22,12 +24,14 @@ on:
       - ".github/workflows/latex.yml"
   pull_request:
     paths:
+      - "01_PROTOCOLO/**"
       - "latex-artigo/**"
       - "03_PROCESSADOS/corpus_consolidado_v2_sensibilidade.csv"
       - "07_SINTESE_TEMATICA/nucleo_final_pos_auditoria_resumos.csv"
       - "07_SINTESE_TEMATICA/matriz_extracao_final_reavaliada_resumos.csv"
       - "scripts/python/gerar_produtos_artigo_nucleo_ampliado.py"
       - "scripts/python/verificar_artigo.py"
+      - "scripts/python/verificar_artigo_integrado.py"
       - "scripts/python/11_gerar_bibliometria_ampliada.py"
       - "scripts/python/12_gerar_lista_referencias.py"
       - "scripts/python/13_preparar_word.py"
@@ -75,8 +79,8 @@ jobs:
       - name: Gerar planilhas dos nucleos vigente e historico
         run: python scripts/python/14_gerar_planilhas_auditoria_referencias.py
 
-      - name: Verificar dados, texto e referencias
-        run: python scripts/python/verificar_artigo.py
+      - name: Verificar dados, texto, referencias e strings da sensibilidade
+        run: python scripts/python/verificar_artigo_integrado.py
 
       - name: Instalar TeX Live
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
