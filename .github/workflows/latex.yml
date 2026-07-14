@@ -58,10 +58,10 @@ jobs:
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
-      - name: Instalar Pandoc e gerador do Word
+      - name: Instalar Pandoc LibreOffice e gerador do Word
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
-          sudo apt-get install -y pandoc
+          sudo apt-get install -y pandoc libreoffice-writer
           python -m pip install --disable-pip-version-check python-docx
 
       - name: Gerar e validar versao Word
@@ -71,6 +71,9 @@ jobs:
           test -s artigo.docx
           unzip -t artigo.docx
           unzip -l artigo.docx | grep -q "word/document.xml"
+          mkdir -p /tmp/word_check
+          libreoffice --headless --convert-to pdf --outdir /tmp/word_check artigo.docx
+          test -s /tmp/word_check/artigo.pdf
 
       - name: Verificar margens do PDF
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
@@ -85,23 +88,26 @@ jobs:
           print("Nenhum Overfull hbox detectado.")
           PY
 
-      - name: Preparar PDF compilado e site
+      - name: Preparar arquivos para download
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           cp latex-artigo/main.pdf main.pdf
           mkdir -p site
           cp main.pdf site/artigo.pdf
+          cp artigo.docx site/artigo.docx
+          test -s site/artigo.pdf
+          test -s site/artigo.docx
 
       - name: Publicar produtos da compilacao completa
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx main.pdf site/artigo.pdf
+          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx main.pdf site/artigo.pdf site/artigo.docx
           if git diff --cached --quiet; then
             echo "Produtos inalterados."
           else
-            git commit -m "CI: atualiza produtos do nucleo vigente, PDF e Word [skip ci]"
+            git commit -m "CI: atualiza PDF e Word validados para download [skip ci]"
             git push
           fi
 
@@ -131,9 +137,13 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - run: |
+      - name: Preparar site com PDF e Word
+        run: |
           mkdir -p site
           cp main.pdf site/artigo.pdf
+          cp artigo.docx site/artigo.docx
+          test -s site/artigo.pdf
+          test -s site/artigo.docx
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
