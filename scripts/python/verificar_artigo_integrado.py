@@ -7,6 +7,7 @@ compilação final do PR, mantendo as demais asserções do verificador.
 
 from __future__ import annotations
 
+import runpy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -112,3 +113,7 @@ for trecho in (
         raise AssertionError(f"Trecho obrigatório ausente no protocolo: {trecho}")
 
 exec(compile(fonte, str(ORIGINAL), "exec"), {"__name__": "__main__", "__file__": str(ORIGINAL)})
+runpy.run_path(
+    str(ROOT / "scripts" / "python" / "15_calcular_intersecao_nucleos.py"),
+    run_name="__main__",
+)
