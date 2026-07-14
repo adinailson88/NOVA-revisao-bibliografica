@@ -7,9 +7,10 @@ no repositório, para conferência independente sem precisar abrir os fontes em 
 
 | Arquivo | Conteúdo | Registros | Gerado por |
 | --- | --- | --- | --- |
-| `references.bib` | Cópia sincronizada do `.bib` usado pela compilação LaTeX (fonte de verdade). | 35 | [`12_gerar_lista_referencias.py`](../scripts/python/12_gerar_lista_referencias.py) |
-| `lista_referencias.csv` / `.xlsx` | Chave, tipo, autoria, título, ano, periódico ou instituição, volume, número, páginas, DOI e link DOI de todas as referências citadas no texto. | 35 | [`12_gerar_lista_referencias.py`](../scripts/python/12_gerar_lista_referencias.py) + [`14_gerar_planilhas_auditoria_referencias.py`](../scripts/python/14_gerar_planilhas_auditoria_referencias.py) |
-| `nucleo_final_104_registros.csv` / `.xlsx` | Base completa do núcleo temático que fundamentou a síntese do artigo, com metadados de auditoria (autores, periódico, dimensões, critérios, métodos, RQs confirmadas, nível de confiança, evidência do resumo). Cópia de [`07_SINTESE_TEMATICA/matriz_base_nucleo_final_104.csv`](../07_SINTESE_TEMATICA/matriz_base_nucleo_final_104.csv). | 104 | [`14_gerar_planilhas_auditoria_referencias.py`](../scripts/python/14_gerar_planilhas_auditoria_referencias.py) |
+| `references.bib` | Cópia sincronizada do `.bib` usado pela compilação LaTeX (fonte de verdade). | 40 | [`12_gerar_lista_referencias.py`](../scripts/python/12_gerar_lista_referencias.py) |
+| `lista_referencias.csv` / `.xlsx` | Chave, tipo, autoria, título, ano, periódico ou instituição, volume, número, páginas, DOI e link DOI de todas as referências citadas no texto. | 40 | [`12_gerar_lista_referencias.py`](../scripts/python/12_gerar_lista_referencias.py) + [`14_gerar_planilhas_auditoria_referencias.py`](../scripts/python/14_gerar_planilhas_auditoria_referencias.py) |
+| `nucleo_final_121_registros.csv` / `.xlsx` | Núcleo temático vigente, incluindo os 17 registros incorporados pela busca de sensibilidade. | 121 | [`14_gerar_planilhas_auditoria_referencias.py`](../scripts/python/14_gerar_planilhas_auditoria_referencias.py) |
+| `nucleo_final_104_registros.csv` / `.xlsx` | Núcleo original preservado como produto histórico de rastreabilidade. | 104 | [`14_gerar_planilhas_auditoria_referencias.py`](../scripts/python/14_gerar_planilhas_auditoria_referencias.py) |
 
 A geração de `lista_referencias.csv` falha se existir citação sem entrada BibTeX ou entrada
 BibTeX não citada — toda citação do artigo tem par obrigatório no `.bib` e vice-versa.
@@ -27,13 +28,15 @@ BibTeX não citada — toda citação do artigo tem par obrigatório no `.bib` e
 
 ## Evidências e dados de apoio versionados
 
-- [Núcleo final de 104 registros (versão resumida, sem autores/periódico)](../latex-artigo/fontes/nucleo_final_pos_auditoria_resumos.csv)
+- [Núcleo temático vigente de 121 registros](../latex-artigo/fontes/nucleo_final_pos_auditoria_resumos_v2_sensibilidade.csv)
+- [Núcleo original de 104 registros, preservado para rastreabilidade](../latex-artigo/fontes/nucleo_final_pos_auditoria_resumos.csv)
 - [Corpus bibliométrico ampliado de 372 registros](../latex-artigo/fontes/corpus_bibliometrico_372.csv)
 - [Relatório bibliométrico dos 372 registros](../docs/RELATORIO_BIBLIOMETRIA_372.md)
 - [Relatório do primeiro lote de textos completos](../docs/RELATORIO_USO_TEXTO_COMPLETO_19_ESTUDOS.md)
 - [Relatório do segundo lote de textos completos](../docs/RELATORIO_USO_TEXTO_COMPLETO_11_NOVOS_ESTUDOS.md)
 - [Resumos detalhados e parafraseados do segundo lote](../docs/RESUMOS_DETALHADOS_11_NOVOS_ESTUDOS.txt)
 - [Mapa do segundo lote de textos completos](../docs/MAPA_FULLTEXT_11_NOVOS_ESTUDOS.csv)
+- [Relatório do lote de 17 registros da busca de sensibilidade](../docs/RELATORIO_USO_TEXTO_COMPLETO_17_REGISTROS_IA_ML.md)
 
 ## Direitos autorais
 
