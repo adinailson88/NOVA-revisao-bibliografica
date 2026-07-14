@@ -1,4 +1,4 @@
-rq,categoria,termo,peso,observacao
+﻿rq,categoria,termo,peso,observacao
 RQ0,objeto_predial,building,1,objeto predial generico
 RQ0,objeto_predial,buildings,1,objeto predial no plural
 RQ0,objeto_predial,built environment,1,ambiente construido
@@ -137,3 +137,32 @@ RQ5,lacuna,implementation barriers,2,barreiras de implementacao
 RQ5,lacuna,facilities management practices,1,praticas de facilities management
 RQ5,lacuna,developing countries,1,paises em desenvolvimento
 RQ5,lacuna,public buildings,2,edificacoes publicas
+RQ6,ia_ml_confirma,machine learning,2,"termo nivel confirma, RQ6 (IA/ML) -- ver docs/CODEBOOK_SENSIBILIDADE_IA_ML.md"
+RQ6,ia_ml_confirma,deep learning,2,confirma apenas em contexto de modelo computacional -- ver regra de desambiguacao
+RQ6,ia_ml_confirma,neural network,2,inclui artificial neural network / ANN
+RQ6,ia_ml_confirma,convolutional neural network,2,CNN
+RQ6,ia_ml_confirma,recurrent neural network,2,"inclui LSTM, GRU"
+RQ6,ia_ml_confirma,lstm,2,long short-term memory
+RQ6,ia_ml_confirma,random forest,2,-
+RQ6,ia_ml_confirma,gradient boosting,2,"inclui XGBoost, LightGBM, CatBoost"
+RQ6,ia_ml_confirma,support vector machine,2,SVM
+RQ6,ia_ml_confirma,reinforcement learning,2,-
+RQ6,ia_ml_confirma,computer vision,2,quando aplicado a processamento de imagem por modelo
+RQ6,ia_ml_confirma,natural language processing,2,NLP
+RQ6,ia_ml_confirma,transformer,2,apenas arquitetura de rede neural -- ver regra de desambiguacao (nao confundir com transformador eletrico)
+RQ6,ia_ml_confirma,generative adversarial network,1,GAN
+RQ6,ia_ml_confirma,autoencoder,1,-
+RQ6,ia_ml_confirma,k-nearest neighbors,1,kNN
+RQ6,ia_ml_confirma,artificial intelligence,1,"termo guarda-chuva -- confirma apenas combinado com aplicacao efetiva, nao mencao generica (ver IA_ML_MENCAO_GENERICA)"
+RQ6,ia_ml_ambiguo,predictive maintenance,1,nao confirma isoladamente -- ver MANUTENCAO_PREDITIVA_SEM_IA_COMPROVADA
+RQ6,ia_ml_ambiguo,digital twin,1,nao confirma isoladamente
+RQ6,ia_ml_ambiguo,bim,1,"modelagem da informacao da construcao, nao e IA por si"
+RQ6,ia_ml_ambiguo,internet of things,1,"IoT, sensores -- nao confirma isoladamente"
+RQ6,ia_ml_ambiguo,decision tree,1,so confirma se treinada/induzida a partir de dados -- ver regra de desambiguacao
+RQ6,ia_ml_ambiguo,fault detection,1,so confirma com tecnica de ML nomeada
+RQ6,ia_ml_ambiguo,anomaly detection,1,so confirma com tecnica de ML nomeada
+RQ6,ia_ml_ambiguo,remaining useful life,1,"RUL -- pode ser modelo fisico/estatistico, nao necessariamente ML"
+RQ6,ia_ml_ambiguo,fuzzy logic,1,IA simbolica classica -- nao confirma machine learning especificamente
+RQ6,ia_ml_ambiguo,data-driven,1,nao implica algoritmo de aprendizado
+RQ6,ia_ml_confirma,large language model,2,LLM -- adicionado apos gap identificado na auditoria (Etapa 5)
+RQ6,ia_ml_confirma,generative ai,2,IA generativa -- adicionado apos gap identificado na auditoria (Etapa 5)

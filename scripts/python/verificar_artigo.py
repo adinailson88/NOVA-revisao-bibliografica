@@ -14,6 +14,7 @@ PROCESSADOS = ROOT / "03_PROCESSADOS"
 TRIAGEM = ROOT / "04_TRIAGEM"
 SINTESE = ROOT / "07_SINTESE_TEMATICA"
 SCRIPT_R = ROOT / "scripts" / "r" / "10_gerar_produtos_artigo.R"
+SCRIPT_NUCLEO_AMPLIADO = ROOT / "scripts" / "python" / "gerar_produtos_artigo_nucleo_ampliado.py"
 SCRIPT_BIB = ROOT / "scripts" / "python" / "11_gerar_bibliometria_ampliada.py"
 
 
@@ -51,7 +52,9 @@ def exigir(condicao: bool, mensagem: str) -> None:
 tex_arquivos = [ARTIGO / "main.tex", *sorted(SECOES.glob("*.tex"))]
 texto_tex = "\n".join(p.read_text(encoding="utf-8") for p in tex_arquivos)
 texto_prosa = "\n".join(
-    linha for linha in texto_tex.splitlines() if not linha.lstrip().startswith("\\draw")
+    linha
+    for linha in texto_tex.splitlines()
+    if not linha.lstrip().startswith(("\\draw", "\\path"))
 )
 
 # Estilo solicitado
@@ -89,8 +92,13 @@ exigir("@phdthesis" not in bib.lower() and "@mastersthesis" not in bib.lower(), 
 exigir(len(re.findall(r"@article\{", bib, flags=re.I)) >= 16, "Bibliografia cientifica insuficiente.")
 
 # Corpus final
-nucleo = ler_csv("nucleo_final_pos_auditoria_resumos.csv")
-exigir(len(nucleo) == 104, "O nucleo final deve ter 104 registros.")
+# O nucleo foi ampliado de 104 para 121 registros em 2026-07-12 pela busca complementar de
+# sensibilidade para IA/aprendizado de maquina (docs/PROMPT_R_REEXECUCAO_PIPELINE_SENSIBILIDADE.md,
+# docs/RELATORIO_EXECUCAO_R_NUCLEO_AMPLIADO.md). O arquivo historico de 104 registros
+# (nucleo_final_pos_auditoria_resumos.csv) permanece preservado, sem sobrescrita; o arquivo
+# vigente para o artigo passa a ser a versao ampliada.
+nucleo = ler_csv("nucleo_final_pos_auditoria_resumos_v2_sensibilidade.csv")
+exigir(len(nucleo) == 121, "O nucleo final deve ter 121 registros (104 originais + 17 da busca de sensibilidade IA/ML).")
 ids = [linha["id_unico"] for linha in nucleo]
 exigir(len(ids) == len(set(ids)), "id_unico duplicado no nucleo final.")
 
@@ -101,13 +109,13 @@ for linha in nucleo:
     combinacoes[combinacao] = combinacoes.get(combinacao, 0) + 1
     for base in combinacao.split("|"):
         contagem_bases[base] += 1
-exigir(contagem_bases == {"Scopus": 98, "WoS": 49, "Crossref": 6}, f"Bases divergentes: {contagem_bases}")
+exigir(contagem_bases == {"Scopus": 113, "WoS": 51, "Crossref": 6}, f"Bases divergentes: {contagem_bases}")
 exigir(
     combinacoes
     == {
-        "Scopus": 52,
+        "Scopus": 67,
         "Scopus|WoS": 41,
-        "WoS": 5,
+        "WoS": 7,
         "Crossref|Scopus|WoS": 3,
         "Crossref|Scopus": 2,
         "Crossref": 1,
@@ -117,20 +125,63 @@ exigir(
 
 # Estrategia de busca
 buscas = ler_csv("tabela_estrategia_busca.csv")
-total_bruto = sum(inteiro(linha["retorno_bruto"]) for linha in buscas)
-exigir(total_bruto == 12118, f"Total bruto divergente: {total_bruto}")
-n_consultas = {
-    base: sum(
+exigir(len(buscas) == 26, f"Linhas da estratégia unificada divergentes: {len(buscas)}")
+
+totais_rodada: dict[str, int] = {}
+for linha in buscas:
+    rodada = linha["rodada"]
+    totais_rodada[rodada] = totais_rodada.get(rodada, 0) + inteiro(linha["retorno_bruto"])
+exigir(
+    totais_rodada == {"principal": 12118, "sensibilidade_ia_ml": 6728},
+    f"Totais por rodada divergentes: {totais_rodada}",
+)
+exigir(
+    sum(totais_rodada.values()) == 18846,
+    "A soma operacional das duas rodadas deve ser 18.846 ocorrencias, sem equivaler a corpus homogeneo.",
+)
+
+def contar_consultas(rodada: str, base: str) -> int:
+    return sum(
         1
         for linha in buscas
-        if linha["base"] == base and "complemento_manual" not in linha["string_id"]
+        if linha["rodada"] == rodada
+        and linha["base"] == base
+        and "complemento_manual" not in linha["string_id"]
     )
+
+
+consultas_principais = {
+    base: contar_consultas("principal", base)
     for base in ("Scopus", "Web of Science", "Crossref")
 }
 exigir(
-    n_consultas == {"Scopus": 4, "Web of Science": 4, "Crossref": 5},
-    f"Numero de consultas divergente: {n_consultas}",
+    consultas_principais == {"Scopus": 4, "Web of Science": 4, "Crossref": 5},
+    f"Número de consultas principais divergente: {consultas_principais}",
 )
+consultas_sensibilidade = {
+    base: contar_consultas("sensibilidade_ia_ml", base)
+    for base in ("Scopus", "Web of Science", "Crossref")
+}
+exigir(
+    consultas_sensibilidade == {"Scopus": 1, "Web of Science": 1, "Crossref": 10},
+    f"Número de consultas de sensibilidade divergente: {consultas_sensibilidade}",
+)
+
+consultas_nao_preservadas = [
+    linha["string_id"]
+    for linha in buscas
+    if linha["consulta_documentada"] == "Informação insuficiente para verificar."
+]
+exigir(
+    consultas_nao_preservadas
+    == ["scopus_nucleo_a5_sensibilidade_ia_ml", "wos_nucleo_a5_sensibilidade_ia_ml"],
+    f"Lacunas documentais das strings de sensibilidade divergentes: {consultas_nao_preservadas}",
+)
+for linha in buscas:
+    exigir(linha["data_execucao"].strip() != "", f"Data ausente em {linha['string_id']}")
+    exigir(linha["periodo"] == "2010-2026", f"Período divergente em {linha['string_id']}")
+    exigir(linha["consulta_documentada"].strip() != "", f"Consulta não documentada em {linha['string_id']}")
+
 
 # Produtos processados da deduplicacao
 normalizados = ler_csv_caminho(PROCESSADOS / "registros_normalizados.csv")
@@ -185,8 +236,8 @@ exigir(len(nucleo_reavaliado) == 3678, f"Núcleo reavaliado divergente: {len(nuc
 exigir(len(nucleo_central) == 137, f"Núcleo central divergente: {len(nucleo_central)}")
 exigir(len(auditoria_137) == 137, f"Auditoria qualitativa divergente: {len(auditoria_137)}")
 
-# Tabelas geradas pelo R
-dimensoes = ler_csv("tabela27_dimensoes_sustentabilidade_nucleo_final_104.csv")
+# Tabelas geradas pelo pipeline do nucleo ampliado (121)
+dimensoes = ler_csv("tabela27_dimensoes_sustentabilidade_nucleo_ampliado_121.csv")
 dimensoes_esperadas = {
     "tecnica_operacional",
     "institucional",
@@ -200,30 +251,36 @@ exigir(
     "Tabela de dimensoes contem criterios ou perdeu dimensoes canonicas.",
 )
 
-tipos = ler_csv("tabela34_tipos_documentais_harmonizados_nucleo_final_104.csv")
+tipos = ler_csv("tabela34_tipos_documentais_harmonizados_nucleo_ampliado_121.csv")
 tipos_obtidos = {linha["tipo_harmonizado"]: inteiro(linha["total_registros"]) for linha in tipos}
 exigir(
     tipos_obtidos
     == {
-        "Artigo de periodico": 79,
-        "Trabalho em evento": 15,
-        "Livro ou serie de livro": 10,
+        "Artigo de periodico": 90,
+        "Trabalho em evento": 20,
+        "Livro ou serie de livro": 11,
     },
     f"Tipos documentais divergentes: {tipos_obtidos}",
 )
 
-mencoes = ler_csv("tabela35_mencoes_ods_esg_nucleo_final_104.csv")
+mencoes = ler_csv("tabela35_mencoes_ods_esg_nucleo_ampliado_121.csv")
 mencoes_obtidas = {linha["marcador"]: inteiro(linha["total_registros"]) for linha in mencoes}
 exigir(mencoes_obtidas == {"ODS ou SDG": 1, "ESG": 0}, f"ODS/ESG divergentes: {mencoes_obtidas}")
 
 # Todo grafico citado deve ser produzido por um script versionado
 script_r = SCRIPT_R.read_text(encoding="utf-8")
+script_nucleo_ampliado = SCRIPT_NUCLEO_AMPLIADO.read_text(encoding="utf-8")
 script_bib = SCRIPT_BIB.read_text(encoding="utf-8")
 graficos_citados = set(re.findall(r"\{figuras/([^}]+\.(?:png|pdf))\}", texto_tex))
 for grafico in graficos_citados:
     nome_base = grafico.rsplit(".", 1)[0]
     exigir(
-        grafico in script_r or grafico in script_bib or nome_base in script_r or nome_base in script_bib,
+        grafico in script_r
+        or grafico in script_nucleo_ampliado
+        or grafico in script_bib
+        or nome_base in script_r
+        or nome_base in script_nucleo_ampliado
+        or nome_base in script_bib,
         f"Grafico sem geracao em script versionado: {grafico}",
     )
 
@@ -234,68 +291,68 @@ def mapa_totais(nome: str, chave: str) -> dict[str, int]:
 
 
 dimensoes_totais = mapa_totais(
-    "tabela27_dimensoes_sustentabilidade_nucleo_final_104.csv",
+    "tabela27_dimensoes_sustentabilidade_nucleo_ampliado_121.csv",
     "dimensao_identificada_leitura",
 )
 exigir(
     dimensoes_totais
     == {
-        "tecnica_operacional": 102,
-        "institucional": 92,
-        "ambiental": 84,
-        "ciclo_de_vida": 60,
-        "economica": 59,
-        "social": 57,
+        "tecnica_operacional": 116,
+        "institucional": 97,
+        "ambiental": 92,
+        "ciclo_de_vida": 65,
+        "economica": 63,
+        "social": 59,
     },
     f"Dimensoes divergentes: {dimensoes_totais}",
 )
 
-criterios_totais = mapa_totais("tabela26_criterios_nucleo_final_104.csv", "criterio")
+criterios_totais = mapa_totais("tabela26_criterios_nucleo_ampliado_121.csv", "criterio")
 exigir(
     criterios_totais
     == {
-        "desempenho_operacional": 93,
-        "informacao_dados": 76,
-        "custo": 60,
-        "vida_util": 40,
-        "energia": 36,
-        "risco": 31,
-        "condicao_fisica": 27,
-        "manutenibilidade": 19,
-        "conforto": 17,
-        "seguranca": 17,
+        "desempenho_operacional": 99,
+        "informacao_dados": 82,
+        "custo": 63,
+        "energia": 44,
+        "vida_util": 44,
+        "condicao_fisica": 34,
+        "risco": 33,
+        "manutenibilidade": 25,
+        "conforto": 22,
+        "seguranca": 18,
         "emissoes_carbono": 15,
         "residuos": 13,
         "satisfacao_usuario": 9,
+        "agua": 6,
         "qualidade_servico": 6,
-        "agua": 5,
     },
     f"Criterios divergentes: {criterios_totais}",
 )
 
 metodos_totais = mapa_totais(
-    "tabela28_metodos_decisao_nucleo_final_104.csv",
+    "tabela28_metodos_decisao_nucleo_ampliado_121.csv",
     "metodo_identificado_leitura",
 )
 exigir(
     metodos_totais
     == {
-        "framework": 96,
-        "BIM": 26,
-        "decision support": 25,
-        "optimization": 18,
+        "framework": 101,
+        "decision support": 29,
+        "BIM": 28,
+        "machine learning": 26,
+        "optimization": 19,
         "scoring": 17,
-        "life-cycle cost": 13,
-        "fuzzy": 10,
+        "life-cycle cost": 16,
+        "IoT": 13,
+        "digital twin": 11,
+        "fuzzy": 11,
         "ranking": 9,
-        "IoT": 9,
-        "machine learning": 9,
-        "digital twin": 8,
         "AHP": 5,
         "TOPSIS": 4,
-        "ANP": 2,
         "Delphi": 3,
         "MCDM": 3,
+        "ANP": 2,
         "Bayesian Best Worst Method": 1,
         "balanced scorecard": 1,
         "case-based reasoning": 1,
@@ -304,60 +361,60 @@ exigir(
 )
 
 contextos_totais = mapa_totais(
-    "tabela29_contexto_edificacao_nucleo_final_104.csv",
+    "tabela29_contexto_edificacao_nucleo_ampliado_121.csv",
     "contexto_identificado_leitura",
 )
 exigir(
     contextos_totais
     == {
-        "edificio_generico": 93,
-        "portfolio_predial": 58,
+        "edificio_generico": 101,
+        "portfolio_predial": 59,
         "hospital": 17,
-        "edificio_comercial": 15,
-        "edificio_residencial": 12,
-        "universidade": 11,
+        "edificio_comercial": 16,
+        "edificio_residencial": 15,
+        "universidade": 14,
         "campus": 10,
+        "patrimonio_historico": 6,
         "edificio_publico": 5,
         "escola": 5,
-        "patrimonio_historico": 4,
         "museu": 1,
         "nao_identificado_no_resumo": 1,
     },
     f"Contextos divergentes: {contextos_totais}",
 )
 
-lacunas_totais = mapa_totais("tabela30_lacunas_nucleo_final_104.csv", "categoria")
+lacunas_totais = mapa_totais("tabela30_lacunas_nucleo_ampliado_121.csv", "categoria")
 exigir(
     lacunas_totais
     == {
         "com_lacuna_identificada_no_resumo": 76,
-        "sem_lacuna_identificada_no_resumo": 28,
+        "sem_lacuna_identificada_no_resumo": 45,
         "lacuna_especifica_ies_publicas": 12,
     },
     f"Lacunas divergentes: {lacunas_totais}",
 )
 
-temporal = mapa_totais("tabela33_distribuicao_temporal_nucleo_final_104.csv", "ano")
-exigir(sum(temporal.values()) == 104, f"Total temporal divergente: {sum(temporal.values())}")
-exigir(sum(v for a, v in temporal.items() if 2019 <= int(a) <= 2026) == 88, "Total de 2019 a 2026 divergente.")
-exigir(temporal.get("2025") == 25, f"Total de 2025 divergente: {temporal.get('2025')}")
+temporal = mapa_totais("tabela33_distribuicao_temporal_nucleo_ampliado_121.csv", "ano")
+exigir(sum(temporal.values()) == 121, f"Total temporal divergente: {sum(temporal.values())}")
+exigir(sum(v for a, v in temporal.items() if 2019 <= int(a) <= 2026) == 101, "Total de 2019 a 2026 divergente.")
+exigir(temporal.get("2025") == 29, f"Total de 2025 divergente: {temporal.get('2025')}")
 
 contribuicoes_totais = mapa_totais(
-    "tabela36_tipo_contribuicao_artigo_nucleo_final_104.csv",
+    "tabela36_tipo_contribuicao_artigo_nucleo_ampliado_121.csv",
     "tipo_contribuicao",
 )
 exigir(
     contribuicoes_totais
     == {
-        "criterios_de_sustentabilidade": 104,
+        "gestao_manutencao_predial": 115,
+        "energia_desempenho_operacional": 105,
         "criterios_de_priorizacao": 104,
+        "criterios_de_sustentabilidade": 104,
+        "custo_ciclo_de_vida": 86,
         "metodo_multicriterio_ou_decisao": 80,
-        "gestao_manutencao_predial": 104,
         "facility_management": 57,
-        "energia_desempenho_operacional": 97,
-        "custo_ciclo_de_vida": 82,
-        "risco_seguranca_conforto": 53,
-        "contexto_publico_universitario": 17,
+        "risco_seguranca_conforto": 57,
+        "contexto_publico_universitario": 20,
         "lacuna_para_ies_publicas": 12,
     },
     f"Tipos de contribuicao divergentes: {contribuicoes_totais}",
@@ -385,22 +442,24 @@ exigir(
 )
 
 
-# Limitacoes metodologicas documentadas (Etapa 13)
-for declaracao in (
-    "Não houve pré-registro público do protocolo.",
-    "sem segundo revisor independente e sem medida de concordância interavaliadores",
-    "não foram realizadas busca de citações para frente ou para trás",
-    "busca estruturada de literatura cinzenta",
-    "Trinta estudos com PDF disponível foram posteriormente lidos",
-    "A unidade de análise quantitativa é o registro bibliográfico consolidado.",
-):
-    exigir(declaracao in texto_tex, f"Limitacao obrigatoria ausente: {declaracao}")
+# Limitacoes metodologicas documentadas (Etapa 13). Os padrões aceitam ajustes
+# editoriais, mas preservam os conteúdos metodológicos que não podem ser omitidos.
+padroes_limitacoes = (
+    r"Não houve pré-registro(?: público do protocolo)?(?:\.|,)",
+    r"sem (?:segundo revisor independente e sem medida de |revisão independente ou )concordância interavaliadores",
+    r"(?:não foram realizadas|Não houve[^.]*?) busca de citações para frente ou para trás",
+    r"(?:nem |não houve )busca estruturada de literatura cinzenta",
+    r"(?:Trinta e sete estudos com texto completo disponível foram posteriormente lidos|37 textos foram consultados e 19 acrescentaram evidências específicas)",
+    r"A unidade (?:de análise )?quantitativa é o registro bibliográfico consolidado",
+)
+for padrao in padroes_limitacoes:
+    exigir(re.search(padrao, texto_tex), f"Limitacao obrigatoria ausente: {padrao}")
 
 
 # Uso pontual adicional de texto completo
 exigir(
-    "30 estudos com PDF disponível foram lidos integralmente; 14 forneceram evidências específicas" in texto_tex,
-    "O método deve registrar os dois lotes de texto completo.",
+    "37 estudos com texto completo disponível foram lidos integralmente; 19 forneceram evidências específicas" in texto_tex,
+    "O método deve registrar os três lotes de texto completo.",
 )
 for chave in (
     "aldairi_lean6sbm_2017",
@@ -410,8 +469,74 @@ for chave in (
     "talib_hospitalfm_2013",
     "conejos_verticalgreenery_2019",
     "tan_fluxoinformacao_2018",
+    "motuziene_ventilacaoia_2025",
+    "das_iotai_2025",
+    "wu_gnnvidautil_2025",
+    "suh_demandaenergiaagua_2012",
+    "alici_iotambientes_2026",
 ):
     exigir(chave in chaves_citadas, f"Estudo de texto completo sem citacao: {chave}")
+
+
+# Leitura integral dos registros incorporados pela sensibilidade (Etapa 4)
+relatorio_ia = ROOT / "docs" / "RELATORIO_USO_TEXTO_COMPLETO_17_REGISTROS_IA_ML.md"
+exigir(relatorio_ia.exists(), "Relatorio dos 17 registros IA/ML ausente.")
+texto_relatorio_ia = relatorio_ia.read_text(encoding="utf-8")
+for padrao in (
+    r"17 registros identificados sem ambiguidade",
+    r"7 textos integrais consultados",
+    r"5 dos 7 textos lidos acrescentaram",
+    r"não foram\s+registrados como leitura integral",
+):
+    exigir(
+        re.search(padrao, texto_relatorio_ia),
+        f"Rastreabilidade da Etapa 4 ausente: {padrao}",
+    )
+for id_registro in (
+    "REG_02383", "REG_07814", "REG_07815", "REG_05418", "REG_06840",
+    "REG_09883", "REG_10348", "REG_10391", "REG_10862", "REG_11003",
+    "REG_11158", "REG_11346", "REG_11489", "REG_11552", "REG_12351",
+    "REG_12451", "REG_12511",
+):
+    exigir(id_registro in texto_relatorio_ia, f"Registro ausente no relatorio de texto completo: {id_registro}")
+
+
+# Sintese cientifica comparativa da RQ6 (Etapa 5)
+sintese_ia = ler_csv("tabela_sintese_ia_ml_17.csv")
+exigir(len(sintese_ia) == 17, f"Linhas da sintese IA/ML divergentes: {len(sintese_ia)}")
+ids_sintese_ia = [linha["id_unico"] for linha in sintese_ia]
+exigir(len(ids_sintese_ia) == len(set(ids_sintese_ia)), "id_unico duplicado na sintese IA/ML.")
+funcoes_ia: dict[str, int] = {}
+bases_documentais_ia: dict[str, int] = {}
+for linha in sintese_ia:
+    funcoes_ia[linha["funcao_analitica_predominante"]] = (
+        funcoes_ia.get(linha["funcao_analitica_predominante"], 0) + 1
+    )
+    bases_documentais_ia[linha["base_documental"]] = (
+        bases_documentais_ia.get(linha["base_documental"], 0) + 1
+    )
+exigir(
+    funcoes_ia
+    == {
+        "previsao": 8,
+        "previsao_otimizacao": 2,
+        "diagnostico_classificacao": 2,
+        "sintese_integracao": 5,
+    },
+    f"Funcoes analiticas IA/ML divergentes: {funcoes_ia}",
+)
+exigir(
+    bases_documentais_ia == {"titulo_resumo": 10, "texto_integral": 7},
+    f"Base documental IA/ML divergente: {bases_documentais_ia}",
+)
+for declaracao in (
+    "Dez concentram-se em previsão ou previsão combinada à otimização",
+    "dois em diagnóstico e classificação de danos",
+    "cinco em síntese ou integração tecnológica",
+    "Nenhum dos 17 demonstrou uma cadeia completa",
+    "Em resposta à RQ6",
+):
+    exigir(declaracao in texto_tex, f"Sintese comparativa da RQ6 ausente: {declaracao}")
 
 
 # Padronizacao terminologica e editorial (Etapa 14)
@@ -423,7 +548,7 @@ for declaracao in (
     "TOPSIS a \\textit{Technique for Order Preference by Similarity to Ideal Solution}",
     "ANP a \\textit{Analytic Network Process}",
     "modelagem da informação da construção (BIM",
-    "matriz analítica conceitual, informada pela síntese da literatura",
+    "matriz analítica conceitual informada pela síntese da literatura",
 ):
     exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
 
@@ -433,6 +558,92 @@ exigir("hu_revisao_sintese_2026" in chaves_citadas, "Hu et al. deve ser citado a
 exigir(
     "não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise" in texto_tex,
     "O uso de Hu et al. deve explicitar os procedimentos nao realizados.",
+)
+
+
+# Integracao metodologica da busca complementar de sensibilidade (Etapa 2)
+exigir(
+    "Como verificação complementar, formulou-se a RQ6" in texto_tex,
+    "A introducao deve formular explicitamente a RQ6.",
+)
+exigir(
+    "RQ6 & Efeito da busca de sensibilidade" in texto_tex,
+    "A matriz de alinhamento deve incluir a RQ6.",
+)
+exigir(
+    "não foram acrescentados à camada bibliométrica de 372" in texto_tex,
+    "O método deve justificar a separacao entre a busca direcionada e a camada bibliometrica.",
+)
+exigir(
+    "O núcleo final de 104 registros permaneceu como base" not in texto_tex,
+    "O método ainda apresenta o núcleo histórico de 104 como núcleo final vigente.",
+)
+exigir(
+    "104 registros no núcleo original" in texto_tex,
+    "O funil principal deve identificar 104 como núcleo original.",
+)
+
+
+# Estrategia unificada e fluxo em dois bracos (Etapa 3)
+for declaracao in (
+    "Estratégia de busca consolidada por rodada e base",
+    "Subtotal da busca principal",
+    "Subtotal da busca de sensibilidade",
+    "não constitui corpus homogêneo",
+    "Fluxo integrado da busca principal e da busca complementar de sensibilidade",
+    "Núcleo temático vigente",
+):
+    exigir(declaracao in texto_tex, f"Integracao das duas buscas ausente: {declaracao}")
+exigir(
+    texto_tex.count("String nativa exata não preservada") == 2,
+    "As duas lacunas documentais de string nativa devem permanecer explícitas na tabela.",
+)
+exigir(
+    "Fluxo de seleção do corpus" not in texto_tex,
+    "A legenda antiga do fluxo ainda está presente.",
+)
+
+
+# Reprodutibilidade do nucleo vigente (Etapa 6)
+workflow = (ROOT / ".github" / "workflows" / "latex.yml").read_text(encoding="utf-8")
+gerador_vigente = SCRIPT_NUCLEO_AMPLIADO.read_text(encoding="utf-8")
+planilhas_auditoria = (
+    ROOT / "scripts" / "python" / "14_gerar_planilhas_auditoria_referencias.py"
+).read_text(encoding="utf-8")
+readme_raiz = (ROOT / "README.md").read_text(encoding="utf-8")
+readme_referencias = (ROOT / "referencias" / "README.md").read_text(encoding="utf-8")
+
+exigir("Rscript " not in workflow, "O workflow vigente ainda executa script R.")
+exigir("setup-r" not in workflow, "O workflow vigente ainda instala ambiente R.")
+exigir(
+    "python scripts/python/gerar_produtos_artigo_nucleo_ampliado.py" in workflow,
+    "O workflow nao gera os produtos tematicos vigentes por Python.",
+)
+exigir(
+    "github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'" in workflow,
+    "PDF e Word devem permanecer restritos a execucao manual ou main.",
+)
+exigir(
+    "ids_novos_calculados = set(ids_unicos) - ids_historicos" in gerador_vigente,
+    "O gerador vigente deve derivar os 17 incorporados pela diferenca entre nucleos.",
+)
+exigir(
+    "ids_unicos[104:]" not in gerador_vigente,
+    "O gerador vigente ainda depende da posicao das linhas para identificar incorporacoes.",
+)
+for declaracao in (
+    'NUCLEO_121 =',
+    'publicar_nucleo(NUCLEO_121, 121, "vigente")',
+    'publicar_nucleo(NUCLEO_104, 104, "historico")',
+):
+    exigir(declaracao in planilhas_auditoria, f"Separacao dos nucleos ausente: {declaracao}")
+exigir(
+    "núcleo temático vigente de 121" in readme_raiz,
+    "README principal nao identifica o nucleo vigente.",
+)
+exigir(
+    "nucleo_final_121_registros.csv" in readme_referencias,
+    "README de referencias nao documenta o nucleo vigente para auditoria.",
 )
 
 print("Verificacao do artigo concluida sem divergencias.")
