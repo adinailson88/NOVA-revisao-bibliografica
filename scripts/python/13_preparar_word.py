@@ -148,7 +148,7 @@ def corrigir_referencias_cruzadas(doc):
     contadores = {"tab": 0, "fig": 0}
     for fonte in sorted((LATEX_DIR / "sections").glob("*.tex")):
         conteudo = fonte.read_text(encoding="utf-8")
-        for tipo, rotulo in re.findall(r"\label\{(tab|fig):([^}]+)\}", conteudo):
+        for tipo, rotulo in re.findall(r"\\label\{(tab|fig):([^}]+)\}", conteudo):
             contadores[tipo] += 1
             numeros[f"{tipo}:{rotulo}"] = str(contadores[tipo])
 
@@ -173,7 +173,7 @@ def inserir_figuras_tikz(doc):
         sys.exit("pdflatex e pdftoppm sao necessarios para preservar fluxogramas TikZ.")
 
     padrao = re.compile(
-        r"\begin\{figure\}.*?(\begin\{tikzpicture\}.*?\end\{tikzpicture\}).*?\caption\{([^{}]+)\}",
+        r"\\begin\{figure\}.*?(\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}).*?\\caption\{([^{}]+)\}",
         re.DOTALL,
     )
     blocos = []
