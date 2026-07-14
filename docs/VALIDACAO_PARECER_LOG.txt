@@ -1,0 +1,8 @@
+CAMADA_BIBLIOMETRICA=372
+NUCLEO_TEMATICO=121
+INTERSECAO_372_121=109
+EXCLUSIVOS_372=263
+EXCLUSIVOS_121=12
+SAIDA=latex-artigo/fontes/intersecao_camadas_372_121.csv
+Verificacao do artigo concluida sem divergencias.
+Controles do parecer crítico: OK

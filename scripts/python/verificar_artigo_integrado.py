@@ -1,17 +1,21 @@
-"""Executa o verificador completo com os controles atualizados das strings IA/ML.
+"""Executa o verificador completo com controles editoriais atualizados.
 
 O arquivo original ``verificar_artigo.py`` permanece como base das verificações acumuladas.
-Este adaptador substitui somente controles obsoletos ou temporariamente incompatíveis com a
-compilação final do PR, mantendo as demais asserções do verificador.
+Este adaptador substitui somente controles obsoletos e acrescenta testes de regressão para
+as correções realizadas após o parecer crítico.
 """
 
 from __future__ import annotations
 
+import csv
+import runpy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 ORIGINAL = ROOT / "scripts" / "python" / "verificar_artigo.py"
 PROTOCOLO = ROOT / "01_PROTOCOLO" / "strings_busca_sensibilidade_ia_ml_20260712.md"
+ARTIGO = ROOT / "latex-artigo"
+SECOES = ARTIGO / "sections"
 
 fonte = ORIGINAL.read_text(encoding="utf-8")
 
@@ -87,12 +91,45 @@ bloco_restricao_temporario = '''exigir(
 )
 '''
 
-for antigo, novo, nome in (
+substituicoes = (
     (bloco_estilo_antigo, bloco_estilo_novo, "controle editorial"),
+    ('== 11, "O artigo deve conter onze tabelas', '== 12, "O artigo deve conter doze tabelas', "quantidade de tabelas"),
     (bloco_lacunas, bloco_documentado, "lacunas das strings"),
     (bloco_texto_antigo, bloco_texto_novo, "controle textual"),
     (bloco_restricao_antigo, bloco_restricao_temporario, "restrição temporária de compilação"),
-):
+    (
+        "Rastreabilidade entre evidências e especificação operacional",
+        "Rastreabilidade entre evidências e critérios candidatos",
+        "título da tabela de rastreabilidade",
+    ),
+    (
+        "Matriz analítica conceitual informada pela síntese da literatura",
+        "Matriz de indicadores e fluxo para parametrização multicritério",
+        "identidade da matriz",
+    ),
+    (
+        "As frequências não constituem pesos da matriz.",
+        "As frequências documentais sustentam a seleção inicial dos critérios, mas não constituem pesos nem definem sua importância normativa.",
+        "declaração sobre frequências e pesos",
+    ),
+    (
+        "não é um modelo validado nem um instrumento pronto para decisão",
+        "não constitui método multicritério parametrizado, modelo validado ou instrumento pronto para decisão",
+        "estado não validado da especificação",
+    ),
+    (
+        '"matriz analítica conceitual informada pela síntese da literatura",',
+        '"Matriz de indicadores e fluxo para parametrização multicritério",',
+        "padronização terminológica da matriz",
+    ),
+    (
+        "não foram acrescentados à camada bibliométrica de 372",
+        "não foram acrescentados à camada de 372",
+        "separação entre busca direcionada e camada bibliométrica",
+    ),
+)
+
+for antigo, novo, nome in substituicoes:
     if antigo not in fonte:
         raise RuntimeError(f"Bloco antigo não localizado em verificar_artigo.py: {nome}.")
     fonte = fonte.replace(antigo, novo, 1)
@@ -111,4 +148,57 @@ for trecho in (
     if trecho not in texto_protocolo:
         raise AssertionError(f"Trecho obrigatório ausente no protocolo: {trecho}")
 
+runpy.run_path(
+    str(ROOT / "scripts" / "python" / "15_calcular_intersecao_nucleos.py"),
+    run_name="__main__",
+)
+
 exec(compile(fonte, str(ORIGINAL), "exec"), {"__name__": "__main__", "__file__": str(ORIGINAL)})
+
+texto_artigo = "\n".join(
+    p.read_text(encoding="utf-8")
+    for p in [ARTIGO / "main.tex", *sorted(SECOES.glob("*.tex"))]
+)
+
+controles_parecer = (
+    "especificação para parametrização multicritério",
+    "109 dos 121 registros do núcleo temático vigente também pertencem ao estrato bibliométrico de 372",
+    "12 registros (9,9\\%) foram classificados especificamente",
+    "proposições do autor para validação institucional",
+    "não constitui método multicritério parametrizado",
+    "Como proposição do autor",
+    "Intensidade energética em base móvel de 12 meses",
+)
+for trecho in controles_parecer:
+    if trecho not in texto_artigo:
+        raise AssertionError(f"Correção do parecer ausente no artigo: {trecho}")
+
+for trecho_proibido in (
+    "Como proposição dos autores",
+    "Orçamentos e SINAPI",
+    "Consumo anual por área",
+    "protocolo multicritério adaptável",
+):
+    if trecho_proibido in texto_artigo:
+        raise AssertionError(f"Formulação superada ainda presente no artigo: {trecho_proibido}")
+
+with (ARTIGO / "fontes" / "intersecao_camadas_372_121.csv").open(
+    encoding="utf-8-sig", newline=""
+) as arquivo:
+    intersecao = list(csv.DictReader(arquivo))
+resultado_intersecao = {
+    linha["conjunto"]: (
+        int(linha["total_registros"]),
+        int(linha["intersecao_com_outro_conjunto"]),
+        int(linha["exclusivos_do_conjunto"]),
+    )
+    for linha in intersecao
+}
+esperado_intersecao = {
+    "camada_bibliometrica_busca_principal": (372, 109, 263),
+    "nucleo_tematico_vigente": (121, 109, 12),
+}
+if resultado_intersecao != esperado_intersecao:
+    raise AssertionError(f"Interseção entre camadas divergente: {resultado_intersecao}")
+
+print("Controles do parecer crítico: OK")
