@@ -122,6 +122,11 @@ substituicoes = (
         '"Matriz de indicadores e fluxo para parametrização multicritério",',
         "padronização terminológica da matriz",
     ),
+    (
+        "não foram acrescentados à camada bibliométrica de 372",
+        "não foram acrescentados à camada de 372",
+        "separação entre busca direcionada e camada bibliométrica",
+    ),
 )
 
 for antigo, novo, nome in substituicoes:
