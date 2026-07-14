@@ -21,8 +21,11 @@ jobs:
           ref: agent/revisao-editorial-enxuta
           fetch-depth: 0
 
-      - name: Instalar dependências do verificador
+      - name: Instalar dependências
         run: python -m pip install --disable-pip-version-check pandas numpy matplotlib scikit-learn openpyxl
+
+      - name: Aplicar atualização do verificador
+        run: python scripts/python/17_atualizar_verificador_editorial.py
 
       - name: Executar verificador e registrar diagnóstico
         run: |
@@ -37,14 +40,15 @@ jobs:
           echo "codigo_saida=$codigo" >> docs/DIAGNOSTICO_VERIFICADOR_EDITORIAL.txt
           exit 0
 
-      - name: Registrar diagnóstico
+      - name: Registrar alterações e diagnóstico
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/DIAGNOSTICO_VERIFICADOR_EDITORIAL.txt
+          git add scripts/python/verificar_artigo_integrado.py docs/DIAGNOSTICO_VERIFICADOR_EDITORIAL.txt
           if git diff --cached --quiet; then
-            echo "Diagnóstico inalterado."
+            echo "Arquivos inalterados."
           else
-            git commit -m "Atualiza diagnóstico do verificador editorial"
+            git commit -m "Atualiza controles e diagnóstico da revisão editorial"
+            git pull --rebase origin agent/revisao-editorial-enxuta
             git push origin agent/revisao-editorial-enxuta
           fi
