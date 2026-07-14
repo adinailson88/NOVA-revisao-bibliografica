@@ -122,7 +122,7 @@ bloco_textocompleto_novo = '''exigir(
 )
 '''
 
-bloco_terminologia_antigo = '''for declaracao in (
+bloco_terminologia_antigo = r'''for declaracao in (
     "ambiental, social e de governança (ESG",
     "MCDM designa \\textit{multi-criteria decision-making}",
     "MCDA, \\textit{multi-criteria decision analysis}",
@@ -134,7 +134,7 @@ bloco_terminologia_antigo = '''for declaracao in (
 ):
     exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
 '''
-bloco_terminologia_novo = '''for declaracao in (
+bloco_terminologia_novo = r'''for declaracao in (
     "ambiental, social e de governança (ESG",
     "MCDM designa \\textit{multi-criteria decision-making}",
     "MCDA, \\textit{multi-criteria decision analysis}",
