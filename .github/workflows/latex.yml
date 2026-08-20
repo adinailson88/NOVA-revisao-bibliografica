@@ -123,6 +123,7 @@ jobs:
             latex-artigo/figuras
             latex-artigo/fontes
           if-no-files-found: error
+          retention-days: 14
 
   deploy-pages:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
