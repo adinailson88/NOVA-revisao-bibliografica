@@ -30,6 +30,25 @@ DESTINO = ROOT / "artigo.docx"
 SOBRESCRITO_DIGITOS = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
 MATH_SOBRESCRITO_RE = re.compile(r"\$\^(\d+)\$")
 
+# \textit{} dentro de uma tabela sofre o mesmo problema: construir_tabela()
+# reconstroi cada celula como texto simples (cell.text = valor), entao o
+# comando de italico desaparece e so sobra o texto sem formatacao (ex.:
+# "digital twin" deixa de ficar em italico). Fora de tabela o Pandoc ja
+# converte \textit{} nativamente para um run em italico no .docx (preservado
+# normalmente), entao a marcacao abaixo e aplicada so dentro dos blocos
+# tabularx, sem mexer no italico que ja funciona no resto do texto.
+MARCADOR_ITALICO = '\ue000'  # area de uso privado Unicode, valida em XML
+TEXTIT_RE = re.compile(r"\\textit\{([^{}]*)\}")
+TABULARX_BLOCK_RE = re.compile(r"\\begin\{tabularx\}.*?\\end\{tabularx\}", re.DOTALL)
+
+
+def _marcar_italico_em_tabelas(texto):
+    def _sub_bloco(m):
+        return TEXTIT_RE.sub(lambda mi: f"{MARCADOR_ITALICO}{mi.group(1)}{MARCADOR_ITALICO}", m.group(0))
+
+    return TABULARX_BLOCK_RE.sub(_sub_bloco, texto)
+
+
 COLSPEC = re.compile(r"^(?:(?:>p[\d.]+cm|Y)\s*)+")
 
 # O leitor LaTeX do Pandoc nao reconhece tabelas com tabularx/multicolumn como
@@ -134,6 +153,7 @@ def preparar_fonte_pandoc():
     for nome in ("00_resumo", *ORDEM_SECOES):
         arquivo = destino / "sections" / f"{nome}.tex"
         texto = arquivo.read_text(encoding="utf-8")
+        texto = _marcar_italico_em_tabelas(texto)
         texto = REGRA_TABELA_RE.sub("", texto)
         texto = MULTICOLUNA_RE.sub(_expandir_multicolumn, texto)
         texto = TIKZPICTURE_RE.sub("", texto)
@@ -290,7 +310,13 @@ def construir_tabela(doc, texto):
     for i, linha in enumerate(matriz):
         for j, valor in enumerate(linha):
             cell = tabela.cell(i, j)
-            cell.text = valor
+            paragrafo_celula = cell.paragraphs[0]
+            for k, parte in enumerate(valor.split(MARCADOR_ITALICO)):
+                if not parte:
+                    continue
+                run = paragrafo_celula.add_run(parte)
+                if k % 2 == 1:
+                    run.font.italic = True
             for par in cell.paragraphs:
                 for run in par.runs:
                     run.font.size = Pt(9)
