@@ -66,18 +66,55 @@ def _expandir_multicolumn(casamento):
     return texto
 
 
+CAPTIONGRAFICO_RE = re.compile(r"\\captiongrafico\{((?:[^{}]|\{[^{}]*\})*)\}")
+
+
+REF_RE = re.compile(r"\\ref\{(tab|fig|sec):([^}]+)\}")
+
+
 def preparar_fonte_pandoc():
     """Copia latex-artigo para um diretorio temporario com os comandos de
     regra/multicoluna das tabelas neutralizados, para o Pandoc ler."""
     temporario = Path(tempfile.mkdtemp(prefix="artigo_pandoc_fonte_"))
     destino = temporario / "latex-artigo"
     shutil.copytree(LATEX_DIR, destino)
-    for arquivo in (destino / "sections").glob("*.tex"):
+    # \captiongrafico{texto} expande, via \newcommand no main.tex, para
+    # \caption*{Grafico \thegrafico. texto} -- o Pandoc nao executa LaTeX,
+    # entao \thegrafico (contador incrementado por \refstepcounter) nunca e
+    # resolvido e a legenda sai sem numero ("Grafico . texto"). Resolvido
+    # aqui na mesma ordem de \input de main.tex, mantendo \caption*{} intacto
+    # para o Pandoc continuar reconhecendo a legenda como tal.
+    contador_grafico = [0]
+
+    def _resolver_captiongrafico(casamento):
+        contador_grafico[0] += 1
+        return f"\\caption*{{Gráfico {contador_grafico[0]}. {casamento.group(1)}}}"
+
+    # \ref{} tambem e resolvido aqui, ANTES do Pandoc rodar, e nao depois em
+    # cima do .docx: o Pandoc 3.x tem numeracao nativa proprio para figuras
+    # com \label{}, mas conta TODAS elas numa unica sequencia (inclusive as 9
+    # que usam o contador customizado \thegrafico via \captiongrafico), entao
+    # \ref{fig:dimensoes} saia como "7" (posicao entre as 11 figuras) em vez
+    # de "6" (o numero real do Grafico 6, que usa contador proprio). Resolver
+    # aqui, com calcular_numeracao_tab_fig()/calcular_numeracao_secoes() (que
+    # ja calculam os dois contadores separadamente), evita que o Pandoc
+    # aplique essa numeracao nativa incorreta.
+    numeros_ref = calcular_numeracao_tab_fig()
+    numeros_ref.update(calcular_numeracao_secoes())
+
+    def _resolver_ref(casamento):
+        chave = f"{casamento.group(1)}:{casamento.group(2)}"
+        return numeros_ref.get(chave, casamento.group(0))
+
+    for nome in ("00_resumo", *ORDEM_SECOES):
+        arquivo = destino / "sections" / f"{nome}.tex"
         texto = arquivo.read_text(encoding="utf-8")
         texto = REGRA_TABELA_RE.sub("", texto)
         texto = MULTICOLUNA_RE.sub(_expandir_multicolumn, texto)
         texto = TIKZPICTURE_RE.sub("", texto)
         texto = LEGENDA_TABELA_RE.sub(_marcar_legenda_tabela, texto)
+        texto = CAPTIONGRAFICO_RE.sub(_resolver_captiongrafico, texto)
+        texto = REF_RE.sub(_resolver_ref, texto)
         arquivo.write_text(texto, encoding="utf-8")
     return destino
 
@@ -227,13 +264,44 @@ ORDEM_SECOES = ("01_introducao", "02_metodo", "03_resultados_discussao", "04_con
 
 
 def calcular_numeracao_tab_fig():
+    """Numeracao de tabelas e figuras como no PDF. Tabelas usam um unico
+    contador (\\caption{} -> \\label{tab:x}). Figuras tem DOIS contadores
+    LaTeX independentes: o contador padrao `figure` (\\caption{} normal, usado
+    so pelos 2 fluxogramas TikZ) e o contador customizado `grafico`
+    (\\captiongrafico{}, que usa \\caption* e por isso NAO incrementa o
+    contador padrao) -- \\ref{} resolve para o contador que foi de fato
+    associado aquele \\label{} via \\refstepcounter, entao os dois precisam
+    ser calculados separadamente para nao numerar \\ref{fig:x} errado."""
     numeros = {}
-    contadores = {"tab": 0, "fig": 0}
-    for fonte in sorted((LATEX_DIR / "sections").glob("*.tex")):
-        conteudo = fonte.read_text(encoding="utf-8")
-        for tipo, rotulo in re.findall(r"\\label\{(tab|fig):([^}]+)\}", conteudo):
-            contadores[tipo] += 1
-            numeros[f"{tipo}:{rotulo}"] = str(contadores[tipo])
+    contador_tab = 0
+    contador_fig = 0
+    contador_grafico = 0
+    ultimo_marcador = None
+    caption_re = re.compile(r"^\\caption\{")
+    captiongrafico_re = re.compile(r"^\\captiongrafico\{")
+    label_re = re.compile(r"^\\label\{(tab|fig):([^}]+)\}")
+    for nome in ("00_resumo", *ORDEM_SECOES):
+        conteudo = (LATEX_DIR / "sections" / f"{nome}.tex").read_text(encoding="utf-8")
+        for linha in conteudo.splitlines():
+            if caption_re.match(linha):
+                ultimo_marcador = "caption"
+                continue
+            if captiongrafico_re.match(linha):
+                ultimo_marcador = "captiongrafico"
+                continue
+            casamento = label_re.match(linha)
+            if not casamento:
+                continue
+            tipo, rotulo = casamento.group(1), casamento.group(2)
+            if tipo == "tab":
+                contador_tab += 1
+                numeros[f"tab:{rotulo}"] = str(contador_tab)
+            elif ultimo_marcador == "captiongrafico":
+                contador_grafico += 1
+                numeros[f"fig:{rotulo}"] = str(contador_grafico)
+            else:
+                contador_fig += 1
+                numeros[f"fig:{rotulo}"] = str(contador_fig)
     return numeros
 
 
