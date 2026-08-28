@@ -160,18 +160,25 @@ realmente aplica, comparando com um fascículo publicado recente.
 
 ## 7. Pendências que dependem exclusivamente do autor
 
-1. Confirmar a norma de citação vigente (NBR 10520:2023 conforme o site, ou
-   2001 conforme o template baixado) diretamente com a secretaria editorial.
-2. Confirmar o estilo visual dos títulos (numerado vs. não numerado, negrito
-   vs. não negrito) comparando com um fascículo publicado recente.
-3. Confirmar se há taxa de publicação aplicável (isenção, R$ 350 ou R$ 700,
+Resolvidas em 2026-08-28:
+
+- **Norma de citação**: o autor confirmou o texto integral da página oficial
+  de instruções, que cita NBR 10520:2023 de forma explícita. Mantido como
+  já aplicado; a divergência com o template baixado (que cita 2001) foi
+  considerada irrelevante para o texto do artigo.
+- **Agradecimento CAPES**: confirmado como aplicável a este trabalho.
+  Nenhuma outra fonte de financiamento foi indicada.
+  `docs/AGRADECIMENTO_POS_ACEITE.md` atualizado.
+- **Destino da branch**: mantida separada de `main`, sem merge nem pull
+  request por ora.
+
+Ainda em aberto:
+
+1. Confirmar o estilo visual dos títulos (numerado vs. não numerado, negrito
+   vs. não negrito) comparando com um fascículo publicado recente — o
+   arquivo-modelo baixado e o texto das instruções divergem entre si.
+2. Confirmar se há taxa de publicação aplicável (isenção, R$ 350 ou R$ 700,
    conforme associação à ANTAC).
-4. Confirmar a aplicabilidade do agradecimento CAPES
-   (`docs/AGRADECIMENTO_POS_ACEITE.md`) e de eventuais outras fontes de
-   financiamento.
-5. A margem de palavras é de apenas 58 (0,8%); revisões futuras de texto
+3. A margem de palavras é de apenas 58 (0,8%); revisões futuras de texto
    (mesmo pequenas) podem ultrapassar o limite — reconferir a contagem no
    Word antes do envio final.
-6. Decidir se deseja fazer merge desta branch em `main`, mantê-la como
-   branch de submissão separada indefinidamente, ou abrir um pull request
-   para revisão antes de qualquer fusão.

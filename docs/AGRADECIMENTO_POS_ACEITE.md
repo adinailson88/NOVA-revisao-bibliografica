@@ -11,12 +11,9 @@ seção "Documentos Suplementares" / "Declaração de Financiamento").
 > O presente trabalho foi realizado com apoio da Coordenação de Aperfeiçoamento
 > de Pessoal de Nível Superior – Brasil (CAPES) – Código de Financiamento 001.
 
-## Pendência do autor
+## Confirmação do autor
 
-Confirmar antes de inserir este texto na versão pós-aceite:
-
-- Se a bolsa/vínculo CAPES efetivamente se aplica a este trabalho específico
-  (o financiamento deve corresponder ao que sustentou a pesquisa relatada
-  neste artigo, não a outras atividades do doutorado).
-- Se há outra fonte de financiamento a declarar (edital, auxílio à pesquisa,
-  bolsa institucional da UFSB) que também deva constar.
+Aplicabilidade confirmada pelo autor em 2026-08-28: o financiamento CAPES
+(Código de Financiamento 001) se aplica a este trabalho. Nenhuma outra fonte
+de financiamento foi indicada. O texto acima está pronto para inserção na
+etapa de edição de texto, após o aceite do artigo.
