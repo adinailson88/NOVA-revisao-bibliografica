@@ -58,6 +58,11 @@ jobs:
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
+      - name: Compilar PDF anonimizado
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        working-directory: latex-artigo
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error main_anonimo.tex
+
       - name: Instalar Pandoc LibreOffice e gerador do Word
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
@@ -74,6 +79,15 @@ jobs:
           mkdir -p /tmp/word_check
           libreoffice --headless --convert-to pdf --outdir /tmp/word_check artigo.docx
           test -s /tmp/word_check/artigo.pdf
+          python scripts/python/verificar_artigo_word.py artigo.docx
+
+      - name: Gerar e validar versao Word anonimizada
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        run: |
+          python scripts/python/anonimizar_docx.py artigo.docx artigo_anonimo.docx
+          test -s artigo_anonimo.docx
+          unzip -t artigo_anonimo.docx
+          unzip -l artigo_anonimo.docx | grep -q "word/document.xml"
 
       - name: Verificar margens do PDF
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
@@ -92,6 +106,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: |
           cp latex-artigo/main.pdf main.pdf
+          cp latex-artigo/main_anonimo.pdf main_anonimo.pdf
           mkdir -p site
           cp main.pdf site/artigo.pdf
           cp artigo.docx site/artigo.docx
@@ -103,7 +118,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx main.pdf site/artigo.pdf site/artigo.docx
+          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx artigo_anonimo.docx main.pdf main_anonimo.pdf site/artigo.pdf site/artigo.docx
           if git diff --cached --quiet; then
             echo "Produtos inalterados."
           else
@@ -118,7 +133,9 @@ jobs:
           name: artigo-pdf-word-referencias
           path: |
             main.pdf
+            main_anonimo.pdf
             artigo.docx
+            artigo_anonimo.docx
             referencias
             latex-artigo/figuras
             latex-artigo/fontes
