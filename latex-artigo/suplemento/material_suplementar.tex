@@ -1,5 +1,95 @@
 \section*{Material suplementar}
 
+\clearpage
+\subsection*{Tabela S0 --- Estratégias de busca por base, rodada e string}
+
+Todas as consultas booleanas literais executadas nas três bases, nas duas rodadas (busca principal, executada e exportada em 8 de julho de 2026, e busca complementar de sensibilidade para inteligência artificial e aprendizado de máquina, executada em 12 de julho de 2026), reproduzidas integralmente a partir de \nolinkurl{docs/APENDICE_ESTRATEGIAS_BUSCA.md} e \nolinkurl{01_PROTOCOLO/strings_busca_sensibilidade_ia_ml_20260712.md}. Nenhuma nova busca foi realizada para este material suplementar.
+
+\begin{table}[htbp]
+\centering
+\caption{Estratégias de busca da rodada principal (13 consultas, 8--9/07/2026)}
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{1.6cm} >{\RaggedRight\arraybackslash}p{4.6cm} >{\raggedleft\arraybackslash}p{2.0cm} Y}
+\toprule
+ID & Base & Tema & Retorno bruto & Consulta literal (Crossref) / referência ao texto completo \\
+\midrule
+S1 & Scopus & Manutenção e sustentabilidade & 7.584 & Texto completo abaixo (Quadro S0.1) \\
+S2 & Scopus & Contexto público universitário & 430 & Texto completo abaixo (Quadro S0.1) \\
+S3 & Scopus & Priorização e estratégia de manutenção & 510 & Texto completo abaixo (Quadro S0.1) \\
+S4 & Scopus & Gestão de ativos e ciclo de vida & 909 & Texto completo abaixo (Quadro S0.1) \\
+W1 & Web of Science & Manutenção e sustentabilidade & 610 & Texto completo abaixo (Quadro S0.2) \\
+W2 & Web of Science & Contexto público universitário & 557 & Texto completo abaixo (Quadro S0.2) \\
+W3 & Web of Science & Priorização e estratégia de manutenção & 10 & Texto completo abaixo (Quadro S0.2) \\
+W4 & Web of Science & Gestão de ativos e ciclo de vida & 503 & Texto completo abaixo (Quadro S0.2) \\
+C1 & Crossref & Manutenção e sustentabilidade & 200 & \texttt{building maintenance sustainability} \\
+C2 & Crossref & Gestão de facilidades e sustentabilidade & 200 & \texttt{facility management sustainability building} \\
+C3 & Crossref & Priorização em edificações públicas & 200 & \texttt{maintenance prioritization public buildings sustainability} \\
+C4 & Crossref & Contexto de campus universitário & 200 & \texttt{university campus building maintenance sustainability} \\
+C5 & Crossref & Gestão de ativos e ciclo de vida & 200 & \texttt{building asset management life cycle sustainability} \\
+\bottomrule
+\end{tabularx}
+\par\smallskip{\footnotesize Nota: Scopus coletado via API (\texttt{TITLE-ABS-KEY}, 2010--2026, +5 registros de enriquecimento manual em 9/07/2026, total 9.438); Web of Science coletado manualmente (\texttt{TS}, All Databases, sem filtro de idioma/tipo documental); Crossref via \texttt{query.bibliographic} (limite deliberado de 200 registros/consulta, ordenação por relevância, resultado complementar e não exaustivo). Fonte: elaborado pelo autor a partir de docs/APENDICE\_ESTRATEGIAS\_BUSCA.md.\par}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Estratégias da busca complementar de sensibilidade para IA/ML (12 consultas, 12/07/2026)}
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedleft\arraybackslash}p{2.0cm} Y}
+\toprule
+ID & Base & Retorno bruto & Consulta literal (Crossref) / referência ao texto completo \\
+\midrule
+IA-Scopus & Scopus & 3.169 & Texto completo abaixo (Quadro S0.3) \\
+IA-WoS & Web of Science, All Databases & 1.559 & Texto completo abaixo (Quadro S0.3) \\
+IA-C1 & Crossref & 200 & \texttt{building maintenance artificial intelligence machine learning} \\
+IA-C2 & Crossref & 200 & \texttt{facility management deep learning neural networks} \\
+IA-C3 & Crossref & 200 & \texttt{building condition assessment random forest support vector machine decision tree} \\
+IA-C4 & Crossref & 200 & \texttt{predictive maintenance building facilities anomaly detection fault diagnosis} \\
+IA-C5 & Crossref & 200 & \texttt{building operation energy reinforcement learning LSTM transformer} \\
+IA-C6 & Crossref & 200 & \texttt{building inspection computer vision image recognition convolutional neural network} \\
+IA-C7 & Crossref & 200 & \texttt{building maintenance natural language processing work orders} \\
+IA-C8 & Crossref & 200 & \texttt{university building maintenance neural network cost prediction} \\
+IA-C9 & Crossref & 200 & \texttt{facility management generative AI large language model} \\
+IA-C10 & Crossref & 200 & \texttt{digital twin building maintenance machine learning} \\
+\bottomrule
+\end{tabularx}
+\par\smallskip{\footnotesize Nota: IA-Scopus e IA-WoS usam a mesma expressão booleana (Quadro S0.3), aplicada aos campos nativos de cada base (\texttt{TITLE-ABS-KEY} na Scopus, \texttt{TS} na Web of Science). Crossref: 200 registros/consulta, ordenação por relevância, 1.993 registros após deduplicação interna. Total operacional da rodada: 6.728 ocorrências brutas (3.169+1.559+2.000), não um corpus homogêneo. Fonte: elaborado pelo autor a partir de 01\_PROTOCOLO/strings\_busca\_sensibilidade\_ia\_ml\_20260712.md.\par}
+\end{table}
+
+\subsubsection*{Quadro S0.1 --- Strings literais Scopus, busca principal (\texttt{TITLE-ABS-KEY})}
+
+\small
+\noindent\textbf{S1:} \texttt{TITLE-ABS-KEY(("building maintenance" OR "facility management" OR "facilities management" OR "facilities maintenance" OR "building asset management" OR "building operation" OR "operation and maintenance" OR "maintenance management") AND (sustainab* OR "green building*" OR "life cycle" OR "life-cycle" OR "sustainability assessment" OR "sustainability indicator*" OR "environmental performance" OR "building performance"))}
+
+\medskip
+\noindent\textbf{S2:} \texttt{TITLE-ABS-KEY(("public building*" OR "university building*" OR "university campus" OR "higher education institution*" OR "educational building*" OR "government building*" OR "public sector building*" OR "building portfolio") AND ("building maintenance" OR maintenance OR "facility management" OR "facilities management" OR "asset management" OR "operation and maintenance") AND (sustainab* OR "environmental performance" OR "life cycle" OR "sustainability assessment"))}
+
+\medskip
+\noindent\textbf{S3:} \texttt{TITLE-ABS-KEY(("maintenance prioritization" OR "maintenance backlog" OR "deferred maintenance" OR "maintenance strategy" OR "maintenance planning" OR "renewal prioritization" OR "condition assessment" OR "condition-based maintenance") AND (building* OR "public building*" OR "university building*" OR campus OR "building portfolio" OR "built environment" OR "facility management" OR "facilities management") AND (sustainab* OR "environmental criteria" OR "social criteria" OR "life cycle" OR "risk-based maintenance"))}
+
+\medskip
+\noindent\textbf{S4:} \texttt{TITLE-ABS-KEY(("building asset management" OR "facility management" OR "facilities management" OR "building maintenance" OR "building operation" OR "operation and maintenance") AND ("life cycle" OR "life-cycle" OR "whole life cost" OR "life cycle cost" OR "service life" OR durability OR "building performance" OR "asset performance") AND (sustainab* OR "environmental performance" OR "sustainability assessment"))}
+
+\subsubsection*{Quadro S0.2 --- Strings literais Web of Science, busca principal (\texttt{TS})}
+
+\small
+\noindent\textbf{W1:} \texttt{TS=(("building maintenance" OR "facility management" OR "facilities management" OR "facilities maintenance" OR "building asset management" OR "building operation" OR "operation and maintenance" OR "maintenance management") AND (sustainab* OR "green building*" OR "life cycle" OR "life-cycle" OR "sustainability assessment" OR "sustainability indicator*" OR "environmental performance" OR "building performance")) AND PY=(2010-2026)}
+
+\medskip
+\noindent\textbf{W2:} \texttt{TS=(("public building*" OR "university building*" OR "university campus" OR "higher education institution*" OR "educational building*" OR "government building*" OR "public sector building*" OR "building portfolio") AND ("building maintenance" OR maintenance OR "facility management" OR "facilities management" OR "asset management" OR "operation and maintenance") AND (sustainab* OR "environmental performance" OR "life cycle" OR "sustainability assessment")) AND PY=(2010-2026)}
+
+\medskip
+\noindent\textbf{W3:} \texttt{TS=(("maintenance prioritization" OR "maintenance backlog" OR "deferred maintenance" OR "maintenance strategy" OR "maintenance planning" OR "renewal prioritization" OR "condition assessment" OR "condition-based maintenance") AND (building* OR "public building*" OR "university building*" OR campus OR "building portfolio" OR "built environment" OR "facility management" OR "facilities management") AND (sustainab* OR "environmental criteria" OR "social criteria" OR "life cycle" OR "risk-based maintenance")) AND PY=(2010-2026)}
+
+\medskip
+\noindent\textbf{W4:} \texttt{TS=(("building asset management" OR "facility management" OR "facilities management" OR "building maintenance" OR "building operation" OR "operation and maintenance") AND ("life cycle" OR "life-cycle" OR "whole life cost" OR "life cycle cost" OR "service life" OR durability OR "building performance" OR "asset performance") AND (sustainab* OR "environmental performance" OR "sustainability assessment")) AND PY=(2010-2026)}
+
+\subsubsection*{Quadro S0.3 --- String literal da busca de sensibilidade para IA/ML (Scopus e Web of Science)}
+
+\small
+\noindent\textbf{IA-Scopus} (\texttt{TITLE-ABS-KEY}) \textbf{/ IA-WoS} (\texttt{TS}, mesma expressão booleana): \texttt{(("building maintenance" OR "facilities maintenance" OR "building maintenance management" OR "facility maintenance" OR "building operation and maintenance" OR "building operations and maintenance" OR "facility management" OR "facilities management" OR "building asset management" OR "building condition assessment" OR "building inspection" OR ("predictive maintenance" AND (building* OR facilit* OR HVAC OR "building system*"))) AND ("artificial intelligence" OR "AI-based" OR "AI-enabled" OR "AI-driven" OR "machine learning" OR "deep learning" OR "reinforcement learning" OR "supervised learning" OR "unsupervised learning" OR "transfer learning" OR "artificial neural network*" OR "neural network*" OR "convolutional neural network*" OR "recurrent neural network*" OR CNN OR RNN OR LSTM OR transformer* OR autoencoder* OR "random forest*" OR "support vector machine*" OR SVM OR "gradient boosting" OR XGBoost OR "decision tree*" OR "computer vision" OR "image recognition" OR "natural language processing" OR "large language model*" OR "generative AI" OR "anomaly detection" OR "fault detection" OR "fault diagnosis" OR "remaining useful life"))} — acrescida de \texttt{PUBYEAR > 2009 AND PUBYEAR < 2027} na Scopus e \texttt{AND PY=(2010-2026)} na Web of Science.
+
+\clearpage
 \subsection*{Tabela S1 --- Resultados e controles da deduplicação}
 
 \begin{table}[htbp]

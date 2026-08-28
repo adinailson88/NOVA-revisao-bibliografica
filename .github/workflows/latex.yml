@@ -63,6 +63,11 @@ jobs:
         working-directory: latex-artigo
         run: latexmk -pdf -interaction=nonstopmode -halt-on-error main_anonimo.tex
 
+      - name: Compilar material suplementar
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        working-directory: latex-artigo/suplemento
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error main_suplementar.tex
+
       - name: Instalar Pandoc e LibreOffice
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: sudo apt-get install -y pandoc libreoffice-writer
@@ -105,6 +110,7 @@ jobs:
         run: |
           cp latex-artigo/main.pdf main.pdf
           cp latex-artigo/main_anonimo.pdf main_anonimo.pdf
+          cp latex-artigo/suplemento/main_suplementar.pdf material_suplementar.pdf
           mkdir -p site
           cp main.pdf site/artigo.pdf
           cp artigo.docx site/artigo.docx
@@ -116,7 +122,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx artigo_anonimo.docx main.pdf main_anonimo.pdf site/artigo.pdf site/artigo.docx
+          git add -A latex-artigo/figuras latex-artigo/fontes docs/RELATORIO_BIBLIOMETRIA_372.md referencias artigo.docx artigo_anonimo.docx main.pdf main_anonimo.pdf material_suplementar.pdf site/artigo.pdf site/artigo.docx
           if git diff --cached --quiet; then
             echo "Produtos inalterados."
           else
@@ -132,6 +138,7 @@ jobs:
           path: |
             main.pdf
             main_anonimo.pdf
+            material_suplementar.pdf
             artigo.docx
             artigo_anonimo.docx
             referencias
