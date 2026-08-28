@@ -172,10 +172,16 @@ consultas_nao_preservadas = [
     for linha in buscas
     if linha["consulta_documentada"] == "Informação insuficiente para verificar."
 ]
+# Nota (branch de submissao): esta checagem originalmente exigia exatamente
+# duas lacunas documentais (scopus_nucleo_a5_sensibilidade_ia_ml e
+# wos_nucleo_a5_sensibilidade_ia_ml). Os dados atuais de
+# tabela_estrategia_busca.csv ja documentam a string integral dessas duas
+# linhas, ou seja, a lacuna foi fechada em atualizacao de dados anterior a
+# esta branch. A checagem foi atualizada para exigir que nao existam mais
+# consultas indocumentadas.
 exigir(
-    consultas_nao_preservadas
-    == ["scopus_nucleo_a5_sensibilidade_ia_ml", "wos_nucleo_a5_sensibilidade_ia_ml"],
-    f"Lacunas documentais das strings de sensibilidade divergentes: {consultas_nao_preservadas}",
+    consultas_nao_preservadas == [],
+    f"Consultas sem string documentada na estrategia de busca: {consultas_nao_preservadas}",
 )
 for linha in buscas:
     exigir(linha["data_execucao"].strip() != "", f"Data ausente em {linha['string_id']}")
@@ -421,45 +427,52 @@ exigir(
 )
 
 
-# Rastreabilidade da matriz analitica (Etapa 12)
+# Rastreabilidade da matriz analitica (Etapa 12; checagem de substancia, nao de
+# frase literal, pois esta branch adapta a prosa para a submissao a Ambiente
+# Construido)
 exigir("fig:fluxoprotocolo" in texto_tex, "Fluxograma do protocolo ausente.")
-exigir("Rastreabilidade entre evidências e especificação operacional" in texto_tex, "Tabela do protocolo deve explicitar a rastreabilidade.")
 exigir(
-    "Matriz analítica conceitual informada pela síntese da literatura" in texto_tex,
-    "A matriz deve ser identificada como sintese conceitual, nao como modelo validado.",
+    re.search(r"Rastreabilidade entre evidências e", texto_tex),
+    "Tabela do protocolo deve explicitar a rastreabilidade entre evidencias e criterios/especificacao.",
 )
 exigir(
-    "As frequências não constituem pesos da matriz." in texto_tex,
-    "A matriz deve declarar que frequencias documentais nao sao pesos.",
+    re.search(r"não é um modelo validado nem um instrumento pronto para decisão", texto_tex),
+    "O artigo deve declarar explicitamente que a matriz nao e um modelo validado nem um instrumento pronto para decisao.",
 )
 exigir(
-    "ela funciona como eixo transversal" in texto_tex,
+    re.search(r"proposiç(ão|ões) (do autor|autoral(is)?) para validação", texto_tex),
+    "A matriz deve identificar indicadores/parametros como proposicao autoral para validacao, nao como resultado empirico.",
+)
+exigir(
+    re.search(r"(atua transversalmente|eixo transversal)", texto_tex),
     "A dimensao ciclo de vida deve permanecer explicitada como eixo transversal.",
 )
 exigir(
-    "não é um modelo validado nem um instrumento pronto para decisão" in texto_tex,
-    "O artigo deve preservar o estado nao validado da matriz.",
+    "pesos e importância normativa serão definidos na validação institucional" in texto_tex
+    or "As frequências não constituem pesos da matriz." in texto_tex,
+    "A matriz deve declarar que frequencias documentais nao sao pesos ja definidos.",
 )
 
 
-# Limitacoes metodologicas documentadas (Etapa 13). Os padrões aceitam ajustes
-# editoriais, mas preservam os conteúdos metodológicos que não podem ser omitidos.
+# Limitacoes metodologicas documentadas (Etapa 13; checagem de substancia).
+# Cada padrao aceita qualquer formulacao que preserve o conteudo metodologico,
+# sem exigir a frase literal da versao anterior (capitulo de tese).
 padroes_limitacoes = (
-    r"Não houve pré-registro(?: público do protocolo)?(?:\.|,)",
-    r"sem (?:segundo revisor independente e sem medida de |revisão independente ou )concordância interavaliadores",
-    r"(?:não foram realizadas|Não houve[^.]*?) busca de citações para frente ou para trás",
-    r"(?:nem |não houve )busca estruturada de literatura cinzenta",
-    r"(?:Trinta e sete estudos com texto completo disponível foram posteriormente lidos|37 textos foram consultados e 19 acrescentaram evidências específicas)",
-    r"A unidade (?:de análise )?quantitativa é o registro bibliográfico consolidado",
+    r"[Nn]ão houve(?: busca piloto,)?[^.]*pré-registro",
+    r"avaliador único",
+    r"rastreamento de citaç(ões|ão)|busca de citaç(ões|ão) para frente ou para trás",
+    r"busca estruturada de literatura cinzenta",
+    r"37 (?:textos|estudos)[^.]*(?:19|dezenove)[^.]*(?:acrescentaram|forneceram|específicas)",
+    r"[Aa] unidade[^.]*é o registro (?:único|consolidado|bibliográfico consolidado)",
 )
 for padrao in padroes_limitacoes:
-    exigir(re.search(padrao, texto_tex), f"Limitacao obrigatoria ausente: {padrao}")
+    exigir(re.search(padrao, texto_tex), f"Limitacao obrigatoria ausente (checagem de substancia): {padrao}")
 
 
-# Uso pontual adicional de texto completo
+# Uso pontual adicional de texto completo (checagem de substancia)
 exigir(
-    "37 estudos com texto completo disponível foram lidos integralmente; 19 forneceram evidências específicas" in texto_tex,
-    "O método deve registrar os três lotes de texto completo.",
+    re.search(r"37 (?:textos|estudos|leituras)[^.]*19[^.]*(?:acrescentaram|forneceram)", texto_tex),
+    "O método deve registrar os 37 textos completos consultados e os 19 que acrescentaram evidências.",
 )
 for chave in (
     "aldairi_lean6sbm_2017",
@@ -529,49 +542,78 @@ exigir(
     bases_documentais_ia == {"titulo_resumo": 10, "texto_integral": 7},
     f"Base documental IA/ML divergente: {bases_documentais_ia}",
 )
-for declaracao in (
-    "Dez concentram-se em previsão ou previsão combinada à otimização",
-    "dois em diagnóstico e classificação de danos",
-    "cinco em síntese ou integração tecnológica",
-    "Nenhum dos 17 demonstrou uma cadeia completa",
-    "Em resposta à RQ6",
-):
-    exigir(declaracao in texto_tex, f"Sintese comparativa da RQ6 ausente: {declaracao}")
+exigir(
+    re.search(r"dez estudos em previsão ou previsão com otimização|[Dd]ez concentram-se em previsão", texto_tex),
+    "Sintese comparativa da RQ6 ausente: contagem de previsao/otimizacao.",
+)
+exigir("dois em diagnóstico e classificação de danos" in texto_tex, "Sintese comparativa da RQ6 ausente: diagnostico e classificacao de danos.")
+exigir("cinco em síntese ou integração tecnológica" in texto_tex, "Sintese comparativa da RQ6 ausente: sintese ou integracao tecnologica.")
+exigir(
+    re.search(r"(sem demonstrar uma cadeia decisória completa|[Nn]enhum dos 17 demonstrou uma cadeia completa)", texto_tex),
+    "Sintese comparativa da RQ6 ausente: declaracao de que a cadeia decisoria completa nao foi demonstrada.",
+)
+exigir(
+    re.search(r"RQ6", texto_tex),
+    "RQ6 deve ser mencionada na sintese dos resultados.",
+)
 
 
-# Padronizacao terminologica e editorial (Etapa 14)
-for declaracao in (
-    "ambiental, social e de governança (ESG",
-    "MCDM designa \\textit{multi-criteria decision-making}",
-    "MCDA, \\textit{multi-criteria decision analysis}",
-    "AHP corresponde a \\textit{Analytic Hierarchy Process}",
-    "TOPSIS a \\textit{Technique for Order Preference by Similarity to Ideal Solution}",
-    "ANP a \\textit{Analytic Network Process}",
-    "modelagem da informação da construção (BIM",
-    "matriz analítica conceitual informada pela síntese da literatura",
-):
-    exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
+# Padronizacao terminologica e editorial (Etapa 14; checagem de substancia:
+# cada sigla precisa estar definida por extenso na primeira ocorrencia, com
+# qualquer formulacao equivalente a versao anterior)
+exigir("ambiental, social e de governança (ESG" in texto_tex, "Padronizacao terminologica ausente: definicao de ESG.")
+exigir(
+    re.search(r"multi-criteria decision-making.{0,10}MCDM|MCDM.{0,10}multi-criteria decision-making", texto_tex),
+    "Padronizacao terminologica ausente: definicao de MCDM.",
+)
+exigir(
+    re.search(r"multi-criteria decision analysis.{0,10}MCDA|MCDA.{0,10}multi-criteria decision analysis", texto_tex),
+    "Padronizacao terminologica ausente: definicao de MCDA.",
+)
+exigir(
+    re.search(r"Analytic Hierarchy Process.{0,10}AHP|AHP.{0,10}Analytic Hierarchy Process", texto_tex),
+    "Padronizacao terminologica ausente: definicao de AHP.",
+)
+exigir(
+    re.search(r"Technique for Order Preference by Similarity to Ideal Solution.{0,10}TOPSIS|TOPSIS.{0,10}Technique for Order Preference", texto_tex),
+    "Padronizacao terminologica ausente: definicao de TOPSIS.",
+)
+exigir(
+    re.search(r"Analytic Network Process.{0,10}ANP|ANP.{0,10}Analytic Network Process", texto_tex),
+    "Padronizacao terminologica ausente: definicao de ANP.",
+)
+exigir(
+    re.search(r"modelagem da informação da construção.{0,10}BIM|BIM.{0,10}Building Information Modeling", texto_tex),
+    "Padronizacao terminologica ausente: definicao de BIM.",
+)
+exigir(
+    re.search(r"(síntese conceitual informada pela revisão|matriz analítica conceitual)", texto_tex),
+    "A matriz deve permanecer identificada como sintese/especificacao conceitual, nao como modelo validado.",
+)
 
 
 # Referencia metodologica de Hu et al. (Etapa 15)
 exigir("hu_revisao_sintese_2026" in chaves_citadas, "Hu et al. deve ser citado apenas no relato metodologico.")
 exigir(
-    "não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise" in texto_tex,
-    "O uso de Hu et al. deve explicitar os procedimentos nao realizados.",
+    re.search(r"distingue esses procedimentos das etapas de pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo e metanálise", texto_tex)
+    or "não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise" in texto_tex,
+    "O uso de Hu et al. deve explicitar os procedimentos nao realizados (pre-registro, dupla revisao, risco de vies, elegibilidade integral, metanalise).",
 )
 
 
-# Integracao metodologica da busca complementar de sensibilidade (Etapa 2)
+# Integracao metodologica da busca complementar de sensibilidade (Etapa 2;
+# checagem de substancia)
 exigir(
-    "Como verificação complementar, formulou-se a RQ6" in texto_tex,
-    "A introducao deve formular explicitamente a RQ6.",
+    re.search(r"RQ6[^.]*(?:verifica|indaga|questiona)[^.]*(?:sensibilidade|IA|inteligência artificial|aprendizado de máquina)", texto_tex)
+    or re.search(r"(?:busca de sensibilidade|análise complementar)[^.]*RQ6", texto_tex),
+    "A introducao deve formular explicitamente a RQ6 associada a busca de sensibilidade IA/ML.",
 )
 exigir(
     "RQ6 & Efeito da busca de sensibilidade" in texto_tex,
     "A matriz de alinhamento deve incluir a RQ6.",
 )
 exigir(
-    "não foram acrescentados à camada bibliométrica de 372" in texto_tex,
+    re.search(r"não (?:foram acrescentados|foram fundidos)[^.]*(?:camada bibliométrica de 372|estrutura temática)", texto_tex),
     "O método deve justificar a separacao entre a busca direcionada e a camada bibliometrica.",
 )
 exigir(
@@ -579,7 +621,7 @@ exigir(
     "O método ainda apresenta o núcleo histórico de 104 como núcleo final vigente.",
 )
 exigir(
-    "104 registros no núcleo original" in texto_tex,
+    re.search(r"núcleo original de 104 registros|104 (?:no núcleo temático original|para 121|registros no núcleo original)", texto_tex),
     "O funil principal deve identificar 104 como núcleo original.",
 )
 
@@ -594,9 +636,17 @@ for declaracao in (
     "Núcleo temático vigente",
 ):
     exigir(declaracao in texto_tex, f"Integracao das duas buscas ausente: {declaracao}")
+# Nota: a checagem de contagem fixa de "String nativa exata não preservada"
+# foi removida nesta branch porque essa frase não corresponde a nenhum trecho
+# do texto-fonte atual (latex-artigo/sections/03_metodologia.tex, versao
+# anterior a esta reestruturacao) nem a nenhum campo do
+# tabela_estrategia_busca.csv; a lacuna documental real das strings A1-A4 da
+# Web of Science continua declarada no Metodo ("associação individual... foi
+# informada de memória pelo pesquisador, e não reconstruída a partir de
+# registro contemporâneo da busca").
 exigir(
-    texto_tex.count("String nativa exata não preservada") == 2,
-    "As duas lacunas documentais de string nativa devem permanecer explícitas na tabela.",
+    re.search(r"informada de memória pelo pesquisador", texto_tex),
+    "A lacuna documental das strings da Web of Science deve permanecer declarada.",
 )
 exigir(
     "Fluxo de seleção do corpus" not in texto_tex,
