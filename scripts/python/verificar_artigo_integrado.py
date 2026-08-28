@@ -118,3 +118,12 @@ if resultado_intersecao != esperado_intersecao:
     raise AssertionError(f"Interseção entre camadas divergente: {resultado_intersecao}")
 
 print("Controles do parecer crítico e da revisão editorial: OK")
+
+import importlib.util as _importlib_util
+
+_spec = _importlib_util.spec_from_file_location(
+    "verificar_artigo_word", ROOT / "scripts" / "python" / "verificar_artigo_word.py"
+)
+_verificar_artigo_word = _importlib_util.module_from_spec(_spec)
+_spec.loader.exec_module(_verificar_artigo_word)
+_verificar_artigo_word.verificar(ROOT / "artigo.docx")
