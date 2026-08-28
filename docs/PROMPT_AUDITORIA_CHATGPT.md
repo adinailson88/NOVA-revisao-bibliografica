@@ -7,21 +7,35 @@ Copie e cole o texto abaixo no ChatGPT.
 Preciso que você faça uma auditoria crítica e independente de uma adaptação editorial de artigo científico, feita por outro assistente de IA (Claude). Não conheço detalhes do processo além do que está documentado no repositório abaixo — quero sua leitura própria, não uma confirmação do que já foi dito.
 
 Repositório: https://github.com/adinailson88/NOVA-revisao-bibliografica
-Branch da submissão: `submissao-ambiente-construido` (a branch `main` é o capítulo de tese original, intocado; não avalie a `main`, avalie a branch de submissão)
 
-Contexto: o artigo é uma revisão bibliométrica sobre manutenção sustentável em edificações públicas universitárias, com uma especificação operacional candidata (matriz de critérios/indicadores) para futura parametrização multicritério. A tarefa foi adaptar o capítulo de tese completo (~9.600 palavras, 13 seções) para o formato exigido pela revista Ambiente Construído (ANTAC/UFRGS): máximo de 7.000 palavras entre Introdução e Conclusões, estrutura em 4 blocos (Introdução, Método de pesquisa, Resultados e discussão, Considerações finais), preservando integralmente os números, resultados, tabelas, figuras e referências — sem nova pesquisa, sem alterar o corpus, sem inventar dados.
+Existem duas versões a comparar:
+
+- **Versão ANTERIOR (capítulo de tese, ~9.600 palavras, 13 seções)**: branch `main`.
+  Texto-fonte em https://github.com/adinailson88/NOVA-revisao-bibliografica/tree/main/latex-artigo/sections
+  PDF em https://github.com/adinailson88/NOVA-revisao-bibliografica/blob/main/main.pdf
+- **Versão ATUAL (adaptada para a revista, ~6.900 palavras, 4 seções)**: branch `submissao-ambiente-construido`.
+  Texto-fonte em https://github.com/adinailson88/NOVA-revisao-bibliografica/tree/submissao-ambiente-construido/latex-artigo/sections
+  PDF em https://github.com/adinailson88/NOVA-revisao-bibliografica/blob/submissao-ambiente-construido/main.pdf
+  Word em https://github.com/adinailson88/NOVA-revisao-bibliografica/blob/submissao-ambiente-construido/artigo.docx
+
+**Diff completo entre as duas versões** (o jeito mais direto de ver exatamente o que mudou, arquivo por arquivo):
+https://github.com/adinailson88/NOVA-revisao-bibliografica/compare/main...submissao-ambiente-construido
+
+Contexto: o artigo é uma revisão bibliométrica sobre manutenção sustentável em edificações públicas universitárias, com uma especificação operacional candidata (matriz de critérios/indicadores) para futura parametrização multicritério. A tarefa foi adaptar o capítulo de tese completo para o formato exigido pela revista Ambiente Construído (ANTAC/UFRGS): máximo de 7.000 palavras entre Introdução e Conclusões, estrutura em 4 blocos (Introdução, Método de pesquisa, Resultados e discussão, Considerações finais), preservando integralmente os números, resultados, tabelas, figuras e referências — sem nova pesquisa, sem alterar o corpus, sem inventar dados. As 13 seções da versão anterior foram fundidas nessas 4, com corte de texto.
 
 Arquivos-chave para revisar, nesta ordem:
 
-1. `docs/RELATORIO_ADEQUACAO_AMBIENTE_CONSTRUIDO.md` — relatório de conformidade e do que foi feito, segundo o Claude.
-2. `latex-artigo/sections/*.tex` (01 a 04) — o texto reescrito.
-3. `latex-artigo/references.bib` — as referências.
-4. `main.pdf` e `artigo.docx` na raiz do repositório — os produtos finais compilados.
-5. `scripts/python/verificar_artigo.py` e `verificar_artigo_integrado.py` — os scripts de verificação automatizada, que foram adaptados durante a tarefa (veja o histórico de commits para entender por quê).
-6. Histórico de commits da branch (`git log main..submissao-ambiente-construido`) para ver a sequência real do trabalho, não só o relatório final.
+1. O link de diff acima, para ver a extensão real da mudança entre as duas versões.
+2. `docs/RELATORIO_ADEQUACAO_AMBIENTE_CONSTRUIDO.md` (só existe na branch `submissao-ambiente-construido`) — relatório de conformidade e do que foi feito, segundo o Claude.
+3. As seções antigas (`main` branch) comparadas com as novas (`submissao-ambiente-construido` branch) — confira se algum número, resultado ou conclusão mudou de valor entre as duas versões (não deveria: só a organização e a extensão do texto podem mudar).
+4. `latex-artigo/references.bib` nas duas branches — confirme que a lista de referências é idêntica.
+5. `main.pdf` e `artigo.docx` na raiz da branch `submissao-ambiente-construido` — os produtos finais compilados.
+6. `scripts/python/verificar_artigo.py` e `verificar_artigo_integrado.py` (branch `submissao-ambiente-construido`) — os scripts de verificação automatizada, que foram adaptados durante a tarefa (veja o histórico de commits para entender por quê).
+7. Histórico de commits: `git log main..submissao-ambiente-construido` (ou a lista de commits em https://github.com/adinailson88/NOVA-revisao-bibliografica/commits/submissao-ambiente-construido) para ver a sequência real do trabalho, não só o relatório final.
 
 Por favor, verifique especificamente:
 
+- Comparando a versão anterior (`main`) com a atual (`submissao-ambiente-construido`): todo número, resultado, tabela e figura que existia antes continua existindo depois, com o mesmo valor. Se algo foi removido, deveria haver justificativa explícita no relatório — aponte qualquer remoção não justificada.
 - Os números centrais do funil bibliométrico (12.118 → 9.542 → 3.678 → 137 → 104 → 121 registros, seis dimensões, 15 critérios, crescimento de aprendizado de máquina de 9 para 26) aparecem de forma consistente entre o resumo, o corpo do texto e as tabelas, sem contradição.
 - Toda citação no texto tem entrada correspondente no `references.bib`, e toda entrada do `.bib` está de fato citada no texto (não confie apenas na afirmação do relatório — confira você mesmo, por amostragem ou integralmente).
 - A matriz de indicadores/critérios é tratada como proposta candidata, não como resultado validado ou método já testado — isso é uma exigência explícita da tarefa original.
