@@ -68,6 +68,20 @@ def _expandir_multicolumn(casamento):
 
 CAPTIONGRAFICO_RE = re.compile(r"\\captiongrafico\{((?:[^{}]|\{[^{}]*\})*)\}")
 
+# \fonteautor (\newcommand simples, sem argumento, para "Fonte: elaborado
+# pelo autor.") e a nota inline "\par\smallskip{\footnotesize ...\par}" (nas
+# 2 tabelas que tem nota alem da fonte) tambem somem por completo no Pandoc:
+# sao comandos de espacamento/tamanho de fonte que o leitor LaTeX do Pandoc
+# nao entende dentro do fallback de tabela, entao ele descarta tudo. Sem
+# isso, as 11 tabelas do Word ficavam sem a nota de fonte dos dados.
+MARCADOR_FONTE = "@@FONTE_TABELA@@"
+FONTEAUTOR_RE = re.compile(r"\\fonteautor")
+NOTA_INLINE_RE = re.compile(r"\\par\\smallskip\{\\footnotesize\s+(.*?)\s*\\par\}", re.DOTALL)
+
+
+def _marcar_fonte(texto_nota):
+    return f"\n\n{MARCADOR_FONTE}{texto_nota}{MARCADOR_FONTE}\n\n"
+
 
 REF_RE = re.compile(r"\\ref\{(tab|fig|sec):([^}]+)\}")
 
@@ -113,6 +127,8 @@ def preparar_fonte_pandoc():
         texto = MULTICOLUNA_RE.sub(_expandir_multicolumn, texto)
         texto = TIKZPICTURE_RE.sub("", texto)
         texto = LEGENDA_TABELA_RE.sub(_marcar_legenda_tabela, texto)
+        texto = NOTA_INLINE_RE.sub(lambda m: _marcar_fonte(m.group(1)), texto)
+        texto = FONTEAUTOR_RE.sub(_marcar_fonte("Fonte: elaborado pelo autor."), texto)
         texto = CAPTIONGRAFICO_RE.sub(_resolver_captiongrafico, texto)
         texto = REF_RE.sub(_resolver_ref, texto)
         arquivo.write_text(texto, encoding="utf-8")
@@ -198,11 +214,22 @@ def converter_figuras_pdf_no_docx():
         print(f"Figuras PDF convertidas para PNG: {len(midias_pdf)}")
 
 
+COLSPEC_COMPLETO = re.compile(r"^(?:(?:>p[\d.]+cm|Y)\s*)+$")
+
+
 def eh_paragrafo_de_tabela(texto):
     if " & " not in texto:
         return False
     primeira_linha = texto.split("\n", 1)[0]
     return bool(COLSPEC.match(primeira_linha)) or texto.count(" & ") >= 2
+
+
+def eh_paragrafo_apenas_colspec(texto):
+    """Algumas tabelas tem a especificacao de colunas (ex.: ">p2.1cm Y")
+    isolada num paragrafo proprio, em vez de grudada na primeira linha da
+    tabela -- nesse caso ela nao contem " & " e eh_paragrafo_de_tabela() nao
+    a reconhece, sobrando como texto cru visivel antes da legenda/tabela."""
+    return bool(COLSPEC_COMPLETO.match(texto.strip()))
 
 
 def aplicar_bordas(tabela):
@@ -386,6 +413,35 @@ def corrigir_legendas_tabela(doc):
     print(f"Legendas de tabela reconstruidas: {total}")
 
 
+def corrigir_fonte_tabela(doc):
+    """Reconstroi, como paragrafo pequeno logo apos a tabela, a nota de fonte
+    (e, em 2 tabelas, a nota metodologica que a acompanha) a partir do
+    marcador deixado por FONTEAUTOR_RE/NOTA_INLINE_RE (ver
+    preparar_fonte_pandoc) - sem isso a nota de fonte de TODAS as 11 tabelas
+    desaparecia do .docx (o Pandoc nao entende \\fonteautor nem
+    \\par\\smallskip{\\footnotesize ...} dentro do fallback de tabela)."""
+    from docx.shared import Pt
+
+    padrao = re.compile(re.escape(MARCADOR_FONTE) + r"(.*?)" + re.escape(MARCADOR_FONTE), re.DOTALL)
+    total = 0
+    for paragrafo in doc.paragraphs:
+        casamento = padrao.search(paragrafo.text)
+        if not casamento:
+            continue
+        texto = casamento.group(1).strip()
+        for run in list(paragrafo.runs):
+            run.text = ""
+        if paragrafo.runs:
+            paragrafo.runs[0].text = texto
+            alvo = paragrafo.runs[0]
+        else:
+            alvo = paragrafo.add_run(texto)
+        alvo.font.size = Pt(9)
+        alvo.font.italic = True
+        total += 1
+    print(f"Notas de fonte de tabela reconstruidas: {total}")
+
+
 def _remover_tabela_fantasma_antes(paragrafo):
     """O Pandoc converte um \\begin{figure} sem imagem (caso do TikZ, cuja
     figura real e inserida a seguir como PNG) numa <w:tbl> vazia (0 linhas)
@@ -454,6 +510,12 @@ def corrigir_docx():
     from docx import Document
 
     doc = Document(INTERMEDIARIO)
+
+    colspecs_soltos = [p for p in doc.paragraphs if eh_paragrafo_apenas_colspec(p.text)]
+    for paragrafo in colspecs_soltos:
+        paragrafo._p.getparent().remove(paragrafo._p)
+    print(f"Paragrafos de especificacao de coluna removidos: {len(colspecs_soltos)}")
+
     alvos = [p for p in doc.paragraphs if eh_paragrafo_de_tabela(p.text)]
     for paragrafo in alvos:
         tabela = construir_tabela(doc, paragrafo.text)
@@ -464,6 +526,7 @@ def corrigir_docx():
     print(f"Tabelas reconstruidas: {len(alvos)}")
 
     corrigir_legendas_tabela(doc)
+    corrigir_fonte_tabela(doc)
 
     estilo_h1 = next((p.style for p in doc.paragraphs if p.text.strip() == "Introdução"), None)
     for paragrafo in doc.paragraphs:
