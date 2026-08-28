@@ -22,6 +22,7 @@ from pathlib import Path
 AUTOR_MARCADORES = (
     "Adinailson",
     "Guimarães de Oliveira",
+    "Fabricio Berton Zanchi",
     "Programa de Pós-Graduação em Biossistemas",
     "Universidade Federal do Sul da Bahia",
 )
