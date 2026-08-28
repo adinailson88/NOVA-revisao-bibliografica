@@ -25,15 +25,15 @@ no site da revista, não em agregadores ou blogs:
 
 | Requisito vigente | Situação do manuscrito | Ação tomada |
 |---|---|---|
-| Máx. 7.000 palavras (Introdução→Conclusões) | 9.600 (versão capítulo de tese) | Reestruturado. Contagem oficial no `.docx` compilado: **6.942 palavras** (margem de 58) |
+| Máx. 7.000 palavras (Introdução→Conclusões) | 9.600 (versão capítulo de tese) | Reestruturado. Contagem oficial no `.docx` compilado (ver Seção 8): **6.773 palavras** |
 | Estrutura com títulos não numerados no texto (instruções) vs. numerados (template oficial) | 13 seções numeradas | Fundidas em 4: Introdução, Método de pesquisa, Resultados e discussão, Considerações finais. Numeração mantida (o template oficial usa "1 INTRODUÇÃO", "4 RESULTADOS E DISCUSSÕES", contradizendo o texto das instruções) |
 | A4, espaço simples, Times New Roman 12, margens 3/2/3/2 cm, linhas numeradas contínuas | LaTeX já correto (margens e A4); Word gerado pelo pipeline padrão estava em página Carta, margens de 1", fonte Cambria/Calibri, sem numeração de linha | Corrigido no `.docx` por `scripts/python/ajustar_formato_word.py`: A4, margens 1701/1134 twips (3/2 cm), Times New Roman em todo o corpo, `lnNumType` contínuo. Confirmado por inspeção do XML |
 | Word/OpenOffice/RTF, máx. 5 MB | Pipeline já gera `.docx` | `artigo.docx` final: 1,17 MB |
 | Título ≤ 15 palavras, PT+EN | 13 palavras, com dois-pontos | "Priorização multicritério da manutenção sustentável em edificações públicas universitárias" (10 palavras) / "Multi-criteria prioritization of sustainable maintenance in public university buildings" — escolhido pelo autor entre 3 opções |
 | Resumo/Abstract 100–200 palavras cada | 216/~215 | Cortados para 200/194 |
 | 3–6 palavras-chave (revista) / 3–5 (template) | 5 em cada idioma, separadas por `;` | Mantidas 5; separador trocado para `.` conforme o template oficial |
-| Referências NBR 6023:2018, alfabética, >3 autores → 1º + et al. | `biblatex` `style=abnt` | **Verificado visualmente no PDF compilado**: ordem alfabética correta, "et al." aplicado corretamente às 14 referências com ≥4 autores (ex.: ALFALAH et al., MASMOUDI et al.), DOIs renderizados como links |
-| Citações NBR 10520 (2023 no site oficial; o template baixado cita 2001) | `\textcite`/`\parencite` | Divergência entre fontes oficiais registrada; adotado 2023 (página institucional, mais recente) por padrão; **pendência do autor** |
+| Referências NBR 6023:2018, alfabética, >3 autores → 1º + et al. | PDF: `biblatex` `style=abnt`. Word (até 2026-08-27): `pandoc --citeproc` sem CSL, saía em inglês ("and", sem "et al.") | **Corrigido em 2026-08-28** (Seção 8): `latex-artigo/abnt.csl` (estilo oficial do projeto Citation Style Language, NBR 6023/NBR 10520) ligado via `pandoc --csl`; Word e PDF agora equivalentes. Verificado visualmente: ordem alfabética, "et al." a partir de 4 autores, conectivo "e" em vez de "and", DOIs como links |
+| Citações NBR 10520 (2023 no site oficial; o template baixado cita 2001) | `\textcite`/`\parencite` (PDF) e `abnt.csl` (Word, `et-al-min=4`, ambos alinhados a NBR 10520:2023) | Resolvido — adotado 2023 (página institucional, mais recente) em ambos os formatos |
 | Tabelas/figuras com legenda e chamada no texto | 11 tabelas + 11 figuras | Preservadas integralmente, nenhuma removida; **verificado visualmente**: nenhuma tabela cortada, nenhuma quebra de página problemática |
 | Figuras ≥300 dpi, jpg/png, coloridas | 14 PNG conferidos, todos exatamente 300 dpi | Conforme |
 | Avaliação duplo-cega: remover autoria do arquivo e propriedades | `\author{...}` no `main.tex`; `dc:creator` populado no `.docx` gerado | `main_anonimo.tex` compilado com sucesso (PDF sem nome/afiliação); `artigo_anonimo.docx` gerado com parágrafo de autoria removido e `docProps` limpos (verificado: `dc:creator` vazio) |
@@ -117,11 +117,9 @@ fluxogramas (TikZ) bem posicionados, referências em ordem alfabética com
 "et al." aplicado corretamente, DOIs como links. Nenhuma caixa horizontal
 excedente relatada pelo workflow.
 
-**Contagem oficial de palavras**: extraída do `.docx` gerado (não do fonte
-LaTeX, que subestimava por não parsear integralmente os ambientes TikZ),
-entre "Introdução" e "Referências": **6.890 palavras** (após corte adicional
-solicitado pelo autor em 2026-08-28; a primeira versão compilada tinha 6.942),
-dentro do limite de 7.000 com margem de 110 palavras (1,6%).
+**Contagem oficial de palavras**: ver Seção 8 (auditoria de 2026-08-28) para
+o método reproduzível final e o número atual — **6.773 palavras**, com script
+dedicado versionado no repositório.
 
 ## 6. Versão Word: formatação e anonimização
 
@@ -175,10 +173,222 @@ Resolvidas em 2026-08-28:
 
 Ainda em aberto:
 
-1. Confirmar o estilo visual dos títulos (numerado vs. não numerado, negrito
-   vs. não negrito) comparando com um fascículo publicado recente — o
-   arquivo-modelo baixado e o texto das instruções divergem entre si.
-2. Confirmar se há taxa de publicação aplicável (isenção, R$ 350 ou R$ 700,
-   conforme associação à ANTAC).
-3. A margem de palavras é de 110 (1,6%); revisões futuras de texto (mesmo
-   pequenas) devem reconferir a contagem no Word antes do envio final.
+1. Confirmar se há taxa de publicação aplicável (isenção, R$ 350 ou R$ 700,
+   conforme associação à ANTAC) — informação insuficiente para verificar a
+   partir dos fontes consultados.
+2. Confirmar com o orientador a caracterização do uso de IA (Seção 8.9): a
+   declaração atual cobre apenas esta etapa de preparação para submissão
+   (2026-08-27 em diante), não o histórico de curadoria de dados de
+   julho/2026 do mesmo repositório.
+3. Revisões futuras de texto (mesmo pequenas) devem reconferir a contagem de
+   palavras com `scripts/python/contar_palavras_artigo.py` antes do envio
+   final — a margem atual (227 palavras, ver Seção 8.6) não é folgada.
+
+## 8. Auditoria independente e correções de 2026-08-28
+
+Uma auditoria independente do `artigo.docx` então publicado encontrou 12
+problemas editoriais não cobertos pela Seção 2–7 (produzida numa rodada
+anterior). Todos foram corrigidos nesta branch, com commits pequenos e
+auditáveis, e a correção de cada um foi validada por regeneração completa do
+pipeline (localmente com Pandoc/LibreOffice, e depois pelo build oficial do
+GitHub Actions, que tem TeX Live/Biber/pdflatex completos). Durante a
+correção, a inspeção visual página a página encontrou mais 4 problemas reais
+não cobertos pela lista original de achados; todos também corrigidos, dentro
+do escopo desta tarefa.
+
+### 8.1 Citações e referências do Word em estilo ABNT
+
+Corrigido adicionando `latex-artigo/abnt.csl` (estilo
+"Associação Brasileira de Normas Técnicas (Português - Brasil)" do
+repositório oficial do projeto [Citation Style
+Language](https://github.com/citation-style-language/styles), o mesmo
+mantenedor usado por Zotero/Mendeley) e ligando via `pandoc --csl=abnt.csl`
+em `scripts/python/13_preparar_word.py`. O estilo usa `default-locale="pt-BR"`
+(traduz "and" para "e"), `et-al-min="4"` (compatível com NBR 10520:2023) e
+ordena a bibliografia por autor (NBR 6023:2018). PDF (via `biblatex-abnt`) e
+Word (via este CSL) ficam equivalentes quanto a citações e referências.
+
+### 8.2 Resíduo `(lr)1-6` na Tabela 4 (e perda do rótulo do subtotal)
+
+A investigação mostrou que o problema era mais sério do que um resíduo
+visual: o Pandoc não só deixava `\cmidrule(lr){1-6}` como texto cru, como
+descartava por completo o conteúdo de `\multicolumn{4}{r}{Subtotal da busca
+principal}` — a linha de subtotal ficava sem o rótulo. Corrigido
+pré-processando uma cópia temporária dos `.tex` (sem tocar os fontes que o
+PDF usa) antes do Pandoc rodar: `\toprule`/`\midrule`/`\bottomrule`/
+`\cmidrule` são removidos, e `\multicolumn{N}{...}{texto}` vira "texto" +
+células vazias na posição correta.
+
+### 8.3 Quebra de tabela sem cabeçalho repetido
+
+Corrigido marcando a primeira linha de cada uma das 11 tabelas como
+cabeçalho repetido (`w:tblHeader`) e todas as linhas como indivisíveis
+(`w:cantSplit`), para nenhuma linha (sobretudo as de subtotal) ficar cortada
+ou órfã entre páginas.
+
+### 8.4 Numeração de seções ausente no Word
+
+O LaTeX numera `\section`/`\subsection` por padrão (sem alteração de
+`secnumdepth`), e as remissões em prosa (`Seção~\ref{sec:x}`) já resolviam
+para o número certo no PDF. Corrigido adicionando `pandoc --number-sections`
+e estendendo a resolução de referências cruzadas para rótulos `sec:` (antes
+só cobria `tab:`/`fig:`), replicando os dois contadores de figura do LaTeX
+(um para `\caption{}` normal, outro para o contador customizado `\thegrafico`
+usado por `\captiongrafico{}`) para não numerar remissões erradas.
+
+### 8.5 "Seis dimensões e 15 critérios"
+
+Reintroduzido de forma objetiva na abertura do parágrafo que antecede a
+Tabela 8 (critérios de priorização), sem alterar nomes, valores ou
+frequências.
+
+### 8.6 Contagem de palavras
+
+Script novo e reproduzível: `scripts/python/contar_palavras_artigo.py`
+(`python scripts/python/contar_palavras_artigo.py [artigo.docx]`). Conta
+palavras visíveis entre os títulos "Introdução" e "Referências", incluindo
+texto de tabelas (método mais conservador — conta mais texto, não menos).
+Contagem antes das correções desta seção (medida com o mesmo script sobre o
+`artigo.docx` de 2026-08-27, antes de qualquer edição desta auditoria):
+**6.558 palavras** — número mais baixo que o relatado anteriormente (6.890)
+porque aquela versão já tinha os defeitos de conteúdo descritos nas Seções
+8.2 e 8.9 (legendas de tabela ausentes, notas de fonte ausentes), ou seja, o
+6.890 relatado antes não é diretamente comparável a este método. Contagem
+final, após todas as correções desta auditoria (incluindo a restauração de
+conteúdo que estava sendo perdido, como legendas e notas de fonte das 11
+tabelas): **6.773 palavras**, margem de 227 frente ao limite de 7.000,
+abaixo da meta conservadora de 6.880. Verificação automatizada em
+`scripts/python/verificar_artigo_word.py`.
+
+### 8.7 Repetições mecânicas
+
+A cadeia "evidência científica, dimensão, critério, indicador observável,
+parametrização multicritério futura, veto não compensatório e decisão
+pública rastreável" foi mantida por extenso só na Introdução (onde
+apresenta a contribuição central); as outras 3 ocorrências (Introdução
+novamente, Resultados, Considerações finais) foram reformuladas em versões
+mais curtas. O mesmo para o eco de "eficiência, desempenho e edificações
+verdes... para BIM...".
+
+### 8.8 Formulações categóricas/promocionais
+
+Suavizadas, sem mudar a conclusão científica, com marcadores epistêmicos
+("os resultados sugerem", "essa leitura sugere") e explicitando que a
+transição de governança depende de validação institucional futura, nos 3
+trechos apontados (Considerações finais ×2, Resultados e discussão ×1).
+
+### 8.9 Declaração de uso de IA
+
+A frase anterior dizia uso "exclusivamente na revisão ortográfica, textual e
+de adequação formal". A frase atual declara reestruturação editorial,
+condensação textual, revisão linguística e adequação formal — o que de fato
+está sendo feito nesta etapa de preparação para submissão —, mantém explícita
+a ausência de uso em concepção da pesquisa/coleta de dados/definição do
+corpus/codificação/cálculo/criação de evidências, e registra que as
+alterações propostas foram revisadas e aprovadas pelo autor. Nome da
+ferramenta/modelo mantido ("Claude Code, Anthropic, modelo Claude Sonnet 5")
+por ser verificável — é o que produziu exatamente este conjunto de edições.
+
+**Achado adicional, fora do escopo da frase (registrado para o autor
+decidir, não alterado por conta própria)**: o histórico completo do
+repositório (antes desta branch) mostra 26 commits, de 2026-07-11/12, com
+trailer `Co-Authored-By: Claude Sonnet 5` ou `Claude Fable 5
+<noreply@anthropic.com>`, cobrindo consolidação de corpus, deduplicação e
+classificação de registros — uso mais amplo que "revisão ortográfica",
+embora anterior e fora do escopo temporal desta branch de submissão (criada
+em 2026-08-27). Nenhuma dessas 26 commits pertence à preparação deste
+manuscrito para a Ambiente Construído. Fica como pendência do autor decidir
+se quer mencionar esse histórico em algum outro documento (ex.: declaração
+de ciência aberta do repositório), fora do escopo desta declaração pontual
+no Método.
+
+### 8.10 Formatação automatizada do Word
+
+`scripts/python/ajustar_formato_word.py` (A4, margens 3/2/3/2 cm, Times New
+Roman 12, numeração contínua de linha) era aplicado manualmente após a
+geração do Word. Integrado a `13_preparar_word.py` (chamado logo após o
+LibreOffice resalvar o arquivo), para todo `artigo.docx` gerado — no CI ou
+localmente — já sair formatado, sem passo manual.
+
+### 8.11 Equações, símbolos e formatação de texto
+
+Verificados: `R² = 0,83` (na prosa) sobrevive como fórmula nativa do Word
+(objeto OMML), R$, %, kWh/m², acentuação, travessão/hífen, siglas — todos
+preservados. Dois problemas reais adicionais, fora da lista original,
+encontrados por inspeção visual e corrigidos (mesma causa-raiz das Seções
+8.2/8.9: o Pandoc descarta conteúdo que não reconhece dentro do
+reconstrutor de tabela):
+
+- **Expoentes em células de tabela** ("R$/m²", "kWh/m²" na Tabela 11)
+  desapareciam por completo (viravam "R$/m", "kWh/m") porque
+  `paragraph.text` do python-docx só lê texto simples, não o objeto de
+  fórmula nativo que o Pandoc cria para `$^2$`. Corrigido convertendo para o
+  caractere Unicode de sobrescrito antes do Pandoc rodar.
+- **Itálico em células de tabela** (ex.: "*digital twin*", nomes de
+  periódicos indexados como *Journal*/*JOUR*) virava texto sem formatação.
+  Corrigido com um marcador de área de uso privado Unicode (compatível com
+  XML, ao contrário do primeiro marcador tentado) que preserva o itálico
+  só dentro das 11 tabelas — fora delas o Pandoc já converte `\textit{}`
+  nativamente e não foi tocado.
+
+**Dois achados adicionais fora da lista original, também corrigidos:**
+
+- **Especificação de coluna solta como texto visível**: a linha
+  `>p2.1cm >p2.1cm ... Y` da definição de colunas da `tabularx` às vezes
+  sobrava como parágrafo próprio, visível antes de várias tabelas (não só a
+  4). Corrigido detectando e removendo esses parágrafos.
+- **Nota de fonte ausente em todas as 11 tabelas**: `\fonteautor` ("Fonte:
+  elaborado pelo autor.") e a nota metodológica adicional das Tabelas 4 e 11
+  desapareciam por completo do Word (mesma causa-raiz: comandos de
+  espaçamento/tamanho de fonte que o Pandoc não entende dentro do fallback
+  de tabela). Corrigido com a mesma técnica de marcador de texto simples
+  antes do Pandoc rodar, reconstruído depois como parágrafo pequeno e
+  itálico logo após a tabela.
+
+### 8.12 Verificadores automatizados
+
+Novo `scripts/python/verificar_artigo_word.py`, chamado a partir de
+`verificar_artigo_integrado.py` (que já roda em todo push do CI). Cobre,
+contra o `artigo.docx` final: frase "seis dimensões"/"15 critérios";
+ausência de resíduo LaTeX (`\cmidrule`/`\multicolumn`/"(lr)1-6"/etc.) e de
+remissão cruzada não resolvida; ausência de `" and "` em citação
+autor-data; exatamente 43 referências, 11 tabelas, 11 legendas de tabela e
+11 legendas de figura/gráfico (nenhuma sem número); títulos de seção
+numerados; A4/margens/Times New Roman/numeração de linha; contagem de
+palavras (< 7.000, margem ≥ 100, meta ≤ 6.880); limitações de rastreamento
+de citações e literatura cinzenta declaradas como não realizadas, também no
+texto final do Word; declaração de uso de IA presente com a ressalva de
+escopo; e paridade mínima de conteúdo (números-âncora do corpus ainda
+presentes no Word).
+
+### 8.13 Validação de ponta a ponta
+
+- `verificar_artigo.py` e `verificar_artigo_integrado.py` (que agora inclui
+  `verificar_artigo_word.py`): sem divergências.
+- Build oficial via GitHub Actions (`workflow_dispatch`, TeX Live completo):
+  PDF e PDF anonimizado compilados sem erro, Word e Word anonimizado
+  gerados e validados, nenhum `Overfull \hbox`, produtos publicados de volta
+  na branch pelo próprio workflow.
+- Inspeção visual página a página: renderizado `main.pdf` (25 páginas) e o
+  PDF de inspeção gerado a partir do `artigo.docx` final via LibreOffice (30
+  páginas — diferença esperada de paginação entre LaTeX e Word/LibreOffice,
+  não de conteúdo), comparando capa/resumo/abstract, a Tabela 4 completa
+  (cabeçalho repetido, subtotal correto, nota de fonte), o Gráfico 6 com
+  legenda numerada e a frase dos 15 critérios, os 2 fluxogramas TikZ, a
+  declaração de uso de IA, e a lista de 43 referências terminando sem corte.
+- `artigo_anonimo.docx`: ZIP íntegro, nenhum marcador de autoria no texto,
+  `docProps/core.xml` sem `dc:creator`/`cp:lastModifiedBy`.
+- Tamanhos finais: `artigo.docx` ≈1,17 MB, `artigo_anonimo.docx` ≈1,17 MB,
+  `main.pdf` ≈1,23 MB, `main_anonimo.pdf` ≈1,23 MB — todos abaixo do limite
+  de 5 MB.
+
+### 8.14 Pendência de infraestrutura (não relacionada ao conteúdo)
+
+O passo "Publicar produtos como artefato" do workflow falha desde antes
+desta auditoria por cota de armazenamento de artefatos do GitHub Actions da
+conta esgotada ("Artifact storage quota has been hit"). Isso não impede a
+entrega: o PDF/Word oficiais são commitados diretamente na branch pelo passo
+anterior (`Publicar produtos da compilação completa`), que sempre teve
+sucesso. Ação recomendada ao autor (fora do escopo desta tarefa): limpar
+artefatos antigos de outras execuções ou aguardar o recálculo de cota do
+GitHub (6–12h) se quiser também o artefato de download do próprio Actions.
