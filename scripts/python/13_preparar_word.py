@@ -19,6 +19,17 @@ LATEX_DIR = ROOT / "latex-artigo"
 INTERMEDIARIO = LATEX_DIR / "_main_pandoc_bruto.docx"
 DESTINO = ROOT / "artigo.docx"
 
+# O Pandoc converte formulas matematicas ($...$) para objetos OMML nativos do
+# Word, o que fica correto em texto corrido (ex.: "R^2=0,83" na prosa) mas
+# paragraph.text do python-docx SO le runs de texto (w:t) e ignora runs de
+# formula (m:t) -- entao qualquer $^N$ dentro de uma celula das tabelas que
+# passam pelo reconstrutor de fallback (construir_tabela) desaparecia por
+# completo (ex.: "R$/m^2" virava "R$/m"). Convertido aqui para o caractere
+# Unicode de sobrescrito equivalente antes do Pandoc rodar, preservando o
+# expoente como texto simples que sobrevive a extracao de celula.
+SOBRESCRITO_DIGITOS = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
+MATH_SOBRESCRITO_RE = re.compile(r"\$\^(\d+)\$")
+
 COLSPEC = re.compile(r"^(?:(?:>p[\d.]+cm|Y)\s*)+")
 
 # O leitor LaTeX do Pandoc nao reconhece tabelas com tabularx/multicolumn como
@@ -131,6 +142,7 @@ def preparar_fonte_pandoc():
         texto = FONTEAUTOR_RE.sub(_marcar_fonte("Fonte: elaborado pelo autor."), texto)
         texto = CAPTIONGRAFICO_RE.sub(_resolver_captiongrafico, texto)
         texto = REF_RE.sub(_resolver_ref, texto)
+        texto = MATH_SOBRESCRITO_RE.sub(lambda m: m.group(1).translate(SOBRESCRITO_DIGITOS), texto)
         arquivo.write_text(texto, encoding="utf-8")
     return destino
 
