@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------------------------------------------------------------------------
+% Preambulo
+% ---------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+\hypersetup{pdfauthor={},pdftitle={Priorização multicritério da manutenção sustentável em edificações públicas universitárias}}
+
+\captionsetup{labelsep=period,justification=centering,font=small}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+
+% Flutuacao de figuras e tabelas: o texto seguinte e adiantado quando o
+% elemento nao cabe na pagina, reduzindo espacos em branco.
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.5}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcommand{\fonteautor}{\par\smallskip{\footnotesize Fonte: elaborado pelo autor.\par}}
+
+% Graficos usam contador proprio, independente do contador de figuras.
+\newcounter{grafico}
+\renewcommand{\thegrafico}{\arabic{grafico}}
+\providecommand*{\graficoautorefname}{Gráfico}
+\newcommand{\captiongrafico}[1]{%
+  \refstepcounter{grafico}%
+  \caption*{Gráfico \thegrafico. #1}%
+}
+\setlength{\emergencystretch}{2em}
+
+\usepackage[backend=biber,style=abnt]{biblatex}
+\addbibresource{references.bib}
+
+\title{Priorização multicritério da manutenção sustentável em edificações públicas universitárias \\[2mm] \large Multi-criteria prioritization of sustainable maintenance in public university buildings}
+\author{}
+\date{}
+
+% ---------------------------------------------------------------------------
+% Documento -- versao anonimizada para avaliacao duplo-cega
+% Identica ao main.tex em todo o conteudo cientifico (mesmas secoes,
+% tabelas, figuras e referencias); a unica diferenca e a omissao de nome,
+% afiliacao e metadados de autoria, conforme exigido pela Ambiente Construido.
+% ---------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\input{sections/00_resumo}
+
+\input{sections/01_introducao}
+\input{sections/02_metodo}
+\input{sections/03_resultados_discussao}
+\input{sections/04_consideracoes_finais}
+
+\printbibliography[title={Referências}]
+
+\end{document}

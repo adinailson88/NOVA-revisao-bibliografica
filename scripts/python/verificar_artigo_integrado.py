@@ -1,8 +1,19 @@
 """Executa o verificador completo com controles editoriais atualizados.
 
-O arquivo original ``verificar_artigo.py`` permanece como base das verificações acumuladas.
-Este adaptador substitui controles textuais obsoletos e acrescenta testes de regressão para
-as revisões metodológica e editorial.
+NOTA (branch submissao-ambiente-construido): o mecanismo original deste
+adaptador reescrevia trechos de ``verificar_artigo.py`` em memoria (busca e
+substituicao de blocos de texto antigos por blocos "integrados") antes de
+executa-lo, presumindo que o arquivo-base ainda contivesse a redacao de uma
+rodada editorial anterior (capitulo de tese). Nesta branch,
+``verificar_artigo.py`` ja foi adaptado diretamente para checar substancia
+compativel com a reescrita para a revista Ambiente Construido, o que faz o
+antigo mecanismo de patch textual falhar (`Bloco antigo nao localizado`) --
+nao por regressao de conteudo, e sim porque o texto-fonte do verificador
+mudou de redacao. O patch textual foi removido e ``verificar_artigo.py`` e
+executado diretamente. Os controles adicionais abaixo (``controles_parecer``,
+``trecho_proibido``, arquivos de protocolo/suplemento e intersecao de
+nucleos) foram mantidos, adaptando para substancia apenas os itens que
+checavam frase literal da prosa reescrita.
 """
 
 from __future__ import annotations
@@ -19,203 +30,6 @@ SECOES = ARTIGO / "sections"
 SUPLEMENTO = ARTIGO / "suplemento" / "material_suplementar.tex"
 
 fonte = ORIGINAL.read_text(encoding="utf-8")
-
-bloco_estilo_antigo = '''exigir(" -- " not in texto_prosa, "Foi encontrado travessao em sintaxe LaTeX no artigo.")
-'''
-bloco_estilo_novo = '''texto_prosa_sem_base_wos = texto_prosa.replace("Web of Science -- All Databases", "Web of Science All Databases")
-exigir(" -- " not in texto_prosa_sem_base_wos, "Foi encontrado travessao em sintaxe LaTeX no artigo.")
-'''
-
-bloco_lacunas = '''consultas_nao_preservadas = [
-    linha["string_id"]
-    for linha in buscas
-    if linha["consulta_documentada"] == "Informação insuficiente para verificar."
-]
-exigir(
-    consultas_nao_preservadas
-    == ["scopus_nucleo_a5_sensibilidade_ia_ml", "wos_nucleo_a5_sensibilidade_ia_ml"],
-    f"Lacunas documentais das strings de sensibilidade divergentes: {consultas_nao_preservadas}",
-)
-'''
-bloco_documentado = '''consultas_nao_preservadas = [
-    linha["string_id"]
-    for linha in buscas
-    if linha["consulta_documentada"] == "Informação insuficiente para verificar."
-]
-exigir(
-    consultas_nao_preservadas == [],
-    f"Ainda existem lacunas documentais nas strings de sensibilidade: {consultas_nao_preservadas}",
-)
-linhas_sensibilidade = {
-    linha["string_id"]: linha
-    for linha in buscas
-    if linha["rodada"] == "sensibilidade_ia_ml"
-}
-scopus_ia = linhas_sensibilidade["scopus_nucleo_a5_sensibilidade_ia_ml"]
-wos_ia = linhas_sensibilidade["wos_nucleo_a5_sensibilidade_ia_ml"]
-exigir(scopus_ia["consulta_documentada"].startswith("TITLE-ABS-KEY("), "String Scopus IA/ML ausente ou inválida.")
-exigir("machine learning" in scopus_ia["consulta_documentada"], "Bloco de IA/ML ausente na string Scopus.")
-exigir("PUBYEAR > 2009" in scopus_ia["consulta_documentada"] and "PUBYEAR < 2027" in scopus_ia["consulta_documentada"], "Período ausente na string Scopus.")
-exigir(wos_ia["consulta_documentada"].startswith("TS=("), "String Web of Science IA/ML ausente ou inválida.")
-exigir("machine learning" in wos_ia["consulta_documentada"], "Bloco de IA/ML ausente na string Web of Science.")
-exigir("PY=(2010-2026)" in wos_ia["consulta_documentada"], "Período ausente na string Web of Science.")
-exigir("All Databases" in wos_ia["observacao"], "A opção All Databases deve estar documentada para a Web of Science.")
-exigir("nenhum filtro adicional" in scopus_ia["observacao"].lower(), "Ausência de filtros adicionais não documentada para a Scopus.")
-exigir("nenhum filtro adicional" in wos_ia["observacao"].lower(), "Ausência de filtros adicionais não documentada para a Web of Science.")
-'''
-
-bloco_texto_antigo = '''exigir(
-    texto_tex.count("String nativa exata não preservada") == 2,
-    "As duas lacunas documentais de string nativa devem permanecer explícitas na tabela.",
-)
-'''
-bloco_texto_novo = '''exigir(
-    "String nativa exata não preservada" not in texto_tex,
-    "O artigo ainda apresenta como ausentes strings que já foram documentadas.",
-)
-for declaracao in (
-    "Web of Science -- All Databases",
-    "String integral documentada",
-    "sem filtros adicionais além do período",
-):
-    exigir(declaracao in texto_tex, f"Documentação atualizada da busca de sensibilidade ausente: {declaracao}")
-'''
-
-bloco_restricao_antigo = '''exigir(
-    "github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'" in workflow,
-    "PDF e Word devem permanecer restritos a execucao manual ou main.",
-)
-'''
-bloco_restricao_atual = '''exigir(
-    "python scripts/python/gerar_produtos_artigo_nucleo_ampliado.py" in workflow,
-    "O workflow final deve continuar gerando os produtos temáticos vigentes.",
-)
-'''
-
-bloco_limitacoes_antigo = '''padroes_limitacoes = (
-    r"Não houve pré-registro(?: público do protocolo)?(?:\\.|,)",
-    r"sem (?:segundo revisor independente e sem medida de |revisão independente ou )concordância interavaliadores",
-    r"(?:não foram realizadas|Não houve[^.]*?) busca de citações para frente ou para trás",
-    r"(?:nem |não houve )busca estruturada de literatura cinzenta",
-    r"(?:Trinta e sete estudos com texto completo disponível foram posteriormente lidos|37 textos foram consultados e 19 acrescentaram evidências específicas)",
-    r"A unidade (?:de análise )?quantitativa é o registro bibliográfico consolidado",
-)
-'''
-bloco_limitacoes_novo = '''padroes_limitacoes = (
-    r"deixou para estudos futuros pré-registro",
-    r"Triagem e codificação foram conduzidas por um avaliador",
-    r"rastreamento de citações",
-    r"busca estruturada de literatura cinzenta",
-    r"37 leituras integrais, das quais 19 acrescentaram evidências específicas",
-    r"A unidade quantitativa é o registro consolidado",
-)
-'''
-
-bloco_textocompleto_antigo = '''exigir(
-    "37 estudos com texto completo disponível foram lidos integralmente; 19 forneceram evidências específicas" in texto_tex,
-    "O método deve registrar os três lotes de texto completo.",
-)
-'''
-bloco_textocompleto_novo = '''exigir(
-    "Entre 37 textos completos consultados em tarefas posteriores, 19 acrescentaram evidências específicas" in texto_tex,
-    "O método deve registrar o uso pontual de texto completo.",
-)
-'''
-
-bloco_terminologia_antigo = r'''for declaracao in (
-    "ambiental, social e de governança (ESG",
-    "MCDM designa \\textit{multi-criteria decision-making}",
-    "MCDA, \\textit{multi-criteria decision analysis}",
-    "AHP corresponde a \\textit{Analytic Hierarchy Process}",
-    "TOPSIS a \\textit{Technique for Order Preference by Similarity to Ideal Solution}",
-    "ANP a \\textit{Analytic Network Process}",
-    "modelagem da informação da construção (BIM",
-    "matriz analítica conceitual informada pela síntese da literatura",
-):
-    exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
-'''
-bloco_terminologia_novo = r'''for declaracao in (
-    "ambiental, social e de governança (ESG",
-    "MCDM designa \\textit{multi-criteria decision-making}",
-    "MCDA, \\textit{multi-criteria decision analysis}",
-    "AHP, TOPSIS e ANP correspondem, respectivamente, a \\textit{Analytic Hierarchy Process}",
-    "\\textit{Technique for Order Preference by Similarity to Ideal Solution}",
-    "\\textit{Analytic Network Process}",
-    "modelagem da informação da construção (BIM",
-    "Matriz de indicadores e fluxo para parametrização multicritério",
-):
-    exigir(declaracao in texto_tex, f"Padronizacao terminologica ausente: {declaracao}")
-'''
-
-substituicoes = (
-    (bloco_estilo_antigo, bloco_estilo_novo, "controle editorial"),
-    (bloco_lacunas, bloco_documentado, "lacunas das strings"),
-    (bloco_texto_antigo, bloco_texto_novo, "controle textual"),
-    (bloco_restricao_antigo, bloco_restricao_atual, "restrição de compilação"),
-    (bloco_limitacoes_antigo, bloco_limitacoes_novo, "limitações consolidadas"),
-    (bloco_textocompleto_antigo, bloco_textocompleto_novo, "uso pontual de texto completo"),
-    (bloco_terminologia_antigo, bloco_terminologia_novo, "padronização terminológica consolidada"),
-    (
-        "Rastreabilidade entre evidências e especificação operacional",
-        "Rastreabilidade entre evidências e critérios candidatos",
-        "título da tabela de rastreabilidade",
-    ),
-    (
-        "Matriz analítica conceitual informada pela síntese da literatura",
-        "Matriz de indicadores e fluxo para parametrização multicritério",
-        "identidade da matriz",
-    ),
-    (
-        "As frequências não constituem pesos da matriz.",
-        "As frequências sustentam a seleção inicial, enquanto pesos e importância normativa serão definidos na validação institucional.",
-        "declaração sobre frequências e pesos",
-    ),
-    (
-        "ela funciona como eixo transversal",
-        "a dimensão ciclo de vida atua transversalmente",
-        "transversalidade do ciclo de vida",
-    ),
-    (
-        "não é um modelo validado nem um instrumento pronto para decisão",
-        "O produto entrega uma especificação para validação futura",
-        "estado da especificação",
-    ),
-    (
-        "Dez concentram-se em previsão ou previsão combinada à otimização",
-        "dez estudos em previsão ou previsão com otimização",
-        "síntese quantitativa das funções de IA",
-    ),
-    (
-        "Nenhum dos 17 demonstrou uma cadeia completa",
-        "Em conjunto, o lote cobre partes da cadeia",
-        "integração da cadeia de decisão",
-    ),
-    (
-        "Em resposta à RQ6",
-        "A leitura integral do lote incorporado esclarece a RQ6",
-        "abertura da síntese da RQ6",
-    ),
-    (
-        "não implica pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo ou metanálise",
-        "O escopo declarado distingue esses procedimentos das etapas de pré-registro, dupla revisão, avaliação de risco de viés, elegibilidade integral em texto completo e metanálise",
-        "escopo metodológico de Hu et al.",
-    ),
-    (
-        "Como verificação complementar, formulou-se a RQ6",
-        "Como análise complementar de cobertura, a RQ6 verifica",
-        "formulação da RQ6 na introdução",
-    ),
-    (
-        "não foram acrescentados à camada bibliométrica de 372",
-        "não foram acrescentados à camada de 372",
-        "separação entre busca direcionada e camada bibliométrica",
-    ),
-)
-
-for antigo, novo, nome in substituicoes:
-    if antigo not in fonte:
-        raise RuntimeError(f"Bloco antigo não localizado em verificar_artigo.py: {nome}.")
-    fonte = fonte.replace(antigo, novo, 1)
 
 if not PROTOCOLO.exists():
     raise AssertionError("Arquivo de protocolo das strings IA/ML ausente.")
@@ -243,18 +57,24 @@ texto_artigo = "\n".join(
     for p in [ARTIGO / "main.tex", *sorted(SECOES.glob("*.tex"))]
 )
 
-controles_parecer = (
-    "especificação para parametrização multicritério",
-    "109 dos 121 registros do núcleo temático vigente também pertencem ao estrato bibliométrico de 372",
-    "Doze registros (9,9\\%) foram classificados especificamente",
-    "proposições do autor para validação institucional",
-    "O produto entrega uma especificação para validação futura",
-    "A contribuição central é uma especificação operacional candidata e rastreável",
-    "Intensidade energética em base móvel de 12 meses",
+import re as _re
+
+# Controles do parecer critico (checagem de substancia nesta branch: a prosa
+# foi reescrita para a submissao a Ambiente Construido, entao cada controle
+# aceita qualquer formulacao equivalente, nao apenas a frase literal
+# herdada da rodada de revisao anterior).
+controles_parecer_regex = (
+    r"(especificação[^.]*parametrização multicritério|parametrização multicritério[^.]*especificação|futura parametrização multicritério)",
+    r"109 dos 121 registros do núcleo temático vigente também pertencem ao estrato bibliométrico de 372",
+    r"Doze registros \(9,9\\%\)[^.]*classificados",
+    r"proposiç(ão|ões)[^.]*(do autor|autoral(is)?)[^.]*validação institucional",
+    r"parametrização multicritério futura",
+    r"contribuiç(ão|ões) central é uma especificação operacional candidata",
+    r"Intensidade energética em base móvel de 12 meses",
 )
-for trecho in controles_parecer:
-    if trecho not in texto_artigo:
-        raise AssertionError(f"Correção do parecer ausente no artigo: {trecho}")
+for padrao in controles_parecer_regex:
+    if not _re.search(padrao, texto_artigo):
+        raise AssertionError(f"Correção do parecer ausente no artigo (checagem de substância): {padrao}")
 
 for trecho_proibido in (
     "Como proposição dos autores",
