@@ -627,6 +627,9 @@ def aplicar_formatacao_final():
 
     styles_xml = conteudos["word/styles.xml"].decode("utf-8")
     styles_xml, n_fontes_estilos = ajustar.ajustar_fonte_padrao(styles_xml)
+    styles_xml, n_justificacao = ajustar.ajustar_justificacao(styles_xml)
+    styles_xml, n_cores = ajustar.ajustar_cor_padrao_preta(styles_xml)
+    styles_xml, n_titulos = ajustar.ajustar_titulos_estilo_revista(styles_xml)
     conteudos["word/styles.xml"] = styles_xml.encode("utf-8")
 
     with zipfile.ZipFile(DESTINO, "w", zipfile.ZIP_DEFLATED) as zout:
@@ -635,7 +638,9 @@ def aplicar_formatacao_final():
 
     print(
         f"Formato final aplicado: {n_sect} secao(oes) ajustada(s) para A4/margens/numeracao de linha, "
-        f"{n_fontes_doc + n_fontes_estilos} fonte(s) trocada(s) para Times New Roman."
+        f"{n_fontes_doc + n_fontes_estilos} fonte(s) trocada(s) para Times New Roman, "
+        f"{n_justificacao} estilo(s) justificado(s), {n_cores} estilo(s) com cor padrao trocada para preto, "
+        f"{n_titulos} estilo(s) de titulo ajustado(s) ao corpo do template."
     )
 
 
