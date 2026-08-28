@@ -119,8 +119,9 @@ excedente relatada pelo workflow.
 
 **Contagem oficial de palavras**: extraída do `.docx` gerado (não do fonte
 LaTeX, que subestimava por não parsear integralmente os ambientes TikZ),
-entre "Introdução" e "Referências": **6.942 palavras**, dentro do limite de
-7.000 com margem de 58 palavras (0,8%).
+entre "Introdução" e "Referências": **6.890 palavras** (após corte adicional
+solicitado pelo autor em 2026-08-28; a primeira versão compilada tinha 6.942),
+dentro do limite de 7.000 com margem de 110 palavras (1,6%).
 
 ## 6. Versão Word: formatação e anonimização
 
@@ -179,6 +180,5 @@ Ainda em aberto:
    arquivo-modelo baixado e o texto das instruções divergem entre si.
 2. Confirmar se há taxa de publicação aplicável (isenção, R$ 350 ou R$ 700,
    conforme associação à ANTAC).
-3. A margem de palavras é de apenas 58 (0,8%); revisões futuras de texto
-   (mesmo pequenas) podem ultrapassar o limite — reconferir a contagem no
-   Word antes do envio final.
+3. A margem de palavras é de 110 (1,6%); revisões futuras de texto (mesmo
+   pequenas) devem reconferir a contagem no Word antes do envio final.
