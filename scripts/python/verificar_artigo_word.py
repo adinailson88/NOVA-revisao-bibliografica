@@ -105,10 +105,10 @@ def verificar(caminho_docx: Path):
         if " and " in trecho and re.search(r",\s*\d{4}", trecho):
             raise AssertionError(f'Citação em estilo inglês (" and ") encontrada: {trecho[:80]!r}')
 
-    # 5) 43 referencias na bibliografia.
+    # 5) 44 referencias na bibliografia (43 do corpus + o dataset no Zenodo).
     biblio = [p for p in doc.paragraphs if p.style.name == "Bibliography"]
-    if len(biblio) != 43:
-        raise AssertionError(f"Esperava 43 referências na bibliografia do Word, encontrou {len(biblio)}.")
+    if len(biblio) != 44:
+        raise AssertionError(f"Esperava 44 referências na bibliografia do Word, encontrou {len(biblio)}.")
 
     # 6) 11 tabelas e 11 figuras/graficos.
     if len(doc.tables) != 11:

@@ -44,8 +44,10 @@ no site da revista, não em agregadores ou blogs:
 
 ## 3. Núcleo científico preservado (verificação automatizada)
 
-- 43 referências no `references.bib`; auditoria automática: 0 citações sem
-  entrada, 0 entradas não citadas.
+- 44 referências no `references.bib` (as 43 do corpus + o depósito de dados
+  suplementares no Zenodo, DOI 10.5281/zenodo.22151875, citado na declaração
+  de disponibilidade de dados ao final do artigo); auditoria automática: 0
+  citações sem entrada, 0 entradas não citadas.
 - 11 tabelas, 11 figuras/gráficos (9 "Gráfico" + 2 "Figura"/fluxograma) — os
   mesmos 11+11 do capítulo de tese, nenhum removido. Confirmado também por
   inspeção visual página a página do PDF compilado.
@@ -352,7 +354,7 @@ Novo `scripts/python/verificar_artigo_word.py`, chamado a partir de
 contra o `artigo.docx` final: frase "seis dimensões"/"15 critérios";
 ausência de resíduo LaTeX (`\cmidrule`/`\multicolumn`/"(lr)1-6"/etc.) e de
 remissão cruzada não resolvida; ausência de `" and "` em citação
-autor-data; exatamente 43 referências, 11 tabelas, 11 legendas de tabela e
+autor-data; exatamente 44 referências, 11 tabelas, 11 legendas de tabela e
 11 legendas de figura/gráfico (nenhuma sem número); títulos de seção
 numerados; A4/margens/Times New Roman/numeração de linha; contagem de
 palavras (< 7.000, margem ≥ 100, meta ≤ 6.880); limitações de rastreamento
@@ -392,3 +394,38 @@ anterior (`Publicar produtos da compilação completa`), que sempre teve
 sucesso. Ação recomendada ao autor (fora do escopo desta tarefa): limpar
 artefatos antigos de outras execuções ou aguardar o recálculo de cota do
 GitHub (6–12h) se quiser também o artefato de download do próprio Actions.
+
+### 8.15 Citação do dataset suplementar depositado no Zenodo (2026-08-29)
+
+O autor depositou o pacote de dados brutos/intermediários/finais no Zenodo
+(DOI 10.5281/zenodo.22151875) e pediu para citá-lo no artigo. Alterações:
+
+- Nova entrada `oliveira_dadosuplementares_2026` em `latex-artigo/references.bib`
+  (tipo `@misc`, com `doi`, `url` e `publisher = Zenodo`).
+- Nova subseção não numerada "Disponibilidade de dados" ao final de
+  `latex-artigo/sections/04_consideracoes_finais.tex`, citando essa entrada
+  via `\parencite`. Isso eleva a bibliografia de 43 para 44 referências.
+- `scripts/python/verificar_artigo_word.py` atualizado para exigir 44
+  referências na bibliografia do Word (era 43).
+- `scripts/python/12_gerar_lista_referencias.py` exige que toda entrada do
+  `.bib` esteja citada no `.tex` e vice-versa; como a nova entrada agora está
+  citada, o build deve passar sem alterações adicionais nesse script.
+
+**Problemas encontrados na página do Zenodo que só o autor pode corrigir**
+(edição de metadados exige login na conta Zenodo do autor):
+
+1. **Nome do autor malformado**: o campo "Creators" está gravado como
+   "de Oliveira, Adinailson Guimarães de Oliveira" (sobrenome duplicado).
+   Deveria ser "Oliveira, Adinailson Guimarães de".
+2. **Coautor ausente**: Fabricio Berton Zanchi não está listado como
+   criador/coautor do depósito, embora conste como coautor do artigo.
+3. **Descrição cortada no meio da frase**: o último parágrafo termina em
+   "Ao citar este conjunto de dados, referencie também o artigo publicado"
+   — falta o final ("na revista Ambiente Construído."). Confirmado via
+   `GET https://zenodo.org/api/records/22151875`, não é artefato de
+   renderização.
+
+Nenhuma dessas três correções foi feita por esta sessão: exigem login na
+conta Zenodo do autor, fora do escopo de acesso desta tarefa. Depois de
+corrigidas, o DOI/URL citados no `references.bib` continuam válidos (Zenodo
+mantém o mesmo DOI de versão ao editar metadados sem trocar arquivos).
