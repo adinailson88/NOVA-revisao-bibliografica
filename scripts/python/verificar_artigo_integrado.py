@@ -126,4 +126,17 @@ _spec = _importlib_util.spec_from_file_location(
 )
 _verificar_artigo_word = _importlib_util.module_from_spec(_spec)
 _spec.loader.exec_module(_verificar_artigo_word)
-_verificar_artigo_word.verificar(ROOT / "artigo.docx")
+# Esta etapa roda antes da geracao do Word no workflow (que exige TeX Live,
+# instalado so em builds workflow_dispatch/main). O artigo.docx no checkout
+# e o da ultima geracao bem-sucedida, podendo estar temporariamente
+# defasado frente a mudancas de fonte no mesmo commit (ex.: nova
+# referencia). O gate fatal e a chamada direta a verificar_artigo_word.py
+# no workflow, logo apos a geracao do Word; aqui o resultado e informativo.
+_docx_path = ROOT / "artigo.docx"
+if _docx_path.exists():
+    try:
+        _verificar_artigo_word.verificar(_docx_path)
+    except AssertionError as _erro:
+        print(f"AVISO: artigo.docx no checkout ainda nao reflete as fontes atuais: {_erro}")
+else:
+    print("AVISO: artigo.docx ainda nao existe no checkout; verificacao do Word pulada.")
